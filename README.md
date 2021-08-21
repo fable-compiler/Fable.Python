@@ -1,7 +1,12 @@
 # Fable Python
 
 Python bindings for Fable. This library will eventually contain Python (stdlib)
-bindings for Fable.
+bindings for Fable based on Python
+[typeshed](https://github.com/python/typeshed).
+
+## Installation
+
+TBW
 
 ## Usage
 
