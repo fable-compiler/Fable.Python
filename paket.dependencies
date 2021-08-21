@@ -1,0 +1,25 @@
+
+source https://api.nuget.org/v3/index.json
+storage: none
+framework: net5.0, netstandard2.0, netstandard2.1
+
+nuget FSharp.Core 5.0.0
+
+group Test
+    source https://api.nuget.org/v3/index.json
+    storage: none
+    framework: net5.0
+
+    nuget FSharp.Core 5.0.0
+    nuget Microsoft.NET.Test.Sdk ~> 16
+    nuget XUnit ~> 2
+    nuget xunit.runner.visualstudio ~>  2
+
+
+group Build
+    source https://api.nuget.org/v3/index.json
+    storage: none
+    framework: net5.0
+
+    nuget Fake.Core.Target
+    nuget Fake.IO.FileSystem
