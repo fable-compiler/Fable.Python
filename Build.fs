@@ -32,10 +32,12 @@ Target.create "Run" (fun _ ->
 
 Target.create "RunTests" (fun _ ->
     run dotnet "build" testsPath
-    [ "native", dotnet "watch run" testsPath
+    [ "native", dotnet "run" testsPath
       "python", dotnet $"run -c Release -p {cliPath} -- --lang Python --exclude Fable.Core --outDir {buildPath}/tests" testsPath
       ]
     |> runParallel
+    Shell.Exec("touch", $"{buildPath}/tests/__init__.py") |> ignore
+    run pytest $"{buildPath}/tests" ""
 )
 
 Target.create "Format" (fun _ ->
@@ -54,6 +56,7 @@ let dependencies = [
         ==> "Run"
 
     "InstallClient"
+        ==> "Build"
         ==> "RunTests"
 ]
 
