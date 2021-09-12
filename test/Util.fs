@@ -1,7 +1,5 @@
 module Fable.Python.Tests.Util
 
-open System
-
 module Testing =
 #if FABLE_COMPILER
     open Fable.Core
@@ -26,7 +24,6 @@ module Testing =
     let equal<'T> (expected: 'T) (actual: 'T) : unit = Assert.Equal(expected, actual)
     let notEqual<'T> (expected: 'T) (actual: 'T) : unit = Assert.NotEqual(expected, actual)
 #endif
-
     let rec sumFirstSeq (zs: seq<float>) (n: int) : float =
         match n with
         | 0 -> 0.
