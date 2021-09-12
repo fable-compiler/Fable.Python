@@ -8,6 +8,7 @@
   <ItemGroup>
     <Compile Include="Builtins.fs" />
     <Compile Include="Json.fs" />
+    <Compile Include="Ast.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../Fable/src/Fable.Core/Fable.Core.fsproj" />

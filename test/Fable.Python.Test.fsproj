@@ -13,6 +13,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Util.fs" />
+    <Compile Include="TestAst.fs" />
     <Compile Include="TestBuiltins.fs" />
     <Compile Include="TestJson.fs" />
     <Compile Include="Main.fs" />
