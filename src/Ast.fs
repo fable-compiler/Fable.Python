@@ -111,15 +111,15 @@ type IExports =
     /// Parse the source into an AST node
     abstract parse : string -> AST
     abstract parse : string * filename: string -> AST
-    abstract parse : string * filename: string * mode: Mode-> AST
+    abstract parse : string * filename: string * mode: Mode -> AST
     abstract unparse : astObj: AST -> string
     abstract walk : node: AST -> AST array
     /// Return a formatted dump of the tree in node.
-    abstract dump : node : AST -> string
+    abstract dump : node: AST -> string
     /// Return a formatted dump of the tree in node.
-    abstract dump : node : AST * annotate_fields : bool -> string
+    abstract dump : node: AST * annotate_fields: bool -> string
     /// Return a formatted dump of the tree in node.
-    abstract dump : node : AST * annotate_fields : bool * include_attributes: bool -> string
+    abstract dump : node: AST * annotate_fields: bool * include_attributes: bool -> string
 
 [<ImportDefault("ast")>]
 let ast: IExports = nativeOnly

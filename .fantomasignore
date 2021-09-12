@@ -1,0 +1,5 @@
+Build.fs
+Helpers.fs
+
+# Ignore script files
+*.fsx

@@ -15,13 +15,13 @@ let ``test works`` () =
 
 [<Fact>]
 let ``test json dumps works`` () =
-    let object = {| A=10; B=20 |}
-    let result =  json.dumps object
+    let object = {| A = 10; B = 20 |}
+    let result = json.dumps object
     result |> equal """{"A": 10, "B": 20}"""
 
 [<Fact>]
 let ``test json loads works`` () =
     let input = """{"Foo": 10, "Bar": "test"}"""
-    let object = {| Foo=10; Bar="test" |}
-    let result : {| Foo: int; Bar: string |}= unbox (json.loads input)
+    let object = {| Foo = 10; Bar = "test" |}
+    let result: {| Foo: int; Bar: string |} = unbox (json.loads input)
     result |> equal object
