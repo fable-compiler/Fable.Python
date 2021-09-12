@@ -23,6 +23,6 @@ jobs:
       - name: Check formatting
         run: dotnet fantomas . -r --check
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet run Build --configuration Release --no-restore
       - name: Test
         run: dotnet run RunTests
