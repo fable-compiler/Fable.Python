@@ -18,8 +18,10 @@ jobs:
           dotnet-version: 5.0.301
       - name: Setup dotnet tools
         run: dotnet tool restore
-      - name: Install dependencies
-        run: dotnet restore
+      - name: Install src dependencies
+        run: dotnet restore src
+      - name: Install test dependencies
+        run: dotnet restore test
       - name: Check formatting
         run: dotnet fantomas . -r --check
       - name: Build
