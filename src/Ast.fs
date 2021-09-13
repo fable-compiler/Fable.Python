@@ -1,6 +1,5 @@
 module rec Fable.Python.Ast
 
-open System.Collections.Generic
 open Fable.Core
 
 // fsharplint:disable MemberNames,InterfaceNames
@@ -121,5 +120,5 @@ type IExports =
     /// Return a formatted dump of the tree in node.
     abstract dump : node: AST * annotate_fields: bool * include_attributes: bool -> string
 
-[<ImportDefault("ast")>]
+[<Import("ast")>]
 let ast: IExports = nativeOnly

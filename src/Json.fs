@@ -8,5 +8,5 @@ type IExports =
     abstract dumps : obj: obj -> string
     abstract loads : string -> obj
 
-[<ImportDefault("json")>]
+[<Import("json")>]
 let json: IExports = nativeOnly

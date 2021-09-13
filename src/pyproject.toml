@@ -12,6 +12,9 @@ fable-library = "^0.0.1"
 
 [tool.poetry.dev-dependencies]
 
+[tool.fable]
+package-dir = "fable-python/fable_python"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

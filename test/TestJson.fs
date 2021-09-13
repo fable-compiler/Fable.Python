@@ -3,11 +3,6 @@ module Fable.Python.Tests.Json
 open Util.Testing
 open Fable.Python.Json
 
-// type MyObject = {
-//     Foo: int
-//     Bar: string
-// }
-
 [<Fact>]
 let ``test works`` () =
     let result = true
