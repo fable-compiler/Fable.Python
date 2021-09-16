@@ -2,11 +2,11 @@
 
 open Fable.Core
 
-// fsharplint:disable MemberNames,InterfaceNames
+// fsharplint:disable MemberNames
 
 type IExports =
     abstract dumps : obj: obj -> string
     abstract loads : string -> obj
 
-[<Import("json")>]
+[<ImportAll("json")>]
 let json: IExports = nativeOnly

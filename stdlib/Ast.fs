@@ -120,5 +120,5 @@ type IExports =
     /// Return a formatted dump of the tree in node.
     abstract dump : node: AST * annotate_fields: bool * include_attributes: bool -> string
 
-[<Import("ast")>]
+[<ImportAll("ast")>]
 let ast: IExports = nativeOnly

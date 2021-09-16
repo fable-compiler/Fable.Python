@@ -120,5 +120,8 @@ type IExports =
         file: _OpenFile * mode: OpenTextMode * buffering: int * encoding: string * errors: string * newline: string ->
         TextIOWrapper
 
-[<Import("builtins")>]
+[<ImportAll("builtins")>]
 let builtins: IExports = nativeOnly
+
+[<Emit("__name__")>]
+let __name__ : string = nativeOnly

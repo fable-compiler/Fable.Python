@@ -2,7 +2,7 @@ module Fable.Python.Os
 
 open Fable.Core
 
-// fsharplint:disable MemberNames,InterfaceNames
+// fsharplint:disable MemberNames
 
 type IExports =
     abstract getenv: key:string -> string option
@@ -10,5 +10,5 @@ type IExports =
     abstract putenv: key:string * value: string -> unit
 
 
-[<Import("os")>]
+[<ImportAll("os")>]
 let os : IExports = nativeOnly
