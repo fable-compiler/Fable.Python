@@ -124,4 +124,4 @@ type IExports =
 let builtins: IExports = nativeOnly
 
 [<Emit("__name__")>]
-let __name__ : string = nativeOnly
+let __name__: string = nativeOnly

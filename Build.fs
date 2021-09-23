@@ -21,7 +21,7 @@ Target.create "Clean" (fun _ ->
 
 Target.create "Build" (fun _ ->
     Shell.mkdir buildPath
-    run dotnet $"run -c Release -p {cliPath} -- --lang Python --exclude Fable.Core --outDir {buildPath}/lib" srcPath
+    run dotnet $"run -c Release -p {cliPath} -- --lang Python --exclude Fable.Core --outDir {buildPath}/stdlib" srcPath
 )
 
 Target.create "Run" (fun _ ->
@@ -39,8 +39,13 @@ Target.create "Test" (fun _ ->
     run pytest $"{buildPath}/tests" ""
 )
 
+Target.create "Pack" (fun _ ->
+    run dotnet "pack" srcPath
+)
+
 Target.create "Format" (fun _ ->
-    run dotnet "fantomas . -r" "src"
+    run dotnet "fantomas . -r" srcPath
+    run dotnet "fantomas . -r" testsPath
 )
 
 open Fake.Core.TargetOperators
@@ -54,6 +59,9 @@ let dependencies = [
 
     "Build"
         ==> "Test"
+
+    "Build"
+        ==> "Pack"
 ]
 
 [<EntryPoint>]
