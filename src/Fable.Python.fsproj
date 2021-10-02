@@ -1,18 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Author>Dag Brattli</Author>
     <Copyright>Dag Brattli</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Version>0.3.0</Version>
     <WarnOn>3390;$(WarnOn)</WarnOn>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Ast.fs" />
-    <Compile Include="Builtins.fs" />
-    <Compile Include="Json.fs" />
-    <Compile Include="Os.fs" />
+    <Compile Include="stdlib/Ast.fs" />
+    <Compile Include="stdlib/Builtins.fs" />
+    <Compile Include="stdlib/Json.fs" />
+    <Compile Include="stdlib/Os.fs" />
+    <Compile Include="stdlib/TkInter.fs" />
+
+    <Compile Include="flask/Flask.fs" />
+
+    <Compile Include="cognite-sdk/CogniteSdk.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../Fable/src/Fable.Core/Fable.Core.fsproj" />
@@ -21,7 +27,7 @@
     <Content Include="pyproject.toml; *.fsproj; **\*.fs; **\*.fsi" PackagePath="fable\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\LICENSE" Pack="true" Visible="false" PackagePath=""/>
+    <None Include="..\LICENSE" Pack="true" Visible="false" PackagePath="" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

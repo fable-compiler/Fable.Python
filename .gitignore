@@ -131,3 +131,5 @@ dmypy.json
 obj
 bin
 build
+
+.idea/

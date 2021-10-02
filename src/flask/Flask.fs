@@ -1,4 +1,4 @@
-module Flask
+module Fable.Python.Flask
 
 open Fable.Core
 
@@ -9,17 +9,11 @@ type RequestBase =
 type Request =
     inherit RequestBase
 
-type Flask =
-    abstract route : rule: string -> ((unit -> string) -> Flask)
-    abstract route : rule: string * methods: string array -> ((unit -> string) -> Flask)
-
-
-type FlaskStatic =
-    [<Emit("$0(import_name=$1)")>]
-    abstract Create : string -> Flask
-
 [<Import("Flask", "flask")>]
-let Flask: FlaskStatic = nativeOnly
+type Flask (name: string) =
+    member _.route(rule: string) : ((unit -> string) -> Flask) = nativeOnly
+    member _.route(rule: string, methods: string array) : ((unit -> string) -> Flask) = nativeOnly
+
 
 type IExports =
     abstract render_template : template_name_or_list: string -> string
@@ -27,4 +21,4 @@ type IExports =
     abstract request : Request
 
 [<ImportAll("flask")>]
-let flask : IExports = nativeOnly
+let flask: IExports = nativeOnly
