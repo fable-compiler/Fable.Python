@@ -6,7 +6,7 @@
     <Author>Dag Brattli</Author>
     <Copyright>Dag Brattli</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>0.4.0</Version>
+    <Version>0.5.0</Version>
     <WarnOn>3390;$(WarnOn)</WarnOn>
   </PropertyGroup>
   <ItemGroup>
@@ -15,6 +15,7 @@
     <Compile Include="stdlib/Json.fs" />
     <Compile Include="stdlib/Os.fs" />
     <Compile Include="stdlib/TkInter.fs" />
+    <Compile Include="stdlib/Queue.fs" />
 
     <Compile Include="flask/Flask.fs" />
 
