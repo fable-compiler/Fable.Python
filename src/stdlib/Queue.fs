@@ -22,7 +22,7 @@ type Queue<'T>() =
     /// the Full exception if no free slot was available within that time. Otherwise (block is false), put an item on
     /// the queue if a free slot is immediately available, else raise the Full exception (timeout is ignored in that
     /// case).
-    member x.put(item : 'T, ?block: bool, ?timeout: int) : unit = nativeOnly
+    member x.put(item : 'T, ?block: bool, ?timeout: float) : unit = nativeOnly
     /// Remove and return an item from the queue. If optional args block is true and timeout is None (the default),
     /// block if necessary until an item is available. If timeout is a positive number, it blocks at most timeout
     /// seconds and raises the Empty exception if no item was available within that time. Otherwise (block is false),
@@ -32,7 +32,7 @@ type Queue<'T>() =
     /// Prior to 3.0 on POSIX systems, and for all versions on Windows, if block is true and timeout is None, this
     /// operation goes into an uninterruptible wait on an underlying lock. This means that no exceptions can occur, and
     /// in particular a SIGINT will not trigger a KeyboardInterrupt.
-    member x.get(?block: bool, ?timeout: int) : 'T = nativeOnly
+    member x.get(?block: bool, ?timeout: float) : 'T = nativeOnly
     /// Blocks until all items in the queue have been gotten and processed.
     ///
     /// The count of unfinished tasks goes up whenever an item is added to the queue. The count goes down whenever a
@@ -62,7 +62,7 @@ type SimpleQueue<'T>() =
     /// Return True if the queue is full, False otherwise. If full() returns True it doesn’t guarantee that a subsequent
     /// call to get() will not block. Similarly, if full() returns False it doesn’t guarantee that a subsequent call to
     /// put() will not block.
-    member x.put(item : 'T, ?block: bool, ?timeout: int) : unit = nativeOnly
+    member x.put(item : 'T, ?block: bool, ?timeout: float) : unit = nativeOnly
     /// Remove and return an item from the queue. If optional args block is true and timeout is None (the default),
     /// block if necessary until an item is available. If timeout is a positive number, it blocks at most timeout
     /// seconds and raises the Empty exception if no item was available within that time. Otherwise (block is false),
@@ -72,4 +72,4 @@ type SimpleQueue<'T>() =
     /// Prior to 3.0 on POSIX systems, and for all versions on Windows, if block is true and timeout is None, this
     /// operation goes into an uninterruptible wait on an underlying lock. This means that no exceptions can occur, and
     /// in particular a SIGINT will not trigger a KeyboardInterrupt.
-    member x.get(?block: bool, ?timeout: int) : 'T = nativeOnly
+    member x.get(?block: bool, ?timeout: float) : 'T = nativeOnly

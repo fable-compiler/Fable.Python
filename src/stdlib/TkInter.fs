@@ -31,7 +31,17 @@ type Tk (screenName: string option) =
 
 [<Import("Frame", "tkinter")>]
 type Frame(master: Misc) =
-    [<Emit("Frame($0, width=$1, height=$2, bg=$3)")>]
-    new (root: Tk, width: int, height: int, bg: string) = Frame(root :> Misc)
+    [<Import("Frame", "tkinter")>]
+    [<Emit("$0($1, width=$2, height=$3, bg=$4)")>]
+    new (master: Tk, width: int, height: int, bg: string) = Frame(master :> Misc)
 
-    member x.bind(sequence : string, func: (Event -> unit)) : string option = nativeOnly
+    member _.bind(sequence : string, func: (Event -> unit)) : string option = nativeOnly
+
+[<Import("Label", "tkinter")>]
+type Label (master: Misc) =
+    [<Import("Label", "tkinter")>]
+    [<Emit("$0($1, text=$2, fg=$3, bg=$4)")>]
+    new (master: Tk, text: string, fg: string, bg: string) = Label(master :> Misc)
+
+    [<Emit("$0(x=$1, y=$2)")>]
+    member _.place(x: int, y: int) = nativeOnly
