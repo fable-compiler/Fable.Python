@@ -38,7 +38,7 @@ Target.create "Test" (fun _ ->
 )
 
 Target.create "Pack" (fun _ ->
-    run dotnet "pack" srcPath
+    run dotnet "pack -c Release" srcPath
 )
 
 Target.create "Format" (fun _ ->
