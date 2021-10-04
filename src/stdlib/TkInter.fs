@@ -28,6 +28,8 @@ type Tk (screenName: string option) =
     member _.title() = nativeOnly
 
     member _.update() = nativeOnly
+    member _.mainloop() = nativeOnly
+    member _.after(second: float, callback: unit -> unit) = nativeOnly
 
 [<Import("Frame", "tkinter")>]
 type Frame(master: Misc) =
@@ -36,12 +38,13 @@ type Frame(master: Misc) =
     new (master: Tk, width: int, height: int, bg: string) = Frame(master :> Misc)
 
     member _.bind(sequence : string, func: (Event -> unit)) : string option = nativeOnly
+    member _.pack() : unit = nativeOnly
 
 [<Import("Label", "tkinter")>]
-type Label (master: Misc) =
+type Label (master: Frame) =
     [<Import("Label", "tkinter")>]
     [<Emit("$0($1, text=$2, fg=$3, bg=$4)")>]
-    new (master: Tk, text: string, fg: string, bg: string) = Label(master :> Misc)
+    new (master: Frame, text: string, fg: string, bg: string) = Label(master)
 
-    [<Emit("$0(x=$1, y=$2)")>]
+    [<Emit("$0.place(x=$1, y=$2)")>]
     member _.place(x: int, y: int) = nativeOnly
