@@ -29,7 +29,7 @@ type Tk (screenName: string option) =
 
     member _.update() = nativeOnly
     member _.mainloop() = nativeOnly
-    member _.after(second: float, callback: unit -> unit) = nativeOnly
+    member _.after(msecs: int, callback: unit -> unit) = nativeOnly
 
 [<Import("Frame", "tkinter")>]
 type Frame(master: Misc) =
