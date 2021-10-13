@@ -22,8 +22,8 @@ jobs:
         run: dotnet restore src
       - name: Install test dependencies
         run: dotnet restore test
-      - name: Check formatting
-        run: dotnet fantomas . -r --check
+      #- name: Check formatting
+      #  run: dotnet fantomas . -r --check
       - name: Build
         run: dotnet run Build --configuration Release --no-restore
       - name: Test
