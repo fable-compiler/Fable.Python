@@ -30,3 +30,17 @@ type IDisplay =
 
 [<Import("display", "microbit")>]
 let display: IDisplay = nativeOnly
+
+type IButton =
+    /// Returns true if the button is being pressed.
+    abstract is_pressed : unit -> bool
+
+    /// Returns true if the button has been pressed since this was last called.
+    abstract was_pressed : unit -> bool
+
+    /// Returns the number of times the button has been pressed since this
+    /// method was last called, then resets the count.
+    abstract get_presses : unit -> int
+
+[<Import("button", "microbit")>]
+let button: IButton = nativeOnly
