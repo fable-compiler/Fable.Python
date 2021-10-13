@@ -23,7 +23,7 @@ jobs:
       - name: Install test dependencies
         run: dotnet restore test
       - name: Install build dependencies
-        run: dotnet restore
+        run: dotnet restore Build.fsproj
       #- name: Check formatting
       #  run: dotnet fantomas . -r --check
       - name: Build
