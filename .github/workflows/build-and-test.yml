@@ -22,6 +22,8 @@ jobs:
         run: dotnet restore src
       - name: Install test dependencies
         run: dotnet restore test
+      - name: Install pytest runner
+        run: pip install pytest
       - name: Install build dependencies
         run: dotnet restore Build.fsproj
       #- name: Check formatting
