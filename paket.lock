@@ -2,7 +2,9 @@ STORAGE: NONE
 RESTRICTION: || (== net5.0) (== netstandard2.0) (== netstandard2.1)
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    FSharp.Core (5.0)
+    Fable.Core.Experimental (4.0.0-alpha-002)
+      FSharp.Core (>= 4.7.2)
+    FSharp.Core (6.0)
 
 GROUP Build
 STORAGE: NONE
@@ -51,7 +53,7 @@ NUGET
     FSharp.Control.Reactive (5.0.2)
       FSharp.Core (>= 4.7.2)
       System.Reactive (>= 5.0)
-    FSharp.Core (5.0.2)
+    FSharp.Core (6.0)
     System.Collections.Immutable (5.0)
     System.Reactive (5.0)
 
@@ -60,12 +62,14 @@ STORAGE: NONE
 RESTRICTION: == net5.0
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    FSharp.Core (5.0)
+    Fable.Core.Experimental (4.0.0-alpha-002)
+      FSharp.Core (>= 4.7.2)
+    FSharp.Core (6.0)
     Microsoft.CodeCoverage (16.11)
     Microsoft.NET.Test.Sdk (16.11)
       Microsoft.CodeCoverage (>= 16.11)
       Microsoft.TestPlatform.TestHost (>= 16.11)
-    Microsoft.NETCore.Platforms (5.0.2)
+    Microsoft.NETCore.Platforms (5.0.4)
     Microsoft.TestPlatform.ObjectModel (16.11)
       NuGet.Frameworks (>= 5.0)
       System.Reflection.Metadata (>= 1.6)

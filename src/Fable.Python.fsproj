@@ -24,9 +24,6 @@
     <Compile Include="microbit/MicroBit.fs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../../Fable/src/Fable.Core/Fable.Core.fsproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="pyproject.toml; *.fsproj; **\*.fs; **\*.fsi" PackagePath="fable\" />
   </ItemGroup>
   <ItemGroup>

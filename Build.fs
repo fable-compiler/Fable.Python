@@ -21,7 +21,7 @@ Target.create "Clean" (fun _ ->
 
 Target.create "Build" (fun _ ->
     Shell.mkdir buildPath
-    run dotnet $"run -c Release -p {cliPath} -- --lang Python --exclude Fable.Core --outDir {buildPath}" srcPath
+    run dotnet $"fable-py -c Release -p {cliPath} --exclude Fable.Core --outDir {buildPath}" srcPath
 )
 
 Target.create "Run" (fun _ ->
@@ -31,7 +31,7 @@ Target.create "Run" (fun _ ->
 Target.create "Test" (fun _ ->
     run dotnet "build" testsPath
     [ "native", dotnet "run" testsPath
-      "python", dotnet $"run -c Release -p {cliPath} -- --lang Python --exclude Fable.Core --outDir {buildPath}/tests" testsPath
+      "python", dotnet $"fable-py -c Release -p {cliPath} --exclude Fable.Core --outDir {buildPath}/tests" testsPath
       ]
     |> runParallel
     run pytest $"{buildPath}/tests" ""

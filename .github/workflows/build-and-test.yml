@@ -27,4 +27,4 @@ jobs:
       - name: Build
         run: dotnet run Build --configuration Release --no-restore
       - name: Test
-        run: dotnet run RunTests
+        run: dotnet run Test

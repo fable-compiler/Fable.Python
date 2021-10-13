@@ -8,7 +8,6 @@
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="../../Fable/src/Fable.Core/Fable.Core.fsproj" />
     <ProjectReference Include="../src/Fable.Python.fsproj" />
   </ItemGroup>
   <ItemGroup>
