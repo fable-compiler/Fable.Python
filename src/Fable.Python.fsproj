@@ -20,6 +20,8 @@
     <Compile Include="flask/Flask.fs" />
 
     <Compile Include="cognite-sdk/CogniteSdk.fs" />
+
+    <Compile Include="microbit/MicroBit.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../Fable/src/Fable.Core/Fable.Core.fsproj" />

@@ -133,3 +133,4 @@ bin
 build
 
 .idea/
+src/**/*.py
