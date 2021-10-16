@@ -125,3 +125,6 @@ let builtins: IExports = nativeOnly
 
 [<Emit("__name__")>]
 let __name__: string = nativeOnly
+
+/// Python print function. Takes a single argument, so can be used with e.g string interpolation.
+let print = builtins.print

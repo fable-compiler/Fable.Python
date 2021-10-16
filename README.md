@@ -4,9 +4,14 @@ Python bindings for Fable. This library will eventually contain Python (stdlib)
 bindings for Fable based on Python
 [typeshed](https://github.com/python/typeshed).
 
+It will also contain type binding for many other libraries as well such
+as Flask, MicroBit and many more
+
 ## Installation
 
-TBD
+```sh
+dotnet package add Fable.Python
+```
 
 ## Usage
 

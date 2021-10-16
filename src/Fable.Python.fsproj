@@ -6,7 +6,7 @@
     <Author>Dag Brattli</Author>
     <Copyright>Dag Brattli</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>0.6.0</Version>
+    <Version>0.8.0</Version>
     <WarnOn>3390;$(WarnOn)</WarnOn>
   </PropertyGroup>
   <ItemGroup>
@@ -17,11 +17,12 @@
     <Compile Include="stdlib/TkInter.fs" />
     <Compile Include="stdlib/Queue.fs" />
 
-    <Compile Include="flask/Flask.fs" />
-
     <Compile Include="cognite-sdk/CogniteSdk.fs" />
-
+    <Compile Include="flask/Flask.fs" />
+    <Compile Include="jupyter/IPython.fs" />
+    <Compile Include="jupyter/IPyWidgets.fs" />
     <Compile Include="microbit/MicroBit.fs" />
+    <Compile Include="microbit/Speach.fs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="pyproject.toml; *.fsproj; **\*.fs; **\*.fsi" PackagePath="fable\" />

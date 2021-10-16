@@ -12,8 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../../Fable/src/Fable.Core/Fable.Core.fsproj" />
-    <ProjectReference Include="../../stdlib/Fable.Python.fsproj" />
-    <ProjectReference Include="../../flask/Fable.Python.Flask.fsproj" />
+    <ProjectReference Include="../../src/Fable.Python.fsproj" />
   </ItemGroup>
 
   <Import Project="..\..\.paket\Paket.Restore.targets" />

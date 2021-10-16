@@ -1,11 +1,63 @@
+/// Micro:Bit stubs for Fable Python
 module Fable.Python.MicroBit
 
 open Fable.Core
 
-/// Micro:Bit stubs for Fable Python
+
+[<Import("Image", "microbit")>]
+type Image (image: string) =
+    /// Gets the number of columns in an image
+    member _.width () : int = nativeOnly
+
+    /// Gets the number of rows in an image
+    member _.height () : int = nativeOnly
+
+    /// Sets the brightness of a pixel at the given position Cannot be used on inbuilt images.
+    member _.set_pixel(x: int, y: int, value: int) : unit = nativeOnly
+    member _.get_pixel(x: int, y: int) : int = nativeOnly
+
+    member _.shift_left(n: int) : unit = nativeOnly
+    member _.shift_right(n: int) : unit = nativeOnly
+    member _.shift_up(n: int) : unit = nativeOnly
+    member _.shift_down(n: int) : unit = nativeOnly
+
+    /// Return an exact copy of the image.
+    member _.copy() : Image = nativeOnly
+    /// Return a new image by inverting the brightness of the pixels in the source image.
+    member _.invert() : Image = nativeOnly
+
+    /// Return a new image by inverting the brightness of the pixels in the
+    /// source image. Cannot be used on inbuilt images.
+    member _.fill(value: int) : Image = nativeOnly
+
+    static member HEART : Image = nativeOnly
+    static member HEART_SMALL : Image = nativeOnly
+    static member HAPPY : Image = nativeOnly
+    static member SMILE : Image = nativeOnly
+    static member SAD : Image = nativeOnly
+    static member CONFUSED : Image = nativeOnly
+    static member ANGRY : Image = nativeOnly
+    static member ASLEEP : Image = nativeOnly
+    static member SURPRISED : Image = nativeOnly
+    static member SILLY : Image = nativeOnly
+    static member FABULOUS : Image = nativeOnly
+    static member MEH : Image = nativeOnly
+
+    static member YES : Image = nativeOnly
+    static member NO : Image = nativeOnly
+
+    static member ALL_CLOCKS : Image array = nativeOnly
+    static member ALL_ARROWS : Image array = nativeOnly
+
 type IDisplay =
     /// Clear the display.
     abstract clear : unit -> unit
+
+    /// Shows the image on the display
+    abstract show : image: Image array * delay: int -> unit
+    abstract show : image: Image -> unit
+    abstract show : letter: char -> unit
+    abstract show : number: int -> unit
 
     /// Scrolls value horizontally on the display. If value is an integer or
     /// float it is first converted to a string using str(). The delay
@@ -44,3 +96,47 @@ type IButton =
 
 [<Import("button", "microbit")>]
 let button: IButton = nativeOnly
+
+type ICompass =
+    /// Starts the calibration process. An instructive message will be scrolled
+    /// to the user after which they will need to rotate the device in order to
+    /// draw a circle on the LED display.
+    abstract calibrate : unit -> unit
+    /// Gives the compass heading, calculated from the above readings, as an
+    /// integer in the range from 0 to 360, representing the angle in degrees,
+    /// clockwise, with north as 0.
+    abstract heading : unit -> int
+
+[<Import("compass", "microbit")>]
+let compass : ICompass = nativeOnly
+
+type IAccelerometer =
+    /// Get the acceleration measurement in the x axis, as a positive or
+    /// negative integer, depending on the direction. The measurement is given
+    /// in milli-g. By default the accelerometer is configured with a range of
+    /// +/- 2g, and so this method will return within the range of +/- 2000mg.
+    abstract get_x : unit -> int
+    /// Get the acceleration measurement in the y axis, as a positive or
+    /// negative integer, depending on the direction. The measurement is given
+    /// in milli-g. By default the accelerometer is configured with a range of
+    /// +/- 2g, and so this method will return within the range of +/- 2000mg.
+    abstract get_y : unit -> int
+    /// Get the acceleration measurement in the z axis, as a positive or
+    /// negative integer, depending on the direction. The measurement is given
+    /// in milli-g. By default the accelerometer is configured with a range of
+    /// +/- 2g, and so this method will return within the range of +/- 2000mg.
+    abstract get_z : unit -> int
+
+
+[<Import("accelerometer", "microbit")>]
+let accelerometer : IAccelerometer = nativeOnly
+
+[<Import("sleep", "microbit")>]
+///Wait for n milliseconds. One second is 1000 milliseconds".
+let sleep(milliseconds: int) = nativeOnly
+
+
+[<Import("temperature", "microbit")>]
+///Wait for n milliseconds. One second is 1000 milliseconds".
+let temperature() = nativeOnly
+
