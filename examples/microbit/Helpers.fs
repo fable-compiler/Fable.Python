@@ -73,6 +73,7 @@ let createProcess exe arg dir =
 
 let dotnet = createProcess "dotnet"
 let flash = createProcess "uflash"
+let ufs = createProcess "ufs"
 
 let npm =
     let npmPath =

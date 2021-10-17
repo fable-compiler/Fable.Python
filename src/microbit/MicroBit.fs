@@ -7,10 +7,10 @@ open Fable.Core
 [<Import("Image", "microbit")>]
 type Image (image: string) =
     /// Gets the number of columns in an image
-    member _.width () : int = nativeOnly
+    member _.width() : int = nativeOnly
 
     /// Gets the number of rows in an image
-    member _.height () : int = nativeOnly
+    member _.height() : int = nativeOnly
 
     /// Sets the brightness of a pixel at the given position Cannot be used on inbuilt images.
     member _.set_pixel(x: int, y: int, value: int) : unit = nativeOnly
@@ -30,24 +30,24 @@ type Image (image: string) =
     /// source image. Cannot be used on inbuilt images.
     member _.fill(value: int) : Image = nativeOnly
 
-    static member HEART : Image = nativeOnly
-    static member HEART_SMALL : Image = nativeOnly
-    static member HAPPY : Image = nativeOnly
-    static member SMILE : Image = nativeOnly
-    static member SAD : Image = nativeOnly
-    static member CONFUSED : Image = nativeOnly
-    static member ANGRY : Image = nativeOnly
-    static member ASLEEP : Image = nativeOnly
-    static member SURPRISED : Image = nativeOnly
-    static member SILLY : Image = nativeOnly
-    static member FABULOUS : Image = nativeOnly
-    static member MEH : Image = nativeOnly
+    static member HEART: Image = nativeOnly
+    static member HEART_SMALL: Image = nativeOnly
+    static member HAPPY: Image = nativeOnly
+    static member SMILE: Image = nativeOnly
+    static member SAD: Image = nativeOnly
+    static member CONFUSED: Image = nativeOnly
+    static member ANGRY: Image = nativeOnly
+    static member ASLEEP: Image = nativeOnly
+    static member SURPRISED: Image = nativeOnly
+    static member SILLY: Image = nativeOnly
+    static member FABULOUS: Image = nativeOnly
+    static member MEH: Image = nativeOnly
 
-    static member YES : Image = nativeOnly
-    static member NO : Image = nativeOnly
+    static member YES: Image = nativeOnly
+    static member NO: Image = nativeOnly
 
-    static member ALL_CLOCKS : Image array = nativeOnly
-    static member ALL_ARROWS : Image array = nativeOnly
+    static member ALL_CLOCKS: Image array = nativeOnly
+    static member ALL_ARROWS: Image array = nativeOnly
 
 type IDisplay =
     /// Clear the display.
@@ -70,6 +70,8 @@ type IDisplay =
     /// loop and monospace arguments must be specified using their keyword.
     abstract scroll : value: string -> unit
     abstract scroll : value: string * delay: int -> unit
+    abstract scroll : value: int -> unit
+    abstract scroll : value: float -> unit
 
     /// Turn on the display.
     abstract on : unit -> unit
@@ -108,7 +110,7 @@ type ICompass =
     abstract heading : unit -> int
 
 [<Import("compass", "microbit")>]
-let compass : ICompass = nativeOnly
+let compass: ICompass = nativeOnly
 
 type IAccelerometer =
     /// Get the acceleration measurement in the x axis, as a positive or
@@ -127,16 +129,31 @@ type IAccelerometer =
     /// +/- 2g, and so this method will return within the range of +/- 2000mg.
     abstract get_z : unit -> int
 
+type IPinLogo =
+    abstract is_touched : unit -> bool
 
 [<Import("accelerometer", "microbit")>]
-let accelerometer : IAccelerometer = nativeOnly
+let accelerometer: IAccelerometer = nativeOnly
 
 [<Import("sleep", "microbit")>]
-///Wait for n milliseconds. One second is 1000 milliseconds".
-let sleep(milliseconds: int) = nativeOnly
+/// Wait for n milliseconds. One second is 1000 milliseconds".
+let sleep (milliseconds: int) = nativeOnly
 
 
 [<Import("temperature", "microbit")>]
-///Wait for n milliseconds. One second is 1000 milliseconds".
-let temperature() = nativeOnly
+/// Return the temperature of the micro:bit in degrees Celcius.
+let temperature () : float = nativeOnly
 
+
+/// Return the number of milliseconds since the board was switched on or restarted."""
+[<Import("running_time", "microbit")>]
+let running_time () : int = nativeOnly
+
+[<Import("button_a", "microbit")>]
+let button_a: IButton = nativeOnly
+
+[<Import("button_b", "microbit")>]
+let button_b: IButton = nativeOnly
+
+[<Import("pin_logo", "microbit")>]
+let pin_logo: IPinLogo = nativeOnly
