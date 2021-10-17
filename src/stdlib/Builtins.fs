@@ -107,6 +107,12 @@ type IExports =
     abstract map : ('T1 * 'T2 * 'T3 -> 'T4) * IEnumerable<'T1> * IEnumerable<'T2> * IEnumerable<'T3> -> IEnumerable<'T4>
     /// Return the Unicode code point for a one-character string.
     abstract ord : char -> int
+    // Object to string
+    abstract str : obj -> string
+    // Object to int
+    abstract int : obj -> int
+    // Object to float
+    abstract float : obj -> float
     abstract print : obj: obj -> unit
     abstract read : file: _OpenFile -> TextIOWrapper
     abstract read : file: _OpenFile * mode: OpenTextMode -> TextIOWrapper
