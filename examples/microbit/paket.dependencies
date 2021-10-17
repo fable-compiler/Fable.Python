@@ -1,0 +1,9 @@
+source https://api.nuget.org/v3/index.json
+framework: net5.0
+storage: none
+
+nuget Fable.Core.Experimental >= 4.0.0-alpha-002
+nuget Fable.Python
+
+nuget Fake.Core.Target
+nuget Fake.IO.FileSystem

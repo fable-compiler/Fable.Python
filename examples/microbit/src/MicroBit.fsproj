@@ -11,9 +11,10 @@
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../../src/Fable.Python.fsproj" />
+    <ProjectReference Include="../../../src/Fable.Python.fsproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fable.Core.Experimental" Version="4.0.0-alpha-002" />
   </ItemGroup>
+  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
