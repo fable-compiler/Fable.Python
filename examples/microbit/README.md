@@ -7,7 +7,8 @@ very limited what we can do. Parts of Fable Library needs to
 be ported to work with MicroPython see `util.fs` as an example.
 
 The micro:bit have a flat file-system so all files needs to be in the
-same top-level directory.
+same top-level directory. For more information see
+https://microbit-micropython.readthedocs.io/en/latest/tutorials/storage.html
 
 ## Install Dependecies
 

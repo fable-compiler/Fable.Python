@@ -2,5 +2,12 @@ module Fable.Python.IPython
 
 open Fable.Core
 
-[<Import("display", "IPython.display")>]
-let display<'T>(obj: 'T) : unit = nativeOnly
+type IDisplay =
+    abstract display : value: obj -> unit
+    abstract Code : data: string -> unit
+    [<Emit("display.Code($1, language=$2)")>]
+    abstract Code : data: string * language: string -> unit
+
+[<Import("display", "IPython")>]
+let display : IDisplay = nativeOnly
+

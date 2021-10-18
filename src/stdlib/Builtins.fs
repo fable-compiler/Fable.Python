@@ -138,4 +138,4 @@ let builtins: IExports = nativeOnly
 let __name__: string = nativeOnly
 
 /// Python print function. Takes a single argument, so can be used with e.g string interpolation.
-let print = builtins.print
+let print obj = builtins.print obj
