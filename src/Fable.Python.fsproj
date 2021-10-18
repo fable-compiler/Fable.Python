@@ -16,6 +16,7 @@
     <Compile Include="stdlib/Os.fs" />
     <Compile Include="stdlib/TkInter.fs" />
     <Compile Include="stdlib/Queue.fs" />
+    <Compile Include="stdlib/Math.fs" />
 
     <Compile Include="cognite-sdk/CogniteSdk.fs" />
     <Compile Include="flask/Flask.fs" />
