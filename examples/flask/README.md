@@ -13,11 +13,12 @@
 ## Build
 
 ```
-> dotnet fable-py
+> dotnet fable-py src
 ```
 
 ## Run
 
 ```sh
+> cd src
 > flask run
 ```

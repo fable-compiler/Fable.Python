@@ -2,14 +2,19 @@
 
 Write your F# program in `src/App.fs`.
 
-Note that the Fable Library is not supported so it's very limited what
-you can do. The needed parts of fable library need to be ported to work
-with MicroPython see `util.fs` as an example.
+Note that the Fable Library is not supported on the micro:bit so it's
+very limited what we can do. Parts of Fable Library needs to
+be ported to work with MicroPython see `util.fs` as an example.
 
 The micro:bit have a flat file-system so all files needs to be in the
 same top-level directory.
 
-## Install
+## Install Dependecies
+
+To flash the microbit we use
+[`uFlash`](https://uflash.readthedocs.io/en/latest/) to flash the app
+and [`MicroFS`](https://microfs.readthedocs.io/en/latest/) to transfer
+any Fable Libary (modified) files.
 
 These tools are needed by the Build script:
 

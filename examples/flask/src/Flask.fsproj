@@ -15,7 +15,7 @@
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../../src/Fable.Python.fsproj" />
+    <ProjectReference Include="../../../src/Fable.Python.fsproj" />
   </ItemGroup>
-  <Import Project=".paket\Paket.Restore.targets" />
+  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
