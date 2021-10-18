@@ -1,3 +1,4 @@
+/// Type bindings for Python builtins: https://docs.python.org/3/library/functions.html#built-in-funcs
 module Fable.Python.Builtins
 
 open System.Collections.Generic
@@ -107,11 +108,11 @@ type IExports =
     abstract map : ('T1 * 'T2 * 'T3 -> 'T4) * IEnumerable<'T1> * IEnumerable<'T2> * IEnumerable<'T3> -> IEnumerable<'T4>
     /// Return the Unicode code point for a one-character string.
     abstract ord : char -> int
-    // Object to string
+    /// Object to string
     abstract str : obj -> string
-    // Object to int
+    /// Object to int
     abstract int : obj -> int
-    // Object to float
+    /// Object to float
     abstract float : obj -> float
     abstract print : obj: obj -> unit
     abstract read : file: _OpenFile -> TextIOWrapper
@@ -128,6 +129,10 @@ type IExports =
 
 [<ImportAll("builtins")>]
 let builtins: IExports = nativeOnly
+
+// NOTE: Below we can add builtins that don't require overloads, and do not
+// conflict with common F# or .NET functions. If they do we keep them in
+// `IExports` above.
 
 [<Emit("__name__")>]
 let __name__: string = nativeOnly

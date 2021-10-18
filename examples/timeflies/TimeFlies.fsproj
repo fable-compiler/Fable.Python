@@ -9,11 +9,8 @@
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Fable.Python" Version="0.5.0" />
+    <PackageReference Include="Fable.Python" Version="0.9.0" />
+    <PackageReference Include="Fable.Core.Experimental" Version="4.0.0-alpha-003" />
     <PackageReference Include="FSharp.Control.AsyncRx" Version="1.6.0" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="../GitHub/Fable/src/Fable.Core/Fable.Core.fsproj" />
-  </ItemGroup>
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
-</Project>
+  </Project>

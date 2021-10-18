@@ -16,6 +16,9 @@ These tools are needed by the Build script:
 ```sh
 pip install uflash
 pip install microfs
+
+dotnet tool restore
+dotnet restore
 ```
 
 ## Build
@@ -30,4 +33,12 @@ dotnet run Build
 dotnet run Flash
 ```
 
+## Copy Fable Library
+
+Flashing will not copy the Fable Library (just `util.py` for now), so it
+needs to be transferred separately:
+
+```sh
+dotnet run FableLibrary
+```
 
