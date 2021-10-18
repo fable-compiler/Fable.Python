@@ -1,5 +1,8 @@
 # Fable Python
 
+![Build and Test](https://github.com/dbrattli/Fable.Python/workflows/Build%20and%20Test/badge.svg)
+[![Nuget](https://img.shields.io/nuget/vpre/Fable.Python)](https://www.nuget.org/packages/Fable.Python/)
+
 Python bindings for Fable. This library will eventually contain Python (stdlib)
 bindings for Fable based on Python
 [typeshed](https://github.com/python/typeshed).
