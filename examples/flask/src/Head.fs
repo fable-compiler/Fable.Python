@@ -3,13 +3,13 @@ namespace Flask
 open Feliz.ViewEngine
 
 module Head =
-    let head (site: Site) =
+    let head (model: Model) =
         Html.head [
-            Html.title [ prop.text site.Title ]
+            Html.title [ prop.text model.Title ]
 
             Html.meta [ prop.charset.utf8 ]
-            Html.meta [ prop.name "author"; prop.content site.Author ]
-            Html.meta [ prop.name "description"; prop.content site.Description ]
+            Html.meta [ prop.name "author"; prop.content model.Author ]
+            Html.meta [ prop.name "description"; prop.content model.Description ]
 
             Html.meta [ prop.httpEquiv.contentType; prop.content "text/html"; prop.charset.utf8 ]
             Html.meta [ prop.name "viewport"; prop.content "width=device-width, initial-scale=1" ]

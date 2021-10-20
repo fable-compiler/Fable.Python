@@ -5,7 +5,7 @@ open System
 open Feliz.ViewEngine
 
 module Navbar =
-    let navbar (site: Site) =
+    let navbar (model: Model) =
         Html.nav [
             prop.classes [ Bulma.Navbar; Bulma.IsPrimary ]
             prop.children [
@@ -14,12 +14,12 @@ module Navbar =
                     prop.children [
                         Html.a [
                             prop.classes [ Bulma.NavbarItem ]
-                            prop.href site.PermaLink
+                            prop.href model.PermaLink
                             prop.children [
-                                Html.img [ prop.alt "Brand"; prop.src (site.Brand) ]
+                                Html.img [ prop.alt "Brand"; prop.src (model.Brand) ]
                                 Html.p [
                                     prop.classes [ Bulma.Title; Bulma.Is4 ]
-                                    prop.text site.Title
+                                    prop.text model.Title
                                 ]
                             ]
                         ]

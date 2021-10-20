@@ -10,7 +10,7 @@ let htmlPage page =
     page |> Render.htmlDocument
 
 
-let site : Site = {
+let model : Model = {
     Title="Fable Python |> F# ♥️ Python"
     Description="Demo Website, Fable Python running on Flask!"
     Banner="https://unsplash.it/1200/900?random"
@@ -24,19 +24,19 @@ let subTitle (str: string) = Html.p [ prop.classes [ Bulma.Subtitle ]; prop.text
 
 let helloWorld () =
     let body = Html.div [
-        title site.Title
-        subTitle site.Description
+        title model.Title
+        subTitle model.Description
     ]
 
     Html.html [
-        Head.head site
+        Head.head model
 
-        Navbar.navbar site
-        Hero.hero site body
+        Navbar.navbar model
+        Hero.hero model body
     ]
     |> htmlPage
 
-// Setup the routes. TODO: See if we can use attributes instead
+// Setup the routes. See if we can use attributes instead
 app.route("/")(helloWorld) |> ignore
 
 [<EntryPoint>]

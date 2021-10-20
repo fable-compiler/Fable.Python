@@ -9,7 +9,6 @@ open Fable.Python.Queue
 
 type Msg =
     | Place of label: Label * x: int * y: int
-    //| Place of  x: int * y: int
     | Empty
 
 let root = Tk()
@@ -50,7 +49,7 @@ let sink (ev: Notification<Label * int * int>) =
         match ev with
         | OnNext (label, x, y) -> queue.put (Place(label, x, y))
         | OnError (err) -> printfn $"Stream Error: {err}"
-        | _ -> printfn "Stream Completed"
+        | _ -> printfn "Stream Completed!"
 
         return ()
     }

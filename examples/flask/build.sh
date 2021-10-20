@@ -1,2 +1,2 @@
 #!/bin/bash
-dotnet fable-py -c Release src
+dotnet fable-py src/Flask.fsproj

@@ -12,8 +12,17 @@ as Flask, MicroBit and many more
 
 ## Installation
 
+Prerequisite to compile F# to Python using Fable:
+
 ```sh
-dotnet package add Fable.Python
+> dotnet tool install --global fable-py --version 4.0.0-alpha-004
+> dotnet add package Fable.Core.Experimental --version 4.0.0-alpha-005
+```
+
+To use the `Fable.Python` library:
+
+```sh
+> dotnet package add Fable.Python
 ```
 
 ## Usage
