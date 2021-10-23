@@ -7,6 +7,8 @@
     </PropertyGroup>
     <ItemGroup>
         <Compile Include="tproj/Wsgi.fs" />
+        <Compile Include="tproj/Urls.fs" />
+        <Compile Include="tproj/Asgi.fs" />
         <Compile Include="Manage.fs" />
     </ItemGroup>
     <ItemGroup>
