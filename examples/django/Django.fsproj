@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+        <WarnOn>3390;$(WarnOn)</WarnOn>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="tproj/Wsgi.fs" />
+        <Compile Include="tproj/Urls.fs" />
+        <Compile Include="tproj/Asgi.fs" />
+        <Compile Include="tproj/Settings.fs" />
+        <Compile Include="Manage.fs" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Fable.Python" Version="0.12.0" />
+        <PackageReference Include="Fable.Core.Experimental" Version="4.0.0-alpha-005" />
+    </ItemGroup>
+</Project>
