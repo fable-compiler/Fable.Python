@@ -15,7 +15,10 @@
     <Compile Include="App.fs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../../../src/Fable.Python.fsproj" />
+    <PackageReference Include="Fable.Python" Version="0.12.0" />
+    <PackageReference Include="Fable.Core.Experimental" Version="4.0.0-alpha-005" />
+    <PackageReference Include="FSharp.Control.AsyncRx" Version="1.6.0" />
+    <PackageReference Include="Feliz.ViewEngine" Version="0.24.0" />
+    <PackageReference Include="Zanaptak.TypedCssClasses" Version="1.0.0"/>
   </ItemGroup>
-  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
