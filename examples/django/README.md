@@ -1,8 +1,12 @@
 # Fable Python on Django
 
-## Credits
 
-https://github.com/rnevius/minimal-django
+
+## Info
+
+The project is a copy of Django's `python manage.py startproject testproj` output.
+The compiled version should be almost identical to the above command.
+
 
 ## Install Dependencies
 
