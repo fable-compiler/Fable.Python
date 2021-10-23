@@ -12,7 +12,7 @@ https://github.com/rnevius/minimal-django
 > dotnet tool restore
 > dotnet restore
 
-> pip install -r Django
+> pip3 install -r requirements.txt
 ```
 
 ## Build
@@ -23,9 +23,8 @@ https://github.com/rnevius/minimal-django
 
 ## Run
 
-Note that the first argument is skipped, because of `main(sys.argv[1:])` for some reason
 ```sh
-> python3 program.py skipped runserver
+> python3 program.py runserver
 ```
 
 Visit http://127.0.0.1:8000/
