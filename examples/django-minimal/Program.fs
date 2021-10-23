@@ -28,6 +28,9 @@ let HttpResponse: string -> obj = nativeOnly
 [<ImportMember("django.core.management")>]
 let execute_from_command_line: string [] -> int = nativeOnly
 
+[<ImportAll("sys")>]
+let sys : obj = nativeOnly
+
 [<Emit("sys.modules[__name__]")>]
 let sysModules : unit -> obj = nativeOnly
 
@@ -45,4 +48,4 @@ let urlpatterns = [|
 
 [<EntryPoint>]
 let main argv =
-    execute_from_command_line (argv)
+    execute_from_command_line (sys?argv)
