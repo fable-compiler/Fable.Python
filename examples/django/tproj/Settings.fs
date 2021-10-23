@@ -22,7 +22,7 @@ let __file__: string = nativeOnly
 let Path: string -> obj = nativeOnly
 
 // Build paths inside the project like this: BASE_DIR /  "subdir ".
-let BASE_DIR:string = Path(__file__)?resolve()?parent?parent
+let BASE_DIR:string = string (Path(__file__)?resolve()?parent?parent)
 
 // Quick-start development settings - unsuitable for production
 // See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -48,13 +48,13 @@ let INSTALLED_APPS = [|
 |]
 
 let MIDDLEWARE = [|
-     "django.middleware.security.SecurityMiddleware "
-     "django.contrib.sessions.middleware.SessionMiddleware "
-     "django.middleware.common.CommonMiddleware "
-     "django.middleware.csrf.CsrfViewMiddleware "
-     "django.contrib.auth.middleware.AuthenticationMiddleware "
-     "django.contrib.messages.middleware.MessageMiddleware "
-     "django.middleware.clickjacking.XFrameOptionsMiddleware "
+     "django.middleware.security.SecurityMiddleware"
+     "django.contrib.sessions.middleware.SessionMiddleware"
+     "django.middleware.common.CommonMiddleware"
+     "django.middleware.csrf.CsrfViewMiddleware"
+     "django.contrib.auth.middleware.AuthenticationMiddleware"
+     "django.contrib.messages.middleware.MessageMiddleware"
+     "django.middleware.clickjacking.XFrameOptionsMiddleware"
 |]
 
 let ROOT_URLCONF = "tproj.urls"
