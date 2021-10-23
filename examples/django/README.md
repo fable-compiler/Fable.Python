@@ -1,5 +1,9 @@
 # Fable Python on Django
 
+## Credits
+
+https://github.com/rnevius/minimal-django
+
 ## Install Dependencies
 
 ```sh
