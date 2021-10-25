@@ -12,10 +12,12 @@
     <Compile Include="stdlib/Ast.fs" />
     <Compile Include="stdlib/Builtins.fs" />
     <Compile Include="stdlib/Json.fs" />
-    <Compile Include="stdlib/Os.fs" />
-    <Compile Include="stdlib/TkInter.fs" />
-    <Compile Include="stdlib/Queue.fs" />
     <Compile Include="stdlib/Math.fs" />
+    <Compile Include="stdlib/Os.fs" />
+    <Compile Include="stdlib/Queue.fs" />
+    <Compile Include="stdlib/Sys.fs" />
+    <Compile Include="stdlib/Time.fs" />
+    <Compile Include="stdlib/TkInter.fs" />
 
     <Compile Include="cognite-sdk/CogniteSdk.fs" />
     <Compile Include="flask/Flask.fs" />
