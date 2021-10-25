@@ -8,7 +8,7 @@ type IExports =
     abstract altzone : int
     abstract ctime : unit -> string
     abstract ctime : float -> string
-    abstract dayligth : int
+    abstract daylight : int
     abstract monotonic : unit -> float
     abstract perf_counter : unit -> float
     abstract process_time : unit -> float
