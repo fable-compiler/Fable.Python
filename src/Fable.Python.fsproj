@@ -13,6 +13,7 @@
     <Compile Include="stdlib/Builtins.fs" />
     <Compile Include="stdlib/Json.fs" />
     <Compile Include="stdlib/Html.fs" />
+    <Compile Include="stdlib/Base64.fs" />
     <Compile Include="stdlib/Math.fs" />
     <Compile Include="stdlib/Os.fs" />
     <Compile Include="stdlib/Queue.fs" />
