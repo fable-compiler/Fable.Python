@@ -26,6 +26,6 @@ type IExports =
     abstract b32encode : byte[] -> byte[]
     abstract b16encode : byte[] -> byte
 
- /// Miscellaneous operating system interfaces
+ /// Base16, Base32, Base64, Base85 Data Encodings
 [<ImportAll("base64")>]
 let base64: IExports = nativeOnly
