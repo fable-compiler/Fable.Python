@@ -3,7 +3,7 @@ source https://api.nuget.org/v3/index.json
 storage: none
 framework: net5.0, netstandard2.0, netstandard2.1
 
-nuget FSharp.Core >= 5
+nuget FSharp.Core ~> 4.7
 nuget Fable.Core.Experimental >= 4.0.0-alpha-002
 
 group Test
@@ -12,7 +12,7 @@ group Test
     framework: net5.0
 
     nuget FSharp.Core
-    nuget Fable.Core.Experimental >= 4.0.0-alpha-002
+    nuget Fable.Core.Experimental >= 4.0.0-alpha-006
     nuget Microsoft.NET.Test.Sdk ~> 16
     nuget XUnit ~> 2
     nuget xunit.runner.visualstudio ~>  2
