@@ -18,6 +18,7 @@
     <Compile Include="stdlib/Os.fs" />
     <Compile Include="stdlib/Queue.fs" />
     <Compile Include="stdlib/Sys.fs" />
+    <Compile Include="stdlib/String.fs" />
     <Compile Include="stdlib/Time.fs" />
     <Compile Include="stdlib/TkInter.fs" />
 
