@@ -6,17 +6,21 @@
 [Fable](https://github.com/fable-compiler/Fable/tree/beyond) is a compiler that
 translates F# source files to JavaScript and Python.
 
-This Fable Python repository contains the Python bindings for Fable. This
-library will eventually contain Python (stdlib) bindings for Fable based on
-Python [typeshed](https://github.com/python/typeshed). It will also contain
-type binding for many other libraries as well such as Flask, MicroBit and many
-more. Some bindings have already been added:
+This Fable Python repository is a community driven project that contains the Python type bindings for Fable. The
+library will eventually contain Python (stdlib) bindings for Fable based on Python
+[typeshed](https://github.com/python/typeshed). It will also contain type binding for many other 3rd party libraries
+such as Flask, MicroBit and many more. Some bindings have already been added:
 
 - Python Standard Libray
 - Jupyter
 - Flask
 - MicroBit
 - CogniteSdk
+
+## Version
+
+This library currently targets Python 3.9. Types bindings for other versions of Python should not be added to this
+library until we decide how to deal with Python version handling.
 
 ## Installation
 
@@ -64,11 +68,18 @@ It contains example code for using Fable Python with:
 
 ## Contributing
 
-If the type binding you are looking for is currently missing (it probably is),
-then add it to the relavant files (or add new ones). Open a
-[PR](https://github.com/dbrattli/Fable.Python/pull/3/files) to get them
-included. There's not much Python specific documentation yet, but the process
-of adding type bindings for Python is similar to JS:
+This project is community driven. If the type binding you are looking for is currently missing, then
+you need to add them to the relavant files (or add new ones). Open a [PR](https://github.com/dbrattli/Fable.Python/pull/3/files) to
+get them included.
+
+The `src/stdlib` directory contains type bindings for modules in the Python 3 standard library. We also accept type
+bindings for 3rd party libraries as long as:
+
+- the package is publicly available on the [Python Package Index](https://pypi.org/);
+- the package supports any Python version supported by Fable Python; and
+- the package does not ship with its own stubs or type annotations
+
+There's not much Python specific documentation yet, but the process of adding type bindings for Python is similar to JS:
 
 - https://fable.io/docs/communicate/js-from-fable.html
 - https://medium.com/@zaid.naom/f-interop-with-javascript-in-fable-the-complete-guide-ccc5b896a59f
@@ -98,5 +109,3 @@ Current plan:
 1. Add bindings for Python `ast` module (in progress)
 2. Use `ast` module to parse Python typeshed annotations
 3. Generate F# bindings
-
-
