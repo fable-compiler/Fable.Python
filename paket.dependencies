@@ -1,3 +1,4 @@
+# https://fsprojects.github.io/Paket/nuget-dependencies.html
 
 source https://api.nuget.org/v3/index.json
 storage: none

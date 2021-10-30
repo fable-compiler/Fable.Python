@@ -15,6 +15,7 @@
     <Compile Include="TestAst.fs" />
     <Compile Include="TestBuiltins.fs" />
     <Compile Include="TestJson.fs" />
+    <Compile Include="TestString.fs" />
     <Compile Include="Main.fs" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
