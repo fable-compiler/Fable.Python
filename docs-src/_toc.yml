@@ -1,0 +1,23 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: index
+chapters:
+- file: index.md
+- file: intro.md
+- file: introduction/dotnet-users-read-this
+- file: introduction/py-users-read-this
+- file: new-to-fsharp/learning-the-language
+- file: new-to-fsharp/let-keyword
+- file: communicate/fable-from-py
+- file: communicate/py-from-fable
+- file: dotnet/compatibility
+- file: dotnet/numbers
+- file: your-fable-project/author-a-fable-library
+- file: your-fable-project/build-and-run
+- file: your-fable-project/project-file
+- file: your-fable-project/testing
+- file: your-fable-project/use-a-fable-library
+- file: markdown
+- file: notebooks
