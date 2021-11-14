@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="stdlib/asyncio/Futures.fs" />
+    <Compile Include="stdlib/asyncio/Events.fs" />
     <Compile Include="stdlib/asyncio/Tasks.fs" />
     <Compile Include="stdlib/asyncio/Builder.fs" />
     <Compile Include="stdlib/Ast.fs" />
