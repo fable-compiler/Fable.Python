@@ -1,5 +1,5 @@
 STORAGE: NONE
-RESTRICTION: || (== net5.0) (== netstandard2.0) (== netstandard2.1)
+RESTRICTION: || (== net6.0) (== netstandard2.0) (== netstandard2.1)
 NUGET
   remote: https://api.nuget.org/v3/index.json
     Fable.Core.Experimental (4.0.0-alpha-013)
@@ -7,7 +7,7 @@ NUGET
 
 GROUP Build
 STORAGE: NONE
-RESTRICTION: == net5.0
+RESTRICTION: == net6.0
 NUGET
   remote: https://api.nuget.org/v3/index.json
     Fake.Core.CommandLineParsing (5.20.4)
@@ -54,9 +54,7 @@ NUGET
       System.Reactive (>= 5.0)
     FSharp.Core (6.0.1)
     System.Collections.Immutable (6.0)
-      System.Memory (>= 4.5.4)
       System.Runtime.CompilerServices.Unsafe (>= 6.0)
-    System.Memory (4.5.4)
     System.Reactive (5.0)
     System.Runtime.CompilerServices.Unsafe (6.0)
 
