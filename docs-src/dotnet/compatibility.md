@@ -39,7 +39,7 @@ There is also support to convert between numeric types and to parse strings, che
 
 ### Caveats
 
-- All numeric types become JS `number` (64-bit floating type), except for `int64`, `uint64`, `bigint` and `decimal`. Check the [Numeric Types](numbers.html) section to learn more about the differences between .NET and JS.
+- All numeric types become JS `number` (64-bit floating type), except for `int64`, `uint64`, `bigint` and `decimal`. Check the [Numeric Types](numbers.md) section to learn more about the differences between .NET and JS.
 - Numeric arrays are compiled to [Typed Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) when possible.
 - No bound checks for numeric types (unless you do explicit conversions like `byte 500`) nor for array indices.
 - `Regex` will always behave as if passed `RegexOptions.ECMAScript` flag (e.g., no negative look-behind or named groups).
@@ -69,9 +69,9 @@ MailboxProcessor  | fable-core/MailboxProcessor (limited support)
 
 ### Caveats II
 
-- Options are **erased** in JS (`Some 5` becomes just `5` in JS and `None` translates to `null`). This is needed for example, to represent TypeScript [optional properties](https://www.typescriptlang.org/docs/handbook/interfaces.html#optional-properties). However in a few cases (like nested options) there is an actual representation of the option in the runtime.
+- Options are **erased** in Python (`Some 5` becomes just `5` in Python and `None` translates to `null`). This is needed for example, to represent Python [optional properties](https://docs.python.org/3/library/typing.html#typing.Optional). However in a few cases (like nested options) there is an actual representation of the option in the runtime.
 - `Async.RunSynchronously` is not supported.
-- `MailboxProcessor` is single-threaded in JS and currently only `Start`, `Receive`, `Post` and `PostAndAsyncReply` are implemented (`cancellationToken` or `timeout` optional arguments are not supported).
+- `MailboxProcessor` is single-threaded in Python and currently only `Start`, `Receive`, `Post` and `PostAndAsyncReply` are implemented (`cancellationToken` or `timeout` optional arguments are not supported).
 
 ## Object Oriented Programming
 

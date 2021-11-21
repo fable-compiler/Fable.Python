@@ -3,7 +3,7 @@
 Unlike JS, F# projects require all sources to be listed **in compilation order** in an `.fsproj` file. This may look quite restrictive at first, but it does have [some advantages](https://fsharpforfunandprofit.com/posts/cyclic-dependencies/).
 Since an F# project takes its roots from the .NET ecosystem, we need to follow a few obligatory steps in order to add a file to an F# project.
 
-:::info
+:::{note}
 Many F# IDEs already provide commands to perform operations like creating a project or adding/removing a file. The steps below are only necessary if you want to do this manually.
 :::
 
@@ -51,7 +51,7 @@ For example, if we have have an app with two files, named `MyAwesomeFeature.fs` 
 <ItemGroup>
 ```
 
-:::info
+:::{note}
 Please be aware that in F#, **file order is important.** For instance, if `App.fs` calls `MyAwesomeFeature.fs`, then you must place `MyAwesomeFeature.fs` above `App.fs`.
 :::
 

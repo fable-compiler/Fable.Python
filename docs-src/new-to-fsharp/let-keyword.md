@@ -53,8 +53,8 @@ Don't worry too much if you don't fully grasp the above code, the main goal of t
 
 The main differences that the `let` keyword in F# has from assignments in Python are:
 
-- In JavaScript one would use `let` to define a named variable, and its value can be reassigned which is not the case in F#.
-- In JavaScript `let` is scope bound, so one can declare a new variable with an already used name as long as it is in a different scope, in F# that can be done within the same scope.
+- In Python one would use an assignment to define a named variable, and its value can be reassigned which is not the case in F#.
+- In Python assignments are scope bound, so one can declare a new variable with an already used name as long as it is in a different scope, in F# that can be done within the same scope.
 
 ### References
 

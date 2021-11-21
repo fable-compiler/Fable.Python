@@ -4,7 +4,6 @@
 format: jb-book
 root: index
 chapters:
-- file: index.md
 - file: intro.md
 - file: introduction/dotnet-users-read-this
 - file: introduction/py-users-read-this

@@ -1,20 +1,28 @@
 # Call Python from Fable
 
-Interoperability is a matter of trust between your statically typed F# code and your untyped dynamic JS code. In order to mitigate risks, Fable gives you several possibilities, amongst them type safety through interface contracts. Sometimes it may sound more convenient to just call JS code in a more dynamic fashion, although be aware by doing this potential bugs will not be discovered until runtime.
+Interoperability is a matter of trust between your statically typed F# code and your untyped dynamic JS code. In order
+to mitigate risks, Fable gives you several possibilities, amongst them type safety through interface contracts.
+Sometimes it may sound more convenient to just call JS code in a more dynamic fashion, although be aware by doing this
+potential bugs will not be discovered until runtime.
 
 We'll describe both the safe way and the dynamic way and then it will be up to you to decide. Let's start!
 
 ## Adding the JS library to the project
 
-The very first thing to do is add the library to our project. Since we always have a `package.json` file, we'll just add the wanted library to our project using either `npm install my-awesome-js-library`. The library will then be available in the `node_modules` folder.
+The very first thing to do is add the library to our project. Since we always have a `package.json` file, we'll just add
+the wanted library to our project using either `npm install my-awesome-js-library`. The library will then be available
+in the `node_modules` folder.
 
 > If your library is in a file, just skip this step.
 
 ## Type safety with Imports and Interfaces
 
-To use code from JS libraries first you need to import it into F#. For this Fable uses [ES2015 imports](https://developer.mozilla.org/en/docs/web/JavaScript/reference/statements/import), which can be later transformed to other JS module systems like `commonjs` or `amd` by [Babel](https://babeljs.io/docs/en/plugins#modules).
+To use code from JS libraries first you need to import it into F#. For this Fable uses [ES2015
+imports](https://developer.mozilla.org/en/docs/web/JavaScript/reference/statements/import), which can be later
+transformed to other JS module systems like `commonjs` or `amd` by [Babel](https://babeljs.io/docs/en/plugins#modules).
 
-There are two ways to declare ES2015 imports in Fable: by using either the **Import attribute** or the **import expressions**. The `ImportAttribute` can decorate members, types or modules and works as follows:
+There are two ways to declare ES2015 imports in Fable: by using either the **Import attribute** or the **import
+expressions**. The `ImportAttribute` can decorate members, types or modules and works as follows:
 
 ```fsharp
 // Namespace imports
@@ -34,28 +42,28 @@ You can also use the following alias attributes:
 
 ```fsharp
 open Fable.Core
-open Fable.Core.JsInterop
+open Fable.Core.PyInterop
 
 // Same as Import("*", "my-module")
 [<ImportAll("my-module")>]
-let myModule: obj = jsNative
+let myModule: obj = nativeOnly
 
 // Same as Import("default", "my-module")
 [<ImportDefault("my-module")>]
-let myModuleDefaultExport: obj = jsNative
+let myModuleDefaultExport: obj = nativeOnly
 
 // The member name is taken from decorated value, here `myFunction`
 [<ImportMember("my-module")>]
-let myFunction(x: int): int = jsNative
+let myFunction(x: int): int = nativeOnly
 ```
 
 If the value is globally accessible in JS, you can use the `Global` attribute with an optional name parameter instead.
 
 ```fsharp
-let [<Global>] console: JS.Console = jsNative
+let [<Global>] console: JS.Console = nativeOnly
 
 // You can pass a string argument if you want to use a different name in your F# code
-let [<Global("console")>] logger: JS.Console = jsNative
+let [<Global("console")>] logger: JS.Console = nativeOnly
 ```
 
 ### Importing relative paths when using an output directory
@@ -64,25 +72,25 @@ If you are putting the generated JS files in an output directory using Fable's `
 
 ```fsharp
 [<ImportDefault("${outDir}/../styles/styles.module.css")>]
-let styles: CssModule = jsNative
+let styles: CssModule = nativeOnly
 ```
 
 Let's say we're compiling with the `-o build` option and the file ends up in the `build/Components` directory. The generated code will look like:
 
 ```js
-import styles from "../../styles/styles.module.css"
+import styles from "../../styles/styles.module.css";
 ```
 
 ### OOP Class definition and inheritance
 
-Assuming we need to import a JS class, we can represent it in F# using a standard class declaration with an `Import` attribute. In this case we use `jsNative` as a dummy implementation for its members as the actual implementation will come from JS. When using `jsNative` don't forget to add the return type to the member!
+Assuming we need to import a JS class, we can represent it in F# using a standard class declaration with an `Import` attribute. In this case we use `nativeOnly` as a dummy implementation for its members as the actual implementation will come from JS. When using `nativeOnly` don't forget to add the return type to the member!
 
 ```fsharp
 [<Import("DataManager", from="library/data")>]
 type DataManager<'Model> (conf: Config) =
-    member _.delete(data: 'Model): Promise<'Model> = jsNative
-    member _.insert(data: 'Model): Promise<'Model> = jsNative
-    member _.update(data: 'Model): Promise<'Model> = jsNative
+    member _.delete(data: 'Model): Promise<'Model> = nativeOnly
+    member _.insert(data: 'Model): Promise<'Model> = nativeOnly
+    member _.update(data: 'Model): Promise<'Model> = nativeOnly
 ```
 
 From this point it is possible to use it or even to inherit from it as it is usually done on regular F#, [see the official F# documentation](https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/inheritance). If you want to inherit and override a member, F# requires you to declare the member as `abstract` in the base class, with a default implementation if you want to make it also directly usable from the base class. For example:
@@ -92,7 +100,7 @@ From this point it is possible to use it or even to inherit from it as it is usu
 [<Import("DataManager", from="library.data")>]
 type DataManager<'T> (conf: Config) =
     abstract update: data: 'T -> Promise<'T>
-    default _.update(data: 'T): Promise<'T> = jsNative
+    default _.update(data: 'T): Promise<'T> = nativeOnly
 
 // This class lives in our code
 type MyDataManager<'T>(config) =
@@ -146,7 +154,7 @@ Now let's use this:
 
 ```fsharp
   [<ImportAll("path/to/alert.js")>]
-  let mylib: IAlert = jsNative
+  let mylib: IAlert = nativeOnly
 ```
 
 Here we use the `ImportAll` attribute, which is the same as `Import("*", "path/to/alert.js")` just like we described earlier.
@@ -154,7 +162,7 @@ Here we use the `ImportAll` attribute, which is the same as `Import("*", "path/t
 - step 1: We specify the elements we wish to use. Here `*` means: "take everything that's been exported"
 - step 2: we set the path to our js library.
 - step 3: we create a let binding called `mylib` to map the js library.
-- step 4: we use the `jsNative` keyword to say that `mylib` is just a placeholder for the JavaScript native implementation.
+- step 4: we use the `nativeOnly` keyword to say that `mylib` is just a placeholder for the JavaScript native implementation.
 
 Now we can use this:
 
@@ -187,7 +195,7 @@ we could use the same method we used with `alert.js`:
     abstract drawBubble: (id:string) -> unit
 
   [<ImportAll("path/to/Canvas.js")>]
-  let mylib: ICanvas = jsNative
+  let mylib: ICanvas = nativeOnly
 
   mylib.drawSmiley "smiley" // etc..
 ```
@@ -250,7 +258,7 @@ You can use the `Emit` attribute to decorate a function. Every call to the funct
 open Fable.Core
 
 [<Emit("$0 + $1")>]
-let add (x: int) (y: string): string = jsNative
+let add (x: int) (y: string): string = nativeOnly
 
 let result = add 1 "2"
 ```
@@ -260,7 +268,7 @@ When you don't know the exact number of arguments you can use the following synt
 ```fsharp
 type Test() =
     [<Emit("$0($1...)")>]
-    member __.Invoke([<ParamArray>] args: int[]): obj = jsNative
+    member __.Invoke([<ParamArray>] args: int[]): obj = nativeOnly
 ```
 
 It's also possible to pass syntax conditioned to optional parameters:
@@ -268,11 +276,11 @@ It's also possible to pass syntax conditioned to optional parameters:
 ```fsharp
 type Test() =
     [<Emit("$0[$1]{{=$2}}")>]
-    member __.Item with get(): float = jsNative and set(v: float): unit = jsNative
+    member __.Item with get(): float = nativeOnly and set(v: float): unit = nativeOnly
 
     // This syntax means: if second arg evals to true in JS print 'i' and nothing otherwise
     [<Emit("new RegExp($0,'g{{$1?i:}}')")>]
-    member __.ParseRegex(pattern: string, ?ignoreCase: bool): Regex = jsNative
+    member __.ParseRegex(pattern: string, ?ignoreCase: bool): Regex = nativeOnly
 ```
 
 The content of `Emit` will actually be parsed by [Babel](https://babeljs.io/) so it will still be validated somehow. However, it's not advised to abuse this method, as the code won't be checked by the F# compiler.
@@ -294,7 +302,7 @@ export default class MyClass {
     return this._value;
   }
 
-  set value( newValue ) {
+  set value(newValue) {
     this._value = newValue;
   }
 
@@ -332,7 +340,7 @@ type MyClassStatic =
   abstract getPI : unit-> float
 ```
 
-:::info
+:::{note}
 We could have used a class declaration with dummy implementations as we did with DataManager above, but you will find that in Fable bindings it's common to split the instance and static parts of a JS type in two interfaces to overcome some restrictions of the F# type system or to be able to deal with JS classes as values. In this case, by convention `Create` denotes the constructor.
 :::
 
@@ -342,7 +350,7 @@ Last but not least, let's import MyClass:
 
 ```fsharp
 [<ImportDefault("../public/MyClass.js")>]
-let MyClass : MyClassStatic = jsNative
+let MyClass : MyClassStatic = nativeOnly
 ```
 
 Now it's possible to use our JS class. Let's see the complete code:
@@ -359,7 +367,7 @@ type MyClassStatic =
   abstract getPI : unit-> float
 
 [<ImportDefault("../public/MyClass.js")>]
-let MyClass : MyClassStatic = jsNative
+let MyClass : MyClassStatic = nativeOnly
 
 let myObject = MyClass.Create(40, 42)
 
@@ -383,7 +391,7 @@ It's possible to combine the `Import` and `Emit` attributes. So we can import an
 ```fsharp
 [<ImportDefault("../public/MyClass.js")>]
 [<Emit("new $0({ value: $1, awesomeness: $2 })")>]
-let createMyClass(value: 'T, awesomeness: 'T) : MyClass<'T> = jsNative
+let createMyClass(value: 'T, awesomeness: 'T) : MyClass<'T> = nativeOnly
 ```
 
 ## Other special attributes
@@ -406,7 +414,7 @@ myLib.myMethod(String "test")
 ```
 
 ```js
-myLib.myMethod("test")
+myLib.myMethod("test");
 ```
 
 `Fable.Core` already includes predefined erased types which can be used as follows:
@@ -433,7 +441,7 @@ myMethod !^testValue
 myMethod !^2.3
 ```
 
-:::info
+:::{note}
 Please note erased unions are mainly intended for typing the signature of imported JS functions and not as a cheap replacement of `Choice`. It's possible to do pattern matching against an erased union type but this will be compiled as type testing, and since **type testing is very weak in Fable**, this is only recommended if the generic arguments of the erased union are types that can be easily told apart in the JS runtime (like a string, a number and an array).
 :::
 
@@ -476,7 +484,7 @@ myLib.myMethod(Vertical, Horizontal)
 
 ```js
 // js output
-myLib.myMethod("vertical", "Horizontal")
+myLib.myMethod("vertical", "Horizontal");
 ```
 
 ## Plain Old JavaScript Objects

@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Fable Python
-author: By the Fable community
+author: the Fable community
 logo: logo.png
 
 # Force re-execution of notebooks on each build.
