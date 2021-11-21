@@ -9,6 +9,9 @@
     <WarnOn>3390;$(WarnOn)</WarnOn>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="stdlib/asyncio/Futures.fs" />
+    <Compile Include="stdlib/asyncio/Events.fs" />
+    <Compile Include="stdlib/asyncio/Tasks.fs" />
     <Compile Include="stdlib/Ast.fs" />
     <Compile Include="stdlib/Base64.fs" />
     <Compile Include="stdlib/Builtins.fs" />
@@ -34,7 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\LICENSE" Pack="true" Visible="false" PackagePath="\" />
-    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

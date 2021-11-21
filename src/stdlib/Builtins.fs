@@ -1,6 +1,7 @@
 /// Type bindings for Python builtins: https://docs.python.org/3/library/functions.html#built-in-funcs
 module Fable.Python.Builtins
 
+open System
 open System.Collections.Generic
 open Fable.Core
 
@@ -11,6 +12,7 @@ type TextIOBase =
     abstract read : __size: int -> string
 
 type TextIOWrapper =
+    inherit IDisposable
     inherit TextIOBase
 
 [<StringEnum>]
@@ -75,8 +77,10 @@ type OpenTextMode =
 
 [<Erase>]
 type _OpenFile =
-    | StrOrBytesPath of string
+    | StringPath of string
     | FileDescriptor of int
+
+type _Opener = Tuple<string, int> -> int
 
 type IExports =
     /// Return the absolute value of the argument.
@@ -115,17 +119,8 @@ type IExports =
     /// Object to float
     abstract float : obj -> float
     abstract print : obj: obj -> unit
-    abstract read : file: _OpenFile -> TextIOWrapper
-    abstract read : file: _OpenFile * mode: OpenTextMode -> TextIOWrapper
-    abstract read : file: _OpenFile * mode: OpenTextMode * buffering: int -> TextIOWrapper
-    abstract read : file: _OpenFile * mode: OpenTextMode * buffering: int * encoding: string -> TextIOWrapper
 
-    abstract read :
-        file: _OpenFile * mode: OpenTextMode * buffering: int * encoding: string * errors: string -> TextIOWrapper
-
-    abstract read :
-        file: _OpenFile * mode: OpenTextMode * buffering: int * encoding: string * errors: string * newline: string ->
-        TextIOWrapper
+    [<NamedParams(fromIndex=1)>] abstract ``open`` : file: _OpenFile * ?mode: OpenTextMode * ?buffering: int * ?encoding: string * ?errors: string * ?newline: string * ?closefd: bool * ?opener: _Opener -> TextIOWrapper
 
 [<ImportAll("builtins")>]
 let builtins: IExports = nativeOnly
