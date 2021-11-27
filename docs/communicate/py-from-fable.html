@@ -1,0 +1,1010 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Call Python from Fable &#8212; Fable Python</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title=".NET and F# compatibility" href="../dotnet/compatibility.html" />
+    <link rel="prev" title="Call Fable from Python" href="fable-from-py.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Fable Python</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Python you can be proud of!
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   What is Fable?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction/dotnet-users-read-this.html">
+   Are you a .NET developer?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../introduction/py-users-read-this.html">
+   Are you a Python developer?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../new-to-fsharp/learning-the-language.html">
+   Learning the language
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../new-to-fsharp/let-keyword.html">
+   The let keyword
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="fable-from-py.html">
+   Call Fable from Python
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Call Python from Fable
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dotnet/compatibility.html">
+   .NET and F# compatibility
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../dotnet/numbers.html">
+   Numeric types
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../your-fable-project/author-a-fable-library.html">
+   Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../your-fable-project/build-and-run.html">
+   Build &amp; run
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../your-fable-project/project-file.html">
+   The project file
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../your-fable-project/testing.html">
+   Testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../your-fable-project/use-a-fable-library.html">
+   Use a Fable library
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../markdown.html">
+   Markdown Files
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../notebooks.html">
+   Content with notebooks
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/communicate/py-from-fable.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/fable-compiler/Fable.Python"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/fable-compiler/Fable.Python/issues/new?title=Issue%20on%20page%20%2Fcommunicate/py-from-fable.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#adding-the-js-library-to-the-project">
+   Adding the JS library to the project
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#type-safety-with-imports-and-interfaces">
+   Type safety with Imports and Interfaces
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#importing-relative-paths-when-using-an-output-directory">
+     Importing relative paths when using an output directory
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#oop-class-definition-and-inheritance">
+     OOP Class definition and inheritance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-practice-1st-try">
+     Let’s practice! 1st try!
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-practice-2nd-try">
+     Let’s practice! 2nd try!
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#miscellaneous-import-helpers">
+     Miscellaneous import helpers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#emit-when-f-is-not-enough">
+   Emit, when F# is not enough
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#let-s-do-it-use-emit">
+     Let’s do it! Use Emit
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-special-attributes">
+   Other special attributes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#erase-attribute">
+     Erase attribute
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stringenum">
+     StringEnum
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plain-old-javascript-objects">
+   Plain Old JavaScript Objects
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dynamic-typing-don-t-read-this">
+     Dynamic typing: don’t read this!
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-is-dynamic-typing">
+       What is dynamic typing?
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dynamic-casting">
+       Dynamic casting
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="call-python-from-fable">
+<h1>Call Python from Fable<a class="headerlink" href="#call-python-from-fable" title="Permalink to this headline">¶</a></h1>
+<p>Interoperability is a matter of trust between your statically typed F# code and your untyped dynamic JS code. In order
+to mitigate risks, Fable gives you several possibilities, amongst them type safety through interface contracts.
+Sometimes it may sound more convenient to just call JS code in a more dynamic fashion, although be aware by doing this
+potential bugs will not be discovered until runtime.</p>
+<p>We’ll describe both the safe way and the dynamic way and then it will be up to you to decide. Let’s start!</p>
+<div class="section" id="adding-the-js-library-to-the-project">
+<h2>Adding the JS library to the project<a class="headerlink" href="#adding-the-js-library-to-the-project" title="Permalink to this headline">¶</a></h2>
+<p>The very first thing to do is add the library to our project. Since we always have a <code class="docutils literal notranslate"><span class="pre">package.json</span></code> file, we’ll just add
+the wanted library to our project using either <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span> <span class="pre">my-awesome-js-library</span></code>. The library will then be available
+in the <code class="docutils literal notranslate"><span class="pre">node_modules</span></code> folder.</p>
+<blockquote>
+<div><p>If your library is in a file, just skip this step.</p>
+</div></blockquote>
+</div>
+<div class="section" id="type-safety-with-imports-and-interfaces">
+<h2>Type safety with Imports and Interfaces<a class="headerlink" href="#type-safety-with-imports-and-interfaces" title="Permalink to this headline">¶</a></h2>
+<p>To use code from JS libraries first you need to import it into F#. For this Fable uses <a class="reference external" href="https://developer.mozilla.org/en/docs/web/JavaScript/reference/statements/import">ES2015
+imports</a>, which can be later
+transformed to other JS module systems like <code class="docutils literal notranslate"><span class="pre">commonjs</span></code> or <code class="docutils literal notranslate"><span class="pre">amd</span></code> by <a class="reference external" href="https://babeljs.io/docs/en/plugins#modules">Babel</a>.</p>
+<p>There are two ways to declare ES2015 imports in Fable: by using either the <strong>Import attribute</strong> or the <strong>import
+expressions</strong>. The <code class="docutils literal notranslate"><span class="pre">ImportAttribute</span></code> can decorate members, types or modules and works as follows:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Namespace imports</span>
+<span class="o">[&lt;</span><span class="n">Import</span><span class="o">(</span><span class="s">&quot;*&quot;</span><span class="o">,</span> <span class="n">from</span><span class="o">=</span><span class="s">&quot;my-module&quot;</span><span class="o">)&gt;]</span>
+<span class="c1">// import * from &quot;my-module&quot;</span>
+
+<span class="c1">// Member imports</span>
+<span class="o">[&lt;</span><span class="n">Import</span><span class="o">(</span><span class="s">&quot;myFunction&quot;</span><span class="o">,</span> <span class="n">from</span><span class="o">=</span><span class="s">&quot;my-module&quot;</span><span class="o">)&gt;]</span>
+<span class="c1">// import { myFunction } from &quot;my-module&quot;</span>
+
+<span class="c1">// Default imports</span>
+<span class="o">[&lt;</span><span class="n">Import</span><span class="o">(</span><span class="s">&quot;default&quot;</span><span class="o">,</span> <span class="n">from</span><span class="o">=</span><span class="s">&quot;express&quot;</span><span class="o">)&gt;]</span>
+<span class="c1">// import Express from &quot;express&quot;</span>
+</pre></div>
+</div>
+<p>You can also use the following alias attributes:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nn">Fable.Core</span>
+<span class="k">open</span> <span class="nn">Fable.Core.PyInterop</span>
+
+<span class="c1">// Same as Import(&quot;*&quot;, &quot;my-module&quot;)</span>
+<span class="o">[&lt;</span><span class="n">ImportAll</span><span class="o">(</span><span class="s">&quot;my-module&quot;</span><span class="o">)&gt;]</span>
+<span class="k">let</span> <span class="nv">myModule</span><span class="o">:</span> <span class="kt">obj</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+
+<span class="c1">// Same as Import(&quot;default&quot;, &quot;my-module&quot;)</span>
+<span class="o">[&lt;</span><span class="n">ImportDefault</span><span class="o">(</span><span class="s">&quot;my-module&quot;</span><span class="o">)&gt;]</span>
+<span class="k">let</span> <span class="nv">myModuleDefaultExport</span><span class="o">:</span> <span class="kt">obj</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+
+<span class="c1">// The member name is taken from decorated value, here `myFunction`</span>
+<span class="o">[&lt;</span><span class="n">ImportMember</span><span class="o">(</span><span class="s">&quot;my-module&quot;</span><span class="o">)&gt;]</span>
+<span class="k">let</span> <span class="nv">myFunction</span><span class="o">(</span><span class="n">x</span><span class="o">:</span> <span class="n">int</span><span class="o">):</span> <span class="n">int</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+</pre></div>
+</div>
+<p>If the value is globally accessible in JS, you can use the <code class="docutils literal notranslate"><span class="pre">Global</span></code> attribute with an optional name parameter instead.</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="o">[&lt;</span><span class="n">Global</span><span class="o">&gt;]</span> <span class="n">console</span><span class="o">:</span> <span class="nn">JS</span><span class="p">.</span><span class="n">Console</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+
+<span class="c1">// You can pass a string argument if you want to use a different name in your F# code</span>
+<span class="k">let</span> <span class="o">[&lt;</span><span class="n">Global</span><span class="o">(</span><span class="s">&quot;console&quot;</span><span class="o">)&gt;]</span> <span class="n">logger</span><span class="o">:</span> <span class="nn">JS</span><span class="p">.</span><span class="n">Console</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+</pre></div>
+</div>
+<div class="section" id="importing-relative-paths-when-using-an-output-directory">
+<h3>Importing relative paths when using an output directory<a class="headerlink" href="#importing-relative-paths-when-using-an-output-directory" title="Permalink to this headline">¶</a></h3>
+<p>If you are putting the generated JS files in an output directory using Fable’s <code class="docutils literal notranslate"><span class="pre">-o</span></code> option, be aware that Fable will only move files corresponding to .fs sources, not external files like .js or .css. Fable will automatically adjust relative paths in imports to the location of the generated file, but sometimes it’s difficult to know where the generated file will end up exactly. In these cases, it’s useful to use the <code class="docutils literal notranslate"><span class="pre">${outDir}</span></code> macro which will be replaced by the output directory. For example, if we are importing a CSS module like this:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="o">[&lt;</span><span class="n">ImportDefault</span><span class="o">(</span><span class="s">&quot;${outDir}/../styles/styles.module.css&quot;</span><span class="o">)&gt;]</span>
+<span class="k">let</span> <span class="nv">styles</span><span class="o">:</span> <span class="n">CssModule</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+</pre></div>
+</div>
+<p>Let’s say we’re compiling with the <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">build</span></code> option and the file ends up in the <code class="docutils literal notranslate"><span class="pre">build/Components</span></code> directory. The generated code will look like:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="nx">styles</span> <span class="kr">from</span> <span class="s2">&quot;../../styles/styles.module.css&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="oop-class-definition-and-inheritance">
+<h3>OOP Class definition and inheritance<a class="headerlink" href="#oop-class-definition-and-inheritance" title="Permalink to this headline">¶</a></h3>
+<p>Assuming we need to import a JS class, we can represent it in F# using a standard class declaration with an <code class="docutils literal notranslate"><span class="pre">Import</span></code> attribute. In this case we use <code class="docutils literal notranslate"><span class="pre">nativeOnly</span></code> as a dummy implementation for its members as the actual implementation will come from JS. When using <code class="docutils literal notranslate"><span class="pre">nativeOnly</span></code> don’t forget to add the return type to the member!</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="o">[&lt;</span><span class="n">Import</span><span class="o">(</span><span class="s">&quot;DataManager&quot;</span><span class="o">,</span> <span class="n">from</span><span class="o">=</span><span class="s">&quot;library/data&quot;</span><span class="o">)&gt;]</span>
+<span class="k">type</span> <span class="nc">DataManager</span><span class="o">&lt;</span><span class="k">&#39;</span><span class="n">Model</span><span class="o">&gt;</span> <span class="o">(</span><span class="n">conf</span><span class="o">:</span> <span class="n">Config</span><span class="o">)</span> <span class="o">=</span>
+    <span class="k">member</span> <span class="n">_</span><span class="p">.</span><span class="nf">delete</span><span class="o">(</span><span class="n">data</span><span class="o">:</span> <span class="k">&#39;</span><span class="n">Model</span><span class="o">):</span> <span class="n">Promise</span><span class="o">&lt;</span><span class="k">&#39;</span><span class="n">Model</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+    <span class="k">member</span> <span class="n">_</span><span class="p">.</span><span class="nf">insert</span><span class="o">(</span><span class="n">data</span><span class="o">:</span> <span class="k">&#39;</span><span class="n">Model</span><span class="o">):</span> <span class="n">Promise</span><span class="o">&lt;</span><span class="k">&#39;</span><span class="n">Model</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+    <span class="k">member</span> <span class="n">_</span><span class="p">.</span><span class="nf">update</span><span class="o">(</span><span class="n">data</span><span class="o">:</span> <span class="k">&#39;</span><span class="n">Model</span><span class="o">):</span> <span class="n">Promise</span><span class="o">&lt;</span><span class="k">&#39;</span><span class="n">Model</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+</pre></div>
+</div>
+<p>From this point it is possible to use it or even to inherit from it as it is usually done on regular F#, <a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/inheritance">see the official F# documentation</a>. If you want to inherit and override a member, F# requires you to declare the member as <code class="docutils literal notranslate"><span class="pre">abstract</span></code> in the base class, with a default implementation if you want to make it also directly usable from the base class. For example:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="c1">// This class lives in Python</span>
+<span class="o">[&lt;</span><span class="n">Import</span><span class="o">(</span><span class="s">&quot;DataManager&quot;</span><span class="o">,</span> <span class="n">from</span><span class="o">=</span><span class="s">&quot;library.data&quot;</span><span class="o">)&gt;]</span>
+<span class="k">type</span> <span class="nc">DataManager</span><span class="o">&lt;</span><span class="k">&#39;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">(</span><span class="n">conf</span><span class="o">:</span> <span class="n">Config</span><span class="o">)</span> <span class="o">=</span>
+    <span class="k">abstract</span> <span class="n">update</span><span class="o">:</span> <span class="n">data</span><span class="o">:</span> <span class="k">&#39;</span><span class="n">T</span> <span class="o">-&gt;</span> <span class="n">Promise</span><span class="o">&lt;</span><span class="k">&#39;</span><span class="n">T</span><span class="o">&gt;</span>
+    <span class="k">default</span> <span class="o">_.</span><span class="n">update</span><span class="o">(</span><span class="n">data</span><span class="o">:</span> <span class="k">&#39;</span><span class="n">T</span><span class="o">):</span> <span class="n">Promise</span><span class="o">&lt;</span><span class="k">&#39;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+
+<span class="c1">// This class lives in our code</span>
+<span class="k">type</span> <span class="nc">MyDataManager</span><span class="o">&lt;</span><span class="k">&#39;</span><span class="n">T</span><span class="o">&gt;(</span><span class="n">config</span><span class="o">)</span> <span class="o">=</span>
+    <span class="k">inherit</span> <span class="n">DataManager</span><span class="o">&lt;</span><span class="k">&#39;</span><span class="n">T</span><span class="o">&gt;(</span><span class="n">config</span><span class="o">)</span>
+    <span class="c1">// We can do something with data before sending it to the base class</span>
+    <span class="k">override</span> <span class="n">_</span><span class="p">.</span><span class="nf">update</span><span class="o">(</span><span class="n">data</span><span class="o">)</span> <span class="o">=</span>
+        <span class="k">base</span><span class="o">.</span><span class="n">update</span><span class="o">(</span><span class="n">data</span><span class="o">)</span>
+
+<span class="k">let</span> <span class="nv">test</span> <span class="o">(</span><span class="n">data</span><span class="o">:</span> <span class="k">&#39;</span><span class="n">T</span><span class="o">)</span> <span class="o">(</span><span class="n">manager</span><span class="o">:</span> <span class="n">DataManager</span><span class="o">&lt;</span><span class="k">&#39;</span><span class="n">T</span><span class="o">&gt;)</span> <span class="o">=</span>
+    <span class="n">manager</span><span class="o">.</span><span class="n">update</span><span class="o">(</span><span class="n">data</span><span class="o">)</span> <span class="o">|&gt;</span> <span class="n">ignore</span>
+
+<span class="c1">// This will call MyDataManager.update even if test expects DataManager</span>
+<span class="n">MyDataManager</span><span class="o">(</span><span class="n">myConfig</span><span class="o">)</span> <span class="o">|&gt;</span> <span class="n">test</span> <span class="n">myData</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have a Python type declaration for the Python code you want to import, you can use <a class="reference external" href="https://github.com/fable-compiler/ts2fable">ts2fable</a> to help you write the F# bindings.</p>
+</div>
+</div>
+<div class="section" id="let-s-practice-1st-try">
+<h3>Let’s practice! 1st try!<a class="headerlink" href="#let-s-practice-1st-try" title="Permalink to this headline">¶</a></h3>
+<p>Now that we’ve seen this, let’s review the code in the <a class="reference external" href="https://github.com/fable-compiler/fable3-samples/tree/master/interop">interop</a> sample</p>
+<p>Let’s say we have an <code class="docutils literal notranslate"><span class="pre">alert.js</span></code> file that we’d like to use in our Fable project.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">triggerAlert</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">someString</span> <span class="o">=</span> <span class="s2">&quot;And I Like that!&quot;</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="p">{</span> <span class="nx">triggerAlert</span><span class="p">,</span> <span class="nx">someString</span> <span class="p">};</span>
+</pre></div>
+</div>
+<p>As you can see we’ve got one function, <code class="docutils literal notranslate"><span class="pre">triggerAlert</span></code> and one constant <code class="docutils literal notranslate"><span class="pre">someString</span></code>. Both are exported using the ES6 <code class="docutils literal notranslate"><span class="pre">export</span></code> keyword.</p>
+<p>In order to use this in our Fable code, let’s create an <code class="docutils literal notranslate"><span class="pre">interface</span></code> that will mimic this:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span>  <span class="k">open</span> <span class="nn">Fable.Core.JsInterop</span> <span class="c1">// needed to call interop tools</span>
+
+  <span class="k">type</span> <span class="nc">IAlert</span> <span class="o">=</span>
+    <span class="k">abstract</span> <span class="n">triggerAlert</span> <span class="o">:</span> <span class="n">message</span><span class="o">:</span><span class="kt">string</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+    <span class="k">abstract</span> <span class="n">someString</span><span class="o">:</span> <span class="kt">string</span>
+</pre></div>
+</div>
+<p>As you can see the process is quite easy. The <code class="docutils literal notranslate"><span class="pre">I</span></code> in <code class="docutils literal notranslate"><span class="pre">IAlert</span></code> is not mandatory but it’s a precious hint that we’re going to use an interface. The <code class="docutils literal notranslate"><span class="pre">abstract</span></code> keyword only indicates that there’s no actual implementation in F#. That’s true, since we rely on the JavaScript one.</p>
+<p>Now let’s use this:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span>  <span class="o">[&lt;</span><span class="n">ImportAll</span><span class="o">(</span><span class="s">&quot;path/to/alert.js&quot;</span><span class="o">)&gt;]</span>
+  <span class="k">let</span> <span class="nv">mylib</span><span class="o">:</span> <span class="n">IAlert</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+</pre></div>
+</div>
+<p>Here we use the <code class="docutils literal notranslate"><span class="pre">ImportAll</span></code> attribute, which is the same as <code class="docutils literal notranslate"><span class="pre">Import(&quot;*&quot;,</span> <span class="pre">&quot;path/to/alert.js&quot;)</span></code> just like we described earlier.</p>
+<ul class="simple">
+<li><p>step 1: We specify the elements we wish to use. Here <code class="docutils literal notranslate"><span class="pre">*</span></code> means: “take everything that’s been exported”</p></li>
+<li><p>step 2: we set the path to our js library.</p></li>
+<li><p>step 3: we create a let binding called <code class="docutils literal notranslate"><span class="pre">mylib</span></code> to map the js library.</p></li>
+<li><p>step 4: we use the <code class="docutils literal notranslate"><span class="pre">nativeOnly</span></code> keyword to say that <code class="docutils literal notranslate"><span class="pre">mylib</span></code> is just a placeholder for the JavaScript native implementation.</p></li>
+</ul>
+<p>Now we can use this:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="n">mylib</span><span class="o">.</span><span class="n">triggerAlert</span> <span class="o">(</span><span class="s">&quot;Hey I&#39;m calling my js library from Fable &gt; &quot;</span> <span class="o">+</span> <span class="n">mylib</span><span class="o">.</span><span class="n">someString</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>If everything’s working correctly, it should create an alert popup in your browser! Of course this sample is intended for web apps, but you could do the same in a Node.js app.</p>
+</div>
+<div class="section" id="let-s-practice-2nd-try">
+<h3>Let’s practice! 2nd try!<a class="headerlink" href="#let-s-practice-2nd-try" title="Permalink to this headline">¶</a></h3>
+<p>Assuming we’ve got two exported functions from a <code class="docutils literal notranslate"><span class="pre">Canvas.js</span></code> file: <code class="docutils literal notranslate"><span class="pre">drawSmiley</span></code> and <code class="docutils literal notranslate"><span class="pre">drawBubble</span></code>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">export</span> <span class="kd">function</span> <span class="nx">drawSmiley</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// do something</span>
+<span class="p">}</span>
+<span class="k">export</span> <span class="kd">function</span> <span class="nx">drawBubble</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// do something</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>we could use the same method we used with <code class="docutils literal notranslate"><span class="pre">alert.js</span></code>:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span>  <span class="k">open</span> <span class="nn">Fable.Core.JsInterop</span> <span class="c1">// needed to call interop tools</span>
+
+  <span class="k">type</span> <span class="nc">ICanvas</span> <span class="o">=</span>
+    <span class="k">abstract</span> <span class="n">drawSmiley</span><span class="o">:</span> <span class="o">(</span><span class="n">id</span><span class="o">:</span><span class="kt">string</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+    <span class="k">abstract</span> <span class="n">drawBubble</span><span class="o">:</span> <span class="o">(</span><span class="n">id</span><span class="o">:</span><span class="kt">string</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="kt">unit</span>
+
+  <span class="o">[&lt;</span><span class="n">ImportAll</span><span class="o">(</span><span class="s">&quot;path/to/Canvas.js&quot;</span><span class="o">)&gt;]</span>
+  <span class="k">let</span> <span class="nv">mylib</span><span class="o">:</span> <span class="n">ICanvas</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+
+  <span class="n">mylib</span><span class="o">.</span><span class="n">drawSmiley</span> <span class="s">&quot;smiley&quot;</span> <span class="c1">// etc..</span>
+</pre></div>
+</div>
+<p>or we could use the <code class="docutils literal notranslate"><span class="pre">importMember</span></code> helper function to directly map the js function to the F# function.</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nn">Fable.Core.JsInterop</span> <span class="c1">// needed to call interop tools</span>
+
+<span class="k">module</span> <span class="nn">Canvas</span> <span class="o">=</span>
+  <span class="c1">// here we just import a member function from canvas.js called drawSmiley.</span>
+  <span class="k">let</span> <span class="nv">drawSmiley</span><span class="o">(</span><span class="n">id</span><span class="o">:</span><span class="kt">string</span><span class="o">):</span> <span class="kt">unit</span> <span class="o">=</span> <span class="n">importMember</span> <span class="s">&quot;path/to/Canvas.js&quot;</span>
+  <span class="k">let</span> <span class="nv">drawBubble</span><span class="o">(</span><span class="n">id</span><span class="o">:</span><span class="kt">string</span><span class="o">):</span> <span class="kt">unit</span> <span class="o">=</span> <span class="n">importMember</span> <span class="s">&quot;path/to/Canvas.js&quot;</span>
+
+<span class="nn">Canvas</span><span class="p">.</span><span class="n">drawSmiley</span> <span class="s">&quot;smiley&quot;</span>
+</pre></div>
+</div>
+<p>The result would be the same, but the philosophy is slightly different. That’s basically up to you to make a choice 😉</p>
+</div>
+<div class="section" id="miscellaneous-import-helpers">
+<h3>Miscellaneous import helpers<a class="headerlink" href="#miscellaneous-import-helpers" title="Permalink to this headline">¶</a></h3>
+<p>There are other interop helpers you can use thanks to <code class="docutils literal notranslate"><span class="pre">Fable.Core.JsInterop</span></code>:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nn">Fable.Core.JsInterop</span>
+
+<span class="k">let</span> <span class="nv">buttons</span><span class="o">:</span> <span class="kt">obj</span> <span class="o">=</span> <span class="n">importAll</span> <span class="s">&quot;my-lib/buttons&quot;</span>
+<span class="c1">// JS: import * as buttons from &quot;my-lib/buttons&quot;</span>
+
+<span class="c1">// It works for function declarations too</span>
+<span class="k">let</span> <span class="nv">getTheme</span><span class="o">(</span><span class="n">x</span><span class="o">:</span> <span class="n">int</span><span class="o">):</span> <span class="n">IInterface</span> <span class="o">=</span> <span class="n">importDefault</span> <span class="s">&quot;my-lib&quot;</span>
+<span class="c1">// JS: import getTheme from &quot;my-lib&quot;</span>
+
+<span class="k">let</span> <span class="nv">myString</span><span class="o">:</span> <span class="kt">string</span> <span class="o">=</span> <span class="n">importMember</span> <span class="s">&quot;my-lib&quot;</span>
+<span class="c1">// JS: import { myString } from &quot;my-lib&quot;</span>
+
+<span class="c1">// Use just `import` to make the member name explicit</span>
+<span class="c1">// as with the ImportAttribute</span>
+<span class="k">let</span> <span class="nv">aDifferentName</span><span class="o">:</span> <span class="kt">string</span> <span class="o">=</span> <span class="n">import</span> <span class="s">&quot;myString&quot;</span> <span class="s">&quot;my-lib&quot;</span>
+<span class="c1">// import { myString } from &quot;my-lib&quot;</span>
+</pre></div>
+</div>
+<p>Occasionally, you may need to import JS purely for its side-effects. For example, some browser polyfills don’t export any functions, but extend the browser’s built-in DOM types when executed.</p>
+<p>For this, use <code class="docutils literal notranslate"><span class="pre">importSideEffects</span></code>.</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nn">Fable.Core.JsInterop</span>
+
+<span class="n">importSideEffects</span><span class="o">(</span><span class="s">&quot;my-polyfill-library&quot;</span><span class="o">)</span> <span class="c1">// from npm package</span>
+
+<span class="n">importSideEffects</span><span class="o">(</span><span class="s">&quot;./my-polyfill.js&quot;</span><span class="o">)</span> <span class="c1">// from local .js file</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="emit-when-f-is-not-enough">
+<h2>Emit, when F# is not enough<a class="headerlink" href="#emit-when-f-is-not-enough" title="Permalink to this headline">¶</a></h2>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">Emit</span></code> attribute to decorate a function. Every call to the function will then be replaced inline by the content of the attribute with the placeholders <code class="docutils literal notranslate"><span class="pre">$0,</span> <span class="pre">$1,</span> <span class="pre">$2...</span></code> replaced by the arguments. For example, the following code will generate JavaScript as seen below.</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nn">Fable.Core</span>
+
+<span class="o">[&lt;</span><span class="n">Emit</span><span class="o">(</span><span class="s">&quot;$0 + $1&quot;</span><span class="o">)&gt;]</span>
+<span class="k">let</span> <span class="nv">add</span> <span class="o">(</span><span class="n">x</span><span class="o">:</span> <span class="n">int</span><span class="o">)</span> <span class="o">(</span><span class="n">y</span><span class="o">:</span> <span class="kt">string</span><span class="o">):</span> <span class="kt">string</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+
+<span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="n">add</span> <span class="mi">1</span> <span class="s">&quot;2&quot;</span>
+</pre></div>
+</div>
+<p>When you don’t know the exact number of arguments you can use the following syntax:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="nc">Test</span><span class="bp">()</span> <span class="o">=</span>
+    <span class="o">[&lt;</span><span class="n">Emit</span><span class="o">(</span><span class="s">&quot;$0($1...)&quot;</span><span class="o">)&gt;]</span>
+    <span class="k">member</span> <span class="n">__</span><span class="p">.</span><span class="nf">Invoke</span><span class="o">([&lt;</span><span class="n">ParamArray</span><span class="o">&gt;]</span> <span class="n">args</span><span class="o">:</span> <span class="n">int</span><span class="bp">[]</span><span class="o">):</span> <span class="kt">obj</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+</pre></div>
+</div>
+<p>It’s also possible to pass syntax conditioned to optional parameters:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="nc">Test</span><span class="bp">()</span> <span class="o">=</span>
+    <span class="o">[&lt;</span><span class="n">Emit</span><span class="o">(</span><span class="s">&quot;$0[$1]{{=$2}}&quot;</span><span class="o">)&gt;]</span>
+    <span class="k">member</span> <span class="n">__</span><span class="p">.</span><span class="nf">Item</span> <span class="k">with</span> <span class="n">get</span><span class="bp">()</span><span class="o">:</span> <span class="kt">float</span> <span class="o">=</span> <span class="n">nativeOnly</span> <span class="ow">and</span> <span class="n">set</span><span class="o">(</span><span class="n">v</span><span class="o">:</span> <span class="kt">float</span><span class="o">):</span> <span class="kt">unit</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+
+    <span class="c1">// This syntax means: if second arg evals to true in JS print &#39;i&#39; and nothing otherwise</span>
+    <span class="o">[&lt;</span><span class="n">Emit</span><span class="o">(</span><span class="s">&quot;new RegExp($0,&#39;g{{$1?i:}}&#39;)&quot;</span><span class="o">)&gt;]</span>
+    <span class="k">member</span> <span class="n">__</span><span class="p">.</span><span class="nf">ParseRegex</span><span class="o">(</span><span class="n">pattern</span><span class="o">:</span> <span class="kt">string</span><span class="o">,</span> <span class="o">?</span><span class="n">ignoreCase</span><span class="o">:</span> <span class="kt">bool</span><span class="o">):</span> <span class="n">Regex</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+</pre></div>
+</div>
+<p>The content of <code class="docutils literal notranslate"><span class="pre">Emit</span></code> will actually be parsed by <a class="reference external" href="https://babeljs.io/">Babel</a> so it will still be validated somehow. However, it’s not advised to abuse this method, as the code won’t be checked by the F# compiler.</p>
+<div class="section" id="let-s-do-it-use-emit">
+<h3>Let’s do it! Use Emit<a class="headerlink" href="#let-s-do-it-use-emit" title="Permalink to this headline">¶</a></h3>
+<p>Now let’s work with Emit and look at a new example with the following <code class="docutils literal notranslate"><span class="pre">MyClass.js</span></code>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">export</span> <span class="k">default</span> <span class="kd">class</span> <span class="nx">MyClass</span> <span class="p">{</span>
+  <span class="c1">// Note the constructor accepts an object</span>
+  <span class="c1">// with the `value` and `awesomeness` fields</span>
+  <span class="kr">constructor</span><span class="p">({</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">awesomeness</span> <span class="p">})</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">_value</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">_awesomeness</span> <span class="o">=</span> <span class="nx">awesomeness</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">get</span> <span class="nx">value</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_value</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">set</span> <span class="nx">value</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">_value</span> <span class="o">=</span> <span class="nx">newValue</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">isAwesome</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_value</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">_awesomeness</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">static</span> <span class="nx">getPI</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let’s list its members:</p>
+<ul class="simple">
+<li><p>a <code class="docutils literal notranslate"><span class="pre">value</span></code> member which returns the current value with a getter and a setter</p></li>
+<li><p>a method, <code class="docutils literal notranslate"><span class="pre">isAwesome</span></code>, that checks if the current value equals the awesome value</p></li>
+<li><p>a static method <code class="docutils literal notranslate"><span class="pre">getPi()</span></code> that just returns the value of <code class="docutils literal notranslate"><span class="pre">Math.PI</span></code></p></li>
+</ul>
+<p>Here’s the Fable implementation. Let’s start with the members:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="nc">MyClass</span><span class="o">&lt;</span><span class="k">&#39;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">=</span>
+  <span class="c1">// Note we specify this property has also a setter</span>
+  <span class="k">abstract</span> <span class="n">value</span><span class="o">:</span> <span class="k">&#39;</span><span class="n">T</span> <span class="k">with</span> <span class="n">get</span><span class="o">,</span> <span class="n">set</span>
+  <span class="k">abstract</span> <span class="n">isAwesome</span><span class="o">:</span> <span class="kt">unit</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
+</pre></div>
+</div>
+<p>Now we need to be able to call the static functions, including the constructor. So we write another interface for that:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="nc">MyClassStatic</span> <span class="o">=</span>
+  <span class="o">[&lt;</span><span class="n">Emit</span><span class="o">(</span><span class="s">&quot;new $0({ value: $1, awesomeness: $2 })&quot;</span><span class="o">)&gt;]</span>
+  <span class="k">abstract</span> <span class="n">Create</span><span class="o">:</span> <span class="k">&#39;</span><span class="n">T</span> <span class="o">*</span> <span class="k">&#39;</span><span class="n">T</span> <span class="o">-&gt;</span> <span class="n">MyClass</span><span class="o">&lt;</span><span class="k">&#39;</span><span class="n">T</span><span class="o">&gt;</span>
+  <span class="k">abstract</span> <span class="n">getPI</span> <span class="o">:</span> <span class="kt">unit</span><span class="o">-&gt;</span> <span class="kt">float</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We could have used a class declaration with dummy implementations as we did with DataManager above, but you will find that in Fable bindings it’s common to split the instance and static parts of a JS type in two interfaces to overcome some restrictions of the F# type system or to be able to deal with JS classes as values. In this case, by convention <code class="docutils literal notranslate"><span class="pre">Create</span></code> denotes the constructor.</p>
+</div>
+<p>Here we used the <code class="docutils literal notranslate"><span class="pre">Emit</span></code> attribute to apply the JS <code class="docutils literal notranslate"><span class="pre">new</span></code> keyword and to build a JS object with the arguments, because that’s what MyClass constructor accepts. Note that here <code class="docutils literal notranslate"><span class="pre">$0</span></code> represents the interface object (in this case, MyClass static).</p>
+<p>Last but not least, let’s import MyClass:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="o">[&lt;</span><span class="n">ImportDefault</span><span class="o">(</span><span class="s">&quot;../public/MyClass.js&quot;</span><span class="o">)&gt;]</span>
+<span class="k">let</span> <span class="nv">MyClass</span> <span class="o">:</span> <span class="n">MyClassStatic</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+</pre></div>
+</div>
+<p>Now it’s possible to use our JS class. Let’s see the complete code:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="nc">MyClass</span><span class="o">&lt;</span><span class="k">&#39;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">=</span>
+  <span class="k">abstract</span> <span class="n">value</span><span class="o">:</span> <span class="k">&#39;</span><span class="n">T</span> <span class="k">with</span> <span class="n">get</span><span class="o">,</span> <span class="n">set</span>
+  <span class="k">abstract</span> <span class="n">isAwesome</span><span class="o">:</span> <span class="kt">unit</span> <span class="o">-&gt;</span> <span class="kt">bool</span>
+
+<span class="k">type</span> <span class="nc">MyClassStatic</span> <span class="o">=</span>
+  <span class="o">[&lt;</span><span class="n">Emit</span><span class="o">(</span><span class="s">&quot;new $0({ value: $1, awesomeness: $2 })&quot;</span><span class="o">)&gt;]</span>
+  <span class="k">abstract</span> <span class="n">Create</span><span class="o">:</span> <span class="k">&#39;</span><span class="n">T</span> <span class="o">*</span> <span class="k">&#39;</span><span class="n">T</span> <span class="o">-&gt;</span> <span class="n">MyClass</span><span class="o">&lt;</span><span class="k">&#39;</span><span class="n">T</span><span class="o">&gt;</span>
+  <span class="k">abstract</span> <span class="n">getPI</span> <span class="o">:</span> <span class="kt">unit</span><span class="o">-&gt;</span> <span class="kt">float</span>
+
+<span class="o">[&lt;</span><span class="n">ImportDefault</span><span class="o">(</span><span class="s">&quot;../public/MyClass.js&quot;</span><span class="o">)&gt;]</span>
+<span class="k">let</span> <span class="nv">MyClass</span> <span class="o">:</span> <span class="n">MyClassStatic</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+
+<span class="k">let</span> <span class="nv">myObject</span> <span class="o">=</span> <span class="nn">MyClass</span><span class="p">.</span><span class="n">Create</span><span class="o">(</span><span class="mi">40</span><span class="o">,</span> <span class="mi">42</span><span class="o">)</span>
+
+<span class="c1">// using getter</span>
+<span class="k">let</span> <span class="nv">whatDoIget</span> <span class="o">=</span> <span class="n">myObject</span><span class="o">.</span><span class="n">value</span> <span class="c1">// using getter</span>
+<span class="n">mylib</span><span class="o">.</span><span class="n">triggerAlert</span> <span class="o">(</span><span class="s">&quot;Hey I&#39;m calling my js class from Fable. It gives &quot;</span> <span class="o">+</span> <span class="o">(</span><span class="kt">string</span> <span class="n">whatDoIget</span><span class="o">))</span>
+
+<span class="c1">// using setter</span>
+<span class="n">myObject</span><span class="o">.</span><span class="n">value</span> <span class="o">&lt;-</span> <span class="mi">42</span>
+<span class="n">mylib</span><span class="o">.</span><span class="n">triggerAlert</span> <span class="o">(</span><span class="s">&quot;Now it&#39;s better. It gives &quot;</span> <span class="o">+</span> <span class="o">(</span><span class="kt">string</span> <span class="n">myObject</span><span class="o">.</span><span class="n">value</span><span class="o">))</span>
+
+<span class="c1">// calling member function</span>
+<span class="n">mylib</span><span class="o">.</span><span class="n">triggerAlert</span> <span class="o">(</span><span class="s">&quot;Isn&#39;t it awesome? &quot;</span> <span class="o">+</span> <span class="o">(</span><span class="kt">string</span> <span class="o">(</span><span class="n">myObject</span><span class="o">.</span><span class="n">isAwesome</span><span class="bp">()</span><span class="o">)))</span>
+
+<span class="c1">// call our static function</span>
+<span class="n">mylib</span><span class="o">.</span><span class="n">triggerAlert</span> <span class="o">(</span><span class="s">&quot;PI is &quot;</span> <span class="o">+</span> <span class="o">(</span><span class="kt">string</span> <span class="o">(</span><span class="nn">MyClass</span><span class="p">.</span><span class="n">getPI</span><span class="bp">()</span><span class="o">)))</span>
+</pre></div>
+</div>
+<p>It’s possible to combine the <code class="docutils literal notranslate"><span class="pre">Import</span></code> and <code class="docutils literal notranslate"><span class="pre">Emit</span></code> attributes. So we can import and build MyClass in one go. Note that in this case <code class="docutils literal notranslate"><span class="pre">$0</span></code> is replaced by the imported element:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="o">[&lt;</span><span class="n">ImportDefault</span><span class="o">(</span><span class="s">&quot;../public/MyClass.js&quot;</span><span class="o">)&gt;]</span>
+<span class="o">[&lt;</span><span class="n">Emit</span><span class="o">(</span><span class="s">&quot;new $0({ value: $1, awesomeness: $2 })&quot;</span><span class="o">)&gt;]</span>
+<span class="k">let</span> <span class="nv">createMyClass</span><span class="o">(</span><span class="n">value</span><span class="o">:</span> <span class="k">&#39;</span><span class="n">T</span><span class="o">,</span> <span class="n">awesomeness</span><span class="o">:</span> <span class="k">&#39;</span><span class="n">T</span><span class="o">)</span> <span class="o">:</span> <span class="n">MyClass</span><span class="o">&lt;</span><span class="k">&#39;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="n">nativeOnly</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="other-special-attributes">
+<h2>Other special attributes<a class="headerlink" href="#other-special-attributes" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Fable.Core</span></code> includes other attributes for JS interop, like:</p>
+<div class="section" id="erase-attribute">
+<h3>Erase attribute<a class="headerlink" href="#erase-attribute" title="Permalink to this headline">¶</a></h3>
+<p>In TypeScript there’s a concept of <a class="reference external" href="https://www.typescriptlang.org/docs/handbook/advanced-types.html#union-types">Union Types</a> which differs from union types in F#. The former are just used to statically check a function argument accepting different types. In Fable, they’re translated as <strong>Erased Union Types</strong> whose cases must have one and only one single data field. After compilation, the wrapping will be erased and only the data field will remain. To define an erased union type, just attach the <code class="docutils literal notranslate"><span class="pre">Erase</span></code> attribute to the type. Example:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nn">Fable.Core</span>
+
+<span class="o">[&lt;</span><span class="n">Erase</span><span class="o">&gt;]</span>
+<span class="k">type</span> <span class="nc">MyErasedType</span> <span class="o">=</span>
+    <span class="o">|</span> <span class="n">String</span> <span class="k">of</span> <span class="kt">string</span>
+    <span class="o">|</span> <span class="n">Number</span> <span class="k">of</span> <span class="n">int</span>
+
+<span class="n">myLib</span><span class="o">.</span><span class="n">myMethod</span><span class="o">(</span><span class="n">String</span> <span class="s">&quot;test&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">myLib</span><span class="p">.</span><span class="nx">myMethod</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Fable.Core</span></code> already includes predefined erased types which can be used as follows:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nn">Fable.Core</span>
+
+<span class="k">type</span> <span class="nc">Test</span> <span class="o">=</span> <span class="k">abstract</span> <span class="n">Value</span><span class="o">:</span> <span class="kt">string</span>
+<span class="k">let</span> <span class="nv">myMethod</span><span class="o">(</span><span class="n">arg</span><span class="o">:</span> <span class="n">U3</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">,</span> <span class="n">int</span><span class="o">,</span> <span class="n">Test</span><span class="o">&gt;):</span> <span class="kt">unit</span> <span class="o">=</span> <span class="n">importMember</span> <span class="s">&quot;./myJsLib&quot;</span>
+
+<span class="k">let</span> <span class="nv">testValue</span> <span class="o">=</span> <span class="o">{</span> <span class="k">new</span> <span class="n">Test</span> <span class="k">with</span> <span class="k">member</span> <span class="n">__</span><span class="p">.</span><span class="nf">Value</span> <span class="o">=</span> <span class="s">&quot;Test&quot;</span> <span class="o">}</span>
+<span class="n">myMethod</span><span class="o">(</span><span class="nn">U3</span><span class="p">.</span><span class="n">Case3</span> <span class="n">testValue</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>When passing arguments to a method accepting <code class="docutils literal notranslate"><span class="pre">U2</span></code>, <code class="docutils literal notranslate"><span class="pre">U3</span></code>… you can use the <code class="docutils literal notranslate"><span class="pre">!^</span></code> as syntax sugar so you don’t need to type the exact case (the argument will still be type checked):</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nn">Fable.Core.JsInterop</span>
+
+<span class="n">myMethod</span> <span class="o">!^</span><span class="mi">5</span> <span class="c1">// Equivalent to: myMethod(U3.Case2 5)</span>
+<span class="n">myMethod</span> <span class="o">!^</span><span class="n">testValue</span>
+
+<span class="c1">// This doesn&#39;t compile, myMethod doesn&#39;t accept floats</span>
+<span class="n">myMethod</span> <span class="o">!^</span><span class="mi">2</span><span class="o">.</span><span class="mi">3</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please note erased unions are mainly intended for typing the signature of imported JS functions and not as a cheap replacement of <code class="docutils literal notranslate"><span class="pre">Choice</span></code>. It’s possible to do pattern matching against an erased union type but this will be compiled as type testing, and since <strong>type testing is very weak in Fable</strong>, this is only recommended if the generic arguments of the erased union are types that can be easily told apart in the JS runtime (like a string, a number and an array).</p>
+</div>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">test</span><span class="o">(</span><span class="n">arg</span><span class="o">:</span> <span class="n">U3</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">,</span> <span class="n">int</span><span class="o">,</span> <span class="kt">float</span><span class="bp">[]</span><span class="o">&gt;)</span> <span class="o">=</span>
+    <span class="k">match</span> <span class="n">arg</span> <span class="k">with</span>
+    <span class="o">|</span> <span class="nn">U3</span><span class="p">.</span><span class="n">Case1</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">printfn</span> <span class="s">&quot;A string %s&quot;</span> <span class="n">x</span>
+    <span class="o">|</span> <span class="nn">U3</span><span class="p">.</span><span class="n">Case2</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">printfn</span> <span class="s">&quot;An int %i&quot;</span> <span class="n">x</span>
+    <span class="o">|</span> <span class="nn">U3</span><span class="p">.</span><span class="n">Case3</span> <span class="n">xs</span> <span class="o">-&gt;</span> <span class="nn">Array</span><span class="p">.</span><span class="n">sum</span> <span class="n">xs</span> <span class="o">|&gt;</span> <span class="n">printfn</span> <span class="s">&quot;An array with sum %f&quot;</span>
+
+<span class="c1">// In JS roughly translated as:</span>
+
+<span class="c1">// function test(arg) {</span>
+<span class="c1">//   if (typeof arg === &quot;number&quot;) {</span>
+<span class="c1">//     toConsole(printf(&quot;An int %i&quot;))(arg);</span>
+<span class="c1">//   } else if (isArray(arg)) {</span>
+<span class="c1">//     toConsole(printf(&quot;An array with sum %f&quot;))(sum(arg));</span>
+<span class="c1">//   } else {</span>
+<span class="c1">//     toConsole(printf(&quot;A string %s&quot;))(arg);</span>
+<span class="c1">//   }</span>
+<span class="c1">// }</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stringenum">
+<h3>StringEnum<a class="headerlink" href="#stringenum" title="Permalink to this headline">¶</a></h3>
+<p>In TypeScript it is possible to define <a class="reference external" href="https://mariusschulz.com/blog/string-literal-types-in-typescript">String Literal Types</a> which are similar to enumerations with an underlying string value. Fable allows the same feature by using union types and the <code class="docutils literal notranslate"><span class="pre">StringEnum</span></code> attribute. These union types must not have any data fields as they will be compiled to a string matching the name of the union case.</p>
+<p>By default, the compiled string will have the first letter lowered. If you want to prevent this or use a different text than the union case name, use the <code class="docutils literal notranslate"><span class="pre">CompiledName</span></code> attribute:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nn">Fable.Core</span>
+
+<span class="o">[&lt;</span><span class="n">StringEnum</span><span class="o">&gt;]</span>
+<span class="k">type</span> <span class="nc">MyStrings</span> <span class="o">=</span>
+    <span class="o">|</span> <span class="n">Vertical</span>
+    <span class="o">|</span> <span class="o">[&lt;</span><span class="n">CompiledName</span><span class="o">(</span><span class="s">&quot;Horizontal&quot;</span><span class="o">)&gt;]</span> <span class="n">Horizontal</span>
+
+<span class="n">myLib</span><span class="o">.</span><span class="n">myMethod</span><span class="o">(</span><span class="n">Vertical</span><span class="o">,</span> <span class="n">Horizontal</span><span class="o">)</span>
+</pre></div>
+</div>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// js output</span>
+<span class="nx">myLib</span><span class="p">.</span><span class="nx">myMethod</span><span class="p">(</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span> <span class="s2">&quot;Horizontal&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="plain-old-javascript-objects">
+<h2>Plain Old JavaScript Objects<a class="headerlink" href="#plain-old-javascript-objects" title="Permalink to this headline">¶</a></h2>
+<p>To create a plain JS object (aka POJO), use <code class="docutils literal notranslate"><span class="pre">createObj</span></code>:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nn">Fable.Core.JsInterop</span>
+
+<span class="k">let</span> <span class="nv">data</span> <span class="o">=</span>
+    <span class="n">createObj</span> <span class="o">[</span>
+        <span class="s">&quot;todos&quot;</span> <span class="o">==&gt;</span> <span class="nn">Storage</span><span class="p">.</span><span class="n">fetch</span><span class="bp">()</span>
+        <span class="s">&quot;editedTodo&quot;</span> <span class="o">==&gt;</span> <span class="n">Option</span><span class="o">&lt;</span><span class="n">Todo</span><span class="o">&gt;.</span><span class="n">None</span>
+        <span class="s">&quot;visibility&quot;</span> <span class="o">==&gt;</span> <span class="s">&quot;all&quot;</span>
+    <span class="o">]</span>
+</pre></div>
+</div>
+<p>A similar effect can be achieved with the new F# <a class="reference external" href="https://devblogs.microsoft.com/dotnet/announcing-f-4-6-preview/">anonymous records</a>:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">data</span> <span class="o">=</span>
+    <span class="o">{|</span> <span class="n">todos</span> <span class="o">=</span> <span class="nn">Storage</span><span class="p">.</span><span class="n">fetch</span><span class="bp">()</span>
+       <span class="n">editedTodo</span> <span class="o">=</span> <span class="n">Option</span><span class="o">&lt;</span><span class="n">Todo</span><span class="o">&gt;.</span><span class="n">None</span>
+       <span class="n">visibility</span> <span class="o">=</span> <span class="s">&quot;all&quot;</span> <span class="o">|}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since fable-compiler 2.3.6, when using the dynamic cast operator <code class="docutils literal notranslate"><span class="pre">!!</span></code> to cast an anonymous record to an interface, Fable will raise a warning if the fields in the anonymous don’t match those of the interface. Use this feature only to interop with JS, in F# code the proper way to instantiate an interface without an implementing type is an <a class="reference external" href="https://fsharpforfunandprofit.com/posts/object-expressions/">object expression</a>.</p>
+</div>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">type</span> <span class="nc">IMyInterface</span> <span class="o">=</span>
+    <span class="k">abstract</span> <span class="n">foo</span><span class="o">:</span> <span class="kt">string</span> <span class="k">with</span> <span class="n">get</span><span class="o">,</span> <span class="n">set</span>
+    <span class="k">abstract</span> <span class="n">bar</span><span class="o">:</span> <span class="kt">float</span> <span class="k">with</span> <span class="n">get</span><span class="o">,</span> <span class="n">set</span>
+    <span class="k">abstract</span> <span class="n">baz</span><span class="o">:</span> <span class="n">int</span> <span class="n">option</span> <span class="k">with</span> <span class="n">get</span><span class="o">,</span> <span class="n">set</span>
+
+<span class="c1">// Warning, &quot;foo&quot; must be a string</span>
+<span class="k">let</span> <span class="nv">x</span><span class="o">:</span> <span class="n">IMyInterface</span> <span class="o">=</span> <span class="o">!!{|</span> <span class="n">foo</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span> <span class="n">bar</span> <span class="o">=</span> <span class="mi">4</span><span class="o">.;</span> <span class="n">baz</span> <span class="o">=</span> <span class="n">Some</span> <span class="mi">0</span> <span class="o">|}</span>
+
+<span class="c1">// Warning, &quot;bar&quot; field is missing</span>
+<span class="k">let</span> <span class="nv">y</span><span class="o">:</span> <span class="n">IMyInterface</span> <span class="o">=</span> <span class="o">!!{|</span> <span class="n">foo</span> <span class="o">=</span> <span class="s">&quot;5&quot;</span><span class="o">;</span> <span class="n">bAr</span> <span class="o">=</span> <span class="mi">4</span><span class="o">.;</span> <span class="n">baz</span> <span class="o">=</span> <span class="n">Some</span> <span class="mi">0</span> <span class="o">|}</span>
+
+<span class="c1">// Ok, &quot;baz&quot; can be missing because it&#39;s optional</span>
+<span class="k">let</span> <span class="nv">z</span><span class="o">:</span> <span class="n">IMyInterface</span> <span class="o">=</span> <span class="o">!!{|</span> <span class="n">foo</span> <span class="o">=</span> <span class="s">&quot;5&quot;</span><span class="o">;</span> <span class="n">bar</span> <span class="o">=</span> <span class="mi">4</span><span class="o">.</span> <span class="o">|}</span>
+</pre></div>
+</div>
+<p>You can also create a JS object from an interface by using <code class="docutils literal notranslate"><span class="pre">createEmpty</span></code> and then assigning the fields manually:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">x</span> <span class="o">=</span> <span class="n">createEmpty</span><span class="o">&lt;</span><span class="n">IMyInterface</span><span class="o">&gt;</span> <span class="c1">// var x = {}</span>
+<span class="n">x</span><span class="o">.</span><span class="n">foo</span> <span class="o">&lt;-</span> <span class="s">&quot;abc&quot;</span>                    <span class="c1">// x.foo = &quot;abc&quot;</span>
+<span class="n">x</span><span class="o">.</span><span class="n">bar</span> <span class="o">&lt;-</span> <span class="mi">8</span><span class="o">.</span><span class="mi">5</span>                      <span class="c1">// val.bar = 8.5</span>
+</pre></div>
+</div>
+<p>A similar solution that can also be optimized by Fable directly into a JS object at compile time is to use the <code class="docutils literal notranslate"><span class="pre">jsOptions</span></code> helper:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">x</span> <span class="o">=</span> <span class="n">jsOptions</span><span class="o">&lt;</span><span class="n">IMyInterface</span><span class="o">&gt;(</span><span class="k">fun</span> <span class="n">x</span> <span class="o">-&gt;</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">foo</span> <span class="o">&lt;-</span> <span class="s">&quot;abc&quot;</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">bar</span> <span class="o">&lt;-</span> <span class="mi">8</span><span class="o">.</span><span class="mi">5</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>Another option is to use a list (or any sequence) of union cases in combination with the <code class="docutils literal notranslate"><span class="pre">keyValueList</span></code> helper. This is often used to represent React props. You can specify the case rules for the transformations of the case names (usually lowering the first letter) and if necessary you can also decorate some cases with the <code class="docutils literal notranslate"><span class="pre">CompiledName</span></code> attribute to change its name in the JS runtime.</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nn">Fable.Core.JsInterop</span>
+
+<span class="k">type</span> <span class="nc">JsOption</span> <span class="o">=</span>
+    <span class="o">|</span> <span class="n">Flag1</span>
+    <span class="o">|</span> <span class="n">Name</span> <span class="k">of</span> <span class="kt">string</span>
+    <span class="o">|</span> <span class="o">[&lt;</span><span class="n">CompiledName</span><span class="o">(</span><span class="s">&quot;quantity&quot;</span><span class="o">)&gt;]</span> <span class="n">QTY</span> <span class="k">of</span> <span class="n">int</span>
+
+<span class="k">let</span> <span class="nv">inline</span> <span class="n">sendToJs</span> <span class="o">(</span><span class="n">opts</span><span class="o">:</span> <span class="n">JsOption</span> <span class="kt">list</span><span class="o">)</span> <span class="o">=</span>
+    <span class="n">keyValueList</span> <span class="nn">CaseRules</span><span class="p">.</span><span class="n">LowerFirst</span> <span class="n">opts</span> <span class="o">|&gt;</span> <span class="n">aNativeJsFunction</span>
+
+<span class="n">sendToJs</span> <span class="o">[</span>
+    <span class="n">Flag1</span>
+    <span class="n">Name</span> <span class="s">&quot;foo&quot;</span>
+    <span class="n">QTY</span> <span class="mi">5</span>
+<span class="o">]</span>
+<span class="c1">// JS: { flag1: true, name: &quot;foo&quot;, quantity: 5 }</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Fable can make the transformation at compile time when applying the list literal directly to <code class="docutils literal notranslate"><span class="pre">keyValueList</span></code>. That’s why it’s usually a good idea to inline the function containing the helper.</p>
+</div>
+<div class="section" id="dynamic-typing-don-t-read-this">
+<h3>Dynamic typing: don’t read this!<a class="headerlink" href="#dynamic-typing-don-t-read-this" title="Permalink to this headline">¶</a></h3>
+<p>Through the use of the tools we just described above, Fable guarantees you shouldn’t run into nasty bugs (as long as the interface contracts are correct) because all the code will be checked by the compiler. If it does not compile it either means your JS library does not exist or its path is not good or that your F# implementation lacks something. We do rely on Fable on systems that are used 24/7, web apps or Node.js apps. We know that if it compiles, it means a 99% chance of running without any problems.</p>
+<p>Our motto is: “If it compiles, it works!”</p>
+<p>Still, like we stated, <strong>interop is a question of trust</strong>. If you trust your JS code and F# code, then maybe it’s ok to do things together without further checks. Maybe.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Disclaimer: use this at your own risk</p>
+</div>
+<div class="section" id="what-is-dynamic-typing">
+<h4>What is dynamic typing?<a class="headerlink" href="#what-is-dynamic-typing" title="Permalink to this headline">¶</a></h4>
+<p>Fable.Core.JsInterop implements the F# dynamic operators so you can easily access an object property by name (without static check) as follows:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nn">Fable.Core.JsInterop</span>
+
+<span class="n">printfn</span> <span class="s">&quot;Value: %O&quot;</span> <span class="n">jsObject</span><span class="o">?</span><span class="n">myProperty</span>
+<span class="c1">// JS: jsObject?myProperty</span>
+
+<span class="k">let</span> <span class="nv">pname</span> <span class="o">=</span> <span class="s">&quot;myProperty&quot;</span>
+
+<span class="n">printfn</span> <span class="s">&quot;Value: %O&quot;</span> <span class="n">jsObject</span><span class="o">?(</span><span class="n">pname</span><span class="o">)</span> <span class="c1">// Access with a reference</span>
+<span class="c1">// JS: jsObject[pname]</span>
+
+<span class="n">jsObject</span><span class="o">?</span><span class="n">myProperty</span> <span class="o">&lt;-</span> <span class="mi">5</span> <span class="c1">// Assignment is also possible</span>
+</pre></div>
+</div>
+<p>When you combine the dynamic operator with application, Fable will destructure tuple arguments as with normal method calls. These operations can also be chained to replicate JS fluent APIs.</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="n">jsObject</span><span class="o">?</span><span class="n">myMethod</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>
+<span class="c1">// JS: jsObject.myMethod(1, 2)</span>
+
+<span class="n">chart</span>
+    <span class="o">?</span><span class="n">width</span><span class="o">(</span><span class="mi">768</span><span class="o">.)</span>
+    <span class="o">?</span><span class="n">height</span><span class="o">(</span><span class="mi">480</span><span class="o">.)</span>
+    <span class="o">?</span><span class="n">group</span><span class="o">(</span><span class="n">speedSumGroup</span><span class="o">)</span>
+    <span class="o">?</span><span class="n">on</span><span class="o">(</span><span class="s">&quot;renderlet&quot;</span><span class="o">,</span> <span class="k">fun</span> <span class="n">chart</span> <span class="o">-&gt;</span>
+        <span class="n">chart</span><span class="o">?</span><span class="n">selectAll</span><span class="o">(</span><span class="s">&quot;rect&quot;</span><span class="o">)?</span><span class="n">on</span><span class="o">(</span><span class="s">&quot;click&quot;</span><span class="o">,</span> <span class="k">fun</span> <span class="n">sender</span> <span class="n">args</span> <span class="o">-&gt;</span>
+            <span class="nn">Browser</span><span class="p">.</span><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="o">(</span><span class="s">&quot;click!&quot;</span><span class="o">,</span> <span class="n">args</span><span class="o">))</span>
+
+<span class="c1">// chart</span>
+<span class="c1">//     .width(768)</span>
+<span class="c1">//     .height(480)</span>
+<span class="c1">//     .group(speedSumGroup)</span>
+<span class="c1">//     .on(&quot;renderlet&quot;, function (chart) {</span>
+<span class="c1">//         return chart.selectAll(&quot;rect&quot;).on(&quot;click&quot;, function (sender, args) {</span>
+<span class="c1">//             return console.log(&quot;click!&quot;, args);</span>
+<span class="c1">//         });</span>
+<span class="c1">//      });</span>
+</pre></div>
+</div>
+<p>When you have to call a function with the new keyword in JS, use <code class="docutils literal notranslate"><span class="pre">createNew</span></code>.</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nn">Fable.Core.JsInterop</span>
+
+<span class="k">let</span> <span class="nv">instance</span> <span class="o">=</span> <span class="n">createNew</span> <span class="n">jsObject</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">)</span>
+<span class="c1">// JS: new jsObject(1, 2)</span>
+</pre></div>
+</div>
+<p>If you prefer member extensions rather than operators for dynamic typing, you can open <code class="docutils literal notranslate"><span class="pre">Fable.Core.DynamicExtensions</span></code> to have the methods <code class="docutils literal notranslate"><span class="pre">.Item</span></code> and <code class="docutils literal notranslate"><span class="pre">.Invoke</span></code> available on any object.</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span> <span class="nn">Fable.Core.DynamicExtensions</span>
+
+<span class="k">let</span> <span class="nv">foo</span> <span class="o">=</span> <span class="kt">obj</span><span class="bp">()</span>
+<span class="k">let</span> <span class="nv">bar1</span> <span class="o">=</span> <span class="n">foo</span><span class="o">.[</span><span class="s">&quot;b&quot;</span><span class="o">]</span>  <span class="c1">// Same as foo.Item(&quot;b&quot;)</span>
+<span class="n">foo</span><span class="o">.[</span><span class="s">&quot;c&quot;</span><span class="o">]</span> <span class="o">&lt;-</span> <span class="mi">14</span>
+<span class="k">let</span> <span class="nv">bar2</span> <span class="o">=</span> <span class="n">foo</span><span class="o">.</span><span class="n">Invoke</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="s">&quot;a&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dynamic-casting">
+<h4>Dynamic casting<a class="headerlink" href="#dynamic-casting" title="Permalink to this headline">¶</a></h4>
+<p>In some situations, when receiving an untyped object from JS you may want to cast it to a specific type. For this you can use the F# <code class="docutils literal notranslate"><span class="pre">unbox</span></code> function or the <code class="docutils literal notranslate"><span class="pre">!!</span></code> operator in Fable.Core.JsInterop. This will bypass the F# type checker but please note <strong>Fable will not add any runtime check</strong> to verify the cast is correct.</p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "fable-compiler/Fable.Python",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./communicate"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="fable-from-py.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Call Fable from Python</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="../dotnet/compatibility.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">.NET and F# compatibility</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By the Fable community<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
