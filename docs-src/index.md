@@ -239,8 +239,8 @@ match card with
 <!-- The indentation/format used has been chosen so the code is displayed
 without scrollbar on almost any screen size -->
 ```fsharp
-// JS promises made easy
-promise {
+// Python async made easy
+task {
     let! res = Fetch.fetch url []
     let! txt = res.text()
     return txt.Length
@@ -448,7 +448,6 @@ async {
             });
 
             if (isReady) {
-
                 const fableMainHeader = document.querySelector("#fable-main-header");
                 fableMainHeader.classList.add("is-8-desktop");
                 fableMainHeader.classList.remove("is-offset-2-desktop");
