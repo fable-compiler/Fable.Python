@@ -135,3 +135,5 @@ build
 
 .idea/
 src/**/*.py
+
+.ionide/
