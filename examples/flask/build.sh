@@ -1,2 +1,2 @@
 #!/bin/bash
-dotnet fable-py src/Flask.fsproj
+dotnet fable-py src/Flask.fsproj --outDir ./src
