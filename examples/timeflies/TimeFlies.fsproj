@@ -10,7 +10,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fable.Python" Version="0.16.0" />
-    <PackageReference Include="Fable.Core.Experimental" Version="4.0.0-alpha-016" />
+    <PackageReference Include="Fable.Core.Experimental" Version="4.0.0-alpha-021" />
     <PackageReference Include="FSharp.Control.AsyncRx" Version="1.6.0" />
   </ItemGroup>
-  </Project>
+</Project>

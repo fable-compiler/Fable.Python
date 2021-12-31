@@ -2,7 +2,7 @@ STORAGE: NONE
 RESTRICTION: || (== net6.0) (== netstandard2.0) (== netstandard2.1)
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    Fable.Core.Experimental (4.0.0-alpha-016)
+    Fable.Core.Experimental (4.0.0-alpha-021)
     FSharp.Core (4.7.2)
 
 GROUP Build
@@ -63,13 +63,13 @@ STORAGE: NONE
 RESTRICTION: == net6.0
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    Fable.Core.Experimental (4.0.0-alpha-016)
+    Fable.Core.Experimental (4.0.0-alpha-021)
     FSharp.Core (6.0.1)
     Microsoft.CodeCoverage (17.0)
     Microsoft.NET.Test.Sdk (16.11)
       Microsoft.CodeCoverage (>= 16.11)
       Microsoft.TestPlatform.TestHost (>= 16.11)
-    Microsoft.NETCore.Platforms (6.0)
+    Microsoft.NETCore.Platforms (6.0.1)
     Microsoft.TestPlatform.ObjectModel (17.0)
       NuGet.Frameworks (>= 5.0)
       System.Reflection.Metadata (>= 1.6)

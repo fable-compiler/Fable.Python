@@ -5,7 +5,7 @@ storage: none
 framework: net6.0, netstandard2.0, netstandard2.1
 
 nuget FSharp.Core ~> 4.7
-nuget Fable.Core.Experimental >= 4.0.0-alpha-016
+nuget Fable.Core.Experimental >= 4.0.0-alpha-021
 
 group Test
     source https://api.nuget.org/v3/index.json
@@ -13,7 +13,7 @@ group Test
     framework: net6.0
 
     nuget FSharp.Core
-    nuget Fable.Core.Experimental >= 4.0.0-alpha-016
+    nuget Fable.Core.Experimental >= 4.0.0-alpha-021
     nuget Microsoft.NET.Test.Sdk ~> 16
     nuget XUnit ~> 2
     nuget xunit.runner.visualstudio ~>  2
@@ -24,5 +24,6 @@ group Build
     storage: none
     framework: net6.0
 
+    nuget System.Collections.Immutable
     nuget Fake.Core.Target
     nuget Fake.IO.FileSystem

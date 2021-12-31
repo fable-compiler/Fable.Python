@@ -9,13 +9,13 @@
       ]
     },
     "fantomas-tool": {
-      "version": "4.5.4",
+      "version": "4.5.10",
       "commands": [
         "fantomas"
       ]
     },
     "fable-py": {
-      "version": "4.0.0-alpha-016",
+      "version": "4.0.0-alpha-021",
       "commands": [
         "fable-py"
       ]
