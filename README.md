@@ -34,7 +34,7 @@ Prerequisite for compiling F# to Python using Fable:
 To use the `Fable.Python` library in your Fable project:
 
 ```sh
-> dotnet package add Fable.Python
+> dotnet add package Fable.Python
 ```
 
 ## Usage
