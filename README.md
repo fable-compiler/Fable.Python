@@ -27,8 +27,8 @@ library until we decide how to deal with Python version handling.
 Prerequisite for compiling F# to Python using Fable:
 
 ```sh
-> dotnet tool install --global fable-py --version 4.0.0-alpha-021
-> dotnet add package Fable.Core.Experimental --version 4.0.0-alpha-021
+> dotnet tool install --global fable-py --version 4.0.0-alpha-022
+> dotnet add package Fable.Core.Experimental --version 4.0.0-alpha-022
 ```
 
 To use the `Fable.Python` library in your Fable project:
@@ -52,13 +52,6 @@ To compile an F# Fable project to Python run e.g:
 > dotnet fable-py MyProject.fsproj
 ```
 
-# Libraries that uses or works with Fable Python
-
-- [AsyncRx](https://github.com/dbrattli/AsyncRx)
-- [Fable.SimpleJson.Python](https://github.com/Zaid-Ajaj/Fable.SimpleJson.Python)
-- [Feliz.ViewEngine](https://github.com/dbrattli/Feliz.ViewEngine)
-- [TypedCssClasses](https://github.com/zanaptak/TypedCssClasses)
-
 For more examples see the
 [examples](https://github.com/dbrattli/Fable.Python/tree/main/examples) folder.
 It contains example code for using Fable Python with:
@@ -72,6 +65,13 @@ It contains example code for using Fable Python with:
   [FSharp.Control.AsyncRx](https://github.com/dbrattli/AsyncRx) as a nuget
   package.
 
+## Libraries that uses or works with Fable Python
+
+- [AsyncRx](https://github.com/dbrattli/AsyncRx)
+- [Fable.Sedlex](https://github.com/thautwarm/Fable.Sedlex)
+- [Fable.SimpleJson.Python](https://github.com/Zaid-Ajaj/Fable.SimpleJson.Python)
+- [Feliz.ViewEngine](https://github.com/dbrattli/Feliz.ViewEngine)
+- [TypedCssClasses](https://github.com/zanaptak/TypedCssClasses)
 
 ## Contributing
 

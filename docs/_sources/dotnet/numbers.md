@@ -1,8 +1,8 @@
 # Numeric types
 
-In Fable, we use F# numeric types, which are all translated to JS Number (64-bit floating type) at the exception of `int64`, `uint64`, `bigint` and `decimal`.
+In Fable, we use F# numeric types, which are all translated to Python integers at the exception of `float`, `double`, and `decimal`.
 
-Fable numbers are very nearly compatible with .NET semantics, but translating into Javascript types has consequences:
+Fable numbers are very nearly compatible with .NET semantics, but translating into Python types has consequences:
 
 * (non-standard) All floating point numbers are implemented as 64 bit (`double`). This makes `float32` numbers more accurate than expected.
 * (non-standard) Arithmetic integers of 32 bits or less are implemented with different truncation from that expected, as whole numbers embedded within `double`.

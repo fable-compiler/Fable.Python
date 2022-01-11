@@ -1,25 +1,13 @@
 # Python you can be proud of!
 
-<!--
-    Index page of Fable is mostly written using HTML because it needs specific layouts
-
-    It is still process as markdown by Nacara so we get nice snippet coloration and also
-    benefit of the navbar generation and same style across all Fable website
--->
-
 ````{panels}
-Type safety without the hassle
+<img src="/static/img/fsharp.png" /> **Functional programming and more**
 ^^^
 Immutable by default. Powerful pattern matching. Lightweight syntax. Units of measure. Type providers. Enjoy.
-+++
-Panel footer 1
 ---
-
-Type safety without the hassle
+<span class="icon is-small has-text-black"><i class="fas fa-lock fa-2x"></i></span> **Type safety without the hassle**
 ^^^
 Type inference provides robustness and correctness, but without the cost of additional code. Let the compiler catch bugs for you.
-+++
-Panel footer 2
 ````
 
 <!-- Disable the copy-button on all the elements contained inside the container (all this page) -->
@@ -250,8 +238,8 @@ task {
 type OptionBuilder() =
     member __.Bind(opt, binder) =
         match opt with
-            | Some value -> binder value
-            | None -> None
+        | Some value -> binder value
+        | None -> None
     member __.Return(value) =
         Some value
 

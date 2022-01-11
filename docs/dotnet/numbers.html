@@ -284,8 +284,8 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="numeric-types">
 <h1>Numeric types<a class="headerlink" href="#numeric-types" title="Permalink to this headline">¶</a></h1>
-<p>In Fable, we use F# numeric types, which are all translated to JS Number (64-bit floating type) at the exception of <code class="docutils literal notranslate"><span class="pre">int64</span></code>, <code class="docutils literal notranslate"><span class="pre">uint64</span></code>, <code class="docutils literal notranslate"><span class="pre">bigint</span></code> and <code class="docutils literal notranslate"><span class="pre">decimal</span></code>.</p>
-<p>Fable numbers are very nearly compatible with .NET semantics, but translating into Javascript types has consequences:</p>
+<p>In Fable, we use F# numeric types, which are all translated to Python integers at the exception of <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, and <code class="docutils literal notranslate"><span class="pre">decimal</span></code>.</p>
+<p>Fable numbers are very nearly compatible with .NET semantics, but translating into Python types has consequences:</p>
 <ul class="simple">
 <li><p>(non-standard) All floating point numbers are implemented as 64 bit (<code class="docutils literal notranslate"><span class="pre">double</span></code>). This makes <code class="docutils literal notranslate"><span class="pre">float32</span></code> numbers more accurate than expected.</p></li>
 <li><p>(non-standard) Arithmetic integers of 32 bits or less are implemented with different truncation from that expected, as whole numbers embedded within <code class="docutils literal notranslate"><span class="pre">double</span></code>.</p></li>

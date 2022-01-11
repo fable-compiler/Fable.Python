@@ -265,37 +265,25 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="python-you-can-be-proud-of">
 <h1>Python you can be proud of!<a class="headerlink" href="#python-you-can-be-proud-of" title="Permalink to this headline">¶</a></h1>
-<!--
-    Index page of Fable is mostly written using HTML because it needs specific layouts
-
-    It is still process as markdown by Nacara so we get nice snippet coloration and also
-    benefit of the navbar generation and same style across all Fable website
--->
 <div class="sphinx-bs container pb-4 docutils">
 <div class="row docutils">
 <div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
 <div class="card w-100 shadow docutils">
 <div class="card-header docutils">
-<p class="card-text">Type safety without the hassle</p>
+<p class="card-text"><img src="/static/img/fsharp.png" /> <strong>Functional programming and more</strong></p>
 </div>
 <div class="card-body docutils">
 <p class="card-text">Immutable by default. Powerful pattern matching. Lightweight syntax. Units of measure. Type providers. Enjoy.</p>
-</div>
-<div class="card-footer docutils">
-<p class="card-text">Panel footer 1</p>
 </div>
 </div>
 </div>
 <div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
 <div class="card w-100 shadow docutils">
 <div class="card-header docutils">
-<p class="card-text">Type safety without the hassle</p>
+<p class="card-text"><span class="icon is-small has-text-black"><i class="fas fa-lock fa-2x"></i></span> <strong>Type safety without the hassle</strong></p>
 </div>
 <div class="card-body docutils">
 <p class="card-text">Type inference provides robustness and correctness, but without the cost of additional code. Let the compiler catch bugs for you.</p>
-</div>
-<div class="card-footer docutils">
-<p class="card-text">Panel footer 2</p>
 </div>
 </div>
 </div>
@@ -526,8 +514,8 @@ without scrollbar on almost any screen size -->
 <span class="k">type</span> <span class="nc">OptionBuilder</span><span class="bp">()</span> <span class="o">=</span>
     <span class="k">member</span> <span class="n">__</span><span class="p">.</span><span class="nf">Bind</span><span class="o">(</span><span class="n">opt</span><span class="o">,</span> <span class="n">binder</span><span class="o">)</span> <span class="o">=</span>
         <span class="k">match</span> <span class="n">opt</span> <span class="k">with</span>
-            <span class="o">|</span> <span class="n">Some</span> <span class="n">value</span> <span class="o">-&gt;</span> <span class="n">binder</span> <span class="n">value</span>
-            <span class="o">|</span> <span class="n">None</span> <span class="o">-&gt;</span> <span class="n">None</span>
+        <span class="o">|</span> <span class="n">Some</span> <span class="n">value</span> <span class="o">-&gt;</span> <span class="n">binder</span> <span class="n">value</span>
+        <span class="o">|</span> <span class="n">None</span> <span class="o">-&gt;</span> <span class="n">None</span>
     <span class="k">member</span> <span class="n">__</span><span class="p">.</span><span class="nf">Return</span><span class="o">(</span><span class="n">value</span><span class="o">)</span> <span class="o">=</span>
         <span class="n">Some</span> <span class="n">value</span>
 
