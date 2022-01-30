@@ -135,13 +135,13 @@ type IPinLogo =
 [<Import("accelerometer", "microbit")>]
 let accelerometer: IAccelerometer = nativeOnly
 
-[<Import("sleep", "microbit")>]
 /// Wait for n milliseconds. One second is 1000 milliseconds".
+[<Import("sleep", "microbit")>]
 let sleep (milliseconds: int) = nativeOnly
 
 
-[<Import("temperature", "microbit")>]
 /// Return the temperature of the micro:bit in degrees Celcius.
+[<Import("temperature", "microbit")>]
 let temperature () : float = nativeOnly
 
 
