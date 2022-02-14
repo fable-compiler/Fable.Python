@@ -49,7 +49,7 @@ let result = json.dumps object
 To compile an F# Fable project to Python run e.g:
 
 ```sh
-> dotnet fable-py MyProject.fsproj
+> fable-py MyProject.fsproj
 ```
 
 For more examples see the
