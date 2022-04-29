@@ -10,13 +10,14 @@ open Fable.Core
 type TextIOBase =
     abstract read : unit -> string
     abstract read : __size: int -> string
+    abstract write : string -> unit
 
 type TextIOWrapper =
     inherit IDisposable
     inherit TextIOBase
 
 [<StringEnum>]
-type OpenTextModeUpdating =
+type OpenTextMode =
     | [<CompiledName("r+")>] ReadUpdate
     | [<CompiledName("+r")>] UpdateRead
     | [<CompiledName("rt+")>] ReadTextUpdate
@@ -49,15 +50,6 @@ type OpenTextModeUpdating =
     | [<CompiledName("tx+")>] TextCreateUpdate
     | [<CompiledName("t+x")>] TextUpdateCreate
     | [<CompiledName("+tx")>] UpdateTextCreate
-
-[<StringEnum>]
-type OpenTextModeReading =
-    | [<CompiledName("rt")>] Read
-    | [<CompiledName("rt")>] ReadText
-    | [<CompiledName("tr")>] TextRead
-
-[<StringEnum>]
-type OpenTextModeWriting =
     | [<CompiledName("w")>] Write
     | [<CompiledName("wt")>] WriteText
     | [<CompiledName("tw")>] TextWrite
@@ -67,13 +59,9 @@ type OpenTextModeWriting =
     | [<CompiledName("x")>] Create
     | [<CompiledName("xt")>] CreateText
     | [<CompiledName("tx")>] TextCreate
-
-[<Erase>]
-type OpenTextMode =
-    | OpenTextModeUpdating
-    | OpenTextModeWriting
-    | OpenTextModeReading
-
+    | [<CompiledName("rt")>] Read
+    | [<CompiledName("rt")>] ReadText
+    | [<CompiledName("tr")>] TextRead
 
 [<Erase>]
 type _OpenFile =

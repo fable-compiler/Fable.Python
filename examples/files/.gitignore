@@ -1,0 +1,5 @@
+*.py
+fable_modules/
+obj/
+bin/
+src/text.txt
