@@ -72,6 +72,7 @@ It contains example code for using Fable Python with:
 - [Fable.SimpleJson.Python](https://github.com/Zaid-Ajaj/Fable.SimpleJson.Python)
 - [Feliz.ViewEngine](https://github.com/dbrattli/Feliz.ViewEngine)
 - [TypedCssClasses](https://github.com/zanaptak/TypedCssClasses)
+- [Typed-BNF](https://github.com/thautwarm/Typed-BNF#readme)
 
 ## Contributing
 
