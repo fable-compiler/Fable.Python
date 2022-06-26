@@ -15,70 +15,54 @@ type TextIOWrapper =
     inherit IDisposable
     inherit TextIOBase
 
-[<StringEnum>]
-type OpenTextModeUpdating =
-    | [<CompiledName("r+")>] ReadUpdate
-    | [<CompiledName("+r")>] UpdateRead
-    | [<CompiledName("rt+")>] ReadTextUpdate
-    | [<CompiledName("r+t")>] ReadUpdateText
-    | [<CompiledName("+rt")>] UpdateReadText
-    | [<CompiledName("tr+")>] TextReadUpdate
-    | [<CompiledName("t+r")>] TextUpdateRead
-    | [<CompiledName("+tr")>] UpdateTextRead
-    | [<CompiledName("w+")>] WriteUpdate
-    | [<CompiledName("+w")>] UpdateWrite
-    | [<CompiledName("wt+")>] WriteTextUpdate
-    | [<CompiledName("w+t")>] WriteUpdateText
-    | [<CompiledName("+wt")>] UpdateWriteText
-    | [<CompiledName("tw+")>] TextWriteUpdate
-    | [<CompiledName("t+w")>] TextUpdateWrite
-    | [<CompiledName("+tw")>] UpdateTextWrite
-    | [<CompiledName("a+")>] AppendUpdate
-    | [<CompiledName("+a")>] UpdateAppend
-    | [<CompiledName("at+")>] AppendTextUpdate
-    | [<CompiledName("a+t")>] AppendUpdateText
-    | [<CompiledName("+at")>] UpdateAppendText
-    | [<CompiledName("ta+")>] TextAppendUpdate
-    | [<CompiledName("t+a")>] TextUpdateAppend
-    | [<CompiledName("+ta")>] UpdateTextAppend
-    | [<CompiledName("x+")>] CreateUpdate
-    | [<CompiledName("+x")>] UpdateCreate
-    | [<CompiledName("xt+")>] CreateTextUpdate
-    | [<CompiledName("x+t")>] CreateUpdateText
-    | [<CompiledName("+xt")>] UpdateCreateText
-    | [<CompiledName("tx+")>] TextCreateUpdate
-    | [<CompiledName("t+x")>] TextUpdateCreate
-    | [<CompiledName("+tx")>] UpdateTextCreate
+module OpenTextMode =
+    let [<Literal>] ReadUpdate = "r+"
+    let [<Literal>] UpdateRead = "+r"
+    let [<Literal>] ReadTextUpdate = "rt+"
+    let [<Literal>] ReadUpdateText = "r+t"
+    let [<Literal>] UpdateReadText = "+rt"
+    let [<Literal>] TextReadUpdate = "tr+"
+    let [<Literal>] TextUpdateRead = "t+r"
+    let [<Literal>] UpdateTextRead = "+tr"
+    let [<Literal>] WriteUpdate = "w+"
+    let [<Literal>] UpdateWrite = "+w"
+    let [<Literal>] WriteTextUpdate = "wt+"
+    let [<Literal>] WriteUpdateText = "w+t"
+    let [<Literal>] UpdateWriteText = "+wt"
+    let [<Literal>] TextWriteUpdate = "tw+"
+    let [<Literal>] TextUpdateWrite = "t+w"
+    let [<Literal>] UpdateTextWrite = "+tw"
+    let [<Literal>] AppendUpdate = "a+"
+    let [<Literal>] UpdateAppend = "+a"
+    let [<Literal>] AppendTextUpdate = "at+"
+    let [<Literal>] AppendUpdateText = "a+t"
+    let [<Literal>] UpdateAppendText = "+at"
+    let [<Literal>] TextAppendUpdate = "ta+"
+    let [<Literal>] TextUpdateAppend = "t+a"
+    let [<Literal>] UpdateTextAppend = "+ta"
+    let [<Literal>] CreateUpdate = "x+"
+    let [<Literal>] UpdateCreate = "+x"
+    let [<Literal>] CreateTextUpdate = "xt+"
+    let [<Literal>] CreateUpdateText = "x+t"
+    let [<Literal>] UpdateCreateText = "+xt"
+    let [<Literal>] TextCreateUpdate = "tx+"
+    let [<Literal>] TextUpdateCreate = "t+x"
+    let [<Literal>] UpdateTextCreate = "+tx"
 
-[<StringEnum>]
-type OpenTextModeReading =
-    | [<CompiledName("rt")>] Read
-    | [<CompiledName("rt")>] ReadText
-    | [<CompiledName("tr")>] TextRead
+    let [<Literal>] Read = "rt"
+    let [<Literal>] ReadText = "rt"
+    let [<Literal>] TextRead = "tr"
 
-[<StringEnum>]
-type OpenTextModeWriting =
-    | [<CompiledName("w")>] Write
-    | [<CompiledName("wt")>] WriteText
-    | [<CompiledName("tw")>] TextWrite
-    | [<CompiledName("a")>] Append
-    | [<CompiledName("at")>] AppendText
-    | [<CompiledName("ta")>] TextAppend
-    | [<CompiledName("x")>] Create
-    | [<CompiledName("xt")>] CreateText
-    | [<CompiledName("tx")>] TextCreate
+    let [<Literal>] Write = "w"
+    let [<Literal>] WriteText = "wt"
+    let [<Literal>] TextWrite = "tw"
+    let [<Literal>] Append = "a"
+    let [<Literal>] AppendText = "at"
+    let [<Literal>] TextAppend = "ta"
+    let [<Literal>] Create = "x"
+    let [<Literal>] CreateText = "xt"
+    let [<Literal>] TextCreate = "tx"
 
-[<Erase>]
-type OpenTextMode =
-    | OpenTextModeUpdating
-    | OpenTextModeWriting
-    | OpenTextModeReading
-
-
-[<Erase>]
-type _OpenFile =
-    | StringPath of string
-    | FileDescriptor of int
 
 type _Opener = Tuple<string, int> -> int
 
@@ -120,7 +104,8 @@ type IExports =
     abstract float : obj -> float
     abstract print : obj: obj -> unit
 
-    [<NamedParams(fromIndex=1)>] abstract ``open`` : file: _OpenFile * ?mode: OpenTextMode * ?buffering: int * ?encoding: string * ?errors: string * ?newline: string * ?closefd: bool * ?opener: _Opener -> TextIOWrapper
+    [<NamedParams(fromIndex=1)>] abstract ``open`` : file: int * ?mode: string * ?buffering: int * ?encoding: string * ?errors: string * ?newline: string * ?closefd: bool * ?opener: _Opener -> TextIOWrapper
+    [<NamedParams(fromIndex=1)>] abstract ``open`` : file: string * ?mode: string * ?buffering: int * ?encoding: string * ?errors: string * ?newline: string * ?closefd: bool * ?opener: _Opener -> TextIOWrapper
 
 [<ImportAll("builtins")>]
 let builtins: IExports = nativeOnly
