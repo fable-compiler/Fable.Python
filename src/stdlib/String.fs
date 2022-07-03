@@ -7,4 +7,4 @@ open Fable.Core
 
 type System.String with
     [<Emit("$0.format($1...)")>]
-    member self.format([<ParamArray>] args: Object[]) = nativeOnly
+    member self.format([<ParamArray>] args: Object []) = nativeOnly

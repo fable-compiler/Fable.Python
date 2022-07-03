@@ -9,3 +9,8 @@ let ``test print works`` () =
     result |> equal ()
 
 let ``test __name__ works`` () = __name__ |> equal "test_builtins"
+
+[<Fact>]
+let ``test write works`` () =
+    let result = builtins.``open``("test.txt", OpenTextMode.Write)
+    result.write "ABC" |> equal 3

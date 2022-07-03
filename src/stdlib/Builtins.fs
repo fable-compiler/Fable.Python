@@ -8,119 +8,222 @@ open Fable.Core
 // fsharplint:disable MemberNames,InterfaceNames
 
 type TextIOBase =
-    abstract read : unit -> string
-    abstract read : __size: int -> string
+    abstract read: unit -> string
+    abstract read: __size: int -> string
+    abstract write: __s: string -> int
+    abstract writelines: __lines: string seq -> unit
+    abstract readline: __size: int -> string
+    abstract readlines: __hint: int -> string list
+    abstract tell: unit -> int
 
 type TextIOWrapper =
     inherit IDisposable
     inherit TextIOBase
 
-[<StringEnum>]
-type OpenTextModeUpdating =
-    | [<CompiledName("r+")>] ReadUpdate
-    | [<CompiledName("+r")>] UpdateRead
-    | [<CompiledName("rt+")>] ReadTextUpdate
-    | [<CompiledName("r+t")>] ReadUpdateText
-    | [<CompiledName("+rt")>] UpdateReadText
-    | [<CompiledName("tr+")>] TextReadUpdate
-    | [<CompiledName("t+r")>] TextUpdateRead
-    | [<CompiledName("+tr")>] UpdateTextRead
-    | [<CompiledName("w+")>] WriteUpdate
-    | [<CompiledName("+w")>] UpdateWrite
-    | [<CompiledName("wt+")>] WriteTextUpdate
-    | [<CompiledName("w+t")>] WriteUpdateText
-    | [<CompiledName("+wt")>] UpdateWriteText
-    | [<CompiledName("tw+")>] TextWriteUpdate
-    | [<CompiledName("t+w")>] TextUpdateWrite
-    | [<CompiledName("+tw")>] UpdateTextWrite
-    | [<CompiledName("a+")>] AppendUpdate
-    | [<CompiledName("+a")>] UpdateAppend
-    | [<CompiledName("at+")>] AppendTextUpdate
-    | [<CompiledName("a+t")>] AppendUpdateText
-    | [<CompiledName("+at")>] UpdateAppendText
-    | [<CompiledName("ta+")>] TextAppendUpdate
-    | [<CompiledName("t+a")>] TextUpdateAppend
-    | [<CompiledName("+ta")>] UpdateTextAppend
-    | [<CompiledName("x+")>] CreateUpdate
-    | [<CompiledName("+x")>] UpdateCreate
-    | [<CompiledName("xt+")>] CreateTextUpdate
-    | [<CompiledName("x+t")>] CreateUpdateText
-    | [<CompiledName("+xt")>] UpdateCreateText
-    | [<CompiledName("tx+")>] TextCreateUpdate
-    | [<CompiledName("t+x")>] TextUpdateCreate
-    | [<CompiledName("+tx")>] UpdateTextCreate
+module OpenTextMode =
+    [<Literal>]
+    let ReadUpdate = "r+"
 
-[<StringEnum>]
-type OpenTextModeReading =
-    | [<CompiledName("rt")>] Read
-    | [<CompiledName("rt")>] ReadText
-    | [<CompiledName("tr")>] TextRead
+    [<Literal>]
+    let UpdateRead = "+r"
 
-[<StringEnum>]
-type OpenTextModeWriting =
-    | [<CompiledName("w")>] Write
-    | [<CompiledName("wt")>] WriteText
-    | [<CompiledName("tw")>] TextWrite
-    | [<CompiledName("a")>] Append
-    | [<CompiledName("at")>] AppendText
-    | [<CompiledName("ta")>] TextAppend
-    | [<CompiledName("x")>] Create
-    | [<CompiledName("xt")>] CreateText
-    | [<CompiledName("tx")>] TextCreate
+    [<Literal>]
+    let ReadTextUpdate = "rt+"
 
-[<Erase>]
-type OpenTextMode =
-    | OpenTextModeUpdating
-    | OpenTextModeWriting
-    | OpenTextModeReading
+    [<Literal>]
+    let ReadUpdateText = "r+t"
 
+    [<Literal>]
+    let UpdateReadText = "+rt"
 
-[<Erase>]
-type _OpenFile =
-    | StringPath of string
-    | FileDescriptor of int
+    [<Literal>]
+    let TextReadUpdate = "tr+"
+
+    [<Literal>]
+    let TextUpdateRead = "t+r"
+
+    [<Literal>]
+    let UpdateTextRead = "+tr"
+
+    [<Literal>]
+    let WriteUpdate = "w+"
+
+    [<Literal>]
+    let UpdateWrite = "+w"
+
+    [<Literal>]
+    let WriteTextUpdate = "wt+"
+
+    [<Literal>]
+    let WriteUpdateText = "w+t"
+
+    [<Literal>]
+    let UpdateWriteText = "+wt"
+
+    [<Literal>]
+    let TextWriteUpdate = "tw+"
+
+    [<Literal>]
+    let TextUpdateWrite = "t+w"
+
+    [<Literal>]
+    let UpdateTextWrite = "+tw"
+
+    [<Literal>]
+    let AppendUpdate = "a+"
+
+    [<Literal>]
+    let UpdateAppend = "+a"
+
+    [<Literal>]
+    let AppendTextUpdate = "at+"
+
+    [<Literal>]
+    let AppendUpdateText = "a+t"
+
+    [<Literal>]
+    let UpdateAppendText = "+at"
+
+    [<Literal>]
+    let TextAppendUpdate = "ta+"
+
+    [<Literal>]
+    let TextUpdateAppend = "t+a"
+
+    [<Literal>]
+    let UpdateTextAppend = "+ta"
+
+    [<Literal>]
+    let CreateUpdate = "x+"
+
+    [<Literal>]
+    let UpdateCreate = "+x"
+
+    [<Literal>]
+    let CreateTextUpdate = "xt+"
+
+    [<Literal>]
+    let CreateUpdateText = "x+t"
+
+    [<Literal>]
+    let UpdateCreateText = "+xt"
+
+    [<Literal>]
+    let TextCreateUpdate = "tx+"
+
+    [<Literal>]
+    let TextUpdateCreate = "t+x"
+
+    [<Literal>]
+    let UpdateTextCreate = "+tx"
+
+    [<Literal>]
+    let Read = "rt"
+
+    [<Literal>]
+    let ReadText = "rt"
+
+    [<Literal>]
+    let TextRead = "tr"
+
+    [<Literal>]
+    let Write = "w"
+
+    [<Literal>]
+    let WriteText = "wt"
+
+    [<Literal>]
+    let TextWrite = "tw"
+
+    [<Literal>]
+    let Append = "a"
+
+    [<Literal>]
+    let AppendText = "at"
+
+    [<Literal>]
+    let TextAppend = "ta"
+
+    [<Literal>]
+    let Create = "x"
+
+    [<Literal>]
+    let CreateText = "xt"
+
+    [<Literal>]
+    let TextCreate = "tx"
+
 
 type _Opener = Tuple<string, int> -> int
 
 type IExports =
     /// Return the absolute value of the argument.
-    abstract abs : int -> int
+    abstract abs: int -> int
     /// Return the absolute value of the argument.
-    abstract abs : float -> float
+    abstract abs: float -> float
     /// Return a Unicode string of one character with ordinal i; 0 <= i <= 0x10ffff.
-    abstract chr : int -> char
+    abstract chr: int -> char
     /// Return the names in the current scope.
-    abstract dir : unit -> string list
+    abstract dir: unit -> string list
+
     /// Return an alphabetized list of names comprising (some of) the
     /// attributes of the given object, and of attributes reachable from
     /// it
-    abstract dir : obj -> string list
+    abstract dir: obj -> string list
+
     /// Return the identity of an object.
-    abstract id : obj -> int
+    abstract id: obj -> int
+
     ///Return the length (the number of items) of an object. The argument may
     ///be a sequence (such as a string, bytes, tuple, list, or range) or a
     ///collection (such as a dictionary, set, or frozen set).
-    abstract len : obj -> int
+    abstract len: obj -> int
+
     /// Make an iterator that computes the function using arguments from
     /// the iterable.  Stops when iterable is exhausted.
-    abstract map : ('T1 -> 'T2) * IEnumerable<'T1> -> IEnumerable<'T2>
-    /// Make an iterator that computes the function using arguments from each
-    /// of the iterables.  Stops when the shortest iterable is exhausted.
-    abstract map : ('T1 * 'T2 -> 'T3) * IEnumerable<'T1> * IEnumerable<'T2> -> IEnumerable<'T3>
-    /// Make an iterator that computes the function using arguments from each
-    /// of the iterables.  Stops when the shortest iterable is exhausted.
-    abstract map : ('T1 * 'T2 * 'T3 -> 'T4) * IEnumerable<'T1> * IEnumerable<'T2> * IEnumerable<'T3> -> IEnumerable<'T4>
-    /// Return the Unicode code point for a one-character string.
-    abstract ord : char -> int
-    /// Object to string
-    abstract str : obj -> string
-    /// Object to int
-    abstract int : obj -> int
-    /// Object to float
-    abstract float : obj -> float
-    abstract print : obj: obj -> unit
+    abstract map: ('T1 -> 'T2) * IEnumerable<'T1> -> IEnumerable<'T2>
 
-    [<NamedParams(fromIndex=1)>] abstract ``open`` : file: _OpenFile * ?mode: OpenTextMode * ?buffering: int * ?encoding: string * ?errors: string * ?newline: string * ?closefd: bool * ?opener: _Opener -> TextIOWrapper
+    /// Make an iterator that computes the function using arguments from each
+    /// of the iterables.  Stops when the shortest iterable is exhausted.
+    abstract map: ('T1 * 'T2 -> 'T3) * IEnumerable<'T1> * IEnumerable<'T2> -> IEnumerable<'T3>
+
+    /// Make an iterator that computes the function using arguments from each
+    /// of the iterables.  Stops when the shortest iterable is exhausted.
+    abstract map: ('T1 * 'T2 * 'T3 -> 'T4) * IEnumerable<'T1> * IEnumerable<'T2> * IEnumerable<'T3> -> IEnumerable<'T4>
+
+    /// Return the Unicode code point for a one-character string.
+    abstract ord: char -> int
+    /// Object to string
+    abstract str: obj -> string
+    /// Object to int
+    abstract int: obj -> int
+    /// Object to float
+    abstract float: obj -> float
+    abstract print: obj: obj -> unit
+
+    [<NamedParams(fromIndex = 1)>]
+    abstract ``open``:
+        file: int *
+        ?mode: string *
+        ?buffering: int *
+        ?encoding: string *
+        ?errors: string *
+        ?newline: string *
+        ?closefd: bool *
+        ?opener: _Opener ->
+            TextIOWrapper
+
+    [<NamedParams(fromIndex = 1)>]
+    abstract ``open``:
+        file: string *
+        ?mode: string *
+        ?buffering: int *
+        ?encoding: string *
+        ?errors: string *
+        ?newline: string *
+        ?closefd: bool *
+        ?opener: _Opener ->
+            TextIOWrapper
 
 [<ImportAll("builtins")>]
 let builtins: IExports = nativeOnly
