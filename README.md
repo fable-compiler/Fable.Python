@@ -117,3 +117,14 @@ Current plan:
 1. Add bindings for Python `ast` module (in progress)
 2. Use `ast` module to parse Python typeshed annotations
 3. Generate F# bindings
+
+## Road-map
+
+- Replace List.fs with Expression Block.py. List.fs currently depends on
+  Array.fs that is not an efficient list implmentation for Python.
+
+- Replace Array.fs with Expression TypedArray.py
+
+- Compile Fable.Library as a published library
+
+- Use poetry for Python references to Fable modules
