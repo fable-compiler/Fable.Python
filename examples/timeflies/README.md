@@ -15,9 +15,8 @@ references NuGet packages.
 ## Build
 
 ```sh
-> dotnet fable-py
+> dotnet fable --lang Python
 ```
-
 
 ## Run
 

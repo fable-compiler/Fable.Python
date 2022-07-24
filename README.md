@@ -27,8 +27,8 @@ library until we decide how to deal with Python version handling.
 Prerequisite for compiling F# to Python using Fable:
 
 ```sh
-> dotnet tool install --global fable-py --version 4.0.0-alpha-032
-> dotnet add package Fable.Core.Experimental --version 4.0.0-alpha-032
+> dotnet tool install --global fable --version 4.0.0-snake-island-alpha-006
+> dotnet add package Fable.Core --version 4.0.0-snake-island-alpha-006
 ```
 
 To use the `Fable.Python` library in your Fable project:
@@ -49,7 +49,7 @@ let result = json.dumps object
 To compile an F# Fable project to Python run e.g:
 
 ```sh
-> fable-py MyProject.fsproj
+> fable --lang Python MyProject.fsproj
 ```
 
 For more examples see the
