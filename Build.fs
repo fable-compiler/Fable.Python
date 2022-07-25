@@ -34,7 +34,7 @@ Target.create "Test" (fun _ ->
       "python", dotnet $"fable --lang Python --outDir {buildPath}/tests" testsPath
       ]
     |> runParallel
-    run pytest $"{buildPath}/tests" ""
+    run poetry $"run pytest {buildPath}/tests" ""
 )
 
 Target.create "Pack" (fun _ ->
