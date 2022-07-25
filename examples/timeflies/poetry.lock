@@ -1,0 +1,54 @@
+[[package]]
+name = "fable-library"
+version = "0.8.0"
+description = "Fable library for Python"
+category = "main"
+optional = false
+python-versions = "^3.8"
+develop = true
+
+[package.source]
+type = "directory"
+url = "fable_modules/fable-library"
+
+[[package]]
+name = "fable-python"
+version = "0.1.0"
+description = "Python bindings for Fable"
+category = "main"
+optional = false
+python-versions = "^3.9"
+develop = true
+
+[package.dependencies]
+fable-library = ""
+
+[package.source]
+type = "directory"
+url = "fable_modules/fable-python"
+
+[[package]]
+name = "fsharp-control-async-rx"
+version = "1.6.1"
+description = "Async Observables for F# and Fable"
+category = "main"
+optional = false
+python-versions = ">=3.9,<4"
+develop = true
+
+[package.dependencies]
+fable-library = ">=0.7.0"
+
+[package.source]
+type = "directory"
+url = "fable_modules/fsharp-control-async-rx"
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.9"
+content-hash = "9ad00f12227f18e36ca297125065785ba9fa41f301eba68b117a0a965b8034a8"
+
+[metadata.files]
+fable-library = []
+fable-python = []
+fsharp-control-async-rx = []

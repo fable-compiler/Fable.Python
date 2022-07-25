@@ -137,3 +137,5 @@ build
 src/**/*.py
 
 .ionide/
+
+.fake

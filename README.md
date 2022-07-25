@@ -3,13 +3,15 @@
 ![Build and Test](https://github.com/dbrattli/Fable.Python/workflows/Build%20and%20Test/badge.svg)
 [![Nuget](https://img.shields.io/nuget/vpre/Fable.Python)](https://www.nuget.org/packages/Fable.Python/)
 
-[Fable](https://github.com/fable-compiler/Fable/tree/beyond) is a compiler that
-translates F# source files to JavaScript and Python.
+[Fable](https://github.com/fable-compiler/Fable/tree/beyond) is a
+compiler that translates F# source files to JavaScript and Python.
 
-This Fable Python repository is a community driven project that contains the Python type bindings for Fable. The
-library will eventually contain Python (stdlib) bindings for Fable based on Python
-[typeshed](https://github.com/python/typeshed). It will also contain type binding for many other 3rd party libraries
-such as Flask, MicroBit and many more. Some bindings have already been added:
+This Fable Python repository is a community driven project that contains
+the Python type bindings for Fable. The library will eventually contain
+Python (stdlib) bindings for Fable based on Python
+[typeshed](https://github.com/python/typeshed). It will also contain
+type binding for many other 3rd party libraries such as Flask, MicroBit
+and many more. Some bindings have already been added:
 
 - Python Standard Libray
 - Jupyter
@@ -19,16 +21,17 @@ such as Flask, MicroBit and many more. Some bindings have already been added:
 
 ## Version
 
-This library currently targets Python 3.9. Types bindings for other versions of Python should not be added to this
-library until we decide how to deal with Python version handling.
+This library currently targets Python 3.9. Types bindings for other
+versions of Python should not be added to this library until we decide
+how to deal with Python version handling.
 
 ## Installation
 
 Prerequisite for compiling F# to Python using Fable:
 
 ```sh
-> dotnet tool install --global fable-py --version 4.0.0-alpha-032
-> dotnet add package Fable.Core.Experimental --version 4.0.0-alpha-032
+> dotnet tool install --global fable --version 4.0.0-snake-island-alpha-006
+> dotnet add package Fable.Core --version 4.0.0-snake-island-alpha-006
 ```
 
 To use the `Fable.Python` library in your Fable project:
@@ -49,7 +52,7 @@ let result = json.dumps object
 To compile an F# Fable project to Python run e.g:
 
 ```sh
-> fable-py MyProject.fsproj
+> fable --lang Python MyProject.fsproj
 ```
 
 For more examples see the
@@ -74,24 +77,37 @@ It contains example code for using Fable Python with:
 - [TypedCssClasses](https://github.com/zanaptak/TypedCssClasses)
 - [Typed-BNF](https://github.com/thautwarm/Typed-BNF#readme)
 
+## Poetry
+
+Fable.Python uses [Poetry](https://python-poetry.org/) for package and
+dependency management. This means that packages generated within
+`fable_modules` must be referenced as [path
+dependencies](https://python-poetry.org/docs/dependency-specification/#path-dependencies).
+It is also possible to reference
+[fable-library](https://pypi.org/project/fable-library/) from PyPI to
+avoid bundling the code.
+
 ## Contributing
 
-This project is community driven. If the type binding you are looking for is currently missing, then
-you need to add them to the relavant files (or add new ones). Open a [PR](https://github.com/dbrattli/Fable.Python/pull/3/files) to
-get them included.
+This project is community driven. If the type binding you are looking
+for is currently missing, then you need to add them to the relavant
+files (or add new ones). Open a
+[PR](https://github.com/dbrattli/Fable.Python/pull/3/files) to get them
+included.
 
-The `src/stdlib` directory contains type bindings for modules in the Python 3 standard library. We also accept type
-bindings for 3rd party libraries as long as:
+The `src/stdlib` directory contains type bindings for modules in the
+Python 3 standard library. We also accept type bindings for 3rd party
+libraries as long as:
 
 - the package is publicly available on the [Python Package Index](https://pypi.org/);
 - the package supports any Python version supported by Fable Python; and
 - the package does not ship with its own stubs or type annotations
 
-There's not much Python specific documentation yet, but the process of adding type bindings for Python is similar to JS:
+There's not much Python specific documentation yet, but the process of
+adding type bindings for Python is similar to JS:
 
 - https://fable.io/docs/communicate/js-from-fable.html
 - https://medium.com/@zaid.naom/f-interop-with-javascript-in-fable-the-complete-guide-ccc5b896a59f
-
 
 ## Differences from JS
 
@@ -117,3 +133,14 @@ Current plan:
 1. Add bindings for Python `ast` module (in progress)
 2. Use `ast` module to parse Python typeshed annotations
 3. Generate F# bindings
+
+## Road-map
+
+- Use a dedicated List.fs for Python. List.fs currently depends on
+  Array.fs that is not an efficient list implmentation for Python.
+
+- Compile Fable.Library as a published library (done)
+
+- Use poetry for Python references to Fable modules (done)
+
+- Update docs

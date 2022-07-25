@@ -14,10 +14,10 @@
         "fantomas"
       ]
     },
-    "fable-py": {
-      "version": "4.0.0-alpha-032",
+    "fable": {
+      "version": "4.0.0-snake-island-alpha-006",
       "commands": [
-        "fable-py"
+        "fable"
       ]
     }
   }

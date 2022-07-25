@@ -1,0 +1,25 @@
+
+[tool.poetry]
+name = "timeflies"
+version = "0.1.0"
+description = "Fable Timeflies Demo"
+authors = ["Dag Brattli <dag@brattli.net>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fable-library = ""
+fable-python = ""
+fsharp-control-async-rx = ""
+
+[tool.poetry.dev-dependencies]
+fable-library = {path = "./fable_modules/fable-library", develop = true}
+fable-python = {path = "./fable_modules/fable-python", develop = true}
+fsharp-control-async-rx = {path = "./fable_modules/fsharp-control-async-rx", develop = true}
+
+[tool.fable]
+package-dir = "."
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
