@@ -1,19 +1,16 @@
 
 [tool.poetry]
 name = "fable-python"
-version = "0.1.0"
+version = "0.18.0"
 description = "Python bindings for Fable"
 authors = ["Dag Brattli <dag@brattli.net>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.8"
-fable-library = "^0.3.0"
+python = ">= 3.9, < 4.0"
+fable-library = "^0.8.0"
 
 [tool.poetry.dev-dependencies]
-
-[tool.fable]
-package-dir = "fable-python/fable_python"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
