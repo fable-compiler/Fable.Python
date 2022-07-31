@@ -9,10 +9,8 @@ homepage = "https://fable.io"
 
 [tool.poetry.dependencies]
 python = ">= 3.9, < 4.0"
-fable-library = ""
 
 [tool.poetry.dev-dependencies]
-fable-library = {path = "./build/fable_modules/fable-library", develop = true}
 pytest = "^6.2.4"
 
 [tool.pyright]
