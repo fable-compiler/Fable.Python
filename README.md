@@ -30,7 +30,7 @@ how to deal with Python version handling.
 Prerequisite for compiling F# to Python using Fable:
 
 ```sh
-> dotnet tool install --global fable --version 4.0.0-snake-island-alpha-018
+> dotnet tool install --global fable --version 4.0.0-snake-island-alpha-019
 > dotnet add package Fable.Core --version 4.0.0-snake-island-alpha-007
 ```
 
