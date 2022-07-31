@@ -4,12 +4,7 @@ version = "0.8.0"
 description = "Fable library for Python"
 category = "main"
 optional = false
-python-versions = "^3.8"
-develop = true
-
-[package.source]
-type = "directory"
-url = "fable_modules/fable-library"
+python-versions = ">=3.9,<4.0"
 
 [[package]]
 name = "fable-python"
@@ -17,11 +12,11 @@ version = "0.1.0"
 description = "Python bindings for Fable"
 category = "main"
 optional = false
-python-versions = "^3.9"
+python-versions = "^3.8"
 develop = true
 
 [package.dependencies]
-fable-library = ""
+fable-library = "^0.8.0"
 
 [package.source]
 type = "directory"
@@ -29,7 +24,7 @@ url = "fable_modules/fable-python"
 
 [[package]]
 name = "fsharp-control-async-rx"
-version = "1.6.1"
+version = "1.6.2"
 description = "Async Observables for F# and Fable"
 category = "main"
 optional = false
@@ -37,7 +32,7 @@ python-versions = ">=3.9,<4"
 develop = true
 
 [package.dependencies]
-fable-library = ">=0.7.0"
+fable-library = "^0.8.0"
 
 [package.source]
 type = "directory"
@@ -46,9 +41,12 @@ url = "fable_modules/fsharp-control-async-rx"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "9ad00f12227f18e36ca297125065785ba9fa41f301eba68b117a0a965b8034a8"
+content-hash = "db0f580c2ccd5fc8cd4bb94bd108b4420d5d3bb0cf34f568fa3e6d5c740cc14e"
 
 [metadata.files]
-fable-library = []
+fable-library = [
+    {file = "fable-library-0.8.0.tar.gz", hash = "sha256:ce47fc9438da626836a14127bd8ced1359b017cf34f550289f3201b19fb478e3"},
+    {file = "fable_library-0.8.0-py3-none-any.whl", hash = "sha256:16bd71b33064fe1c34d604f0a0180b5f61d530f0fd6c52f6f2ef3b30b6078f2e"},
+]
 fable-python = []
 fsharp-control-async-rx = []
