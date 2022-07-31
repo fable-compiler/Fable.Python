@@ -14,5 +14,3 @@ let ``test __name__ works`` () = __name__ |> equal "test_builtins"
 let ``test write works`` () =
     let result = builtins.``open``("test.txt", OpenTextMode.Write)
     result.write "ABC" |> equal 3
-    
-let ``test read works`` () =
