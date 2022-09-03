@@ -10,6 +10,7 @@
     <Compile Include="HttpContext.fs" />
     <Compile Include="Core.fs" />
     <Compile Include="Routing.fs" />
+    <Compile Include="HttpHandler.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>

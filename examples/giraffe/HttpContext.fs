@@ -20,8 +20,20 @@ module HttpMethods =
     [<Literal>]
     let Head = "head"
 
+    let IsGet (method: string) = method = "GET"
+    let IsPost (method: string) = method = "POST"
+    let IsPatch (method: string) = method = "PATCH"
+    let IsPut (method: string) = method = "PUT"
+    let IsDelete (method: string) = method = "DELETE"
+    let IsHead (method: string) = method = "HEAD"
+    let IsOptions (method: string) = method = "OPTIONS"
+    let IsTrace (method: string) = method = "TRACE"
+    let IsConnect (method: string) = method = "CONNECT"
+
 type HttpRequest (scope: Scope) =
     member x.Path: string option = scope["path"] :?> string |> Some
+
+    member x.Method: string = scope["method"] :?> string
 
 type HttpContext (scope: Scope, receive: unit -> Task<Response>, send: Request -> Task<unit>) =
     let scope = scope

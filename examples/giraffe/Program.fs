@@ -4,8 +4,10 @@ open System.Threading.Tasks
 open Giraffe
 
 let handler: HttpHandler =
-    route "/ping"
-    >=> text "Hello World!"
+    GET
+    |> HttpHandler.route "/ping"
+    |> HttpHandler.text "Hello World!"
+
 
 let func : HttpFunc = handler earlyReturn
 
