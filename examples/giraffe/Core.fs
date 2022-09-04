@@ -28,6 +28,22 @@ module Core =
     let (>=>) = compose
 
     /// <summary>
+    /// The warbler function is a <see cref="HttpHandler"/> wrapper function which prevents a <see cref="HttpHandler"/> to be pre-evaluated at startup.
+    /// </summary>
+    /// <param name="f">A function which takes a HttpFunc * HttpContext tuple and returns a <see cref="HttpHandler"/> function.</param>
+    /// <param name="next"></param>
+    /// <param name="source"></param>
+    /// <example>
+    /// <code>
+    /// warbler(fun _ -> someHttpHandler)
+    /// </code>
+    /// </example>
+    /// <returns>Returns a <see cref="HttpHandler"/> function.</returns>
+    let inline warbler f (source: HttpHandler) (next: HttpFunc) =
+        fun (ctx: HttpContext) -> f (next, ctx) id next ctx
+        |> source
+
+    /// <summary>
     /// Iterates through a list of `HttpFunc` functions and returns the result of the first `HttpFunc` of which the outcome is `Some HttpContext`.
     /// </summary>
     /// <param name="funcs"></param>
@@ -92,3 +108,41 @@ module Core =
     let CONNECT: HttpHandler = httpVerb HttpMethods.IsConnect
 
     let GET_HEAD: HttpHandler = choose [ GET; HEAD ]
+
+    /// <summary>
+    /// Sets the HTTP status code of the response.
+    /// </summary>
+    /// <param name="statusCode">The status code to be set in the response. For convenience you can use the static <see cref="Microsoft.AspNetCore.Http.StatusCodes"/> class for passing in named status codes instead of using pure int values.</param>
+    /// <param name="next"></param>
+    /// <param name="ctx"></param>
+    /// <returns>A Giraffe <see cref="HttpHandler"/> function which can be composed into a bigger web application.</returns>
+    let setStatusCode (statusCode: int) : HttpHandler =
+        fun (next: HttpFunc) (ctx: HttpContext) ->
+            ctx.SetStatusCode statusCode
+            next ctx
+
+
+    /// <summary>
+    /// Adds or sets a HTTP header in the response.
+    /// </summary>
+    /// <param name="key">The HTTP header name. For convenience you can use the static <see cref="Microsoft.Net.Http.Headers.HeaderNames"/> class for passing in strongly typed header names instead of using pure string values.</param>
+    /// <param name="value">The value to be set. Non string values will be converted to a string using the object's ToString() method.</param>
+    /// <param name="next"></param>
+    /// <param name="ctx"></param>
+    /// <returns>A Giraffe <see cref="HttpHandler"/> function which can be composed into a bigger web application.</returns>
+    let setHttpHeader (key: string) (value: obj) : HttpHandler =
+        fun (next: HttpFunc) (ctx: HttpContext) ->
+            ctx.SetHttpHeader(key, value)
+            next ctx
+
+    /// <summary>
+    /// Serializes an object to JSON and writes the output to the body of the HTTP response.
+    /// It also sets the HTTP Content-Type header to application/json and sets the Content-Length header accordingly.
+    /// The JSON serializer can be configured in the ASP.NET Core startup code by registering a custom class of type <see cref="Json.ISerializer"/>.
+    /// </summary>
+    /// <param name="dataObj">The object to be send back to the client.</param>
+    /// <param name="ctx"></param>
+    /// <typeparam name="'T"></typeparam>
+    /// <returns>A Giraffe <see cref="HttpHandler" /> function which can be composed into a bigger web application.</returns>
+    let json<'T> (dataObj: 'T) : HttpHandler =
+        fun (_: HttpFunc) (ctx: HttpContext) -> ctx.WriteJsonAsync dataObj

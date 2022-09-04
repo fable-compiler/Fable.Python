@@ -7,6 +7,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Helpers.fs" />
+    <Compile Include="ShortGuid.fs" />
+    <Compile Include="FormatExpressions.fs" />
     <Compile Include="HttpContext.fs" />
     <Compile Include="Core.fs" />
     <Compile Include="Routing.fs" />

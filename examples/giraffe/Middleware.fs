@@ -17,4 +17,4 @@ module Middleware =
                 ()
             }
 
-        Func<_,_,_,_>(app)
+        Func<_, _, _, _>(app)
