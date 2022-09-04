@@ -11,6 +11,7 @@
     <Compile Include="Core.fs" />
     <Compile Include="Routing.fs" />
     <Compile Include="HttpHandler.fs" />
+    <Compile Include="Middleware.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,25 +1,12 @@
 module Program
 
-open System.Threading.Tasks
 open Giraffe
 
-let handler: HttpHandler =
+let webApp =
     GET
-    |> HttpHandler.route "/ping"
-    |> HttpHandler.text "Hello World!"
+    |> HttpHandler.choose [
+        route "/ping"
+        |> HttpHandler.text "Hello World!"
+    ]
 
-
-let func : HttpFunc = handler earlyReturn
-
-let app
-    (
-        scope: Scope,
-        receive: unit -> Task<Response>,
-        send: Request -> Task<unit>
-    ) =
-    task {
-        printfn "Scope %A" scope
-        let ctx = HttpContext(scope, receive, send)
-        let! result = func ctx
-        ()
-    }
+let app = Middleware.useGiraffe webApp
