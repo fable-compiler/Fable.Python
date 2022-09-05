@@ -1,0 +1,24 @@
+
+[tool.poetry]
+name = "giraffe"
+version = "0.1.0"
+description = "Giraffe Python"
+authors = ["Dag Brattli <dag@brattli.net>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+#fable-library = ">=0.8.0"
+#fable-python = ""
+#fsharp-control-async-rx = ""
+uvicorn = "^0.18.3"
+starlette = "^0.20.4"
+
+[tool.poetry.dev-dependencies]
+#fable-python = {path = "./fable_modules/fable-python", develop = true}
+#fsharp-control-async-rx = {path = "./fable_modules/fsharp-control-async-rx", develop = true}
+black = {version = "^22.8.0", allow-prereleases = true}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
