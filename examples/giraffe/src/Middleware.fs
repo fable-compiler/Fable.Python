@@ -1,4 +1,4 @@
-namespace Giraffe
+namespace Giraffe.Python
 
 open System
 open System.Threading.Tasks
@@ -16,6 +16,7 @@ module Middleware =
                 //printfn "Scope %A" scope
                 let ctx = HttpContext(scope, receive, send)
                 let! result = func ctx
+
                 match result with
                 | None ->
                     let! _ = defaultFunc ctx

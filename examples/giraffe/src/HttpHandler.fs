@@ -1,7 +1,9 @@
-namespace Giraffe
+namespace Giraffe.Python.Pipelines
 
 open System
 open System.Collections.Generic
+
+open Giraffe.Python
 
 [<RequireQualifiedAccess>]
 module HttpHandler =

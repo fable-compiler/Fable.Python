@@ -1,4 +1,4 @@
-namespace Giraffe
+namespace Giraffe.Python
 
 open System.Collections.Generic
 open System.Threading.Tasks
@@ -52,17 +52,24 @@ type HttpRequest(scope: Scope) =
     member x.Method: string = scope["method"] :?> string
 
 type HttpResponse(send: Request -> Task<unit>) =
-    let responseStart = Dictionary<string, obj>()
-    let responseBody = Dictionary<string, obj>()
+    let responseStart =
+        Dictionary<string, obj>(
+            dict
+                [ ("type", "http.response.start" :> obj)
+                  ("status", 404)
+                  ("headers", ResizeArray<_>()) ]
+        )
 
-    do
-        responseStart["type"] <- "http.response.start"
-        responseStart["status"] <- 200
-        responseStart["headers"] <- ResizeArray<_>()
-
-        responseBody["type"] <- "http.response.body"
+    let responseBody =
+        Dictionary<string, obj>(dict [ ("type", "http.response.body" :> obj) ])
 
     member val HasStarted: bool = false with get, set
+
+    member x.StatusCode
+        with get () = responseStart["status"] :?> int
+
+        and set (value: int) = responseStart["status"] <- value
+
 
     member x.WriteAsync(bytes: byte[]) =
         task {
@@ -91,9 +98,9 @@ type HttpContext(scope: Scope, receive: unit -> Task<Response>, send: Request ->
     let request = HttpRequest(scope)
     let response = HttpResponse(send)
 
-    member ctx.Items = items
-    member ctx.Request = request
-    member ctx.Response = response
+    member _.Items = items
+    member _.Request = request
+    member _.Response = response
 
     member ctx.WriteBytesAsync(bytes: byte[]) =
         // printfn "WriteBytesAsync"

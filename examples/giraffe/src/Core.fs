@@ -1,5 +1,5 @@
 // Learn more about F# at http://docs.microsoft.com/dotnet/fsharp
-namespace Giraffe
+namespace Giraffe.Python
 
 open System.Text
 open System.Threading.Tasks
