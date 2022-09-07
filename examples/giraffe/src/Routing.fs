@@ -1,4 +1,4 @@
-namespace Giraffe
+namespace Giraffe.Python
 
 open System
 open System.Text.RegularExpressions
