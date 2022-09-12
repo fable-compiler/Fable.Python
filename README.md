@@ -70,9 +70,12 @@ It contains example code for using Fable Python with:
 
 ## Libraries that uses or works with Fable Python
 
+- [Femoto](https://github.com/Zaid-Ajaj/Femto)
 - [AsyncRx](https://github.com/dbrattli/AsyncRx)
-- [Fable.Sedlex](https://github.com/thautwarm/Fable.Sedlex)
+- [Fable.Giraffe](https://github.com/dbrattli/Fable.Giraffe)
+- [Fable.Requests](https://github.com/Zaid-Ajaj/Fable.Requests)
 - [Fable.SimpleJson.Python](https://github.com/Zaid-Ajaj/Fable.SimpleJson.Python)
+- [Fable.Sedlex](https://github.com/thautwarm/Fable.Sedlex)
 - [Feliz.ViewEngine](https://github.com/dbrattli/Feliz.ViewEngine)
 - [TypedCssClasses](https://github.com/zanaptak/TypedCssClasses)
 - [Typed-BNF](https://github.com/thautwarm/Typed-BNF#readme)
