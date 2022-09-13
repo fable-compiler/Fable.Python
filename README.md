@@ -72,13 +72,16 @@ It contains example code for using Fable Python with:
 
 - [Femoto](https://github.com/Zaid-Ajaj/Femto)
 - [AsyncRx](https://github.com/dbrattli/AsyncRx)
+- [Fable.Aether](https://xyncro.tech/aether/)
 - [Fable.Giraffe](https://github.com/dbrattli/Fable.Giraffe)
 - [Fable.Requests](https://github.com/Zaid-Ajaj/Fable.Requests)
 - [Fable.SimpleJson.Python](https://github.com/Zaid-Ajaj/Fable.SimpleJson.Python)
 - [Fable.Sedlex](https://github.com/thautwarm/Fable.Sedlex)
 - [Feliz.ViewEngine](https://github.com/dbrattli/Feliz.ViewEngine)
+- [FsToolkit.ErrorHandling](https://demystifyfp.gitbook.io/fstoolkit-errorhandling/)
 - [TypedCssClasses](https://github.com/zanaptak/TypedCssClasses)
 - [Typed-BNF](https://github.com/thautwarm/Typed-BNF#readme)
+- [Zanaptak.TypedCssClasses](https://github.com/zanaptak/TypedCssClasses)
 
 ## Poetry
 
