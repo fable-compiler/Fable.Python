@@ -74,6 +74,7 @@ It contains example code for using Fable Python with:
 - [AsyncRx](https://github.com/dbrattli/AsyncRx)
 - [Fable.Aether](https://xyncro.tech/aether/)
 - [Fable.Giraffe](https://github.com/dbrattli/Fable.Giraffe)
+- [Fable.Logging](https://github.com/dbrattli/Fable.logging)
 - [Fable.Requests](https://github.com/Zaid-Ajaj/Fable.Requests)
 - [Fable.SimpleJson.Python](https://github.com/Zaid-Ajaj/Fable.SimpleJson.Python)
 - [Fable.Sedlex](https://github.com/thautwarm/Fable.Sedlex)
