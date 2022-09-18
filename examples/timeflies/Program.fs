@@ -15,7 +15,8 @@ let root = Tk()
 root.title ("Fable Python Rocks on Tkinter!")
 let queue = Queue<Msg>()
 
-let source, mouseMoves: IAsyncObserver<int * int> * IAsyncObservable<int * int> = AsyncRx.subject ()
+let source, mouseMoves: IAsyncObserver<int * int> * IAsyncObservable<int * int> =
+    AsyncRx.subject ()
 
 let workerAsync (mb: MailboxProcessor<Event>) =
     let rec messageLoop () =
@@ -38,11 +39,10 @@ let stream =
     Seq.toList "TIME FLIES LIKE AN ARROW"
     |> Seq.mapi (fun i c -> i, Label(frame, text = (string c), fg = "black", bg = "white"))
     |> AsyncRx.ofSeq
-    |> AsyncRx.flatMap
-        (fun (i, label) ->
-            mouseMoves
-            |> AsyncRx.delay (100 * i)
-            |> AsyncRx.map (fun (x, y) -> label, x + i * 12 + 15, y))
+    |> AsyncRx.flatMap (fun (i, label) ->
+        mouseMoves
+        |> AsyncRx.delay (100 * i)
+        |> AsyncRx.map (fun (x, y) -> label, x + i * 12 + 15, y))
 
 let sink (ev: Notification<Label * int * int>) =
     async {
@@ -61,7 +61,7 @@ let mainAsync =
         let rec update () =
             let size = queue.qsize ()
 
-            for _ in 1 .. size do
+            for _ in 1..size do
                 let msg = queue.get (false)
 
                 match msg with

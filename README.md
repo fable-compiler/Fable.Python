@@ -16,7 +16,6 @@ and many more. Some bindings have already been added:
 - Python Standard Libray
 - Jupyter
 - Flask
-- MicroBit
 - CogniteSdk
 
 ## Version
@@ -30,8 +29,8 @@ how to deal with Python version handling.
 Prerequisite for compiling F# to Python using Fable:
 
 ```sh
-> dotnet tool install --global fable --version 4.0.0-theta-003
-> dotnet add package Fable.Core --version 4.0.0-theta-001
+> dotnet tool install --global fable --prerelease
+> dotnet add package Fable.Core --prerelease
 ```
 
 To use the `Fable.Python` library in your Fable project:
@@ -62,7 +61,6 @@ It contains example code for using Fable Python with:
 - [Flask](https://github.com/dbrattli/Fable.Python/tree/main/examples/flask).
   References [Feliz.ViewEngine](https://github.com/dbrattli/Feliz.ViewEngine)
   as a nuget package.
-- [MicroBit](https://github.com/dbrattli/Fable.Python/tree/main/examples/microbit)
 - [Timeflies](https://github.com/dbrattli/Fable.Python/tree/main/examples/timeflies),
   Cool demo using Tkinter and references
   [FSharp.Control.AsyncRx](https://github.com/dbrattli/AsyncRx) as a nuget
@@ -87,12 +85,9 @@ It contains example code for using Fable Python with:
 ## Poetry
 
 Fable.Python uses [Poetry](https://python-poetry.org/) for package and
-dependency management. This means that packages generated within
-`fable_modules` must be referenced as [path
-dependencies](https://python-poetry.org/docs/dependency-specification/#path-dependencies).
-It is also possible to reference
-[fable-library](https://pypi.org/project/fable-library/) from PyPI to
-avoid bundling the code.
+dependency management. To handle dependencies when adding Fable Python
+compatible NuGet packages, you should use
+[Femto](https://github.com/Zaid-Ajaj/Femto).
 
 ## Contributing
 
