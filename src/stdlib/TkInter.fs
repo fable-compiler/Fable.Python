@@ -2,12 +2,16 @@ module Fable.Python.TkInter
 
 open Fable.Core
 
+[<Import("Event", "tkinter")>]
 type Event =
     abstract member x : int
     abstract member y : int
 
+[<Import("Misc", "tkinter")>]
 type Misc =
     abstract member bind : sequence: string * func: (Event -> unit) -> string option
+
+[<Import("Wm", "tkinter")>]
 
 type Wm =
     abstract member title : unit -> string

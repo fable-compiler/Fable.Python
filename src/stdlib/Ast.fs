@@ -7,27 +7,34 @@ open Fable.Core
 type _identifier = string
 
 
+[<Import("AST", "ast")>]
 type AST =
     abstract foo: int
 
+[<Import("mod", "ast")>]
 type ``mod`` =
     inherit AST
 
+[<Import("expr", "ast")>]
 type expr =
     inherit AST
 
+[<Import("Module", "ast")>]
 type Module =
     inherit ``mod``
     abstract body: stmt array
 
+[<Import("Expression", "ast")>]
 type Expression =
     inherit ``mod``
     abstract body: expr
 
+[<Import("Module", "ast")>]
 type stmt =
     inherit AST
 
 
+[<Import("FunctionDef", "ast")>]
 type FunctionDef =
     inherit stmt
 
@@ -37,6 +44,7 @@ type FunctionDef =
     abstract decorator_list: expr array
     abstract returns: expr option
 
+[<Import("ClassDef", "ast")>]
 type ClassDef =
     inherit stmt
     abstract name: _identifier
@@ -45,35 +53,42 @@ type ClassDef =
     abstract body: stmt array
     abstract decorator_list: expr array
 
+[<Import("Return", "ast")>]
 type Return =
     inherit stmt
     abstract value: expr option
 
+[<Import("Delete", "ast")>]
 type Delete =
     inherit stmt
     abstract targets: expr array
 
+[<Import("Assign", "ast")>]
 type Assign =
     inherit stmt
     abstract targets: expr array
     abstract value: expr
 
+[<Import("Import", "ast")>]
 type Import =
     inherit stmt
     abstract names: alias array
 
+[<Import("ImportFrom", "ast")>]
 type ImportFrom =
     inherit stmt
     abstract ``module``: _identifier option
     abstract names: alias array
     abstract level: int
 
+[<Import("If", "ast")>]
 type If =
     inherit stmt
     abstract test: expr
     abstract body: stmt array
     abstract orelse: stmt array
 
+[<Import("arguments", "ast")>]
 type arguments =
     inherit AST
 
@@ -85,16 +100,19 @@ type arguments =
     abstract kwarg: arg option
     abstract defaults: expr array
 
+[<Import("arg", "ast")>]
 type arg =
     inherit AST
     abstract arg: _identifier
     abstract annotation: expr option
 
+[<Import("keyword", "ast")>]
 type keyword =
     inherit AST
     abstract arg: _identifier option
     abstract value: expr
 
+[<Import("alias", "ast")>]
 type alias =
     inherit AST
     abstract name: _identifier
