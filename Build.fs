@@ -22,6 +22,10 @@ Target.create "Build" (fun _ ->
     run dotnet $"fable --exclude Fable.Core --lang Python --outDir {buildPath}" srcPath
 )
 
+Target.create "Docs" (fun _ ->
+    run jupyterBook "build docs-src --path-output src" "."
+)
+
 Target.create "Run" (fun _ ->
     run dotnet "build" srcPath
 )
@@ -55,6 +59,9 @@ let dependencies = [
 
     "Build"
         ==> "Test"
+
+    "Build"
+        ==> "Docs"
 
     "Build"
         ==> "Pack"
