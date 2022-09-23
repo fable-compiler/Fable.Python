@@ -36,7 +36,7 @@ frame.bind ("<Motion>", agent.Post) |> ignore
 frame.pack ()
 
 let stream =
-    Seq.toList "TIME FLIES LIKE AN ARROW"
+    "TIME FLIES LIKE AN ARROW"
     |> Seq.mapi (fun i c -> i, Label(frame, text = (string c), fg = "black", bg = "white"))
     |> AsyncRx.ofSeq
     |> AsyncRx.flatMap (fun (i, label) ->
@@ -50,8 +50,6 @@ let sink (ev: Notification<Label * int * int>) =
         | OnNext (label, x, y) -> queue.put (Place(label, x, y))
         | OnError (err) -> printfn $"Stream Error: {err}"
         | _ -> printfn "Stream Completed!"
-
-        return ()
     }
 
 let mainAsync =
@@ -74,8 +72,6 @@ let mainAsync =
 
         root.after (1, update)
         root.mainloop ()
-
-        return ()
     }
 
 [<EntryPoint>]
