@@ -1110,19 +1110,11 @@ it’s usually a good idea to inline the function containing the helper.</p>
 <span class="w">    </span><span class="o">?</span><span class="n">width</span><span class="o">(</span><span class="mi">768</span><span class="o">.)</span><span class="w"></span>
 <span class="w">    </span><span class="o">?</span><span class="n">height</span><span class="o">(</span><span class="mi">480</span><span class="o">.)</span><span class="w"></span>
 <span class="w">    </span><span class="o">?</span><span class="n">group</span><span class="o">(</span><span class="n">speedSumGroup</span><span class="o">)</span><span class="w"></span>
-<span class="w">    </span><span class="o">?</span><span class="n">on</span><span class="o">(</span><span class="s">&quot;renderlet&quot;</span><span class="o">,</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">chart</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="n">chart</span><span class="o">?</span><span class="n">selectAll</span><span class="o">(</span><span class="s">&quot;rect&quot;</span><span class="o">)?</span><span class="n">on</span><span class="o">(</span><span class="s">&quot;click&quot;</span><span class="o">,</span><span class="w"> </span><span class="k">fun</span><span class="w"> </span><span class="n">sender</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"></span>
-<span class="w">            </span><span class="nn">Browser</span><span class="p">.</span><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="o">(</span><span class="s">&quot;click!&quot;</span><span class="o">,</span><span class="w"> </span><span class="n">args</span><span class="o">))</span><span class="w"></span>
 
-<span class="c1">// chart</span><span class="w"></span>
+<span class="c1">// (chart</span><span class="w"></span>
 <span class="c1">//     .width(768)</span><span class="w"></span>
 <span class="c1">//     .height(480)</span><span class="w"></span>
-<span class="c1">//     .group(speedSumGroup)</span><span class="w"></span>
-<span class="c1">//     .on(&quot;renderlet&quot;, function (chart) {</span><span class="w"></span>
-<span class="c1">//         return chart.selectAll(&quot;rect&quot;).on(&quot;click&quot;, function (sender, args) {</span><span class="w"></span>
-<span class="c1">//             return console.log(&quot;click!&quot;, args);</span><span class="w"></span>
-<span class="c1">//         });</span><span class="w"></span>
-<span class="c1">//      });</span><span class="w"></span>
+<span class="c1">//     .group(speedSumGroup))</span><span class="w"></span>
 </pre></div>
 </div>
 <p>If you prefer member extensions rather than operators for dynamic typing, you can open <code class="docutils literal notranslate"><span class="pre">Fable.Core.DynamicExtensions</span></code> to

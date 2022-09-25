@@ -390,52 +390,6 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#call-fable-source-code-from-a-js-file">
-   Call Fable source code from a JS file
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#importing-fable-code-from-typescript">
-     Importing Fable code from Typescript
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#call-fable-compiled-code-as-a-library">
-   Call Fable compiled code as a library
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#from-your-web-app">
-     ..from your web app
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#let-s-try">
-       Let’s try!
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#from-your-node-js-app">
-     …from your Node.js app
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#learn-more-about-webpack-librarytarget">
-     Learn more about Webpack
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       libraryTarget
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
- </li>
 </ul>
 
     </nav>
@@ -484,52 +438,6 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#call-fable-source-code-from-a-js-file">
-   Call Fable source code from a JS file
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#importing-fable-code-from-typescript">
-     Importing Fable code from Typescript
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#call-fable-compiled-code-as-a-library">
-   Call Fable compiled code as a library
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#from-your-web-app">
-     ..from your web app
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#let-s-try">
-       Let’s try!
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#from-your-node-js-app">
-     …from your Node.js app
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#learn-more-about-webpack-librarytarget">
-     Learn more about Webpack
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       libraryTarget
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
- </li>
 </ul>
 
                         </nav>
@@ -542,21 +450,26 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="call-fable-from-python">
 <h1>Call Fable from Python<a class="headerlink" href="#call-fable-from-python" title="Permalink to this headline">#</a></h1>
-<p>Sometimes, we’d like to use the power of Fable in our JavaScript apps. For instance, to create a new
-<a class="reference external" href="https://nodered.org/docs/creating-nodes/first-node">js node in Node-RED</a> or call some handy F# code from our new Node.js serverless function or even call some powerful json parsing into our JavaScript app.</p>
-<p>It may allow you to play with Fable and add features, one at a time. So what does it take to call Fable from JavaScript? First you need to understand a bit how the generated JS code looks like so you can call it correctly.</p>
+<p>Sometimes, we’d like to use the power of Fable in our Python apps. For instance, to call some handy F# code from our new
+Python function or even call some powerful json parsing into our Python app.</p>
+<p>It may allow you to play with Fable and add features, one at a time. So what does it take to call Fable from Python?
+First you need to understand a bit how the generated Python code looks like so you can call it correctly.</p>
 <blockquote>
-<div><p>Remember you can use the <a class="reference external" href="https://fable.io/repl/">Fable REPL</a> to easily check the generated JS for your F# code!</p>
+<div><p>Remember you can use the <a class="reference external" href="https://fable.io/repl/">Fable REPL</a> to easily check the generated Python for your F# code!
+Just switch to Python on the options panel.</p>
 </div></blockquote>
 <section id="name-mangling">
 <h2>Name mangling<a class="headerlink" href="#name-mangling" title="Permalink to this headline">#</a></h2>
-<p>Because JS doesn’t support overloading or multiple modules in a single file, Fable needs to mangle the name of some members to avoid clashes, which makes it difficult to call such functions or values from JS. However, there’re some cases where Fable guarantees names won’t change in order to improve interop:</p>
+<p>Because Python doesn’t support overloading or multiple modules in a single file, Fable needs to mangle the name of some
+members to avoid clashes, which makes it difficult to call such functions or values from Python. However, there’re some
+cases where Fable guarantees names won’t change in order to improve interop:</p>
 <ul class="simple">
 <li><p>Record fields</p></li>
 <li><p>Interface and abstract members</p></li>
 <li><p>Functions and values in the root module</p></li>
 </ul>
-<p>What’s a root module? Because F# accepts multiple modules in the same file, we consider the root module the first one containing actual members and is not nested by any other.</p>
+<p>What’s a root module? Because F# accepts multiple modules in the same file, we consider the root module the first one
+containing actual members and is not nested by any other.</p>
 <div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="c1">// It doesn&#39;t matter if we have a long namespace, Fable only starts</span><span class="w"></span>
 <span class="c1">// counting when it finds actual code</span><span class="w"></span>
 <span class="k">module</span><span class="w"> </span><span class="nn">A.Long.Namespace.RootModule</span><span class="w"></span>
@@ -569,7 +482,8 @@ title="Print to PDF"
 <span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="nv">add</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
 </pre></div>
 </div>
-<p>In F# it’s possible to have more than one root module in a single file, in that case everything will be mangled. You should avoid this pattern if you want to expose code to JS:</p>
+<p>In F# it’s possible to have more than one root module in a single file, in that case everything will be mangled. You
+should avoid this pattern if you want to expose code to Python:</p>
 <div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="n">SharedNamespace</span><span class="w"></span>
 
 <span class="c1">// Here both functions will be mangled</span><span class="w"></span>
@@ -585,30 +499,39 @@ title="Print to PDF"
 <h3>Custom behaviour<a class="headerlink" href="#custom-behaviour" title="Permalink to this headline">#</a></h3>
 <p>In some cases, it’s possible to change the default behavior towards name mangling:</p>
 <ul class="simple">
-<li><p>If you want to have all members attached to a class (as in standard Python classes) and not-mangled use the <code class="docutils literal notranslate"><span class="pre">AttachMembers</span></code> attribute. But be aware <strong>overloads won’t work</strong> in this case.</p></li>
-<li><p>If you are not planning to use an interface to interact with Python and want to have overloaded members, you can decorate the interface declaration with the <code class="docutils literal notranslate"><span class="pre">Mangle</span></code> attribute. Note: Interfaces coming from .NET BCL (like System.Collections.IEnumerator) are mangled by default.</p></li>
+<li><p>If you want to have all members attached to a class (as in standard Python classes) and not-mangled use the
+<code class="docutils literal notranslate"><span class="pre">AttachMembers</span></code> attribute. But be aware <strong>overloads won’t work</strong> in this case.</p></li>
+<li><p>If you are not planning to use an interface to interact with Python and want to have overloaded members, you can
+decorate the interface declaration with the <code class="docutils literal notranslate"><span class="pre">Mangle</span></code> attribute. Note: Interfaces coming from .NET BCL (like
+System.Collections.IEnumerator) are mangled by default.</p></li>
 </ul>
 </section>
 </section>
 <section id="common-types-and-objects">
 <h2>Common types and objects<a class="headerlink" href="#common-types-and-objects" title="Permalink to this headline">#</a></h2>
-<p>Some F#/.NET types have <a class="reference internal" href="../dotnet/compatibility.html"><span class="doc std std-doc">counterparts in JS</span></a>. Fable takes advantage of this to compile to native types that are more performant and reduce bundle size. You can also use this to improve interop when exchanging data between F# and Python. The most important common types are:</p>
+<p>Some F#/.NET types have <a class="reference internal" href="../dotnet/compatibility.html"><span class="doc std std-doc">counterparts in Python</span></a>. Fable takes advantage of this to compile
+to native types that are more performant and reduce bundle size. You can also use this to improve interop when
+exchanging data between F# and Python. The most important common types are:</p>
 <ul class="simple">
 <li><p><strong>Strings and booleans</strong> behave the same in F# and Python.</p></li>
-<li><p><strong>Chars</strong> are compiled as Python strings of length 1. This is mainly because string indexing in JS gives you another string. But you can use a char as a number with an explicit conversion like <code class="docutils literal notranslate"><span class="pre">int16</span> <span class="pre">'家'</span></code>.</p></li>
-<li><p><strong>Numeric types</strong> compile to JS numbers, except for <code class="docutils literal notranslate"><span class="pre">long</span></code>, <code class="docutils literal notranslate"><span class="pre">decimal</span></code> and <code class="docutils literal notranslate"><span class="pre">bigint</span></code>.</p></li>
-<li><p><strong>Arrays</strong> (and <code class="docutils literal notranslate"><span class="pre">ResizeArray</span></code>) compile to JS arrays. <em>Numeric arrays</em> compile to <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray">Typed Arrays</a> in most situations, though this shouldn’t make a difference for most common operations like indexing, iterating or mapping. You can disable this behavior with <a class="reference external" href="https://www.npmjs.com/package/fable-loader#options">the <code class="docutils literal notranslate"><span class="pre">typedArrays</span></code> option</a>.</p></li>
-<li><p>Any <strong>IEnumerable</strong> (or <code class="docutils literal notranslate"><span class="pre">seq</span></code>) can be traversed in JS as if it were an <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#Iterables">Iterable</a>.</p></li>
-<li><p><strong>DateTime</strong> compiles to JS <code class="docutils literal notranslate"><span class="pre">Date</span></code>.</p></li>
-<li><p><strong>Regex</strong> compiles to JS <code class="docutils literal notranslate"><span class="pre">RegExp</span></code>.</p></li>
-<li><p>Mutable <strong>dictionaries</strong> (not F# maps) compile to <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">ES2015 Map</a>.</p></li>
-<li><p>Mutable <strong>hashsets</strong> (not F# sets) compile to <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">ES2015 Set</a>.</p></li>
+<li><p><strong>Chars</strong> are compiled as Python strings of length 1. This is mainly because string indexing in Python gives you
+another string. But you can use a char as a number with an explicit conversion like <code class="docutils literal notranslate"><span class="pre">int16</span> <span class="pre">'家'</span></code>.</p></li>
+<li><p><strong>Numeric types</strong> compile to Python integers, except for <code class="docutils literal notranslate"><span class="pre">long</span></code>, <code class="docutils literal notranslate"><span class="pre">decimal</span></code> and <code class="docutils literal notranslate"><span class="pre">bigint</span></code>.</p></li>
+<li><p><strong>Arrays</strong> (and <code class="docutils literal notranslate"><span class="pre">ResizeArray</span></code>) compile to Python lists. <em>Numeric arrays</em> compile to <a class="reference external" href="https://docs.python.org/3/library/array.html">array</a> in most
+situations, though this shouldn’t make a difference for most common operations like indexing, iterating or mapping.</p></li>
+<li><p>Any <strong>IEnumerable</strong> (or <code class="docutils literal notranslate"><span class="pre">seq</span></code>) can be traversed in Python as if it were an <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable">Iterable</a>.</p></li>
+<li><p><strong>DateTime</strong> compiles to Python <code class="docutils literal notranslate"><span class="pre">datetime</span></code>.</p></li>
+<li><p><strong>Regex</strong> compiles to Python <code class="docutils literal notranslate"><span class="pre">re</span></code>.</p></li>
+<li><p>Mutable <strong>dictionaries</strong> (not F# maps) compile to Python dictionaries.</p></li>
+<li><p>Mutable <strong>hashsets</strong> (not F# sets) compile to a custom HashSet type.</p></li>
 </ul>
 <blockquote>
-<div><p>If the dictionary or hashset requires custom or structural equality, Fable will generate a custom type, but it will share the same properties as JS maps and sets.</p>
+<div><p>If the dictionary or hashset requires custom or structural equality, Fable will generate a custom type, but it will
+share the same properties as JS maps and sets.</p>
 </div></blockquote>
 <ul class="simple">
-<li><p><strong>Objects</strong>: As seen above, only record fields and interface members will be attached to objects without name mangling. Take this into account when sending to or receiving an object from JS.</p></li>
+<li><p><strong>Objects</strong>: As seen above, only record fields and interface members will be attached to objects without name
+mangling. Take this into account when sending to or receiving an object from Python.</p></li>
 </ul>
 <div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">type</span><span class="w"> </span><span class="nc">MyRecord</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="w">    </span><span class="o">{</span><span class="w"> </span><span class="n">Value</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="w"></span>
@@ -632,45 +555,48 @@ title="Print to PDF"
 <span class="w">    </span><span class="n">MyClass</span><span class="o">(</span><span class="n">value</span><span class="o">)</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">createRecord</span><span class="p">,</span><span class="w"> </span><span class="nx">createClass</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./Tests.fs&quot;</span><span class="w"></span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tests</span> <span class="kn">import</span> <span class="nn">create_record</span><span class="o">,</span> <span class="nn">create_class</span>
 
-<span class="kd">var</span><span class="w"> </span><span class="nx">record</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createRecord</span><span class="p">(</span><span class="mf">2</span><span class="p">);</span><span class="w"></span>
+<span class="n">record</span> <span class="o">=</span> <span class="n">create_record</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="c1">// Ok, we&#39;re calling a record field</span><span class="w"></span>
-<span class="nx">record</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">record</span><span class="p">.</span><span class="nx">Value</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">);</span><span class="w"> </span><span class="c1">// 4</span><span class="w"></span>
+<span class="c1"># Ok, we&#39;re calling a record field</span>
+<span class="n">record</span><span class="o">.</span><span class="n">Add</span><span class="p">(</span><span class="n">record</span><span class="o">.</span><span class="n">Value</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1"># 4</span>
 
-<span class="c1">// Fails, this member is not actually attached to the object</span><span class="w"></span>
-<span class="nx">record</span><span class="p">.</span><span class="nx">FiveTimes</span><span class="p">();</span><span class="w"></span>
+<span class="c1"># Fails, this member is not actually attached to the object</span>
+<span class="n">record</span><span class="o">.</span><span class="n">FiveTimes</span><span class="p">()</span>
 
-<span class="kd">var</span><span class="w"> </span><span class="nx">myClass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">createClass</span><span class="p">(</span><span class="mf">5</span><span class="p">);</span><span class="w"></span>
+<span class="n">var</span> <span class="n">myClass</span> <span class="o">=</span> <span class="n">create_class</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
-<span class="c1">// Fails</span><span class="w"></span>
-<span class="nx">myClass</span><span class="p">.</span><span class="nx">Value</span><span class="p">;</span><span class="w"></span>
+<span class="c1"># Fails</span>
+<span class="n">myClass</span><span class="o">.</span><span class="n">Value</span>
 
-<span class="c1">// Ok, this is an interface member</span><span class="w"></span>
-<span class="nx">myClass</span><span class="p">.</span><span class="nx">Square</span><span class="p">();</span><span class="w"> </span><span class="c1">// 25</span><span class="w"></span>
+<span class="c1"># Ok, this is an interface member</span>
+<span class="n">myClass</span><span class="o">.</span><span class="n">Square</span><span class="p">()</span> <span class="c1"># 25</span>
 </pre></div>
 </div>
 </section>
 <section id="functions-automatic-uncurrying">
 <h2>Functions: automatic uncurrying<a class="headerlink" href="#functions-automatic-uncurrying" title="Permalink to this headline">#</a></h2>
-<p>Fable will automatically uncurry functions in many situations: when they’re passed as functions, when set as a record field… So in most cases you can pass them to and from JS as if they were functions without curried arguments.</p>
+<p>Fable will automatically uncurry functions in many situations: when they’re passed as functions, when set as a record
+field… So in most cases you can pass them to and from Python as if they were functions without curried arguments.</p>
 <div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">execute</span><span class="w"> </span><span class="o">(</span><span class="n">f</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">-&gt;</span><span class="n">int</span><span class="o">-&gt;</span><span class="n">int</span><span class="o">)</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="w">    </span><span class="n">f</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">execute</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./TestFunctions.fs&quot;</span><span class="w"></span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">test_functions</span> <span class="kn">import</span> <span class="n">execute</span>
 
-<span class="nx">execute</span><span class="p">(</span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="p">},</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">)</span><span class="w"> </span><span class="c1">// 15</span><span class="w"></span>
+<span class="n">execute</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="c1"># 15</span>
 </pre></div>
 </div>
 <blockquote>
-<div><p>Check <a class="reference external" href="https://fsharpforfunandprofit.com/posts/currying/">this</a> for more information on function currying in F# (and other functional languages).</p>
+<div><p>Check <a class="reference external" href="https://fsharpforfunandprofit.com/posts/currying/">this</a> for more information on function currying in F# (and
+other functional languages).</p>
 </div></blockquote>
 <section id="using-delegates-for-disambiguation">
 <h3>Using delegates for disambiguation<a class="headerlink" href="#using-delegates-for-disambiguation" title="Permalink to this headline">#</a></h3>
-<p>There are some situations where Fable uncurrying mechanism can get confused, particularly with functions that return other functions. Let’s consider the following example:</p>
-<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span><span class="w"> </span><span class="nn">Fable.Core.JsInterop</span><span class="w"></span>
+<p>There are some situations where Fable uncurrying mechanism can get confused, particularly with functions that return
+other functions. Let’s consider the following example:</p>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span><span class="w"> </span><span class="nn">Fable.Core.PyInterop</span><span class="w"></span>
 
 <span class="k">let</span><span class="w"> </span><span class="nv">myEffect</span><span class="bp">()</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="w">    </span><span class="n">printfn</span><span class="w"> </span><span class="s">&quot;Effect!&quot;</span><span class="w"></span>
@@ -685,8 +611,12 @@ title="Print to PDF"
 <span class="n">useEffect</span><span class="w"> </span><span class="n">myEffect</span><span class="w"></span>
 </pre></div>
 </div>
-<p>The problem here is the compiler cannot tell <code class="docutils literal notranslate"><span class="pre">unit</span> <span class="pre">-&gt;</span> <span class="pre">unit</span> <span class="pre">-&gt;</span> <span class="pre">unit</span></code> apart from <code class="docutils literal notranslate"><span class="pre">unit</span> <span class="pre">-&gt;</span> <span class="pre">(unit</span> <span class="pre">-&gt;</span> <span class="pre">unit)</span></code>, it can only see a 2-arity lambda (a function accepting two arguments). This won’t be an issue if all your code is in F#, but if you’re sending the function to JS as in this case, Fable will incorrectly try to uncurry it causing unexpected results.</p>
-<p>To disambiguate these cases, you can use <a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/delegates">delegates</a>, like <code class="docutils literal notranslate"><span class="pre">System.Func</span></code> which are not curried:</p>
+<p>The problem here is the compiler cannot tell <code class="docutils literal notranslate"><span class="pre">unit</span> <span class="pre">-&gt;</span> <span class="pre">unit</span> <span class="pre">-&gt;</span> <span class="pre">unit</span></code> apart from <code class="docutils literal notranslate"><span class="pre">unit</span> <span class="pre">-&gt;</span> <span class="pre">(unit</span> <span class="pre">-&gt;</span> <span class="pre">unit)</span></code>, it can only see
+a 2-arity lambda (a function accepting two arguments). This won’t be an issue if all your code is in F#, but if you’re
+sending the function to JS as in this case, Fable will incorrectly try to uncurry it causing unexpected results.</p>
+<p>To disambiguate these cases, you can use
+<a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/delegates">delegates</a>, like <code class="docutils literal notranslate"><span class="pre">System.Func</span></code> which are
+not curried:</p>
 <div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span><span class="w"> </span><span class="nn">System</span><span class="w"></span>
 
 <span class="c1">// Remove the ambiguity by using a delegate</span><span class="w"></span>
@@ -697,99 +627,6 @@ title="Print to PDF"
 <span class="n">useEffect</span><span class="o">(</span><span class="n">Func</span><span class="o">&lt;_,_&gt;</span><span class="w"> </span><span class="n">myEffect</span><span class="o">)</span><span class="w"></span>
 </pre></div>
 </div>
-</section>
-</section>
-<section id="call-fable-source-code-from-a-js-file">
-<h2>Call Fable source code from a JS file<a class="headerlink" href="#call-fable-source-code-from-a-js-file" title="Permalink to this headline">#</a></h2>
-<p>Webpack makes it very easy to include files in different programming languages in your project by using loaders. Because in a Fable project we assume you’re already using the <a class="reference external" href="https://www.npmjs.com/package/fable-loader">fable-loader</a>, if you have a file like the following:</p>
-<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">module</span><span class="w"> </span><span class="nn">HelloFable</span><span class="w"></span>
-
-<span class="k">let</span><span class="w"> </span><span class="nv">sayHelloFable</span><span class="bp">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello Fable!&quot;</span><span class="w"></span>
-</pre></div>
-</div>
-<p>Importing and using it from JS is as simple as if it were another JS file:</p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">sayHelloFable</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./HelloFable.fs&quot;</span><span class="w"></span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sayHelloFable</span><span class="p">());</span><span class="w"></span>
-</pre></div>
-</div>
-<section id="importing-fable-code-from-typescript">
-<h3>Importing Fable code from Typescript<a class="headerlink" href="#importing-fable-code-from-typescript" title="Permalink to this headline">#</a></h3>
-<p>For better or worse, Typescript wants to check your imported modules and because it doesn’t know a thing of F#, it will complain if you try to import an .fs file:</p>
-<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="c1">// Typescript will complain because it cannot read the file</span><span class="w"></span>
-<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">sayHelloFable</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;./HelloFable.fs&quot;</span><span class="w"></span>
-</pre></div>
-</div>
-<p>To appease the Typescript compiler, we need a <a class="reference external" href="https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html">declaration file</a>, which also gives us the opportunity to tell Typescript what is actually exported by our Fable code. If you place a <code class="docutils literal notranslate"><span class="pre">HelloFable.d.ts</span></code> file like the following, the import above will work:</p>
-<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="c1">// Unfortunately declaration files don&#39;t accept relative paths</span><span class="w"></span>
-<span class="c1">// so we just use the * wildcard</span><span class="w"></span>
-<span class="kr">declare</span><span class="w"> </span><span class="nx">module</span><span class="w"> </span><span class="s2">&quot;*HelloFable.fs&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">sayHelloFable</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="call-fable-compiled-code-as-a-library">
-<h2>Call Fable compiled code as a library<a class="headerlink" href="#call-fable-compiled-code-as-a-library" title="Permalink to this headline">#</a></h2>
-<section id="from-your-web-app">
-<h3>..from your web app<a class="headerlink" href="#from-your-web-app" title="Permalink to this headline">#</a></h3>
-<p>If your project is a web app and you’re using Webpack, it just takes two lines of code in the Webpack configuration in the <code class="docutils literal notranslate"><span class="pre">output</span></code> section of <code class="docutils literal notranslate"><span class="pre">module.exports</span></code>:</p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">libraryTarget</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;var&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="nx">library</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;MyFableLib&#39;</span><span class="w"></span>
-</pre></div>
-</div>
-<p>For instance:</p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nx">output</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nx">path</span><span class="o">:</span><span class="w"> </span><span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;./public&quot;</span><span class="p">),</span><span class="w"></span>
-<span class="w">        </span><span class="nx">filename</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;bundle.js&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">libraryTarget</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;var&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nx">library</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;MyFableLib&#39;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-</pre></div>
-</div>
-<p>This tells Webpack that we want our Fable code to be available from a global variable named <code class="docutils literal notranslate"><span class="pre">MyFableLib</span></code>. That’s it!</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Only the public functions and values in the <strong>last file of the project</strong> will be exposed.</p>
-</div>
-<section id="let-s-try">
-<h4>Let’s try!<a class="headerlink" href="#let-s-try" title="Permalink to this headline">#</a></h4>
-<p>Let’s compile the HelloFable app from above with a webpack.config.js that includes the following:</p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">output</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="p">...</span><span class="w"></span>
-<span class="w">    </span><span class="nx">libraryTarget</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;var&#39;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">library</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;OMGFable&#39;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-</div>
-<p>Now let’s try this directly in our <code class="docutils literal notranslate"><span class="pre">index.html</span></code> file:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;bundle.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/JavaScript&quot;</span><span class="p">&gt;</span><span class="w"></span>
-<span class="w">      </span><span class="nx">alert</span><span class="p">(</span><span class="w"> </span><span class="nx">OMGFable</span><span class="p">.</span><span class="nx">sayHelloFable</span><span class="p">()</span><span class="w"> </span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-</pre></div>
-</div>
-<p>Et voilà! We’re done! You can find a <a class="reference external" href="https://github.com/fable-compiler/fable2-samples/tree/master/interopFableFromJS">full sample here</a>.</p>
-</section>
-</section>
-<section id="from-your-node-js-app">
-<h3>…from your Node.js app<a class="headerlink" href="#from-your-node-js-app" title="Permalink to this headline">#</a></h3>
-<p>Basically it’s the same thing. If you want to see a complete sample using a <code class="docutils literal notranslate"><span class="pre">commonjs</span></code> output instead of <code class="docutils literal notranslate"><span class="pre">var</span></code>, please <a class="reference external" href="https://github.com/fable-compiler/fable2-samples/tree/master/nodejsbundle">check this project</a>. There you’ll see that we’ve added the following lines to the Webpack config:</p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nx">library</span><span class="o">:</span><span class="s2">&quot;app&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nx">libraryTarget</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;commonjs&#39;</span><span class="w"></span>
-</pre></div>
-</div>
-<p>and then you can call your code from JavaScript like this:</p>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s2">&quot;./App.js&quot;</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-</div>
-</section>
-<section id="learn-more-about-webpack-librarytarget">
-<h3>Learn more about Webpack <code class="docutils literal notranslate"><span class="pre">libraryTarget</span></code><a class="headerlink" href="#learn-more-about-webpack-librarytarget" title="Permalink to this headline">#</a></h3>
-<p>If you want to know what your options are, please consult the <a class="reference external" href="https://webpack.js.org/configuration/output/#outputlibrarytarget">official documentation</a>.</p>
 </section>
 </section>
 </section>

@@ -617,19 +617,11 @@ chart
     ?width(768.)
     ?height(480.)
     ?group(speedSumGroup)
-    ?on("renderlet", fun chart ->
-        chart?selectAll("rect")?on("click", fun sender args ->
-            Browser.console.log("click!", args))
 
-// chart
+// (chart
 //     .width(768)
 //     .height(480)
-//     .group(speedSumGroup)
-//     .on("renderlet", function (chart) {
-//         return chart.selectAll("rect").on("click", function (sender, args) {
-//             return console.log("click!", args);
-//         });
-//      });
+//     .group(speedSumGroup))
 ```
 
 If you prefer member extensions rather than operators for dynamic typing, you can open `Fable.Core.DynamicExtensions` to
