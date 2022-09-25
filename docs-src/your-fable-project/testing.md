@@ -1,6 +1,6 @@
 # Testing
 
-You can use all tools of the JS ecosystem.
+You can use all tools of the Python ecosystem.
 
 Several js libs already have a Fable binding:
 - mocha: [https://github.com/Zaid-Ajaj/Fable.Mocha](https://github.com/Zaid-Ajaj/Fable.Mocha)

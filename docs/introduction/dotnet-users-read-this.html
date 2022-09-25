@@ -432,19 +432,27 @@ title="Print to PDF"
 <li><p>Fable projects use standard <code class="docutils literal notranslate"><span class="pre">.fsproj</span></code> project files (which can also be part of <code class="docutils literal notranslate"><span class="pre">.sln</span></code> solutions) or <code class="docutils literal notranslate"><span class="pre">.fsx</span></code> scripts</p></li>
 <li><p>You can use well-known .NET/F# tools like NuGet, Paket or Fake to manage dependencies or your build</p></li>
 <li><p>You can use any F# editor like Visual Studio, Ionide or Rider</p></li>
-<li><p>Many common classes and routines from the <strong>System</strong> namespace have been mapped to Fable to provide a familiar interface for very common things, such as <code class="docutils literal notranslate"><span class="pre">DateTime</span></code>, <code class="docutils literal notranslate"><span class="pre">Math</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, etc.</p></li>
+<li><p>Many common classes and routines from the <strong>System</strong> namespace have been mapped to Fable to provide a familiar
+interface for very common things, such as <code class="docutils literal notranslate"><span class="pre">DateTime</span></code>, <code class="docutils literal notranslate"><span class="pre">Math</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, etc.</p></li>
 <li><p>Most of <strong>FSharp.Core</strong> is also supported. Check the “.NET and F# Compatibility” section.</p></li>
 </ol>
 </section>
 <section id="fable-is-python">
 <h2>Fable is Python<a class="headerlink" href="#fable-is-python" title="Permalink to this headline">#</a></h2>
-<p>Although Fable brings a lot of familiarity for F# and .NET developers, the target runtime is Python. This difference impacts several important areas:</p>
+<p>Although Fable brings a lot of familiarity for F# and .NET developers, the target runtime is Python. This difference
+impacts several important areas:</p>
 <ul class="simple">
 <li><p>Your dependencies will be Python (e.g PyPI) dependencies, not .NET dependencies</p></li>
 <li><p>Runtime behavior will be based on Python semantics, not .NET semantics</p></li>
 </ul>
-<p>There are some NuGet packages you can add into an F# project, but these packages have to also target Fable Python. Otherwise, your dependencies will directly be Python dependencies. Please check the “Author a Fable library” section to learn more, especially if you are a library author and would like to make your package compatible with Fable Python.</p>
-<p>These differences may seem like a lot to take in at once, but they’re important for building robust applications. There have been efforts in the past to try and “magically” turn .NET code into JS, and these all tend to fail. The reality is that your target runtime environment will affect how your app runs and how you build it. However, once you internalize this, you’ll find that using F# for web apps with Fable is incredibly productive, making web programming a lot more joyful than just using Python!</p>
+<p>There are some NuGet packages you can add into an F# project, but these packages have to also target Fable Python.
+Otherwise, your dependencies will directly be Python dependencies. Please check the “Author a Fable library” section to
+learn more, especially if you are a library author and would like to make your package compatible with Fable Python.</p>
+<p>These differences may seem like a lot to take in at once, but they’re important for building robust applications. There
+have been efforts in the past to try and “magically” turn .NET code into JS, and these all tend to fail. The reality is
+that your target runtime environment will affect how your app runs and how you build it. However, once you internalize
+this, you’ll find that using F# for web apps with Fable is incredibly productive, making web programming a lot more
+joyful than just using Python!</p>
 </section>
 </section>
 

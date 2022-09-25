@@ -18,7 +18,8 @@ printfn $"The area of the square is {getArea square}"
 
 ## What is F#?
 
-F# (pronounced f-sharp) is a strongly typed Functional programming language which offers many great features to build robust and maintable code such as:
+F# (pronounced f-sharp) is a strongly typed Functional programming language which offers many great features to build
+robust and maintable code such as:
 
 - Lightweight syntax
 - Immutability baked into the language by default
@@ -26,7 +27,9 @@ F# (pronounced f-sharp) is a strongly typed Functional programming language whic
 - Powerful pattern matching to define complex behaviors
 - And so much more...
 
-F# is already used on the server for web and cloud apps, and it's also used quite a lot for data science and machine learning. It's a great general-purpose language, and also a great fit for building beautiful UIs that run in the browser.
+F# is already used on the server for web and cloud apps, and it's also used quite a lot for data science and machine
+learning. It's a great general-purpose language, and also a great fit for building beautiful UIs that run in the
+browser.
 
 ## Why use F# for your next Python project?
 
@@ -39,4 +42,6 @@ F# is a great choice to build beautiful apps that run in the browser. F# is:
 
 When compared with Python, F# is safer, more robust, and more pleasant to read and write.
 
-F# is a mature language with functional programming and object programming capabilities, but it doesn't sacrifice readability or simplicity to offer these things. Because of that, we think it's a great choice for your next Python application.
+F# is a mature language with functional programming and object programming capabilities, but it doesn't sacrifice
+readability or simplicity to offer these things. Because of that, we think it's a great choice for your next Python
+application.

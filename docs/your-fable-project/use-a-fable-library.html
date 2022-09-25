@@ -378,7 +378,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#option-2-use-paket">
-   Option 2: use Paket!
+   Option 2: use Paket
   </a>
  </li>
 </ul>
@@ -407,7 +407,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#option-2-use-paket">
-   Option 2: use Paket!
+   Option 2: use Paket
   </a>
  </li>
 </ul>
@@ -426,12 +426,12 @@ title="Print to PDF"
 <p>So we do need libraries. And Fable proposes a great variety of libraries ready for you to use like:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://www.nuget.org/packages/Fable.Core/">Fable.Core</a>, which is required for every Fable project</p></li>
-<li><p><a class="reference external" href="https://www.nuget.org/packages/Fable.Browser.Dom">Fable.Browser.Dom</a>, for all your DOM needs (window, document)</p></li>
-<li><p><a class="reference external" href="https://www.nuget.org/packages/Fable.Elmish.React">Fable.Elmish.React</a>, to write web apps using the Elm architecture and React as the render engine</p></li>
-<li><p><a class="reference external" href="https://www.nuget.org/packages/Thoth.Json">Thoth.Json</a>, for JSON serialization</p></li>
+<li><p><a class="reference external" href="https://github.com/Zaid-Ajaj/Fable.SimpleJson.Python">Fable.SimpleJson.Python</a>, a library for working with JSON in F# Fable projects targeting Python</p></li>
+<li><p><a class="reference external" href="https://github.com/dbrattli/AsyncRx">AsyncRx</a>, AsyncRx for F# and Fable</p></li>
 </ul>
 <blockquote>
-<div><p>Please note that not all Nuget libraries will work with Fable. Refer to the library documentation to check if it’s Fable-compatible.</p>
+<div><p>Please note that not all Nuget libraries will work with Fable Python. Refer to the library
+documentation to check if it’s Fable-compatible.</p>
 </div></blockquote>
 <p>There are 2 ways to call Fable libraries:</p>
 <ol class="simple">
@@ -441,7 +441,8 @@ title="Print to PDF"
 <section id="option-1-reference-a-library-manually-in-your-project-file">
 <h2>Option 1: reference a library manually in your project file<a class="headerlink" href="#option-1-reference-a-library-manually-in-your-project-file" title="Permalink to this headline">#</a></h2>
 <p>Just like <code class="docutils literal notranslate"><span class="pre">.fs</span></code> files, we can reference libraries directly in the <code class="docutils literal notranslate"><span class="pre">.fsproj</span></code> file.</p>
-<p>We need to tell what library we need and what version we’d like to use. For instance for <code class="docutils literal notranslate"><span class="pre">Fable.Browser.Dom</span></code> version <code class="docutils literal notranslate"><span class="pre">1.0.0</span></code> we’ll add the following node in the <code class="docutils literal notranslate"><span class="pre">.fsproj</span></code> file:</p>
+<p>We need to tell what library we need and what version we’d like to use. For instance for <code class="docutils literal notranslate"><span class="pre">Fable.Browser.Dom</span></code> version
+<code class="docutils literal notranslate"><span class="pre">1.0.0</span></code> we’ll add the following node in the <code class="docutils literal notranslate"><span class="pre">.fsproj</span></code> file:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;PackageReference</span> <span class="na">Include=</span><span class="s">&quot;Fable.Browser.Dom&quot;</span> <span class="na">Version=</span><span class="s">&quot;1.0.0&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
 </div>
@@ -449,21 +450,27 @@ title="Print to PDF"
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;PackageReference</span> <span class="na">Include=</span><span class="s">&quot;[PACKAGE_ID]&quot;</span> <span class="na">Version=</span><span class="s">&quot;[PACKAGE_VERSION]&quot;</span> <span class="nt">/&gt;</span>
 </pre></div>
 </div>
-<p>The dotnet SDK offers a CLI command to do this operation without manually editing the .fsproj. Also if you omit the version number, it will automatically pick the most recent stable version for you. For instance:</p>
-<p><code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">add</span> <span class="pre">package</span> <span class="pre">Fable.Elmish.React</span> <span class="pre">[-v</span> <span class="pre">3.0.1]</span></code></p>
+<p>The dotnet SDK offers a CLI command to do this operation without manually editing the .fsproj. Also if you omit the
+version number, it will automatically pick the most recent stable version for you. For instance:</p>
+<p><code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">add</span> <span class="pre">package</span> <span class="pre">FSharp.Control.AsyncRx</span> <span class="pre">[-v</span> <span class="pre">1.6.6]</span></code></p>
 <blockquote>
 <div><p>Some IDEs like Visual Studio or Rider also include options in their Graphic Interface to manage Nuget packages.</p>
 </div></blockquote>
-<p>That’s basically all you need to do. The build process will then automatically download the libraries for you and compile your code against them.</p>
+<p>That’s basically all you need to do. The build process will then automatically download the libraries for you and
+compile your code against them.</p>
 <blockquote>
 <div><p>If you need to download the packages before the build (for example, to remove errors in the IDE), run the <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">restore</span></code> command in the folder containing the .fsproj file.</p>
 </div></blockquote>
 </section>
 <section id="option-2-use-paket">
-<h2>Option 2: use Paket!<a class="headerlink" href="#option-2-use-paket" title="Permalink to this headline">#</a></h2>
-<p>The second way of adding libraries is to use  the <a class="reference external" href="https://fsprojects.github.io/Paket/">Paket</a> library manager. While it’s not compulsory, it’s in most cases a good choice for large projects.</p>
-<p>Using Paket is clearly straightforward if you follow the <a class="reference external" href="https://fsprojects.github.io/Paket/get-started.html">official documentation</a>.</p>
-<p>But in order to make things easier for you, we created a <a class="reference external" href="https://github.com/fable-compiler/fable2-samples/tree/master/withpaket">sample</a>. This is a good companion while you read the paket doc.</p>
+<h2>Option 2: use Paket<a class="headerlink" href="#option-2-use-paket" title="Permalink to this headline">#</a></h2>
+<p>The second way of adding libraries is to use  the <a class="reference external" href="https://fsprojects.github.io/Paket/">Paket</a> library manager. While
+it’s not compulsory, it’s in most cases a good choice for large projects.</p>
+<p>Using Paket is clearly straightforward if you follow the <a class="reference external" href="https://fsprojects.github.io/Paket/get-started.html">official
+documentation</a>.</p>
+<p>But in order to make things easier for you, we created a
+<a class="reference external" href="https://github.com/fable-compiler/fable2-samples/tree/master/withpaket">sample</a>. This is a good companion while you
+read the paket doc.</p>
 <p>Usually getting started with Paket takes only a few minutes.</p>
 </section>
 </section>

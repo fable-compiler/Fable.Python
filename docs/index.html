@@ -510,7 +510,7 @@ Check <a href="/docs/2-steps/setup.html#development-tools">the whole list here</
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference external" href="https://fable.io/repl%22">Try online</a></p>
+<p><a class="reference external" href="https://fable.io/repl">Try online</a></p>
 </div>
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">#</a></h2>
@@ -596,23 +596,25 @@ with F# you can use built-in computation expressions and also extend them yourse
 <section id="type-providers">
 <h2>Type providers<a class="headerlink" href="#type-providers" title="Permalink to this headline">#</a></h2>
 <p>Build your types using real-world conditions and make the compiler warn you if those conditions change.</p>
-<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="o">[&lt;</span><span class="n">Literal</span><span class="o">&gt;]</span><span class="w"></span>
-<span class="k">let</span><span class="w"> </span><span class="nv">JSON_URL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;https://jsonplaceholder.typicode.com/todos&quot;</span><span class="w"></span>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span><span class="w"> </span><span class="nn">Zanaptak.TypedCssClasses</span><span class="w"></span>
 
-<span class="c1">// Type is created automatically from the url</span><span class="w"></span>
-<span class="k">type</span><span class="w"> </span><span class="nc">Todos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">Fable</span><span class="p">.</span><span class="nn">JsonProvider</span><span class="p">.</span><span class="n">Generator</span><span class="o">&lt;</span><span class="n">JSON_URL</span><span class="o">&gt;</span><span class="w"></span>
+<span class="k">type</span><span class="w"> </span><span class="nc">Bulma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CssClasses</span><span class="o">&lt;</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css&quot;</span><span class="o">,</span><span class="w"> </span><span class="nn">Naming</span><span class="p">.</span><span class="n">PascalCase</span><span class="o">&gt;</span><span class="w"></span>
 
-<span class="n">async</span><span class="w"> </span><span class="o">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">let</span><span class="o">!</span><span class="w"> </span><span class="o">(_,</span><span class="w"> </span><span class="n">res</span><span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">Fable</span><span class="p">.</span><span class="nn">SimpleHttp</span><span class="p">.</span><span class="nn">Http</span><span class="p">.</span><span class="n">get</span><span class="w"> </span><span class="n">url</span><span class="w"></span>
-<span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="nv">todos</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">Todos</span><span class="p">.</span><span class="n">ParseArray</span><span class="w"> </span><span class="n">res</span><span class="w"></span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">todo</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">todos</span><span class="w"> </span><span class="k">do</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// Compilation fail if the JSON schema changes</span><span class="w"></span>
-<span class="w">        </span><span class="n">printfn</span><span class="w"> </span><span class="s">&quot;ID %i, USER: %i, TITLE %s, COMPLETED %b&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="n">todo</span><span class="o">.</span><span class="n">id</span><span class="w"></span>
-<span class="w">            </span><span class="n">todo</span><span class="o">.</span><span class="n">userId</span><span class="w"></span>
-<span class="w">            </span><span class="n">todo</span><span class="o">.</span><span class="n">title</span><span class="w"></span>
-<span class="w">            </span><span class="n">todo</span><span class="o">.</span><span class="n">completed</span><span class="w"></span>
-<span class="o">}</span><span class="w"></span>
+<span class="k">let</span><span class="w"> </span><span class="nv">hero</span><span class="w"> </span><span class="o">(</span><span class="n">model</span><span class="o">:</span><span class="w"> </span><span class="n">Model</span><span class="o">)</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="nn">Html</span><span class="p">.</span><span class="n">section</span><span class="w"> </span><span class="o">[</span><span class="w"></span>
+<span class="w">        </span><span class="n">prop</span><span class="o">.</span><span class="n">classes</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nn">Bulma</span><span class="p">.</span><span class="n">Hero</span><span class="o">;</span><span class="w"> </span><span class="nn">Bulma</span><span class="p">.</span><span class="n">IsFullheightWithNavbar</span><span class="w"> </span><span class="o">]</span><span class="w"></span>
+<span class="w">        </span><span class="n">prop</span><span class="o">.</span><span class="n">style</span><span class="w"> </span><span class="o">[</span><span class="w"></span>
+<span class="w">            </span><span class="n">style</span><span class="o">.</span><span class="n">backgroundImageUrl</span><span class="w"> </span><span class="o">(</span><span class="n">model</span><span class="o">.</span><span class="n">Banner</span><span class="o">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">style</span><span class="o">.</span><span class="n">backgroundPosition</span><span class="w"> </span><span class="s">&quot;center&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="n">style</span><span class="o">.</span><span class="n">backgroundSize</span><span class="o">.</span><span class="n">cover</span><span class="w"></span>
+<span class="w">        </span><span class="o">]</span><span class="w"></span>
+<span class="w">        </span><span class="n">prop</span><span class="o">.</span><span class="n">children</span><span class="w"> </span><span class="o">[</span><span class="w"></span>
+<span class="w">            </span><span class="nn">Html</span><span class="p">.</span><span class="n">div</span><span class="w"> </span><span class="o">[</span><span class="w"></span>
+<span class="w">                </span><span class="n">prop</span><span class="o">.</span><span class="n">classes</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nn">Bulma</span><span class="p">.</span><span class="n">HeroBody</span><span class="o">;</span><span class="w"> </span><span class="nn">Bulma</span><span class="p">.</span><span class="n">IsDark</span><span class="w"> </span><span class="o">]</span><span class="w"></span>
+<span class="w">                </span><span class="n">prop</span><span class="o">.</span><span class="n">children</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nn">Html</span><span class="p">.</span><span class="n">div</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="n">prop</span><span class="o">.</span><span class="n">classes</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nn">Bulma</span><span class="p">.</span><span class="n">Container</span><span class="w"> </span><span class="o">];</span><span class="w"> </span><span class="n">prop</span><span class="o">.</span><span class="n">children</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">]</span><span class="w"></span>
+<span class="w">            </span><span class="o">]</span><span class="w"></span>
+<span class="w">        </span><span class="o">]</span><span class="w"></span>
+<span class="w">    </span><span class="o">]</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
