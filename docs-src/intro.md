@@ -32,10 +32,10 @@ F# is already used on the server for web and cloud apps, and it's also used quit
 
 F# is a great choice to build beautiful apps that run in the browser. F# is:
 
-* Succinct with lightweight syntax
-* Robust with a great type system and pattern matching
-* Safe with immutability baked into the language
-* Supported by large companies (such as Microsoft and Jetbrains) and comes with commercial tooling support
+- Succinct with lightweight syntax
+- Robust with a great type system and pattern matching
+- Safe with immutability baked into the language
+- Supported by large companies (such as Microsoft and Jetbrains) and comes with commercial tooling support
 
 When compared with Python, F# is safer, more robust, and more pleasant to read and write.
 

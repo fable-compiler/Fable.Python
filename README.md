@@ -71,9 +71,10 @@ It contains example code for using Fable Python with:
 - [Femoto](https://github.com/Zaid-Ajaj/Femto)
 - [AsyncRx](https://github.com/dbrattli/AsyncRx)
 - [Fable.Aether](https://xyncro.tech/aether/)
-- [Fable.Giraffe](https://github.com/dbrattli/Fable.Giraffe)
-- [Fable.Logging](https://github.com/dbrattli/Fable.logging)
+- [Fable.Giraffe](https://github.com/dbrattli/Fable.Giraffe), port of Giraffe to Fable.Python
+- [Fable.Logging](https://github.com/dbrattli/Fable.logging), logging for Fable.Python
 - [Fable.Requests](https://github.com/Zaid-Ajaj/Fable.Requests)
+- [Fable.Jupyter](https://github.com/fable-compiler/Fable.Jupyter), Jupyter Notebook using Fable.Python
 - [Fable.SimpleJson.Python](https://github.com/Zaid-Ajaj/Fable.SimpleJson.Python)
 - [Fable.Sedlex](https://github.com/thautwarm/Fable.Sedlex)
 - [Feliz.ViewEngine](https://github.com/dbrattli/Feliz.ViewEngine)

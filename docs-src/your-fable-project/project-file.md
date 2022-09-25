@@ -1,10 +1,13 @@
 # The project file
 
-Unlike JS, F# projects require all sources to be listed **in compilation order** in an `.fsproj` file. This may look quite restrictive at first, but it does have [some advantages](https://fsharpforfunandprofit.com/posts/cyclic-dependencies/).
-Since an F# project takes its roots from the .NET ecosystem, we need to follow a few obligatory steps in order to add a file to an F# project.
+Unlike Python, F# projects require all sources to be listed **in compilation order** in an `.fsproj` file. This may look
+quite restrictive at first, but it does have [some
+advantages](https://fsharpforfunandprofit.com/posts/cyclic-dependencies/). Since an F# project takes its roots from the
+.NET ecosystem, we need to follow a few obligatory steps in order to add a file to an F# project.
 
 :::{note}
-Many F# IDEs already provide commands to perform operations like creating a project or adding/removing a file. The steps below are only necessary if you want to do this manually.
+Many F# IDEs already provide commands to perform operations like creating a project or adding/removing a file. The steps 
+below are only necessary if you want to do this manually.
 :::
 
 <ul class="textual-steps">
