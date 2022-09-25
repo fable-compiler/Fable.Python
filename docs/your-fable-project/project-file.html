@@ -349,12 +349,41 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-an-fsproj-file">
+   Create an .fsproj file
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-an-fs-file-to-the-project">
+   Add an .fs file to the project
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -366,6 +395,24 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-an-fsproj-file">
+   Create an .fsproj file
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-an-fs-file-to-the-project">
+   Add an .fs file to the project
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -384,10 +431,10 @@ advantages</a>. Since an F# project takes its roots from the
 <p>Many F# IDEs already provide commands to perform operations like creating a project or adding/removing a file. The steps
 below are only necessary if you want to do this manually.</p>
 </div>
-<ul class="textual-steps">
-<li>
-<p><strong>Create an .fsproj file</strong></p>
-<p><code class="docutils literal notranslate"><span class="pre">.fsproj</span></code> files are in XML format. This may look a bit old-fashioned, but luckily the basic schema for F# projects has become much simpler in recent versions. Now the skeleton for most projects looks like this:</p>
+<section id="create-an-fsproj-file">
+<h2>Create an .fsproj file<a class="headerlink" href="#create-an-fsproj-file" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">.fsproj</span></code> files are in XML format. This may look a bit old-fashioned, but luckily the basic schema for F# projects has
+become much simpler in recent versions. Now the skeleton for most projects looks like this:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Project</span> <span class="na">Sdk=</span><span class="s">&quot;Microsoft.NET.Sdk&quot;</span><span class="nt">&gt;</span>
     <span class="nt">&lt;PropertyGroup&gt;</span>
         <span class="nt">&lt;TargetFramework&gt;</span>netstandard2.0<span class="nt">&lt;/TargetFramework&gt;</span>
@@ -401,16 +448,18 @@ below are only necessary if you want to do this manually.</p>
 <span class="nt">&lt;/Project&gt;</span>
 </pre></div>
 </div>
-</li>
-<li>
-<p><strong>Add an .fs file to the project</strong></p>
-<p>F# source files end with the <code class="docutils literal notranslate"><span class="pre">.fs</span></code> extension. To include a new one in the project, you only need to add it to the <code class="docutils literal notranslate"><span class="pre">.fsproj</span></code> using a relative path with the following tag:</p>
+</section>
+<section id="add-an-fs-file-to-the-project">
+<h2>Add an .fs file to the project<a class="headerlink" href="#add-an-fs-file-to-the-project" title="Permalink to this headline">#</a></h2>
+<p>F# source files end with the <code class="docutils literal notranslate"><span class="pre">.fs</span></code> extension. To include a new one in the project, you only need to add it to the
+<code class="docutils literal notranslate"><span class="pre">.fsproj</span></code> using a relative path with the following tag:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ItemGroup&gt;</span>
     <span class="nt">&lt;Compile</span> <span class="na">Include=</span><span class="s">&quot;path/to/my/File.fs&quot;</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;ItemGroup&gt;</span>
 </pre></div>
 </div>
-<p>For example, if we have have an app with two files, named <code class="docutils literal notranslate"><span class="pre">MyAwesomeFeature.fs</span></code> and <code class="docutils literal notranslate"><span class="pre">App.fs</span></code> (the last one contains the entry point), it will look like this</p>
+<p>For example, if we have have an app with two files, named <code class="docutils literal notranslate"><span class="pre">MyAwesomeFeature.fs</span></code> and <code class="docutils literal notranslate"><span class="pre">App.fs</span></code> (the last one contains the
+entry point), it will look like this</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ItemGroup&gt;</span>
     <span class="nt">&lt;Compile</span> <span class="na">Include=</span><span class="s">&quot;MyAwesomeFeature.fs&quot;</span> <span class="nt">/&gt;</span>
     <span class="nt">&lt;Compile</span> <span class="na">Include=</span><span class="s">&quot;App.fs&quot;</span> <span class="nt">/&gt;</span>
@@ -419,16 +468,19 @@ below are only necessary if you want to do this manually.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please be aware that in F#, <strong>file order is important.</strong> For instance, if <code class="docutils literal notranslate"><span class="pre">App.fs</span></code> calls <code class="docutils literal notranslate"><span class="pre">MyAwesomeFeature.fs</span></code>, then you must place <code class="docutils literal notranslate"><span class="pre">MyAwesomeFeature.fs</span></code> above <code class="docutils literal notranslate"><span class="pre">App.fs</span></code>.</p>
+<p>Please be aware that in F#, <strong>file order is important.</strong> For instance, if <code class="docutils literal notranslate"><span class="pre">App.fs</span></code> calls <code class="docutils literal notranslate"><span class="pre">MyAwesomeFeature.fs</span></code>, then you
+must place <code class="docutils literal notranslate"><span class="pre">MyAwesomeFeature.fs</span></code> above <code class="docutils literal notranslate"><span class="pre">App.fs</span></code>.</p>
 </div>
-<p>Let’s add another file, <code class="docutils literal notranslate"><span class="pre">Authentication.fs</span></code>, located in another folder <code class="docutils literal notranslate"><span class="pre">Shared</span></code> which is at the same depth as our <code class="docutils literal notranslate"><span class="pre">src</span></code> folder (this can happen, for example, if the file is shared with another project, like a server). Let’s see the current state of our project tree:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myproject</span>
-    <span class="o">|</span><span class="n">_</span> <span class="n">src</span>
-        <span class="o">|</span><span class="n">_</span> <span class="n">MyAwesomeFeature</span><span class="o">.</span><span class="n">fs</span>
-        <span class="o">|</span><span class="n">_</span> <span class="n">App</span><span class="o">.</span><span class="n">fs</span>
-        <span class="o">|</span><span class="n">_</span> <span class="n">App</span><span class="o">.</span><span class="n">fsproj</span>
-    <span class="o">|</span><span class="n">_</span> <span class="n">Shared</span>
-        <span class="o">|</span><span class="n">_</span> <span class="n">Authentication</span><span class="o">.</span><span class="n">fs</span>
+<p>Let’s add another file, <code class="docutils literal notranslate"><span class="pre">Authentication.fs</span></code>, located in another folder <code class="docutils literal notranslate"><span class="pre">Shared</span></code> which is at the same depth as our <code class="docutils literal notranslate"><span class="pre">src</span></code>
+folder (this can happen, for example, if the file is shared with another project, like a server). Let’s see the current
+state of our project tree:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>myproject
+    |_ src
+        |_ MyAwesomeFeature.fs
+        |_ App.fs
+        |_ App.fsproj
+    |_ Shared
+        |_ Authentication.fs
 </pre></div>
 </div>
 <p>This can be expressed in the project file as:</p>
@@ -439,9 +491,11 @@ below are only necessary if you want to do this manually.</p>
 <span class="nt">&lt;ItemGroup&gt;</span>
 </pre></div>
 </div>
-</li>
-</ul>
-<p>An important thing to note is Fable will translate F# source files to <a class="reference external" href="https://exploringjs.com/es6/ch_modules.html">ES2015 modules</a> using JS <code class="docutils literal notranslate"><span class="pre">import</span></code>. This means that files which are not referenced by any other <strong>will be ignored</strong> (except the last file) including side effects. This is different behavior from .NET, where all files are compiled and executed, regardless of their relationship with the rest of the project.</p>
+<p>An important thing to note is Fable will translate F# source files to <a class="reference external" href="https://exploringjs.com/es6/ch_modules.html">ES2015
+modules</a> using JS <code class="docutils literal notranslate"><span class="pre">import</span></code>. This means that files which are not referenced
+by any other <strong>will be ignored</strong> (except the last file) including side effects. This is different behavior from .NET,
+where all files are compiled and executed, regardless of their relationship with the rest of the project.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

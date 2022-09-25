@@ -372,6 +372,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup-environment">
+   Setup environment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#build">
    Build
   </a>
@@ -401,6 +406,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup-environment">
+   Setup environment
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#build">
    Build
   </a>
@@ -423,9 +433,21 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="build-run">
 <h1>Build &amp; run<a class="headerlink" href="#build-run" title="Permalink to this headline">#</a></h1>
 <p>Your project is ready? Then it’s time to build and run it.</p>
+<section id="setup-environment">
+<h2>Setup environment<a class="headerlink" href="#setup-environment" title="Permalink to this headline">#</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; dotnet new tool-manifest</span>
+<span class="go">&gt; dotnet tool install fable --prerelease</span>
+</pre></div>
+</div>
+</section>
 <section id="build">
 <h2>Build<a class="headerlink" href="#build" title="Permalink to this headline">#</a></h2>
+<p>If you are buliding an F# script:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; dotnet fable --lang py project.fsx</span>
+</pre></div>
+</div>
+<p>If you are buliding an F# project:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; dotnet fable --lang py project.fsproj</span>
 </pre></div>
 </div>
 </section>

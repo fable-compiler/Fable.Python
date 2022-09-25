@@ -38,7 +38,7 @@ Fable supports the <a href="docs/dotnet/compatibility.html">F# core library and 
 ::::
 
 ```{seealso}
-[Try online](https://fable.io/repl")
+[Try online](https://fable.io/repl)
 ```
 
 ## Features
@@ -130,21 +130,23 @@ let thisWorks = distance / time
 Build your types using real-world conditions and make the compiler warn you if those conditions change.
 
 ```fsharp
-[<Literal>]
-let JSON_URL = "https://jsonplaceholder.typicode.com/todos"
+open Zanaptak.TypedCssClasses
 
-// Type is created automatically from the url
-type Todos = Fable.JsonProvider.Generator<JSON_URL>
+type Bulma = CssClasses<"https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css", Naming.PascalCase>
 
-async {
-    let! (_, res) = Fable.SimpleHttp.Http.get url
-    let todos = Todos.ParseArray res
-    for todo in todos do
-        // Compilation fail if the JSON schema changes
-        printfn "ID %i, USER: %i, TITLE %s, COMPLETED %b"
-            todo.id
-            todo.userId
-            todo.title
-            todo.completed
-}
+let hero (model: Model) body =
+    Html.section [
+        prop.classes [ Bulma.Hero; Bulma.IsFullheightWithNavbar ]
+        prop.style [
+            style.backgroundImageUrl (model.Banner)
+            style.backgroundPosition "center"
+            style.backgroundSize.cover
+        ]
+        prop.children [
+            Html.div [
+                prop.classes [ Bulma.HeroBody; Bulma.IsDark ]
+                prop.children [ Html.div [ prop.classes [ Bulma.Container ]; prop.children body ] ]
+            ]
+        ]
+    ]
 ```

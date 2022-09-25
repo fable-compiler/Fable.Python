@@ -23,7 +23,8 @@ Target.create "Build" (fun _ ->
 )
 
 Target.create "Docs" (fun _ ->
-    run poetry "run jb build docs-src --path-output docs" "."
+    run poetry $"run jb build docs-src --path-output {buildPath}/docs" "."
+    Fake.IO.Shell.copyDir "docs" $"{buildPath}/docs/_build/html" (fun _ -> true)
 )
 
 Target.create "Run" (fun _ ->
