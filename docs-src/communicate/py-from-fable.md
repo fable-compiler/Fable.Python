@@ -164,7 +164,7 @@ Here we use the `ImportAll` attribute, to import the module.
 
 - step 1: We specify the module we wish to use. Here `alert` means: "import the `alert.py` file".
 - step 2: we create a let binding called `mylib` to map the js library.
-- step 3: we use the `nativeOnly` keyword to say that `mylib` is just a placeholder for the JavaScript native implementation.
+- step 3: we use the `nativeOnly` keyword to say that `mylib` is just a placeholder for the Python native implementation.
 
 Now we can use this:
 
@@ -486,14 +486,14 @@ type MyStrings =
 myLib.myMethod(Vertical, Horizontal)
 ```
 
-```js
-// js output
-myLib.myMethod("vertical", "Horizontal");
+```py
+// Python output
+myLib.myMethod("vertical", "Horizontal")
 ```
 
 ## Plain Old JavaScript Objects
 
-To create a plain JS object (aka POJO), use `createObj`:
+To create plain Python dictionaries, use `createObj`:
 
 ```fsharp
 open Fable.Core.PyInterop
@@ -516,7 +516,7 @@ let data =
 ```
 
 :::{note}
-Since fable-compiler 2.3.6, when using the dynamic cast operator `!!` to cast an anonymous record to an interface, Fable will raise a warning if the fields in the anonymous don't match those of the interface. Use this feature only to interop with JS, in F# code the proper way to instantiate an interface without an implementing type is an [object expression](https://fsharpforfunandprofit.com/posts/object-expressions/).
+Since fable-compiler 2.3.6, when using the dynamic cast operator `!!` to cast an anonymous record to an interface, Fable will raise a warning if the fields in the anonymous don't match those of the interface. Use this feature only to interop with Python, in F# code the proper way to instantiate an interface without an implementing type is an [object expression](https://fsharpforfunandprofit.com/posts/object-expressions/).
 :::
 
 ```fsharp
@@ -535,7 +535,7 @@ let y: IMyInterface = !!{| foo = "5"; bAr = 4.; baz = Some 0 |}
 let z: IMyInterface = !!{| foo = "5"; bar = 4. |}
 ```
 
-You can also create a JS object from an interface by using `createEmpty` and then assigning the fields manually:
+You can also create a Python dictinary from an interface by using `createEmpty` and then assigning the fields manually:
 
 ```fsharp
 let x = createEmpty<IMyInterface> // var x = {}
@@ -546,7 +546,7 @@ x.bar <- 8.5                      // val.bar = 8.5
 A similar solution that can also be optimized by Fable directly into a JS object at compile time is to use the `jsOptions` helper:
 
 ```fsharp
-let x = jsOptions<IMyInterface>(fun x ->
+let x = pyOptions<IMyInterface>(fun x ->
     x.foo <- "abc"
     x.bar <- 8.5)
 ```
@@ -579,11 +579,16 @@ it's usually a good idea to inline the function containing the helper.
 
 ### Dynamic typing: don't read this!
 
-Through the use of the tools we just described above, Fable guarantees you shouldn't run into nasty bugs (as long as the interface contracts are correct) because all the code will be checked by the compiler. If it does not compile it either means your Python library does not exist or its path is not good or that your F# implementation lacks something. We do rely on Fable on systems that are used 24/7. We know that if it compiles, it means a 99% chance of running without any problems.
+Through the use of the tools we just described above, Fable guarantees you shouldn't run into nasty bugs (as long as the
+interface contracts are correct) because all the code will be checked by the compiler. If it does not compile it either
+means your Python library does not exist or its path is not good or that your F# implementation lacks something. We do
+rely on Fable on systems that are used 24/7. We know that if it compiles, it means a 99% chance of running without any
+problems.
 
 Our motto is: "If it compiles, it works!"
 
-Still, like we stated, **interop is a question of trust**. If you trust your Python code and F# code, then maybe it's ok to do things together without further checks. Maybe.
+Still, like we stated, **interop is a question of trust**. If you trust your Python code and F# code, then maybe it's ok
+to do things together without further checks. Maybe.
 
 :::{warning}
 Disclaimer: use this at your own risk
@@ -591,7 +596,8 @@ Disclaimer: use this at your own risk
 
 #### What is dynamic typing?
 
-Fable.Core.PyInterop implements the F# dynamic operators so you can easily access an object property by name (without static check) as follows:
+Fable.Core.PyInterop implements the F# dynamic operators so you can easily access an object property by name (without
+static check) as follows:
 
 ```fsharp
 open Fable.Core.PyInterop
@@ -607,7 +613,8 @@ printfn "Value: %O" jsObject?(pname) // Access with a reference
 pyObject?myProperty <- 5 // Assignment is also possible
 ```
 
-When you combine the dynamic operator with application, Fable will destructure tuple arguments as with normal method calls. These operations can also be chained to replicate Python fluent APIs.
+When you combine the dynamic operator with application, Fable will destructure tuple arguments as with normal method
+calls. These operations can also be chained to replicate Python fluent APIs.
 
 ```fsharp
 let result = pyObject?myMethod(1, 2)

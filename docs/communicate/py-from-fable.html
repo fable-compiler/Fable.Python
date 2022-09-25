@@ -714,7 +714,7 @@ different from Fable (JavaScript) where interfaces are not present in the genera
 <ul class="simple">
 <li><p>step 1: We specify the module we wish to use. Here <code class="docutils literal notranslate"><span class="pre">alert</span></code> means: “import the <code class="docutils literal notranslate"><span class="pre">alert.py</span></code> file”.</p></li>
 <li><p>step 2: we create a let binding called <code class="docutils literal notranslate"><span class="pre">mylib</span></code> to map the js library.</p></li>
-<li><p>step 3: we use the <code class="docutils literal notranslate"><span class="pre">nativeOnly</span></code> keyword to say that <code class="docutils literal notranslate"><span class="pre">mylib</span></code> is just a placeholder for the JavaScript native implementation.</p></li>
+<li><p>step 3: we use the <code class="docutils literal notranslate"><span class="pre">nativeOnly</span></code> keyword to say that <code class="docutils literal notranslate"><span class="pre">mylib</span></code> is just a placeholder for the Python native implementation.</p></li>
 </ul>
 <p>Now we can use this:</p>
 <div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="n">mylib</span><span class="o">.</span><span class="n">triggerAlert</span><span class="w"> </span><span class="o">(</span><span class="s">&quot;Hey I&#39;m calling my js library from Fable &gt; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mylib</span><span class="o">.</span><span class="n">someString</span><span class="o">)</span><span class="w"></span>
@@ -996,15 +996,15 @@ attribute to the type. Example:</p>
 <span class="n">myLib</span><span class="o">.</span><span class="n">myMethod</span><span class="o">(</span><span class="n">Vertical</span><span class="o">,</span><span class="w"> </span><span class="n">Horizontal</span><span class="o">)</span><span class="w"></span>
 </pre></div>
 </div>
-<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// js output</span><span class="w"></span>
-<span class="nx">myLib</span><span class="p">.</span><span class="nx">myMethod</span><span class="p">(</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Horizontal&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Python</span> <span class="n">output</span>
+<span class="n">myLib</span><span class="o">.</span><span class="n">myMethod</span><span class="p">(</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span> <span class="s2">&quot;Horizontal&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="plain-old-javascript-objects">
 <h2>Plain Old JavaScript Objects<a class="headerlink" href="#plain-old-javascript-objects" title="Permalink to this headline">#</a></h2>
-<p>To create a plain JS object (aka POJO), use <code class="docutils literal notranslate"><span class="pre">createObj</span></code>:</p>
+<p>To create plain Python dictionaries, use <code class="docutils literal notranslate"><span class="pre">createObj</span></code>:</p>
 <div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span><span class="w"> </span><span class="nn">Fable.Core.PyInterop</span><span class="w"></span>
 
 <span class="k">let</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
@@ -1024,7 +1024,7 @@ attribute to the type. Example:</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Since fable-compiler 2.3.6, when using the dynamic cast operator <code class="docutils literal notranslate"><span class="pre">!!</span></code> to cast an anonymous record to an interface, Fable will raise a warning if the fields in the anonymous don’t match those of the interface. Use this feature only to interop with JS, in F# code the proper way to instantiate an interface without an implementing type is an <a class="reference external" href="https://fsharpforfunandprofit.com/posts/object-expressions/">object expression</a>.</p>
+<p>Since fable-compiler 2.3.6, when using the dynamic cast operator <code class="docutils literal notranslate"><span class="pre">!!</span></code> to cast an anonymous record to an interface, Fable will raise a warning if the fields in the anonymous don’t match those of the interface. Use this feature only to interop with Python, in F# code the proper way to instantiate an interface without an implementing type is an <a class="reference external" href="https://fsharpforfunandprofit.com/posts/object-expressions/">object expression</a>.</p>
 </div>
 <div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">type</span><span class="w"> </span><span class="nc">IMyInterface</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="w">    </span><span class="k">abstract</span><span class="w"> </span><span class="n">foo</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">get</span><span class="o">,</span><span class="w"> </span><span class="n">set</span><span class="w"></span>
@@ -1041,14 +1041,14 @@ attribute to the type. Example:</p>
 <span class="k">let</span><span class="w"> </span><span class="nv">z</span><span class="o">:</span><span class="w"> </span><span class="n">IMyInterface</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!!{|</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="o">;</span><span class="w"> </span><span class="n">bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="o">.</span><span class="w"> </span><span class="o">|}</span><span class="w"></span>
 </pre></div>
 </div>
-<p>You can also create a JS object from an interface by using <code class="docutils literal notranslate"><span class="pre">createEmpty</span></code> and then assigning the fields manually:</p>
+<p>You can also create a Python dictinary from an interface by using <code class="docutils literal notranslate"><span class="pre">createEmpty</span></code> and then assigning the fields manually:</p>
 <div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">createEmpty</span><span class="o">&lt;</span><span class="n">IMyInterface</span><span class="o">&gt;</span><span class="w"> </span><span class="c1">// var x = {}</span><span class="w"></span>
 <span class="n">x</span><span class="o">.</span><span class="n">foo</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="w">                    </span><span class="c1">// x.foo = &quot;abc&quot;</span><span class="w"></span>
 <span class="n">x</span><span class="o">.</span><span class="n">bar</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">8</span><span class="o">.</span><span class="mi">5</span><span class="w">                      </span><span class="c1">// val.bar = 8.5</span><span class="w"></span>
 </pre></div>
 </div>
 <p>A similar solution that can also be optimized by Fable directly into a JS object at compile time is to use the <code class="docutils literal notranslate"><span class="pre">jsOptions</span></code> helper:</p>
-<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jsOptions</span><span class="o">&lt;</span><span class="n">IMyInterface</span><span class="o">&gt;(</span><span class="k">fun</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"></span>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pyOptions</span><span class="o">&lt;</span><span class="n">IMyInterface</span><span class="o">&gt;(</span><span class="k">fun</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"></span>
 <span class="w">    </span><span class="n">x</span><span class="o">.</span><span class="n">foo</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="w"></span>
 <span class="w">    </span><span class="n">x</span><span class="o">.</span><span class="n">bar</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">8</span><span class="o">.</span><span class="mi">5</span><span class="o">)</span><span class="w"></span>
 </pre></div>
@@ -1079,16 +1079,22 @@ it’s usually a good idea to inline the function containing the helper.</p>
 </div>
 <section id="dynamic-typing-don-t-read-this">
 <h3>Dynamic typing: don’t read this!<a class="headerlink" href="#dynamic-typing-don-t-read-this" title="Permalink to this headline">#</a></h3>
-<p>Through the use of the tools we just described above, Fable guarantees you shouldn’t run into nasty bugs (as long as the interface contracts are correct) because all the code will be checked by the compiler. If it does not compile it either means your Python library does not exist or its path is not good or that your F# implementation lacks something. We do rely on Fable on systems that are used 24/7. We know that if it compiles, it means a 99% chance of running without any problems.</p>
+<p>Through the use of the tools we just described above, Fable guarantees you shouldn’t run into nasty bugs (as long as the
+interface contracts are correct) because all the code will be checked by the compiler. If it does not compile it either
+means your Python library does not exist or its path is not good or that your F# implementation lacks something. We do
+rely on Fable on systems that are used 24/7. We know that if it compiles, it means a 99% chance of running without any
+problems.</p>
 <p>Our motto is: “If it compiles, it works!”</p>
-<p>Still, like we stated, <strong>interop is a question of trust</strong>. If you trust your Python code and F# code, then maybe it’s ok to do things together without further checks. Maybe.</p>
+<p>Still, like we stated, <strong>interop is a question of trust</strong>. If you trust your Python code and F# code, then maybe it’s ok
+to do things together without further checks. Maybe.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Disclaimer: use this at your own risk</p>
 </div>
 <section id="what-is-dynamic-typing">
 <h4>What is dynamic typing?<a class="headerlink" href="#what-is-dynamic-typing" title="Permalink to this headline">#</a></h4>
-<p>Fable.Core.PyInterop implements the F# dynamic operators so you can easily access an object property by name (without static check) as follows:</p>
+<p>Fable.Core.PyInterop implements the F# dynamic operators so you can easily access an object property by name (without
+static check) as follows:</p>
 <div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span><span class="w"> </span><span class="nn">Fable.Core.PyInterop</span><span class="w"></span>
 
 <span class="n">printfn</span><span class="w"> </span><span class="s">&quot;Value: %O&quot;</span><span class="w"> </span><span class="n">pyObject</span><span class="o">?</span><span class="n">myProperty</span><span class="w"></span>
@@ -1102,7 +1108,8 @@ it’s usually a good idea to inline the function containing the helper.</p>
 <span class="n">pyObject</span><span class="o">?</span><span class="n">myProperty</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="c1">// Assignment is also possible</span><span class="w"></span>
 </pre></div>
 </div>
-<p>When you combine the dynamic operator with application, Fable will destructure tuple arguments as with normal method calls. These operations can also be chained to replicate Python fluent APIs.</p>
+<p>When you combine the dynamic operator with application, Fable will destructure tuple arguments as with normal method
+calls. These operations can also be chained to replicate Python fluent APIs.</p>
 <div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">let</span><span class="w"> </span><span class="nv">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pyObject</span><span class="o">?</span><span class="n">myMethod</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">)</span><span class="w"></span>
 <span class="c1">// Py: py_object.my_method(1, 2)</span><span class="w"></span>
 
