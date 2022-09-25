@@ -261,11 +261,14 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "executing"
-version = "1.0.0"
+version = "1.1.0"
 description = "Get the currently executing AST node of a frame, and other information"
 category = "dev"
 optional = false
 python-versions = "*"
+
+[package.extras]
+tests = ["asttokens", "littleutils", "pytest", "rich"]
 
 [[package]]
 name = "fastjsonschema"
@@ -1633,7 +1636,7 @@ sqlcipher = ["sqlcipher3_binary"]
 
 [[package]]
 name = "stack-data"
-version = "0.5.0"
+version = "0.5.1"
 description = "Extract data from python stack frames and tracebacks for informative displays"
 category = "dev"
 optional = false
@@ -2024,8 +2027,8 @@ entrypoints = [
     {file = "entrypoints-0.4.tar.gz", hash = "sha256:b706eddaa9218a19ebcd67b56818f05bb27589b1ca9e8d797b74affad4ccacd4"},
 ]
 executing = [
-    {file = "executing-1.0.0-py2.py3-none-any.whl", hash = "sha256:550d581b497228b572235e633599133eeee67073c65914ca346100ad56775349"},
-    {file = "executing-1.0.0.tar.gz", hash = "sha256:98daefa9d1916a4f0d944880d5aeaf079e05585689bebd9ff9b32e31dd5e1017"},
+    {file = "executing-1.1.0-py2.py3-none-any.whl", hash = "sha256:4a6d96ba89eb3dcc11483471061b42b9006d8c9f81c584dd04246944cd022530"},
+    {file = "executing-1.1.0.tar.gz", hash = "sha256:2c2c07d1ec4b2d8f9676b25170f1d8445c0ee2eb78901afb075a4b8d83608c6a"},
 ]
 fastjsonschema = [
     {file = "fastjsonschema-2.16.2-py3-none-any.whl", hash = "sha256:21f918e8d9a1a4ba9c22e09574ba72267a6762d47822db9add95f6454e51cc1c"},
@@ -2779,8 +2782,8 @@ SQLAlchemy = [
     {file = "SQLAlchemy-1.4.41.tar.gz", hash = "sha256:0292f70d1797e3c54e862e6f30ae474014648bc9c723e14a2fda730adb0a9791"},
 ]
 stack-data = [
-    {file = "stack_data-0.5.0-py3-none-any.whl", hash = "sha256:66d2ebd3d7f29047612ead465b6cae5371006a71f45037c7e2507d01367bce3b"},
-    {file = "stack_data-0.5.0.tar.gz", hash = "sha256:715c8855fbf5c43587b141e46cc9d9339cc0d1f8d6e0f98ed0d01c6cb974e29f"},
+    {file = "stack_data-0.5.1-py3-none-any.whl", hash = "sha256:5120731a18ba4c82cefcf84a945f6f3e62319ef413bfc210e32aca3a69310ba2"},
+    {file = "stack_data-0.5.1.tar.gz", hash = "sha256:95eb784942e861a3d80efd549ff9af6cf847d88343a12eb681d7157cfcb6e32b"},
 ]
 terminado = [
     {file = "terminado-0.15.0-py3-none-any.whl", hash = "sha256:0d5f126fbfdb5887b25ae7d9d07b0d716b1cc0ccaacc71c1f3c14d228e065197"},

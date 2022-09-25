@@ -27,11 +27,11 @@ containing actual members and is not nested by any other.
 // counting when it finds actual code
 module A.Long.Namespace.RootModule
 
-// The name of this function will be the same in JS
+// The name of this function will be the same in Python
 let add (x: int) (y: int) = x + y
 
 module Nested =
-    // This will be prefixed with the name of the module in JS
+    // This will be prefixed with the name of the module in Python
     let add (x: int) (y: int) = x * y
 ```
 
@@ -79,7 +79,7 @@ exchanging data between F# and Python. The most important common types are:
 - Mutable **hashsets** (not F# sets) compile to a custom HashSet type.
 
 > If the dictionary or hashset requires custom or structural equality, Fable will generate a custom type, but it will
-> share the same properties as JS maps and sets.
+> share the same properties as Python maps and sets.
 
 - **Objects**: As seen above, only record fields and interface members will be attached to objects without name
   mangling. Take this into account when sending to or receiving an object from Python.
@@ -158,7 +158,7 @@ let myEffect() =
     printfn "Effect!"
     fun () -> printfn "Cleaning up"
 
-// Method from a JS module, expects a function
+// Method from a Python module, expects a function
 // that returns another function for disposing
 let useEffect (effect: unit -> (unit -> unit)): unit =
     importMember "my-js-module"

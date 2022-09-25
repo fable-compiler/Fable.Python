@@ -733,7 +733,7 @@ different from Fable (JavaScript) where interfaces are not present in the genera
 </pre></div>
 </div>
 <p>we could use the same method we used with <code class="docutils literal notranslate"><span class="pre">alert.py</span></code>:</p>
-<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span><span class="w"> </span><span class="nn">Fable.Core.JsInterop</span><span class="w"> </span><span class="c1">// needed to call interop tools</span><span class="w"></span>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span><span class="w"> </span><span class="nn">Fable.Core.PyInterop</span><span class="w"> </span><span class="c1">// needed to call interop tools</span><span class="w"></span>
 
 <span class="k">type</span><span class="w"> </span><span class="nc">ICanvas</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="w">    </span><span class="k">abstract</span><span class="w"> </span><span class="n">drawSmiley</span><span class="o">:</span><span class="w"> </span><span class="o">(</span><span class="n">id</span><span class="o">:</span><span class="kt">string</span><span class="o">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">unit</span><span class="w"></span>
@@ -746,7 +746,7 @@ different from Fable (JavaScript) where interfaces are not present in the genera
 </pre></div>
 </div>
 <p>or we could use the <code class="docutils literal notranslate"><span class="pre">importMember</span></code> helper function to directly map the Python function to the F# function.</p>
-<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span><span class="w"> </span><span class="nn">Fable.Core.JsInterop</span><span class="w"> </span><span class="c1">// needed to call interop tools</span><span class="w"></span>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span><span class="w"> </span><span class="nn">Fable.Core.PyInterop</span><span class="w"> </span><span class="c1">// needed to call interop tools</span><span class="w"></span>
 
 <span class="k">module</span><span class="w"> </span><span class="nn">Canvas</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="w">  </span><span class="c1">// here we just import a member function from canvas.js called drawSmiley.</span><span class="w"></span>
@@ -815,7 +815,7 @@ different from Fable (JavaScript) where interfaces are not present in the genera
 <section id="let-s-do-it-use-emit">
 <h3>Let’s do it! Use Emit<a class="headerlink" href="#let-s-do-it-use-emit" title="Permalink to this headline">#</a></h3>
 <p>Now let’s work with Emit and look at a new example with the following <code class="docutils literal notranslate"><span class="pre">my_class.py</span></code>:</p>
-<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> 
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
 <span class="k">class</span> <span class="nc">MyClass</span><span class="p">:</span>
     <span class="c1"># Note the constructor accepts an object</span>
@@ -823,25 +823,25 @@ different from Fable (JavaScript) where interfaces are not present in the genera
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">awesomeness</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="n">value</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_awesomeness</span> <span class="o">=</span> <span class="n">awesomeness</span>
-  
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">value</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">_value</span>
-  
+
 
     <span class="nd">@value</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">set_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_alue</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_value</span> <span class="o">=</span> <span class="n">new_value</span>
-  
+
 
     <span class="k">def</span> <span class="nf">is_awesome</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
       <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">_value</span> <span class="o">==</span> <span class="n">this</span><span class="o">.</span><span class="n">_awesomeness</span>
-  
+
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">getPI</span><span class="p">():</span>
        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
-  
+
 
 </pre></div>
 </div>
@@ -949,7 +949,7 @@ attribute to the type. Example:</p>
 </pre></div>
 </div>
 <p>When passing arguments to a method accepting <code class="docutils literal notranslate"><span class="pre">U2</span></code>, <code class="docutils literal notranslate"><span class="pre">U3</span></code>… you can use the <code class="docutils literal notranslate"><span class="pre">!^</span></code> as syntax sugar so you don’t need to type the exact case (the argument will still be type checked):</p>
-<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span><span class="w"> </span><span class="nn">Fable.Core.JsInterop</span><span class="w"></span>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span><span class="w"> </span><span class="nn">Fable.Core.PyInterop</span><span class="w"></span>
 
 <span class="n">myMethod</span><span class="w"> </span><span class="o">!^</span><span class="mi">5</span><span class="w"> </span><span class="c1">// Equivalent to: myMethod(U3.Case2 5)</span><span class="w"></span>
 <span class="n">myMethod</span><span class="w"> </span><span class="o">!^</span><span class="n">testValue</span><span class="w"></span>
@@ -1005,7 +1005,7 @@ attribute to the type. Example:</p>
 <section id="plain-old-javascript-objects">
 <h2>Plain Old JavaScript Objects<a class="headerlink" href="#plain-old-javascript-objects" title="Permalink to this headline">#</a></h2>
 <p>To create a plain JS object (aka POJO), use <code class="docutils literal notranslate"><span class="pre">createObj</span></code>:</p>
-<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span><span class="w"> </span><span class="nn">Fable.Core.JsInterop</span><span class="w"></span>
+<div class="highlight-fsharp notranslate"><div class="highlight"><pre><span></span><span class="k">open</span><span class="w"> </span><span class="nn">Fable.Core.PyInterop</span><span class="w"></span>
 
 <span class="k">let</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="w">    </span><span class="n">createObj</span><span class="w"> </span><span class="o">[</span><span class="w"></span>

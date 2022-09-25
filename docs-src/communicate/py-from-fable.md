@@ -117,7 +117,7 @@ MyDataManager(myConfig) |> test myData
 ```
 
 :::{note}
-If you have a Python type declaration for the Python code you want to import, you can use 
+If you have a Python type declaration for the Python code you want to import, you can use
 [ts2fable](https://github.com/fable-compiler/ts2fable) to help you write the F# bindings.
 :::
 
@@ -189,7 +189,7 @@ def draw_bubble(id):
 we could use the same method we used with `alert.py`:
 
 ```fsharp
-open Fable.Core.JsInterop // needed to call interop tools
+open Fable.Core.PyInterop // needed to call interop tools
 
 type ICanvas =
     abstract drawSmiley: (id:string) -> unit
@@ -204,7 +204,7 @@ mylib.drawSmiley "smiley" // etc..
 or we could use the `importMember` helper function to directly map the Python function to the F# function.
 
 ```fsharp
-open Fable.Core.JsInterop // needed to call interop tools
+open Fable.Core.PyInterop // needed to call interop tools
 
 module Canvas =
   // here we just import a member function from canvas.js called drawSmiley.
@@ -235,7 +235,7 @@ let aDifferentName: string = import "myString" "my-lib"
 // Py: from my_lib import my_string
 ```
 
-Occasionally, you may need to import Python purely for its side-effects. 
+Occasionally, you may need to import Python purely for its side-effects.
 
 For this, use `importSideEffects`.
 
@@ -285,7 +285,7 @@ The content of `Emit` will not be checked by the F# compiler so it's not advised
 Now let's work with Emit and look at a new example with the following `my_class.py`:
 
 ```py
-import math 
+import math
 
 class MyClass:
     # Note the constructor accepts an object
@@ -293,25 +293,25 @@ class MyClass:
     def __init__(self, value, awesomeness):
         self._value = value
         self._awesomeness = awesomeness
-  
+
     @property
     def value()
         return this._value
-  
+
 
     @value.setter
     def set_value(self, new_alue)
         self._value = new_value
-  
+
 
     def is_awesome(self):
       return this._value == this._awesomeness
-  
+
 
     @staticmethod
     def getPI():
        return math.pi
-  
+
 
 ```
 
@@ -436,7 +436,7 @@ myMethod(U3.Case3 testValue)
 When passing arguments to a method accepting `U2`, `U3`... you can use the `!^` as syntax sugar so you don't need to type the exact case (the argument will still be type checked):
 
 ```fsharp
-open Fable.Core.JsInterop
+open Fable.Core.PyInterop
 
 myMethod !^5 // Equivalent to: myMethod(U3.Case2 5)
 myMethod !^testValue
@@ -496,7 +496,7 @@ myLib.myMethod("vertical", "Horizontal");
 To create a plain JS object (aka POJO), use `createObj`:
 
 ```fsharp
-open Fable.Core.JsInterop
+open Fable.Core.PyInterop
 
 let data =
     createObj [
@@ -573,7 +573,7 @@ sendToPy [
 ```
 
 :::{note}
-Fable can make the transformation at compile time when applying the list literal directly to `keyValueList`. That's why 
+Fable can make the transformation at compile time when applying the list literal directly to `keyValueList`. That's why
 it's usually a good idea to inline the function containing the helper.
 :::
 

@@ -474,11 +474,11 @@ containing actual members and is not nested by any other.</p>
 <span class="c1">// counting when it finds actual code</span><span class="w"></span>
 <span class="k">module</span><span class="w"> </span><span class="nn">A.Long.Namespace.RootModule</span><span class="w"></span>
 
-<span class="c1">// The name of this function will be the same in JS</span><span class="w"></span>
+<span class="c1">// The name of this function will be the same in Python</span><span class="w"></span>
 <span class="k">let</span><span class="w"> </span><span class="nv">add</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
 
 <span class="k">module</span><span class="w"> </span><span class="nn">Nested</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// This will be prefixed with the name of the module in JS</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// This will be prefixed with the name of the module in Python</span><span class="w"></span>
 <span class="w">    </span><span class="k">let</span><span class="w"> </span><span class="nv">add</span><span class="w"> </span><span class="o">(</span><span class="n">x</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="n">y</span><span class="o">:</span><span class="w"> </span><span class="n">int</span><span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
 </pre></div>
 </div>
@@ -527,7 +527,7 @@ situations, though this shouldn’t make a difference for most common operations
 </ul>
 <blockquote>
 <div><p>If the dictionary or hashset requires custom or structural equality, Fable will generate a custom type, but it will
-share the same properties as JS maps and sets.</p>
+share the same properties as Python maps and sets.</p>
 </div></blockquote>
 <ul class="simple">
 <li><p><strong>Objects</strong>: As seen above, only record fields and interface members will be attached to objects without name
@@ -602,7 +602,7 @@ other functions. Let’s consider the following example:</p>
 <span class="w">    </span><span class="n">printfn</span><span class="w"> </span><span class="s">&quot;Effect!&quot;</span><span class="w"></span>
 <span class="w">    </span><span class="k">fun</span><span class="w"> </span><span class="bp">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">printfn</span><span class="w"> </span><span class="s">&quot;Cleaning up&quot;</span><span class="w"></span>
 
-<span class="c1">// Method from a JS module, expects a function</span><span class="w"></span>
+<span class="c1">// Method from a Python module, expects a function</span><span class="w"></span>
 <span class="c1">// that returns another function for disposing</span><span class="w"></span>
 <span class="k">let</span><span class="w"> </span><span class="nv">useEffect</span><span class="w"> </span><span class="o">(</span><span class="n">effect</span><span class="o">:</span><span class="w"> </span><span class="kt">unit</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="o">(</span><span class="kt">unit</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">unit</span><span class="o">)):</span><span class="w"> </span><span class="kt">unit</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="w">    </span><span class="n">importMember</span><span class="w"> </span><span class="s">&quot;my-js-module&quot;</span><span class="w"></span>
