@@ -23,7 +23,7 @@ Target.create "Build" (fun _ ->
 )
 
 Target.create "Docs" (fun _ ->
-    run jupyterBook "build docs-src --path-output src" "."
+    run poetry "run jb build docs-src --path-output docs" "."
 )
 
 Target.create "Run" (fun _ ->
