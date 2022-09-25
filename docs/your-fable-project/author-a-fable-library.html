@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Testing &#8212; Fable Python</title>
+    <title>Author a Fable library &#8212; Fable Python</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -161,7 +161,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Testing
+   Author a Fable library
   </a>
  </li>
  <li class="toctree-l1">
@@ -182,16 +182,6 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="use-a-fable-library.html">
    Use a Fable library
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../markdown.html">
-   Markdown Files
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../notebooks.html">
-   Content with notebooks
   </a>
  </li>
 </ul>
@@ -349,23 +339,60 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testing">
+   Testing
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Testing</h1>
+                <h1>Author a Fable library</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testing">
+   Testing
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -373,7 +400,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <p>To write a library that can be used in Fable you only need to fulfill a few conditions:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="author-a-fable-library">
+<h1>Author a Fable library<a class="headerlink" href="#author-a-fable-library" title="Permalink to this headline">#</a></h1>
+<p>To write a library that can be used in Fable you only need to fulfill a few conditions:</p>
 <ul class="simple">
 <li><p>Don’t use FSharp.Core/BCL APIs that are not <span class="xref myst">compatible with Fable</span>.</p></li>
 <li><p>Keep a simple <code class="docutils literal notranslate"><span class="pre">.fsproj</span></code> file: don’t use MSBuild conditions or similar.</p></li>
@@ -391,10 +420,11 @@ Microsoft
 documentation</a> or
 alternatively you can also <a class="reference external" href="https://fake.build/dotnet-nuget.html#Creating-NuGet-packages">use Fake</a>.</p>
 <section id="testing">
-<h1>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">#</a></h1>
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">#</a></h2>
 <p>It’s a good idea to write unit tests for your library to make sure everything works as expected before publishing. The
 simplest way for that is to use a Python test runner like <a class="reference external" href="https://pytest.org/">pytest</a>, as in <a class="reference external" href="https://github.com/dbrattli/Fable.Giraffe">this
 project</a>.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

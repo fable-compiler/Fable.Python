@@ -18,5 +18,3 @@ chapters:
 - file: your-fable-project/project-file
 - file: your-fable-project/testing
 - file: your-fable-project/use-a-fable-library
-- file: markdown
-- file: notebooks
