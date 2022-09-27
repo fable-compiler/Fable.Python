@@ -16,5 +16,5 @@ chapters:
 - file: your-fable-project/author-a-fable-library
 - file: your-fable-project/build-and-run
 - file: your-fable-project/project-file
-- file: your-fable-project/testing
+#- file: your-fable-project/testing
 - file: your-fable-project/use-a-fable-library

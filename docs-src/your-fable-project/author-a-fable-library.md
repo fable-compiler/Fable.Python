@@ -2,7 +2,7 @@
 
 To write a library that can be used in Fable you only need to fulfill a few conditions:
 
-- Don't use FSharp.Core/BCL APIs that are not [compatible with Fable](../dotnet/compatibility.html).
+- Don't use FSharp.Core/BCL APIs that are not [compatible with Fable](../dotnet/compatibility.md).
 - Keep a simple `.fsproj` file: don't use MSBuild conditions or similar.
 - Include the source files in the Nuget package in a folder named `fable`.
 
