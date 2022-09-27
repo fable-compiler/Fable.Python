@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>The project file &#8212; Fable Python</title>
+    <title>Start a new project &#8212; Fable Python</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Testing" href="testing.html" />
-    <link rel="prev" title="Build &amp; run" href="build-and-run.html" />
+    <link rel="next" title="Call Fable from Python" href="../communicate/fable-from-py.html" />
+    <link rel="prev" title="Setup" href="setup.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -140,12 +140,12 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../2-steps/setup.html">
+  <a class="reference internal" href="setup.html">
    Setup
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../2-steps/your-first-fable-project.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Start a new project
   </a>
  </li>
@@ -170,27 +170,27 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="author-a-fable-library.html">
+  <a class="reference internal" href="../your-fable-project/author-a-fable-library.html">
    Author a Fable library
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="build-and-run.html">
+  <a class="reference internal" href="../your-fable-project/build-and-run.html">
    Build &amp; run
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../your-fable-project/project-file.html">
    The project file
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="testing.html">
+  <a class="reference internal" href="../your-fable-project/testing.html">
    Testing
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="use-a-fable-library.html">
+  <a class="reference internal" href="../your-fable-project/use-a-fable-library.html">
    Use a Fable library
   </a>
  </li>
@@ -284,7 +284,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/fable-compiler/Fable.Python/issues/new?title=Issue%20on%20page%20%2Fyour-fable-project/project-file.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/fable-compiler/Fable.Python/issues/new?title=Issue%20on%20page%20%2F2-steps/your-first-fable-project.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -312,7 +312,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/your-fable-project/project-file.md"
+        <a href="../_sources/2-steps/your-first-fable-project.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -372,13 +372,18 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-an-fsproj-file">
-   Create an .fsproj file
+  <a class="reference internal nav-link" href="#use-a-fable-template">
+   Use a Fable template
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#add-an-fs-file-to-the-project">
-   Add an .fs file to the project
+  <a class="reference internal nav-link" href="#install-dependencies">
+   Install dependencies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-run-the-app">
+   Build &amp; run the app
   </a>
  </li>
 </ul>
@@ -390,7 +395,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>The project file</h1>
+                <h1>Start a new project</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -401,13 +406,18 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-an-fsproj-file">
-   Create an .fsproj file
+  <a class="reference internal nav-link" href="#use-a-fable-template">
+   Use a Fable template
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#add-an-fs-file-to-the-project">
-   Add an .fs file to the project
+  <a class="reference internal nav-link" href="#install-dependencies">
+   Install dependencies
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-run-the-app">
+   Build &amp; run the app
   </a>
  </li>
 </ul>
@@ -420,81 +430,44 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="the-project-file">
-<h1>The project file<a class="headerlink" href="#the-project-file" title="Permalink to this headline">#</a></h1>
-<p>Unlike Python, F# projects require all sources to be listed <strong>in compilation order</strong> in an <code class="docutils literal notranslate"><span class="pre">.fsproj</span></code> file. This may look
-quite restrictive at first, but it does have <a class="reference external" href="https://fsharpforfunandprofit.com/posts/cyclic-dependencies/">some
-advantages</a>. Since an F# project takes its roots from the
-.NET ecosystem, we need to follow a few obligatory steps in order to add a file to an F# project.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="start-a-new-project">
+<h1>Start a new project<a class="headerlink" href="#start-a-new-project" title="Permalink to this headline">#</a></h1>
+<p>Now we’re ready, let’s start a new project using Fable!</p>
+<section id="use-a-fable-template">
+<h2>Use a Fable template<a class="headerlink" href="#use-a-fable-template" title="Permalink to this headline">#</a></h2>
+<p>The easiest way to get started with Fable is to use a template (learn more about <a class="reference external" href="https://docs.microsoft.com/en-us/dotnet/core/tools/custom-templates#installing-a-template">dotnet templates</a>). For a minimal Fable project, create and navigate to a new directory and run the following commands (first one is only needed if you haven’t installed the template yet in your system).</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">new</span> <span class="pre">--install</span> <span class="pre">Fable.Template</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">new</span> <span class="pre">fable</span></code></p></li>
+</ol>
+<p>The rest of this document applies to Fable.Template. Alternatively, if you want specific examples or a more comprehensive template with more tooling and libraries installed, please check one of the following:</p>
+<ul class="simple">
+<li><p>Clone the <a class="reference external" href="https://github.com/fable-compiler/fable3-samples">Fable 3 samples</a> repository to learn how to use Fable with different kinds of apps (browser, nodejs, testing, etc)</p></li>
+<li><p>Build a <a class="reference external" href="https://reactjs.org/">React</a> app in F# with <a class="reference external" href="https://zaid-ajaj.github.io/Feliz/#/Feliz/ProjectTemplate">Feliz template</a></p></li>
+<li><p>Write a frontend app fully in F# without JS dependencies with <a class="reference external" href="https://davedawkins.github.io/Sutil/#documentation-installation">Sutil</a></p></li>
+<li><p>Get up to speed with <a class="reference external" href="https://safe-stack.github.io/docs/quickstart/">SAFE Template</a> which covers both the frontend and backend sides of your app</p></li>
+</ul>
+</section>
+<section id="install-dependencies">
+<h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Permalink to this headline">#</a></h2>
+<p><strong>JS dependencies</strong> are listed in the <code class="docutils literal notranslate"><span class="pre">package.json</span></code> file. You can run <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">install</span></code>, which will download the needed packages to the <code class="docutils literal notranslate"><span class="pre">node_modules</span></code> folder and create a lock file.</p>
+<p><strong>.NET dependencies</strong> are listed in the <code class="docutils literal notranslate"><span class="pre">src/App.fsproj</span></code> file. You can install them by running <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">restore</span> <span class="pre">src</span></code>, but this is already automatically done by Fable.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Many F# IDEs already provide commands to perform operations like creating a project or adding/removing a file. The steps
-below are only necessary if you want to do this manually.</p>
-</div>
-<section id="create-an-fsproj-file">
-<h2>Create an .fsproj file<a class="headerlink" href="#create-an-fsproj-file" title="Permalink to this headline">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">.fsproj</span></code> files are in XML format. This may look a bit old-fashioned, but luckily the basic schema for F# projects has
-become much simpler in recent versions. Now the skeleton for most projects looks like this:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Project</span> <span class="na">Sdk=</span><span class="s">&quot;Microsoft.NET.Sdk&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;PropertyGroup&gt;</span>
-        <span class="nt">&lt;TargetFramework&gt;</span>netstandard2.0<span class="nt">&lt;/TargetFramework&gt;</span>
-    <span class="nt">&lt;/PropertyGroup&gt;</span>
-    <span class="nt">&lt;ItemGroup&gt;</span>
-        <span class="cm">&lt;!-- List your source files here --&gt;</span>
-    <span class="nt">&lt;/ItemGroup&gt;</span>
-    <span class="nt">&lt;ItemGroup&gt;</span>
-        <span class="cm">&lt;!-- List your package references here if you don&#39;t use Paket --&gt;</span>
-    <span class="nt">&lt;/ItemGroup&gt;</span>
-<span class="nt">&lt;/Project&gt;</span>
-</pre></div>
+<p>Lock files (like <code class="docutils literal notranslate"><span class="pre">package-lock.json</span></code> if you’re using npm) should be committed to ensure reproducible builds whenever anybody clones your repo. For .NET dependencies you can create a lock file by using <a class="reference external" href="https://fsprojects.github.io/Paket/">Paket</a>.</p>
 </div>
 </section>
-<section id="add-an-fs-file-to-the-project">
-<h2>Add an .fs file to the project<a class="headerlink" href="#add-an-fs-file-to-the-project" title="Permalink to this headline">#</a></h2>
-<p>F# source files end with the <code class="docutils literal notranslate"><span class="pre">.fs</span></code> extension. To include a new one in the project, you only need to add it to the
-<code class="docutils literal notranslate"><span class="pre">.fsproj</span></code> using a relative path with the following tag:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ItemGroup&gt;</span>
-    <span class="nt">&lt;Compile</span> <span class="na">Include=</span><span class="s">&quot;path/to/my/File.fs&quot;</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;ItemGroup&gt;</span>
-</pre></div>
-</div>
-<p>For example, if we have have an app with two files, named <code class="docutils literal notranslate"><span class="pre">MyAwesomeFeature.fs</span></code> and <code class="docutils literal notranslate"><span class="pre">App.fs</span></code> (the last one contains the
-entry point), it will look like this</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ItemGroup&gt;</span>
-    <span class="nt">&lt;Compile</span> <span class="na">Include=</span><span class="s">&quot;MyAwesomeFeature.fs&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;Compile</span> <span class="na">Include=</span><span class="s">&quot;App.fs&quot;</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;ItemGroup&gt;</span>
-</pre></div>
-</div>
+<section id="build-run-the-app">
+<h2>Build &amp; run the app<a class="headerlink" href="#build-run-the-app" title="Permalink to this headline">#</a></h2>
+<p>Here we go. If you’ve already installed JS dependencies, just run <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">start</span></code>. After a few seconds, your web server app will be running in the background until you kill it.</p>
+<ul class="simple">
+<li><p>You can access your project at <a class="reference external" href="http://localhost:8080/">http://localhost:8080/</a> with your favorite browser.</p></li>
+<li><p>The server is in “watch” mode. Each time you save an <code class="docutils literal notranslate"><span class="pre">.fs</span></code> F# source file, Fable rebuilds the project automatically. If the build succeeds, you will see your changes in the browser without refreshing the page; if not, nothing changes in the browser, and you can see the build errors in the server’s console output.</p></li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please be aware that in F#, <strong>file order is important.</strong> For instance, if <code class="docutils literal notranslate"><span class="pre">App.fs</span></code> calls <code class="docutils literal notranslate"><span class="pre">MyAwesomeFeature.fs</span></code>, then you
-must place <code class="docutils literal notranslate"><span class="pre">MyAwesomeFeature.fs</span></code> above <code class="docutils literal notranslate"><span class="pre">App.fs</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">start</span></code> command is just an alias for <code class="docutils literal notranslate"><span class="pre">dotnet</span> <span class="pre">fable</span> <span class="pre">watch</span> <span class="pre">src</span> <span class="pre">--run</span> <span class="pre">webpack-dev-server</span></code>, check the “scripts” section of the <code class="docutils literal notranslate"><span class="pre">package.json</span></code> file. Please also check the <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file shipped with the template to get up-to-date instructions.</p>
 </div>
-<p>Let’s add another file, <code class="docutils literal notranslate"><span class="pre">Authentication.fs</span></code>, located in another folder <code class="docutils literal notranslate"><span class="pre">Shared</span></code> which is at the same depth as our <code class="docutils literal notranslate"><span class="pre">src</span></code>
-folder (this can happen, for example, if the file is shared with another project, like a server). Let’s see the current
-state of our project tree:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>myproject
-    |_ src
-        |_ MyAwesomeFeature.fs
-        |_ App.fs
-        |_ App.fsproj
-    |_ Shared
-        |_ Authentication.fs
-</pre></div>
-</div>
-<p>This can be expressed in the project file as:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ItemGroup&gt;</span>
-    <span class="nt">&lt;Compile</span> <span class="na">Include=</span><span class="s">&quot;../Shared/Authentication.fs&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;Compile</span> <span class="na">Include=</span><span class="s">&quot;MyAwesomeFeature.fs&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;Compile</span> <span class="na">Include=</span><span class="s">&quot;App.fs&quot;</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;ItemGroup&gt;</span>
-</pre></div>
-</div>
-<p>An important thing to note is Fable will translate F# source files to <a class="reference external" href="https://exploringjs.com/es6/ch_modules.html">ES2015
-modules</a> using JS <code class="docutils literal notranslate"><span class="pre">import</span></code>. This means that files which are not referenced
-by any other <strong>will be ignored</strong> (except the last file) including side effects. This is different behavior from .NET,
-where all files are compiled and executed, regardless of their relationship with the rest of the project.</p>
 </section>
 </section>
 
@@ -511,7 +484,7 @@ where all files are compiled and executed, regardless of their relationship with
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./your-fable-project"
+            path: "./2-steps"
         },
         predefinedOutput: true
     }
@@ -525,17 +498,17 @@ where all files are compiled and executed, regardless of their relationship with
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="build-and-run.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="setup.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Build &amp; run</p>
+            <p class="prev-next-title">Setup</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="testing.html" title="next page">
+    <a class='right-next' id="next-link" href="../communicate/fable-from-py.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Testing</p>
+        <p class="prev-next-title">Call Fable from Python</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

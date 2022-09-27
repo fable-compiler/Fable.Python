@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>The project file &#8212; Fable Python</title>
+    <title>Setup &#8212; Fable Python</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Testing" href="testing.html" />
-    <link rel="prev" title="Build &amp; run" href="build-and-run.html" />
+    <link rel="next" title="Start a new project" href="your-first-fable-project.html" />
+    <link rel="prev" title="The let keyword" href="../new-to-fsharp/let-keyword.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -139,13 +139,13 @@ const thebe_selector_output = ".output, .cell_output"
    The let keyword
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../2-steps/setup.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Setup
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../2-steps/your-first-fable-project.html">
+  <a class="reference internal" href="your-first-fable-project.html">
    Start a new project
   </a>
  </li>
@@ -170,27 +170,27 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="author-a-fable-library.html">
+  <a class="reference internal" href="../your-fable-project/author-a-fable-library.html">
    Author a Fable library
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="build-and-run.html">
+  <a class="reference internal" href="../your-fable-project/build-and-run.html">
    Build &amp; run
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../your-fable-project/project-file.html">
    The project file
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="testing.html">
+  <a class="reference internal" href="../your-fable-project/testing.html">
    Testing
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="use-a-fable-library.html">
+  <a class="reference internal" href="../your-fable-project/use-a-fable-library.html">
    Use a Fable library
   </a>
  </li>
@@ -284,7 +284,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/fable-compiler/Fable.Python/issues/new?title=Issue%20on%20page%20%2Fyour-fable-project/project-file.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/fable-compiler/Fable.Python/issues/new?title=Issue%20on%20page%20%2F2-steps/setup.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -312,7 +312,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/your-fable-project/project-file.md"
+        <a href="../_sources/2-steps/setup.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -372,13 +372,13 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-an-fsproj-file">
-   Create an .fsproj file
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#add-an-fs-file-to-the-project">
-   Add an .fs file to the project
+  <a class="reference internal nav-link" href="#development-tools">
+   Development tools
   </a>
  </li>
 </ul>
@@ -390,7 +390,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>The project file</h1>
+                <h1>Setup</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -401,13 +401,13 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#create-an-fsproj-file">
-   Create an .fsproj file
+  <a class="reference internal nav-link" href="#prerequisites">
+   Prerequisites
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#add-an-fs-file-to-the-project">
-   Add an .fs file to the project
+  <a class="reference internal nav-link" href="#development-tools">
+   Development tools
   </a>
  </li>
 </ul>
@@ -420,81 +420,29 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="the-project-file">
-<h1>The project file<a class="headerlink" href="#the-project-file" title="Permalink to this headline">#</a></h1>
-<p>Unlike Python, F# projects require all sources to be listed <strong>in compilation order</strong> in an <code class="docutils literal notranslate"><span class="pre">.fsproj</span></code> file. This may look
-quite restrictive at first, but it does have <a class="reference external" href="https://fsharpforfunandprofit.com/posts/cyclic-dependencies/">some
-advantages</a>. Since an F# project takes its roots from the
-.NET ecosystem, we need to follow a few obligatory steps in order to add a file to an F# project.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Many F# IDEs already provide commands to perform operations like creating a project or adding/removing a file. The steps
-below are only necessary if you want to do this manually.</p>
-</div>
-<section id="create-an-fsproj-file">
-<h2>Create an .fsproj file<a class="headerlink" href="#create-an-fsproj-file" title="Permalink to this headline">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">.fsproj</span></code> files are in XML format. This may look a bit old-fashioned, but luckily the basic schema for F# projects has
-become much simpler in recent versions. Now the skeleton for most projects looks like this:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Project</span> <span class="na">Sdk=</span><span class="s">&quot;Microsoft.NET.Sdk&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;PropertyGroup&gt;</span>
-        <span class="nt">&lt;TargetFramework&gt;</span>netstandard2.0<span class="nt">&lt;/TargetFramework&gt;</span>
-    <span class="nt">&lt;/PropertyGroup&gt;</span>
-    <span class="nt">&lt;ItemGroup&gt;</span>
-        <span class="cm">&lt;!-- List your source files here --&gt;</span>
-    <span class="nt">&lt;/ItemGroup&gt;</span>
-    <span class="nt">&lt;ItemGroup&gt;</span>
-        <span class="cm">&lt;!-- List your package references here if you don&#39;t use Paket --&gt;</span>
-    <span class="nt">&lt;/ItemGroup&gt;</span>
-<span class="nt">&lt;/Project&gt;</span>
-</pre></div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="setup">
+<h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h1>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">#</a></h2>
+<p>In order to use Fable you will need the following tools:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://dotnet.microsoft.com/">.NET Core SDK</a> to work with F# files and dependencies</p></li>
+<li><p><a class="reference external" href="https://nodejs.org/">Node.js</a> to execute JS code</p></li>
+<li><p>A JS package manager, like <a class="reference external" href="https://www.npmjs.com/">npm</a> (which comes with Node) or <a class="reference external" href="https://yarnpkg.com/">yarn</a></p></li>
+</ul>
+<p>Having the above tools, you may consider using <a class="reference external" href="https://fable.io/blog/2019/2019-06-29-Introducing-Femto.html">Femto</a> to ease package management.</p>
 </section>
-<section id="add-an-fs-file-to-the-project">
-<h2>Add an .fs file to the project<a class="headerlink" href="#add-an-fs-file-to-the-project" title="Permalink to this headline">#</a></h2>
-<p>F# source files end with the <code class="docutils literal notranslate"><span class="pre">.fs</span></code> extension. To include a new one in the project, you only need to add it to the
-<code class="docutils literal notranslate"><span class="pre">.fsproj</span></code> using a relative path with the following tag:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ItemGroup&gt;</span>
-    <span class="nt">&lt;Compile</span> <span class="na">Include=</span><span class="s">&quot;path/to/my/File.fs&quot;</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;ItemGroup&gt;</span>
-</pre></div>
-</div>
-<p>For example, if we have have an app with two files, named <code class="docutils literal notranslate"><span class="pre">MyAwesomeFeature.fs</span></code> and <code class="docutils literal notranslate"><span class="pre">App.fs</span></code> (the last one contains the
-entry point), it will look like this</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ItemGroup&gt;</span>
-    <span class="nt">&lt;Compile</span> <span class="na">Include=</span><span class="s">&quot;MyAwesomeFeature.fs&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;Compile</span> <span class="na">Include=</span><span class="s">&quot;App.fs&quot;</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;ItemGroup&gt;</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Please be aware that in F#, <strong>file order is important.</strong> For instance, if <code class="docutils literal notranslate"><span class="pre">App.fs</span></code> calls <code class="docutils literal notranslate"><span class="pre">MyAwesomeFeature.fs</span></code>, then you
-must place <code class="docutils literal notranslate"><span class="pre">MyAwesomeFeature.fs</span></code> above <code class="docutils literal notranslate"><span class="pre">App.fs</span></code>.</p>
-</div>
-<p>Let’s add another file, <code class="docutils literal notranslate"><span class="pre">Authentication.fs</span></code>, located in another folder <code class="docutils literal notranslate"><span class="pre">Shared</span></code> which is at the same depth as our <code class="docutils literal notranslate"><span class="pre">src</span></code>
-folder (this can happen, for example, if the file is shared with another project, like a server). Let’s see the current
-state of our project tree:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>myproject
-    |_ src
-        |_ MyAwesomeFeature.fs
-        |_ App.fs
-        |_ App.fsproj
-    |_ Shared
-        |_ Authentication.fs
-</pre></div>
-</div>
-<p>This can be expressed in the project file as:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;ItemGroup&gt;</span>
-    <span class="nt">&lt;Compile</span> <span class="na">Include=</span><span class="s">&quot;../Shared/Authentication.fs&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;Compile</span> <span class="na">Include=</span><span class="s">&quot;MyAwesomeFeature.fs&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;Compile</span> <span class="na">Include=</span><span class="s">&quot;App.fs&quot;</span> <span class="nt">/&gt;</span>
-<span class="nt">&lt;ItemGroup&gt;</span>
-</pre></div>
-</div>
-<p>An important thing to note is Fable will translate F# source files to <a class="reference external" href="https://exploringjs.com/es6/ch_modules.html">ES2015
-modules</a> using JS <code class="docutils literal notranslate"><span class="pre">import</span></code>. This means that files which are not referenced
-by any other <strong>will be ignored</strong> (except the last file) including side effects. This is different behavior from .NET,
-where all files are compiled and executed, regardless of their relationship with the rest of the project.</p>
+<section id="development-tools">
+<h2>Development tools<a class="headerlink" href="#development-tools" title="Permalink to this headline">#</a></h2>
+<p>Basically you will need an editor that lets you code in F# with features like hints on hover, autocomplete, syntax highlighting and so on… and there are many of them to suit your code styling!</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> with <a class="reference external" href="http://ionide.io/">Ionide</a></p></li>
+<li><p><a class="reference external" href="https://www.jetbrains.com/rider/">JetBrains Rider</a></p></li>
+<li><p><a class="reference external" href="https://visualstudio.microsoft.com/">Visual Studio For Windows</a></p></li>
+<li><p><a class="reference external" href="https://visualstudio.microsoft.com/vs/mac/">Visual Studio For Mac</a></p></li>
+<li><p><a class="reference external" href="https://www.vim.org/">Vim</a> with <a class="reference external" href="https://github.com/fsharp/vim-fsharp">F# bindings</a></p></li>
+<li><p><a class="reference external" href="https://www.gnu.org/software/emacs/">Emacs</a>/<a class="reference external" href="http://spacemacs.org/">spacemacs</a> with <a class="reference external" href="https://github.com/fsharp/emacs-fsharp-mode">fsharp-mode</a></p></li>
+</ul>
 </section>
 </section>
 
@@ -511,7 +459,7 @@ where all files are compiled and executed, regardless of their relationship with
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./your-fable-project"
+            path: "./2-steps"
         },
         predefinedOutput: true
     }
@@ -525,17 +473,17 @@ where all files are compiled and executed, regardless of their relationship with
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="build-and-run.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../new-to-fsharp/let-keyword.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Build &amp; run</p>
+            <p class="prev-next-title">The let keyword</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="testing.html" title="next page">
+    <a class='right-next' id="next-link" href="your-first-fable-project.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Testing</p>
+        <p class="prev-next-title">Start a new project</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

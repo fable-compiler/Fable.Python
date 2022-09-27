@@ -9,6 +9,8 @@ chapters:
 - file: introduction/py-users-read-this
 - file: new-to-fsharp/learning-the-language
 - file: new-to-fsharp/let-keyword
+- file: 2-steps/setup
+- file: 2-steps/your-first-fable-project
 - file: communicate/fable-from-py
 - file: communicate/py-from-fable
 - file: dotnet/compatibility
