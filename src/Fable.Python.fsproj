@@ -29,8 +29,6 @@
     <Compile Include="flask/Flask.fs" />
     <Compile Include="jupyter/IPython.fs" />
     <Compile Include="jupyter/IPyWidgets.fs" />
-    <Compile Include="microbit/MicroBit.fs" />
-    <Compile Include="microbit/Speach.fs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="pyproject.toml; *.fsproj; **\*.fs; **\*.fsi" PackagePath="fable\" />

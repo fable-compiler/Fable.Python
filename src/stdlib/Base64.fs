@@ -4,6 +4,7 @@ open Fable.Core
 
 // fsharplint:disable MemberNames
 
+[<Erase>]
 type IExports =
     abstract b64encode : byte[] -> byte[]
     abstract b64encode : s : byte[] * altchars: byte[] -> byte[]

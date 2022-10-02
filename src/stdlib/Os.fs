@@ -5,6 +5,7 @@ open Fable.Core
 
 // fsharplint:disable MemberNames
 
+[<Erase>]
 type IExports =
     abstract chdir : string -> unit
     abstract chroot : string -> unit

@@ -16,6 +16,7 @@ type VersionInfo =
     abstract releaselevel: string
     abstract serial: int
 
+[<Erase>]
 type IExports =
     abstract argv: string array
     abstract byteorder: ByteOrder
