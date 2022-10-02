@@ -156,6 +156,7 @@ module OpenTextMode =
 
 type _Opener = Tuple<string, int> -> int
 
+[<Erase>]
 type IExports =
     /// Return the absolute value of the argument.
     abstract abs: int -> int

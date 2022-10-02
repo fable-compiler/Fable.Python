@@ -124,6 +124,7 @@ type Mode =
     | Exec
     | [<CompiledName("func_mode")>] FuncMode
 
+[<Erase>]
 type IExports =
     /// Parse the source into an AST node
     abstract parse: string -> AST

@@ -12,7 +12,6 @@ type Misc =
     abstract member bind : sequence: string * func: (Event -> unit) -> string option
 
 [<Import("Wm", "tkinter")>]
-
 type Wm =
     abstract member title : unit -> string
     abstract member title : string: string -> unit

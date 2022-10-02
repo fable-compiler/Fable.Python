@@ -5,6 +5,7 @@ open Fable.Core
 
 // fsharplint:disable MemberNames
 
+[<Erase>]
 type IExports =
     abstract ceil: int -> int
     abstract ceil: float -> int

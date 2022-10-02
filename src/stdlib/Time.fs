@@ -4,6 +4,7 @@ open Fable.Core
 
 // fsharplint:disable MemberNames
 
+[<Erase>]
 type IExports =
     abstract altzone : int
     abstract ctime : unit -> string
