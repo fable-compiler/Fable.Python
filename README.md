@@ -68,7 +68,7 @@ It contains example code for using Fable Python with:
 
 ## Libraries that uses or works with Fable Python
 
-- [Femoto](https://github.com/Zaid-Ajaj/Femto)
+- [Femto](https://github.com/Zaid-Ajaj/Femto)
 - [AsyncRx](https://github.com/dbrattli/AsyncRx)
 - [Fable.Aether](https://xyncro.tech/aether/)
 - [Fable.Giraffe](https://github.com/dbrattli/Fable.Giraffe), port of Giraffe to Fable.Python
