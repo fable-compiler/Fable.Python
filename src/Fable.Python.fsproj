@@ -7,6 +7,7 @@
     <Copyright>Dag Brattli</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <WarnOn>3390;$(WarnOn)</WarnOn>
+    <PackageTags>fsharp;fable;fable-binding;fable-python;python</PackageTags>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="stdlib/asyncio/Futures.fs" />
