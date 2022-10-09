@@ -4,6 +4,7 @@ module Testing =
 #if FABLE_COMPILER
     open Fable.Core
     open Fable.Core.PyInterop
+    open Fable.Python.XUnit
 
     type Assert =
         [<Emit("assert $0 == $1")>]
@@ -15,14 +16,15 @@ module Testing =
     let equal expected actual : unit = Assert.AreEqual(actual, expected)
     let notEqual expected actual : unit = Assert.NotEqual(actual, expected)
 
-    type Fact () =
-        inherit System.Attribute ()
+    type FactAttribute = Fable.Python.XUnit.FactAttribute
+
 #else
     open Xunit
     type FactAttribute = Xunit.FactAttribute
 
     let equal<'T> (expected: 'T) (actual: 'T) : unit = Assert.Equal(expected, actual)
     let notEqual<'T> (expected: 'T) (actual: 'T) : unit = Assert.NotEqual(expected, actual)
+    Assert.True(true)
 #endif
     let rec sumFirstSeq (zs: seq<float>) (n: int) : float =
         match n with

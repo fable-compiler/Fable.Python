@@ -1,0 +1,8 @@
+group Test
+
+FSharp.Core
+
+Fable.Core
+Fable.Ast
+
+XUnit

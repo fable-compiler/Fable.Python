@@ -9,6 +9,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="../src/Fable.Python.fsproj" />
+    <ProjectReference Include="../src/testing/Testing.fsproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Util.fs" />

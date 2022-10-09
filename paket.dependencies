@@ -14,6 +14,7 @@ group Test
 
     nuget FSharp.Core
     nuget Fable.Core ~> 4.0.0 prerelease
+    nuget Fable.Ast ~> 4.0.0
     nuget Microsoft.NET.Test.Sdk ~> 16
     nuget XUnit ~> 2
     nuget xunit.runner.visualstudio ~>  2
