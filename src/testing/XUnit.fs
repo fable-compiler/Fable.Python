@@ -23,7 +23,11 @@ module Helpers =
     let emitStatement r t args macro =
         emit r t args true macro
 
+    let hasAttribute fullName (funcOrValue: Fable.MemberFunctionOrValue) =
+        funcOrValue.Attributes
+        |> Seq.exists (fun att -> att.Entity.FullName = fullName)
 
+    //let decorate expr =
 /// <summary>Transforms a function into a React function component. Make sure the function is defined at the module level</summary>
 type FactAttribute(?exportDefault: bool, ?import: string, ?from:string, ?memo: bool) =
     inherit MemberDeclarationPluginAttribute()
@@ -33,14 +37,18 @@ type FactAttribute(?exportDefault: bool, ?import: string, ?from:string, ?memo: b
 
     /// <summary>Transforms call-site into createElement calls</summary>
     override this.TransformCall(compiler, memb, expr) =
-        printfn "TransformCall"
         expr
 
     override this.Transform(compiler, file, decl) =
-        printfn "Transform: %A" decl
         let info = compiler.GetMember(decl.MemberRef)
+        printfn "Transform: %A" (info.Attributes |> Seq.map (fun a -> a.Entity.FullName))
+        printfn "Transform: %A" (info.)
 
-        if info.IsValue then
+        match info.IsValue, decl with
+        | true, _ ->
             failwith "FactAttribute can only be applied to functions"
-        else
-            decl
+        | _, { Name = name } when not (name.ToLower().StartsWith("test")) ->
+            let attr = info.Attributes
+            { decl with Name = "test_" + name; Tags= [ "@pytest.mark.unit" ] }
+        | _ -> decl
+        

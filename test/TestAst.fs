@@ -4,12 +4,12 @@ open Util.Testing
 open Fable.Python.Ast
 
 [<Fact>]
-let ``test ast parse empty module works`` () =
+let ``ast parse empty module works`` () =
     let result = ast.parse ""
     result.GetType() |> equal typeof<AST>
 
 [<Fact>]
-let ``test ast parse assign works`` () =
+let ``ast parse assign works`` () =
     let result = ast.parse "a = 10" :?> Module
 
     // Result is a list of statements
