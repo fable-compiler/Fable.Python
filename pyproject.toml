@@ -12,7 +12,7 @@ python = ">= 3.9, < 4.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"
-black = {version = "^22.6.0", allow-prereleases = true}
+black = {version = "^22.10.0", allow-prereleases = true}
 
 [tool.poetry.group.dev.dependencies]
 jupyter-book = "^0.13.1"
