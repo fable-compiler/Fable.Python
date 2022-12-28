@@ -3,7 +3,7 @@ RESTRICTION: || (== net6.0) (== netstandard2.0) (== netstandard2.1)
 NUGET
   remote: https://api.nuget.org/v3/index.json
     Fable.Core (4.0.0-theta-007)
-    FSharp.Core (7.0)
+    FSharp.Core (4.7.2)
 
 GROUP Build
 STORAGE: NONE
@@ -65,20 +65,20 @@ NUGET
   remote: https://api.nuget.org/v3/index.json
     Fable.Core (4.0.0-theta-007)
     FSharp.Core (7.0)
-    Microsoft.CodeCoverage (17.4)
+    Microsoft.CodeCoverage (17.4.1)
     Microsoft.NET.Test.Sdk (16.11)
       Microsoft.CodeCoverage (>= 16.11)
       Microsoft.TestPlatform.TestHost (>= 16.11)
     Microsoft.NETCore.Platforms (7.0)
-    Microsoft.TestPlatform.ObjectModel (17.4)
+    Microsoft.TestPlatform.ObjectModel (17.4.1)
       NuGet.Frameworks (>= 5.11)
       System.Reflection.Metadata (>= 1.6)
-    Microsoft.TestPlatform.TestHost (17.4)
-      Microsoft.TestPlatform.ObjectModel (>= 17.4)
+    Microsoft.TestPlatform.TestHost (17.4.1)
+      Microsoft.TestPlatform.ObjectModel (>= 17.4.1)
       Newtonsoft.Json (>= 13.0.1)
     NETStandard.Library (2.0.3)
       Microsoft.NETCore.Platforms (>= 1.1)
-    Newtonsoft.Json (13.0.1)
+    Newtonsoft.Json (13.0.2)
     NuGet.Frameworks (6.4)
     System.Collections.Immutable (7.0)
       System.Runtime.CompilerServices.Unsafe (>= 6.0)
@@ -90,7 +90,7 @@ NUGET
       xunit.assert (>= 2.4.2)
       xunit.core (2.4.2)
     xunit.abstractions (2.0.3)
-    xunit.analyzers (1.0)
+    xunit.analyzers (1.1)
     xunit.assert (2.4.2)
       NETStandard.Library (>= 1.6.1)
     xunit.core (2.4.2)
