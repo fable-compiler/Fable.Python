@@ -5,7 +5,7 @@ open Fable.Core
 // fsharplint:disable MemberNames
 
 [<Import("Queue", "queue")>]
-type Queue<'T> () =
+type Queue<'T>() =
     /// Return the approximate size of the queue. Note, qsize() > 0 doesn’t guarantee that a subsequent get() will not
     /// block, nor will qsize() < maxsize guarantee that put() will not block.
     member x.qsize() : int = nativeOnly
@@ -43,15 +43,15 @@ type Queue<'T> () =
     member x.task_done() : unit = nativeOnly
 
 [<Import("PriorityQueue", "queue")>]
-type PriorityQueue<'T> () =
-    inherit Queue<'T> ()
+type PriorityQueue<'T>() =
+    inherit Queue<'T>()
 
 [<Import("LifoQueue", "queue")>]
-type LifoQueue<'T> () =
-    inherit Queue<'T> ()
+type LifoQueue<'T>() =
+    inherit Queue<'T>()
 
 [<Import("SimpleQueue", "queue")>]
-type SimpleQueue<'T> () =
+type SimpleQueue<'T>() =
     /// Return the approximate size of the queue. Note, qsize() > 0 doesn’t guarantee that a subsequent get() will not
     /// block, nor will qsize() < maxsize guarantee that put() will not block.
     member x.qsize() : int = nativeOnly
