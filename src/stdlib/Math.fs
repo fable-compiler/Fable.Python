@@ -17,14 +17,14 @@ type IExports =
     abstract floor: float -> int
     abstract fmod: int -> int -> int
 
-    abstract gcd: [<ParamArray>] ints: int [] -> int
+    abstract gcd: [<ParamArray>] ints: int[] -> int
     abstract isfinite: float -> bool
     abstract isfinite: int -> bool
     abstract isinf: float -> bool
     abstract isinf: int -> bool
     abstract isnan: float -> bool
     abstract isnan: int -> bool
-    abstract lcm: [<ParamArray>] ints: int [] -> int
+    abstract lcm: [<ParamArray>] ints: int[] -> int
 
     abstract exp: float -> float
     abstract expm1: float -> float
