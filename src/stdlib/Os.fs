@@ -15,6 +15,8 @@ type IExports =
     abstract getenv: key: string -> string option
     abstract getenv: key: string * ``default``: string -> string
     abstract kill: pid: int * ``sig``: int -> unit
+    abstract mkdir: path: string -> unit
+    abstract makedirs: path: string -> unit    
     abstract putenv: key: string * value: string -> unit
 
 
