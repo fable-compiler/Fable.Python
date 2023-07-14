@@ -140,7 +140,7 @@ Current plan:
 ## Road-map
 
 - Use a dedicated List.fs for Python. List.fs currently depends on
-  Array.fs that is not an efficient list implmentation for Python.
+  Array.fs that is not an efficient list implementation for Python.
 
 - Compile Fable.Library as a published library (done)
 
