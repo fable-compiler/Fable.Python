@@ -9,12 +9,15 @@ license = "MIT"
 [tool.poetry.dependencies]
 python = "^3.9"
 fable-library = ">=0.8.0"
-fable-python = ""
-fsharp-control-async-rx = ""
+#fable-python = "*"
+#fsharp-control-async-rx = "*"
 
 [tool.poetry.dev-dependencies]
-fable-python = {path = "./fable_modules/fable-python", develop = true}
-fsharp-control-async-rx = {path = "./fable_modules/fsharp-control-async-rx", develop = true}
+#fable-python = {path = "./fable_modules/fable-python", develop = true}
+#fsharp-control-async-rx = {path = "./fable_modules/fsharp-control-async-rx", develop = true}
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.10.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
