@@ -19,7 +19,7 @@ Target.create "Clean" (fun _ ->
 
 Target.create "Build" (fun _ ->
     Shell.mkdir buildPath
-    run dotnet $"fable --exclude Fable.Core --lang Python --outDir {buildPath}" srcPath
+    run dotnet $"fable --lang Python --outDir {buildPath}" srcPath
 )
 
 Target.create "Docs" (fun _ ->

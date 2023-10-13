@@ -75,6 +75,7 @@ It contains example code for using Fable Python with:
 - [Fable.Logging](https://github.com/dbrattli/Fable.logging), logging for Fable.Python
 - [Fable.Requests](https://github.com/Zaid-Ajaj/Fable.Requests)
 - [Fable.Jupyter](https://github.com/fable-compiler/Fable.Jupyter), Jupyter Notebook using Fable.Python
+- [Fable.Pyexpecto](https://github.com/Freymaurer/Fable.Pyxpecto), Fable-python equivalent for Fable.Mocha
 - [Fable.SimpleJson.Python](https://github.com/Zaid-Ajaj/Fable.SimpleJson.Python)
 - [Fable.Sedlex](https://github.com/thautwarm/Fable.Sedlex)
 - [Feliz.ViewEngine](https://github.com/dbrattli/Feliz.ViewEngine)
