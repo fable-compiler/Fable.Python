@@ -2,6 +2,9 @@ module Fable.Python.TkInter
 
 open Fable.Core
 
+type Flags =
+    | DONT_WAIT = 2
+
 [<Import("Event", "tkinter")>]
 type Event =
     abstract member x: int
@@ -33,6 +36,7 @@ type Tk(screenName: string option) =
     member _.update() = nativeOnly
     member _.mainloop() = nativeOnly
     member _.after(msecs: int, callback: unit -> unit) = nativeOnly
+    member _.dooneevent(flags: int) = nativeOnly
 
 [<Import("Frame", "tkinter")>]
 type Frame(master: Misc) =
