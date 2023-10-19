@@ -7,7 +7,7 @@ authors = ["Dag Brattli <dag@brattli.net>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = ">= 3.9, < 4.0"
+python = ">= 3.10, < 4.0"
 fable-library = ">=0.8.0"
 
 [tool.poetry.dev-dependencies]
