@@ -20,9 +20,9 @@ and many more. Some bindings have already been added:
 
 ## Version
 
-This library currently targets Python 3.9. Types bindings for other
-versions of Python should not be added to this library until we decide
-how to deal with Python version handling.
+This library currently targets Python 3.10 or greater. Types bindings
+for other versions of Python should not be added to this library until
+we decide how to deal with Python version handling.
 
 ## Installation
 
