@@ -1,5 +1,5 @@
 from __future__ import annotations
-from flask import *
+from flask import Flask
 from typing import Any
 from fable_modules.fable_library.list import (of_array, of_seq, singleton, map)
 from fable_modules.fable_library.string_ import join

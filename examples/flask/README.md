@@ -1,5 +1,15 @@
 # Fable Python on Flask
 
+## python dependencies
+
+* python3
+* pip must be installed, as we use pip virtual environments
+* `python3 -m venv .venv`
+* `source .venv/bin/activate`
+* `which python`
+* install dependencies for each example, e.g. flask and so on..
+* `deactivate` to leave the venv
+
 ## Install Dependencies
 
 ```sh
