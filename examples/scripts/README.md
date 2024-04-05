@@ -7,15 +7,15 @@ dotnet tool restore
 then run
 
 ```
-dotnet fable --lang Python --noCache && rm app.py && mv *.py app.py && flask run
+dotnet fsi run_flask_app.fsx flask_sample.fsx [additional,pip,dependecies,comma,separated]
 ```
 
 ## python dependencies
 
 * python3
-* script specific dependencies can be inferred from imports
+* pip
 
-## local dependencies (optional)
+## local dependencies are installed using pip venv
 
 * pip must be installed, as we use pip virtual environments
 * `python3 -m venv .venv`
