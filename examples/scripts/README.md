@@ -16,6 +16,7 @@ dotnet fable --lang Python --noCache && rm app.py && mv *.py app.py && flask run
 * script specific dependencies can be inferred from imports
 
 ## local dependencies (optional)
+
 * pip must be installed, as we use pip virtual environments
 * `python3 -m venv .venv`
 * `source .venv/bin/activate`

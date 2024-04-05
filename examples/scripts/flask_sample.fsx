@@ -10,14 +10,6 @@ open Zanaptak.TypedCssClasses
 // PIP: flask
 open Fable.Python.Flask
 
-//we can use this package to run python commands together with the script
-//open Fli
-// cli {
-//     Shell Shells.BASH
-//     Command "pip install flask"
-// }
-// |> Command.execute
-
 type Bulma = CssClasses<"https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css", Naming.PascalCase>
 
 module View =
