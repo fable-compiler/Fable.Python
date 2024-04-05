@@ -2,10 +2,21 @@
 #r "nuget: Fable.Python"
 #r "nuget: Feliz.ViewEngine"
 #r "nuget: Zanaptak.TypedCssClasses"
+// #r "nuget: Fli"
 open Fable.Python.Builtins
-open Fable.Python.Flask
 open Feliz.ViewEngine
 open Zanaptak.TypedCssClasses
+
+// PIP: flask
+open Fable.Python.Flask
+
+//we can use this package to run python commands together with the script
+//open Fli
+// cli {
+//     Shell Shells.BASH
+//     Command "pip install flask"
+// }
+// |> Command.execute
 
 type Bulma = CssClasses<"https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css", Naming.PascalCase>
 
@@ -49,7 +60,7 @@ module View =
         subTitle model.Description
     ]
 
-    let hero =
+    let section =
         Html.section [
             prop.classes [ Bulma.Hero; Bulma.IsFullheightWithNavbar ]
             prop.style [
@@ -67,20 +78,19 @@ module View =
 
     let html =
         Html.html [
-            head
-            Html.body hero
+            head 
+            Html.body [
+                section
+            ]
         ]
 
 let renderView () =
     View.html |> Render.htmlDocument
 
+// NB: this must not be inside a module for Flask to resolve the app correctly!
+// https://stackoverflow.com/questions/57718786/error-launching-flask-app-with-error-failed-to-find-flask-application
+let app = Flask.Create(__name__, "/public")
 
-module App =
+// Setup the routes. See if we can use attributes instead
+app.route("/")(renderView) |> ignore
 
-    let run () = 
-        let app = Flask.Create(__name__, "/public")
-
-        // Setup the routes. See if we can use attributes instead
-        app.route("/")(renderView) |> ignore
-
-App.run()

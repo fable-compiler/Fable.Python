@@ -31,21 +31,19 @@ View_head: ReactElement = ReactElement(0, "head", singleton(IReactProperty(1, of
 
 View_body: ReactElement = ReactElement(0, "div", singleton(IReactProperty(1, of_seq(to_enumerable([View_title(View_model["Title"]), View_subTitle(View_model["Description"])])))))
 
-View_hero: ReactElement = ReactElement(0, "section", of_array([Interop_mkAttr("class", join(" ", to_enumerable(["hero", "is-fullheight-with-navbar"]))), Interop_mkAttr("style", join(";", map(to_string, of_array([StyleAttribute(0, "background-image", ("url(\'" + View_model["Banner"]) + "\')"), StyleAttribute(0, "background-position", "center"), StyleAttribute(0, "background-size", "cover")])))), IReactProperty(1, of_seq(to_enumerable([ReactElement(0, "div", of_array([Interop_mkAttr("class", join(" ", to_enumerable(["hero-body", "is-dark"]))), IReactProperty(1, of_seq(to_enumerable([ReactElement(0, "div", of_array([Interop_mkAttr("class", join(" ", to_enumerable(["container"]))), IReactProperty(1, of_seq(to_enumerable([View_body])))]))])))]))])))]))
+View_section: ReactElement = ReactElement(0, "section", of_array([Interop_mkAttr("class", join(" ", to_enumerable(["hero", "is-fullheight-with-navbar"]))), Interop_mkAttr("style", join(";", map(to_string, of_array([StyleAttribute(0, "background-image", ("url(\'" + View_model["Banner"]) + "\')"), StyleAttribute(0, "background-position", "center"), StyleAttribute(0, "background-size", "cover")])))), IReactProperty(1, of_seq(to_enumerable([ReactElement(0, "div", of_array([Interop_mkAttr("class", join(" ", to_enumerable(["hero-body", "is-dark"]))), IReactProperty(1, of_seq(to_enumerable([ReactElement(0, "div", of_array([Interop_mkAttr("class", join(" ", to_enumerable(["container"]))), IReactProperty(1, of_seq(to_enumerable([View_body])))]))])))]))])))]))
 
-View_html: ReactElement = ReactElement(0, "html", singleton(IReactProperty(1, of_seq(to_enumerable([View_head, ReactElement(0, "body", singleton(Interop_mkText(View_hero)))])))))
+View_html: ReactElement = ReactElement(0, "html", singleton(IReactProperty(1, of_seq(to_enumerable([View_head, ReactElement(0, "body", singleton(IReactProperty(1, of_seq(to_enumerable([View_section])))))])))))
 
 def render_view(__unit: None=None) -> str:
     return Render_htmlDocument_78F28865(View_html)
 
 
-def App_run(__unit: None=None) -> None:
-    app: Flask = Flask((__name__), static_url_path="/public")
-    def _arrow32(__unit: None=None) -> str:
-        return render_view()
+app: Flask = Flask((__name__), static_url_path="/public")
 
-    ignore(app.route("/")(_arrow32))
+def _arrow32(__unit: None=None) -> str:
+    return render_view()
 
 
-App_run()
+ignore(app.route("/")(_arrow32))
 
