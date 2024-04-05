@@ -69,10 +69,18 @@ let fable_compile_flask_app() =
     |> Command.execute
     |> Output.printText
 
+let remove_old_app() = 
+    cli {
+        Shell Shells.BASH
+        Command "rm app.py"
+    }
+    |> Command.execute
+    |> Output.printText
+
 let rename_and_cleanup() = 
     cli {
         Shell Shells.BASH
-        Command "rm app.py && mv *.py app.py"
+        Command "mv *.py app.py"
     }
     |> Command.execute
     |> Output.printText
@@ -107,6 +115,7 @@ create_py_venv()
 |> pip_install_flask
 |> pip_install_extras
 |> fable_compile_flask_app
+|> remove_old_app
 |> rename_and_cleanup
 |> run_flask_app
 
