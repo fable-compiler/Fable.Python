@@ -22,6 +22,7 @@ jobs:
           dotnet-version: |
             6.x
             8.x
+            9.x
 
       - name: Setup dotnet tools
         run: dotnet tool restore
