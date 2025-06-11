@@ -59,7 +59,7 @@ NUGET
 
 GROUP Test
 STORAGE: NONE
-RESTRICTION: == net8.0
+RESTRICTION: == net9.0
 NUGET
   remote: https://api.nuget.org/v3/index.json
     Fable.Core (4.5)
@@ -74,9 +74,7 @@ NUGET
       Microsoft.TestPlatform.ObjectModel (>= 17.14.1)
       Newtonsoft.Json (>= 13.0.3)
     Newtonsoft.Json (13.0.3)
-    System.Collections.Immutable (9.0.6)
     System.Reflection.Metadata (9.0.6)
-      System.Collections.Immutable (>= 9.0.6)
     xunit (2.9.3)
       xunit.analyzers (>= 1.18)
       xunit.assert (>= 2.9.3)
