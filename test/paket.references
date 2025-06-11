@@ -5,6 +5,5 @@ Fable.Core
 
 Microsoft.NET.Test.Sdk
 
-XUnit
-
+xunit
 xunit.runner.visualstudio

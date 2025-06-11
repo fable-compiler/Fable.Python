@@ -1,24 +1,20 @@
 
-[tool.poetry]
+[project]
 name = "timeflies"
 version = "0.1.0"
 description = "Fable Timeflies Demo"
-authors = ["Dag Brattli <dag@brattli.net>"]
+authors = [{ name = "Dag Brattli", email = "dag@brattli.net" }]
 license = "MIT"
+requires-python = ">=3.11"
+dependencies = [
+    "fable-library>=0.8.0",
+    #"fable-python",
+    #"fsharp-control-async-rx",
+]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-fable-library = ">=0.8.0"
-#fable-python = "*"
-#fsharp-control-async-rx = "*"
-
-[tool.poetry.dev-dependencies]
-#fable-python = {path = "./fable_modules/fable-python", develop = true}
-#fsharp-control-async-rx = {path = "./fable_modules/fsharp-control-async-rx", develop = true}
-
-[tool.poetry.group.dev.dependencies]
-black = "^24.3.0"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = [
+    "black>=24.3.0",
+    #"fable-python",
+    #"fsharp-control-async-rx",
+]
