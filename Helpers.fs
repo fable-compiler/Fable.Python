@@ -75,7 +75,7 @@ let dotnet = createProcess "dotnet"
 
 
 let pytest = createProcess "pytest"
-let poetry = createProcess "poetry"
+let uv = createProcess "uv"
 let jupyterBook = createProcess "jb"
 
 let npm =

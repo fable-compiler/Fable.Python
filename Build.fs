@@ -23,7 +23,7 @@ Target.create "Build" (fun _ ->
 )
 
 Target.create "Docs" (fun _ ->
-    run poetry $"run jb build docs-src --path-output {buildPath}/docs" "."
+    run uv $"run jb build docs-src --path-output {buildPath}/docs" "."
     Fake.IO.Shell.copyDir "docs" $"{buildPath}/docs/_build/html" (fun _ -> true)
 )
 
@@ -37,7 +37,7 @@ Target.create "Test" (fun _ ->
       "python", dotnet $"fable --lang Python --outDir {buildPath}/tests" testsPath
       ]
     |> runParallel
-    run poetry $"run pytest {buildPath}/tests" ""
+    run uv $"run pytest {buildPath}/tests" ""
 )
 
 Target.create "Pack" (fun _ ->

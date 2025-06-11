@@ -1,15 +1,13 @@
-
-[tool.poetry]
+[project]
 name = "fable-python"
-version = "0.18.0"
+version = "0.19.0"
 description = "Python bindings for Fable"
-authors = ["Dag Brattli <dag@brattli.net>"]
+authors = [{ name = "Dag Brattli", email = "dag@brattli.net" }]
+requires-python = ">= 3.10, < 4.0"
 license = "MIT"
-
-[tool.poetry.dependencies]
-python = ">= 3.10, < 4.0"
-fable-library = ">=0.8.0"
+dependencies = ["fable-library>=0.8.0"]
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+

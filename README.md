@@ -84,9 +84,9 @@ It contains example code for using Fable Python with:
 - [Typed-BNF](https://github.com/thautwarm/Typed-BNF#readme)
 - [Zanaptak.TypedCssClasses](https://github.com/zanaptak/TypedCssClasses)
 
-## Poetry
+## Uv
 
-Fable.Python uses [Poetry](https://python-poetry.org/) for package and
+Fable.Python uses [Uv](https://docs.astral.sh/uv/) for package and
 dependency management. To handle dependencies when adding Fable Python
 compatible NuGet packages, you should use
 [Femto](https://github.com/Zaid-Ajaj/Femto).
@@ -110,8 +110,8 @@ libraries as long as:
 There's not much Python specific documentation yet, but the process of
 adding type bindings for Python is similar to JS:
 
-- https://fable.io/docs/communicate/js-from-fable.html
-- https://medium.com/@zaid.naom/f-interop-with-javascript-in-fable-the-complete-guide-ccc5b896a59f
+- <https://fable.io/docs/communicate/js-from-fable.html>
+- <https://medium.com/@zaid.naom/f-interop-with-javascript-in-fable-the-complete-guide-ccc5b896a59f>
 
 ## Differences from JS
 
@@ -145,6 +145,6 @@ Current plan:
 
 - Compile Fable.Library as a published library (done)
 
-- Use poetry for Python references to Fable modules (done)
+- Use uv for Python references to Fable modules (done)
 
 - Update docs
