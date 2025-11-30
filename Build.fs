@@ -22,10 +22,7 @@ Target.create "Build" (fun _ ->
     run dotnet $"fable --lang Python --outDir {buildPath}" srcPath
 )
 
-Target.create "Docs" (fun _ ->
-    run uv $"run jb build docs-src --path-output {buildPath}/docs" "."
-    Fake.IO.Shell.copyDir "docs" $"{buildPath}/docs/_build/html" (fun _ -> true)
-)
+// Docs target removed - documentation is maintained centrally at https://fable.io/docs/
 
 Target.create "Run" (fun _ ->
     run dotnet "build" srcPath
@@ -60,9 +57,6 @@ let dependencies = [
 
     "Build"
         ==> "Test"
-
-    "Build"
-        ==> "Docs"
 
     "Build"
         ==> "Pack"

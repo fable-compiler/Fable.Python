@@ -1,3 +1,4 @@
+// Type bindings for Python asyncio tasks: https://docs.python.org/3/library/asyncio-task.html
 namespace Fable.Python.AsyncIO
 
 open Fable.Core

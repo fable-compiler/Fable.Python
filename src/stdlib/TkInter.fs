@@ -1,3 +1,4 @@
+/// Type bindings for Python tkinter GUI toolkit: https://docs.python.org/3/library/tkinter.html
 module Fable.Python.TkInter
 
 open Fable.Core

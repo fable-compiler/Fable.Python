@@ -1,3 +1,4 @@
+/// Type bindings for Python queue module: https://docs.python.org/3/library/queue.html
 module Fable.Python.Queue
 
 open Fable.Core
@@ -40,12 +41,16 @@ type Queue<'T>() =
     /// the count of unfinished tasks drops to zero, join() unblocks.
     member x.join() : unit = nativeOnly
 
+    /// Indicate that a formerly enqueued task is complete
+    /// See https://docs.python.org/3/library/queue.html#queue.Queue.task_done
     member x.task_done() : unit = nativeOnly
 
+/// A priority queue implementation (lowest valued entries are retrieved first)
 [<Import("PriorityQueue", "queue")>]
 type PriorityQueue<'T>() =
     inherit Queue<'T>()
 
+/// A LIFO (stack) queue implementation
 [<Import("LifoQueue", "queue")>]
 type LifoQueue<'T>() =
     inherit Queue<'T>()

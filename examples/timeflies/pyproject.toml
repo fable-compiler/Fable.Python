@@ -7,9 +7,7 @@ authors = [{ name = "Dag Brattli", email = "dag@brattli.net" }]
 license = "MIT"
 requires-python = ">=3.11"
 dependencies = [
-    "fable-library>=0.8.0",
-    #"fable-python",
-    #"fsharp-control-async-rx",
+    "fable-library==5.0.0a17",
 ]
 
 [dependency-groups]
