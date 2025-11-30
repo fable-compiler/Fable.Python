@@ -11,7 +11,7 @@ let ``test works`` () =
 [<Fact>]
 let ``test json dumps works`` () =
     let object = {| A = 10; B = 20 |}
-    let result = json.dumps object
+    let result = dumps object
     result |> equal """{"A": 10, "B": 20}"""
 
 [<Fact>]

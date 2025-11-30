@@ -3,9 +3,12 @@ name = "Fable.Python"
 version = "4.4.0"
 description = "Fable"
 authors = [{ name = "Dag Brattli", email = "dag@brattli.net" }]
-requires-python = ">= 3.10, < 4.0"
+requires-python = ">= 3.12, < 4"
 readme = "README.md"
 license = "MIT"
+dependencies = [
+    "fable-library==5.0.0a17",
+]
 
 [project.urls]
 Homepage = "https://fable.io"
@@ -13,9 +16,32 @@ Homepage = "https://fable.io"
 [dependency-groups]
 dev = [
     "pytest>=6.2.4,<7",
-    "black>=24.3.0,<25",
-    "jupyter-book>=0.13.1,<0.14",
+    "ruff>=0.14.0",
 ]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E",      # pycodestyle errors
+    "W",      # pycodestyle warnings
+    "F",      # pyflakes
+    "I",      # isort
+    "UP",     # pyupgrade
+    "B",      # flake8-bugbear
+    "SIM",    # flake8-simplify
+    "C4",     # flake8-comprehensions
+]
+ignore = [
+    "E501",   # line too long (handled by formatter)
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
 
 [tool.pyright]
 reportMissingTypeStubs = false
@@ -33,5 +59,5 @@ reportConstantRedefinition = true
 reportOverlappingOverload = true
 reportInconsistentConstructor = true
 reportImplicitStringConcatenation = true
-pythonVersion = "3.10"
+pythonVersion = "3.12"
 typeCheckingMode = "basic"
