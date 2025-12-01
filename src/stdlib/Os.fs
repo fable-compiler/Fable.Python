@@ -84,6 +84,18 @@ and [<Erase>] PathModule =
     /// Return the base name of pathname path
     /// See https://docs.python.org/3/library/os.path.html#os.path.basename
     abstract basename: path: string -> string
+    /// Return the argument with an initial component of ~ or ~user replaced
+    /// See https://docs.python.org/3/library/os.path.html#os.path.expanduser
+    abstract expanduser: path: string -> string
+    /// Return a normalized absolutized version of the pathname path
+    /// See https://docs.python.org/3/library/os.path.html#os.path.abspath
+    abstract abspath: path: string -> string
+    /// Split the pathname path into a pair (head, tail)
+    /// See https://docs.python.org/3/library/os.path.html#os.path.split
+    abstract split: path: string -> string * string
+    /// Split the pathname path into a pair (root, ext)
+    /// See https://docs.python.org/3/library/os.path.html#os.path.splitext
+    abstract splitext: path: string -> string * string
 
 
 /// Miscellaneous operating system interfaces
