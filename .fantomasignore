@@ -1,6 +1,2 @@
-Build.fs
-Helpers.fs
-Util.fs
-
 # Ignore script files
 *.fsx
