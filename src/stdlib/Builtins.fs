@@ -200,6 +200,30 @@ type IExports =
     abstract int: obj -> int
     /// Object to float
     abstract float: obj -> float
+
+    /// Return the largest item in an iterable or the largest of two or more arguments.
+    abstract max: 'T * 'T -> 'T
+    /// Return the largest item in an iterable or the largest of two or more arguments.
+    abstract max: 'T * 'T * 'T -> 'T
+    /// Return the largest item in an iterable or the largest of two or more arguments.
+    abstract max: IEnumerable<'T> -> 'T
+
+    /// Return the smallest item in an iterable or the smallest of two or more arguments.
+    abstract min: 'T * 'T -> 'T
+    /// Return the smallest item in an iterable or the smallest of two or more arguments.
+    abstract min: 'T * 'T * 'T -> 'T
+    /// Return the smallest item in an iterable or the smallest of two or more arguments.
+    abstract min: IEnumerable<'T> -> 'T
+
+    /// Return the sum of a 'start' value (default: 0) plus an iterable of numbers.
+    abstract sum: IEnumerable<'T> -> 'T
+
+    /// Return True if bool(x) is True for all values x in the iterable.
+    abstract all: IEnumerable<bool> -> bool
+
+    /// Return True if bool(x) is True for any x in the iterable.
+    abstract any: IEnumerable<bool> -> bool
+
     abstract print: obj: obj -> unit
 
     [<NamedParams(fromIndex = 1)>]

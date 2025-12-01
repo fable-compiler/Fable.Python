@@ -16,6 +16,7 @@
     <Compile Include="TestAst.fs" />
     <Compile Include="TestAsyncIO.fs" />
     <Compile Include="TestBuiltins.fs" />
+    <Compile Include="TestOs.fs" />
     <Compile Include="TestJson.fs" />
     <Compile Include="TestString.fs" />
     <Compile Include="Main.fs" />
