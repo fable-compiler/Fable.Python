@@ -6,58 +6,6 @@ NUGET
       FSharp.Core (>= 4.7.2)
     FSharp.Core (4.7.2)
 
-GROUP Build
-STORAGE: NONE
-RESTRICTION: == net8.0
-NUGET
-  remote: https://api.nuget.org/v3/index.json
-    Fake.Core.CommandLineParsing (6.1.4)
-      FParsec (>= 1.1.1)
-      FSharp.Core (>= 8.0.400)
-    Fake.Core.Context (6.1.4)
-      FSharp.Core (>= 8.0.400)
-    Fake.Core.Environment (6.1.4)
-      FSharp.Core (>= 8.0.400)
-    Fake.Core.FakeVar (6.1.4)
-      Fake.Core.Context (>= 6.1.4)
-      FSharp.Core (>= 8.0.400)
-    Fake.Core.Process (6.1.4)
-      Fake.Core.Environment (>= 6.1.4)
-      Fake.Core.FakeVar (>= 6.1.4)
-      Fake.Core.String (>= 6.1.4)
-      Fake.Core.Trace (>= 6.1.4)
-      Fake.IO.FileSystem (>= 6.1.4)
-      FSharp.Core (>= 8.0.400)
-      System.Collections.Immutable (>= 8.0)
-    Fake.Core.String (6.1.4)
-      FSharp.Core (>= 8.0.400)
-    Fake.Core.Target (6.1.4)
-      Fake.Core.CommandLineParsing (>= 6.1.4)
-      Fake.Core.Context (>= 6.1.4)
-      Fake.Core.Environment (>= 6.1.4)
-      Fake.Core.FakeVar (>= 6.1.4)
-      Fake.Core.Process (>= 6.1.4)
-      Fake.Core.String (>= 6.1.4)
-      Fake.Core.Trace (>= 6.1.4)
-      FSharp.Control.Reactive (>= 5.0.2)
-      FSharp.Core (>= 8.0.400)
-    Fake.Core.Trace (6.1.4)
-      Fake.Core.Environment (>= 6.1.4)
-      Fake.Core.FakeVar (>= 6.1.4)
-      FSharp.Core (>= 8.0.400)
-    Fake.IO.FileSystem (6.1.4)
-      Fake.Core.String (>= 6.1.4)
-      Fake.Core.Trace (>= 6.1.4)
-      FSharp.Core (>= 8.0.400)
-    FParsec (1.1.1)
-      FSharp.Core (>= 4.3.4)
-    FSharp.Control.Reactive (6.1.2)
-      FSharp.Core (>= 6.0.7)
-      System.Reactive (>= 6.0.1)
-    FSharp.Core (10.0.100)
-    System.Collections.Immutable (10.0)
-    System.Reactive (6.1)
-
 GROUP Test
 STORAGE: NONE
 RESTRICTION: == net9.0

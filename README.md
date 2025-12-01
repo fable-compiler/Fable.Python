@@ -91,6 +91,33 @@ dependency management. To handle dependencies when adding Fable Python
 compatible NuGet packages, you should use
 [Femto](https://github.com/Zaid-Ajaj/Femto).
 
+## Development
+
+This project uses [just](https://github.com/casey/just) as a command runner.
+
+```sh
+# Install just (macOS)
+> brew install just
+
+# Show available commands
+> just
+
+# Full setup (restore .NET and Python dependencies)
+> just setup
+
+# Build F# to Python
+> just build
+
+# Run all tests (native .NET and Python)
+> just test
+
+# Format code
+> just format
+
+# Create NuGet package
+> just pack
+```
+
 ## Contributing
 
 This project is community driven. If the type binding you are looking

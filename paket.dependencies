@@ -19,11 +19,3 @@ group Test
     nuget xunit.runner.visualstudio ~>  2
 
 
-group Build
-    source https://api.nuget.org/v3/index.json
-    storage: none
-    framework: net8.0
-
-    nuget System.Collections.Immutable
-    nuget Fake.Core.Target
-    nuget Fake.IO.FileSystem
