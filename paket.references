@@ -1,6 +1,0 @@
-group Build
-
-System.Collections.Immutable
-
-Fake.Core.Target
-Fake.IO.FileSystem

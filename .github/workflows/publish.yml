@@ -13,19 +13,25 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: |
             6.x
             8.x
             9.x
+            10.x
 
-      - name: Setup tools
-        run: dotnet tool restore
-      - name: Dotnet Pack
-        run: dotnet pack -c Release -p:PackageVersion=${GITHUB_REF##*/v} -p:FileVersion=${GITHUB_REF##*/v} -p:InformationalVersion=${GITHUB_REF##*/v} src
+      - name: Install just
+        uses: extractions/setup-just@v2
 
-      - name: Push Nuget
+      - name: Restore dependencies
+        run: |
+          dotnet tool restore
+          dotnet restore src
+
+      - name: Pack NuGet
+        run: just pack-version ${GITHUB_REF##*/v}
+
+      - name: Push NuGet
         run: dotnet nuget push src/bin/Release/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
         continue-on-error: false
-
