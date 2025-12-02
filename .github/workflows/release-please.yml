@@ -1,11 +1,29 @@
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - main
 
-name: Publish Release
+permissions:
+  contents: write
+  pull-requests: write
+
+name: Release Please
+
 jobs:
-  build:
-    name: Create Release
+  release-please:
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+  publish:
+    needs: release-please
+    if: ${{ needs.release-please.outputs.release_created }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -30,7 +48,9 @@ jobs:
           dotnet restore src
 
       - name: Pack NuGet
-        run: just pack-version ${GITHUB_REF##*/v}
+        env:
+          TAG_NAME: ${{ needs.release-please.outputs.tag_name }}
+        run: just pack-version ${TAG_NAME#v}
 
       - name: Push NuGet
         run: dotnet nuget push src/bin/Release/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
