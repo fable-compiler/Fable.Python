@@ -1,3 +1,4 @@
+// Type bindings for Python asyncio futures: https://docs.python.org/3/library/asyncio-future.html
 namespace Fable.Python.AsyncIO
 
 open Fable.Core

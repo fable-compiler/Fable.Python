@@ -1,3 +1,4 @@
+/// Type bindings for Python string operations: https://docs.python.org/3/library/stdtypes.html#string-methods
 module Fable.Python.String
 
 open System

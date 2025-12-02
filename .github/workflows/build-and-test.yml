@@ -17,38 +17,29 @@ jobs:
           python-version: '3.10'
 
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: |
             6.x
             8.x
             9.x
 
-      - name: Setup dotnet tools
-        run: dotnet tool restore
+      - name: Install just
+        uses: extractions/setup-just@v2
 
-      - name: Install src dependencies
-        run: dotnet restore src
+      - name: Restore dependencies
+        run: just restore
 
-      - name: Install test dependencies
-        run: dotnet restore test
-
-      - name: Install pytest runner
-        run: pipx install pytest
-
-      - name: Install build dependencies
-        run: dotnet restore Build.fsproj
-
-      #- name: Check formatting
-      #  run: dotnet fantomas . -r --check
-
-      - name: Build
-        run: dotnet run Build --configuration Release --no-restore
-
-      - name: Install dependencies
+      - name: Install Python dependencies
         run: |
           pipx install uv
-          uv sync
+          just install-python
+
+      #- name: Check formatting
+      #  run: just format-check
+
+      - name: Build
+        run: just build
 
       - name: Test
-        run: dotnet run Test
+        run: just test

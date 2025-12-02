@@ -7,8 +7,6 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fable.Python", "src\Fable.P
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Fable.Python.Test", "test\Fable.Python.Test.fsproj", "{B449F60F-C422-40EE-A734-90A1E3084150}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Build", "Build.fsproj", "{492ED4DE-E609-469A-AAAF-8800AB86C224}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
