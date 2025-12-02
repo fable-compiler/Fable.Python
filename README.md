@@ -44,7 +44,7 @@ To use the `Fable.Python` library in your Fable project:
 ```fs
 open Fable.Python.Json
 
-let object = {| A=10; B=20 |}
+let object = {| A=10n; B=20n |}
 let result = json.dumps object
 ```
 
@@ -121,10 +121,34 @@ This project uses [just](https://github.com/casey/just) as a command runner.
 ## Contributing
 
 This project is community driven. If the type binding you are looking
-for is currently missing, then you need to add them to the relavant
+for is currently missing, then you need to add them to the relevant
 files (or add new ones). Open a
 [PR](https://github.com/dbrattli/Fable.Python/pull/3/files) to get them
 included.
+
+### Commit Convention
+
+This project uses [Conventional Commits](https://www.conventionalcommits.org/)
+and [release-please](https://github.com/googleapis/release-please) for automated
+releases. PR titles must follow the format:
+
+```
+type: description
+```
+
+Where `type` is one of:
+- `feat` - New features (bumps minor version)
+- `fix` - Bug fixes (bumps patch version)
+- `docs` - Documentation changes
+- `chore` - Maintenance tasks
+- `refactor` - Code refactoring
+- `test` - Adding or updating tests
+- `ci` - CI/CD changes
+- `build` - Build system changes
+- `perf` - Performance improvements
+
+Breaking changes should include `!` after the type (e.g., `feat!: breaking change`)
+and will bump the major version.
 
 The `src/stdlib` directory contains type bindings for modules in the
 Python 3 standard library. We also accept type bindings for 3rd party
