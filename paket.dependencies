@@ -13,9 +13,20 @@ group Test
     framework: net9.0
 
     nuget FSharp.Core
-    nuget Fable.Core 5.0.0-beta.2
+    nuget Fable.Core 5.0.0-beta.3
     nuget Microsoft.NET.Test.Sdk ~> 16
     nuget xunit ~> 2
-    nuget xunit.runner.visualstudio ~>  2
+    nuget xunit.runner.visualstudio ~> 2
+
+group Examples
+    source https://api.nuget.org/v3/index.json
+    storage: none
+    framework: net9.0
+
+    nuget FSharp.Core
+    nuget Fable.Core 5.0.0-beta.2
+    nuget Feliz.ViewEngine
+    nuget Zanaptak.TypedCssClasses
+    nuget FSharp.Control.AsyncRx
 
 

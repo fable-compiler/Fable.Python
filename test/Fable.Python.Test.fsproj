@@ -12,6 +12,9 @@
     <ProjectReference Include="../src/Fable.Python.fsproj" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="../../Fable/src/Fable.Core/Fable.Core.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Util.fs" />
     <Compile Include="TestAst.fs" />
     <Compile Include="TestAsyncIO.fs" />
@@ -19,6 +22,8 @@
     <Compile Include="TestOs.fs" />
     <Compile Include="TestJson.fs" />
     <Compile Include="TestString.fs" />
+    <Compile Include="TestPydantic.fs" />
+    <Compile Include="TestFastAPI.fs" />
     <Compile Include="Main.fs" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
