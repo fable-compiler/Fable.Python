@@ -1,8 +1,0 @@
-source https://api.nuget.org/v3/index.json
-framework: net6.0
-storage: none
-
-nuget Fable.Core.Experimental >= 4.0.0-alpha-022
-nuget Fable.Python
-nuget Feliz.ViewEngine
-nuget Zanaptak.TypedCssClasses

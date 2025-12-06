@@ -7,20 +7,35 @@ build_path := "build"
 src_path := "src"
 test_path := "test"
 
+# Development mode: use local Fable repo instead of dotnet tool
+# Usage: just dev=true test-python
+dev := "false"
+fable_repo := justfile_directory() / "../Fable"
+fable := if dev == "true" { "dotnet run --project " + fable_repo / "src/Fable.Cli" + " --" } else { "dotnet fable" }
+
 # Default recipe - show available commands
 default:
     @just --list
 
-# Clean build artifacts
+# Clean Fable build output (preserves dotnet obj/bin directories)
 clean:
     rm -rf {{build_path}}
+    rm -rf {{src_path}}/obj {{src_path}}/bin
+    rm -rf {{test_path}}/obj {{test_path}}/bin
+    rm -rf examples/*/build examples/*/obj examples/*/bin
+    rm -rf examples/*/src/obj examples/*/src/bin
+    rm -rf examples/*/.fable examples/*/src/.fable
+    rm -rf .fable
+
+# Deep clean - removes everything including dotnet obj/bin directories
+clean-all: clean
     rm -rf {{src_path}}/obj {{test_path}}/obj
     rm -rf {{src_path}}/bin {{test_path}}/bin
 
 # Build F# source to Python using Fable
 build: clean
     mkdir -p {{build_path}}
-    dotnet fable {{src_path}} --lang Python --outDir {{build_path}}
+    {{fable}} {{src_path}} --lang Python --outDir {{build_path}}
 
 # Compile F# source using dotnet (without Fable transpilation)
 run: clean
@@ -32,7 +47,7 @@ test: build
     @echo "Running native .NET tests..."
     dotnet run --project {{test_path}}
     @echo "Compiling and running Python tests..."
-    dotnet fable {{test_path}} --lang Python --outDir {{build_path}}/tests
+    {{fable}} {{test_path}} --lang Python --outDir {{build_path}}/tests
     uv run pytest {{build_path}}/tests
 
 # Run only native .NET tests
@@ -42,7 +57,7 @@ test-native:
 
 # Run only Python tests (requires build first)
 test-python: build
-    dotnet fable {{test_path}} --lang Python --outDir {{build_path}}/tests
+    {{fable}} {{test_path}} --lang Python --outDir {{build_path}}/tests
     uv run pytest {{build_path}}/tests
 
 # Create NuGet package
@@ -66,6 +81,7 @@ format-check:
 # Restore all dependencies
 restore:
     dotnet tool restore
+    dotnet paket install
     dotnet restore {{src_path}}
     dotnet restore {{test_path}}
 
@@ -78,4 +94,40 @@ setup: restore install-python
 
 # Watch for changes and rebuild (useful during development)
 watch:
-    dotnet fable watch {{src_path}} --lang Python --outDir {{build_path}}
+    {{fable}} watch {{src_path}} --lang Python --outDir {{build_path}}
+
+# --- Examples ---
+
+# Run Flask example
+example-flask:
+    cd examples/flask/src && {{fable}} . --lang Python --outDir ../build
+    cd examples/flask/build && uv run --group flask flask --app app run
+
+# Run TimeFlies example
+example-timeflies:
+    cd examples/timeflies && {{fable}} . --lang Python --outDir build
+    cd examples/timeflies/build && uv run --group examples python program.py
+
+# Run Django example
+example-django:
+    cd examples/django && {{fable}} . --lang Python --outDir build
+    cd examples/django/build && uv run --group django python manage.py runserver
+
+# Run Django minimal example
+example-django-minimal:
+    cd examples/django-minimal && {{fable}} . --lang Python --outDir build
+    cd examples/django-minimal/build && uv run --group django python program.py
+
+# Run FastAPI example
+example-fastapi:
+    cd examples/fastapi && {{fable}} . --lang Python --outDir build
+    cd examples/fastapi/build && uv run --group fastapi uvicorn app:app --reload
+
+# Run FastAPI example in dev mode (watch for F# changes and auto-reload)
+dev-fastapi:
+    cd examples/fastapi && {{fable}} . --lang Python --outDir build --watch & cd examples/fastapi/build && sleep 3 && uv run --group fastapi uvicorn app:app --reload
+
+# Run Pydantic example (importing Python Pydantic models from F#)
+example-pydantic:
+    cd examples/pydantic && {{fable}} . --lang Python --outDir build
+    cd examples/pydantic/build && uv run python app.py

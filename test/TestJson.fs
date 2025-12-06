@@ -29,13 +29,16 @@ let ``test json.dumps with nativeint works`` () =
 
 [<Fact>]
 let ``test json.dumps with ResizeArray of nativeint works`` () =
-    let values = ResizeArray([1n; 2n; 3n])
+    let values = ResizeArray([ 1n; 2n; 3n ])
     let result = json.dumps values
     result |> equal "[1, 2, 3]"
 
 [<Fact>]
 let ``test json.dumps with nested object works`` () =
-    let obj = {| Name = "test"; Values = ResizeArray([1n; 2n; 3n]) |}
+    let obj =
+        {| Name = "test"
+           Values = ResizeArray([ 1n; 2n; 3n ]) |}
+
     let result = dumps obj
     result |> equal """{"Name": "test", "Values": [1, 2, 3]}"""
 

@@ -9,8 +9,7 @@ let ``test os.path.exists works`` () =
     os.path.exists "nonexistent_path_xyz" |> equal false
 
 [<Fact>]
-let ``test os.path.isdir works`` () =
-    os.path.isdir "." |> equal true
+let ``test os.path.isdir works`` () = os.path.isdir "." |> equal true
 
 [<Fact>]
 let ``test os.path.join works`` () =

@@ -15,8 +15,8 @@ module Testing =
     let equal expected actual : unit = Assert.AreEqual(actual, expected)
     let notEqual expected actual : unit = Assert.NotEqual(actual, expected)
 
-    type Fact () =
-        inherit System.Attribute ()
+    type Fact() =
+        inherit System.Attribute()
 #else
     open Xunit
     type FactAttribute = Xunit.FactAttribute
@@ -28,6 +28,4 @@ module Testing =
         match n with
         | 0 -> 0.
         | 1 -> Seq.head zs
-        | _ ->
-            (Seq.head zs)
-            + sumFirstSeq (Seq.skip 1 zs) (n - 1)
+        | _ -> (Seq.head zs) + sumFirstSeq (Seq.skip 1 zs) (n - 1)

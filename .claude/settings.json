@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(**/obj/**)",
+      "Read(**/bin/**)",
+      "Read(**/.fable/**)",
+      "Read(**/__pycache__/**)",
+      "Read(**/*.pyc)"
+    ]
+  }
+}
