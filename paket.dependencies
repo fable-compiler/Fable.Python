@@ -20,7 +20,7 @@ group Test
 group Examples
     source https://api.nuget.org/v3/index.json
     storage: none
-    framework: net9.0
+    framework: net10.0
 
     nuget FSharp.Core
     nuget Fable.Core 5.0.0-beta.4
