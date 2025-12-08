@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.0-alpha.20.1](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.20...v5.0.0-alpha.20.1) (2025-12-08)
+
+
+### Bug Fixes
+
+* relax FSharp.Core dependency to &gt;= 5.0.0 ([#163](https://github.com/fable-compiler/Fable.Python/issues/163)) ([10eb65b](https://github.com/fable-compiler/Fable.Python/commit/10eb65b22a157078e1b66bd8fb202b0cd2acbedc))
+
 ## [5.0.0-alpha.20](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.20...v5.0.0-alpha.20) (2025-12-08)
 
 
