@@ -31,6 +31,9 @@
     <Compile Include="flask/Flask.fs" />
     <Compile Include="jupyter/IPython.fs" />
     <Compile Include="jupyter/IPyWidgets.fs" />
+
+    <Compile Include="pydantic/Pydantic.fs" />
+    <Compile Include="fastapi/FastAPI.fs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="pyproject.toml; *.fsproj; **\*.fs; **\*.fsi" PackagePath="fable\" />

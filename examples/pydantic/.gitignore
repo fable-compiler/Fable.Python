@@ -13,3 +13,7 @@ obj/
 # Fable
 .fable/
 fable_modules/
+
+# Generated Fable code
+src
+*.py

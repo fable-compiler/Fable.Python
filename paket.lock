@@ -2,16 +2,31 @@ STORAGE: NONE
 RESTRICTION: || (== net10.0) (== net6.0) (== net8.0) (== net9.0) (== netstandard2.0) (== netstandard2.1)
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    Fable.Core (5.0.0-beta.2)
+    Fable.Core (5.0.0-beta.4)
       FSharp.Core (>= 4.7.2)
     FSharp.Core (4.7.2)
+
+GROUP Examples
+STORAGE: NONE
+RESTRICTION: == net9.0
+NUGET
+  remote: https://api.nuget.org/v3/index.json
+    Fable.Core (5.0.0-beta.4)
+      FSharp.Core (>= 4.7.2)
+    Feliz.ViewEngine (1.0.3)
+      FSharp.Core (>= 4.7)
+    FSharp.Control.AsyncRx (1.6.7)
+      FSharp.Core (>= 6.0.6)
+    FSharp.Core (10.0.100)
+    Zanaptak.TypedCssClasses (1.0)
+      FSharp.Core (>= 4.3.4)
 
 GROUP Test
 STORAGE: NONE
 RESTRICTION: == net9.0
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    Fable.Core (5.0.0-beta.2)
+    Fable.Core (5.0.0-beta.4)
       FSharp.Core (>= 4.7.2)
     FSharp.Core (10.0.100)
     Microsoft.CodeCoverage (18.0.1)

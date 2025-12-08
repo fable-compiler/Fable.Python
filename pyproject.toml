@@ -1,13 +1,13 @@
 [project]
 name = "Fable.Python"
-version = "5.0.0-alpha.11"
+version = "5.0.0-alpha.20"
 description = "Fable"
 authors = [{ name = "Dag Brattli", email = "dag@brattli.net" }]
 requires-python = ">= 3.12, < 4"
 readme = "README.md"
 license = "MIT"
 dependencies = [
-    "fable-library==5.0.0a17",
+    "fable-library==5.0.0a20",
 ]
 
 [project.urls]
@@ -17,6 +17,29 @@ Homepage = "https://fable.io"
 dev = [
     "pytest>=6.2.4,<10",
     "ruff>=0.14.0",
+    "pydantic>=2.0.0",
+    "httpx>=0.28.1",
+    "fastapi>=0.115.0",
+]
+
+# Example dependency groups
+flask = [
+    "Flask>=3.1.2,<4",
+]
+django = [
+    "Django>=4.2,<5",
+]
+fastapi = [
+    "fastapi>=0.100.0",
+    "pydantic>=2.0.0",
+    "uvicorn[standard]>=0.23.0",
+]
+
+# Meta-group that includes all example dependencies
+examples = [
+    { include-group = "flask" },
+    { include-group = "django" },
+    { include-group = "fastapi" },
 ]
 
 [tool.ruff]
