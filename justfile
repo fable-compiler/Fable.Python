@@ -35,6 +35,7 @@ clean-all: clean
 # Build F# source to Python using Fable
 build: clean
     mkdir -p {{build_path}}
+    dotnet build {{src_path}}
     {{fable}} {{src_path}} --lang Python --outDir {{build_path}}
 
 # Compile F# source using dotnet (without Fable transpilation)
@@ -79,9 +80,13 @@ format-check:
     dotnet fantomas {{src_path}} -r --check
     dotnet fantomas {{test_path}} -r --check
 
+# Install .NET tools (Fable, Fantomas) and Python dependencies
+setup:
+    dotnet tool restore
+    uv sync
+
 # Restore all dependencies
 restore:
-    dotnet tool restore
     dotnet paket install
     dotnet restore {{src_path}}
     dotnet restore {{test_path}}
@@ -89,9 +94,6 @@ restore:
 # Install Python dependencies with uv
 install-python:
     uv sync
-
-# Full setup: restore .NET and Python dependencies
-setup: restore install-python
 
 # Watch for changes and rebuild (useful during development)
 watch:

@@ -28,7 +28,9 @@ jobs:
         uses: extractions/setup-just@v3
 
       - name: Restore dependencies
-        run: just restore
+        run: |
+          just setup
+          just restore
 
       - name: Install Python dependencies
         run: |
