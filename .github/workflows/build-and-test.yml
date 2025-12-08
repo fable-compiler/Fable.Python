@@ -27,6 +27,9 @@ jobs:
       - name: Install just
         uses: extractions/setup-just@v3
 
+      - name: Install uv
+        run: pipx install uv
+
       - name: Restore dependencies
         run: |
           just setup
@@ -34,7 +37,6 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          pipx install uv
           just install-python
 
       #- name: Check formatting
