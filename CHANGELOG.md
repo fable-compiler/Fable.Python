@@ -1,0 +1,18 @@
+# Changelog
+
+## [5.0.0-alpha.20](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.20...v5.0.0-alpha.20) (2025-12-08)
+
+
+### Features
+
+* add write ([334e800](https://github.com/fable-compiler/Fable.Python/commit/334e80089c081bda25633f83dae037fc6c8fe6f5))
+* Added bindings for Pydantic and FastAPI + examples ([#151](https://github.com/fable-compiler/Fable.Python/issues/151)) ([826629e](https://github.com/fable-compiler/Fable.Python/commit/826629e465fca15d444a4ca37b851b8aab488f9a))
+* Fable v5 ([#147](https://github.com/fable-compiler/Fable.Python/issues/147)) ([abf8e6a](https://github.com/fable-compiler/Fable.Python/commit/abf8e6a1f7bbc2eae152431d04d6b8b5675f7795))
+
+
+### Bug Fixes
+
+* handle return type correctly ([a634168](https://github.com/fable-compiler/Fable.Python/commit/a6341684ac8bb3f1b244f448c22e1fe6f208fbc0))
+* update pyproject toml details ([#62](https://github.com/fable-compiler/Fable.Python/issues/62)) ([b511351](https://github.com/fable-compiler/Fable.Python/commit/b5113514ca6b4a9ba00734e9b3caaf363f3385af))
+* use plain int/string types for open ([b202a25](https://github.com/fable-compiler/Fable.Python/commit/b202a25bd7f48538fadc50125294a9252714d364))
+* use string types for open ([f211f8b](https://github.com/fable-compiler/Fable.Python/commit/f211f8bb9445dd6930926fe48aab6a69720dd30f))
