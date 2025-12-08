@@ -12,9 +12,6 @@
     <ProjectReference Include="../src/Fable.Python.fsproj" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="../../Fable/src/Fable.Core/Fable.Core.fsproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Util.fs" />
     <Compile Include="TestAst.fs" />
     <Compile Include="TestAsyncIO.fs" />

@@ -5,9 +5,6 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="../../../Fable/src/Fable.Core/Fable.Core.fsproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Models.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
