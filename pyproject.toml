@@ -1,6 +1,6 @@
 [project]
 name = "Fable.Python"
-version = "5.0.0-alpha.20.1"
+version = "0.0.0"
 description = "Fable"
 authors = [{ name = "Dag Brattli", email = "dag@brattli.net" }]
 requires-python = ">= 3.12, < 4"
