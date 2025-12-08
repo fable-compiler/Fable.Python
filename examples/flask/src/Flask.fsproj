@@ -14,10 +14,6 @@
     <Compile Include="Hero.fs" />
     <Compile Include="App.fs" />
   </ItemGroup>
-  <!-- Temporary: Local Fable.Core for testing Py.DecorateTemplate (PR #4291) -->
-  <ItemGroup>
-    <ProjectReference Include="../../../../Fable/src/Fable.Core/Fable.Core.fsproj" />
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../../../src/Fable.Python.fsproj" />
   </ItemGroup>

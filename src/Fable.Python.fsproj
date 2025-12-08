@@ -10,10 +10,6 @@
     <PackageTags>fsharp;fable;fable-binding;fable-python;python</PackageTags>
     <Description>Fable to Python standard library bindings</Description>
   </PropertyGroup>
-  <!-- Temporary: Local Fable.Core for testing Py.DecorateTemplate (PR #4291) -->
-  <ItemGroup>
-    <ProjectReference Include="../../Fable/src/Fable.Core/Fable.Core.fsproj" />
-  </ItemGroup>
   <ItemGroup>
     <Compile Include="stdlib/asyncio/Futures.fs" />
     <Compile Include="stdlib/asyncio/Events.fs" />
