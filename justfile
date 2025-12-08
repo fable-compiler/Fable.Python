@@ -65,8 +65,9 @@ pack: build
     dotnet pack {{src_path}} -c Release
 
 # Create NuGet package with specific version (used in CI)
+# Note: FileVersion must be numeric-only (e.g., 5.0.0.0), so we don't set it for prerelease versions
 pack-version version:
-    dotnet pack {{src_path}} -c Release -p:PackageVersion={{version}} -p:FileVersion={{version}} -p:InformationalVersion={{version}}
+    dotnet pack {{src_path}} -c Release -p:PackageVersion={{version}} -p:InformationalVersion={{version}}
 
 # Format code with Fantomas
 format:
