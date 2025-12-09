@@ -161,7 +161,7 @@ wheels = [
 
 [[package]]
 name = "fable-python"
-version = "5.0.0a20"
+version = "0.0.0"
 source = { virtual = "." }
 dependencies = [
     { name = "fable-library" },
