@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.1-alpha.20.2](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.20.2...v5.0.1-alpha.20.2) (2025-12-09)
+
+
+### Bug Fixes
+
+* add missing models.py for pydantic example and update README ([#168](https://github.com/fable-compiler/Fable.Python/issues/168)) ([b76ce98](https://github.com/fable-compiler/Fable.Python/commit/b76ce989e0598d0007a8a1be9addfea97936eae7))
+
 ## [5.0.0-alpha.20.2](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.20.1...v5.0.0-alpha.20.2) (2025-12-09)
 
 
