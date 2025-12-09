@@ -133,4 +133,5 @@ dev-fastapi:
 # Run Pydantic example (importing Python Pydantic models from F#)
 example-pydantic:
     cd examples/pydantic && {{fable}} . --lang Python --outDir build
+    cp examples/pydantic/models.py examples/pydantic/build/
     cd examples/pydantic/build && uv run python app.py

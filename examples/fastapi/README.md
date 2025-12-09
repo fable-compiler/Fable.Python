@@ -1,6 +1,8 @@
-# FastAPI Example
+# FastAPI Example (Generating Models from F#)
 
-This example demonstrates how to build a FastAPI application using **Fable.Python** with the decorator-based API pattern.
+This example demonstrates how to build a FastAPI application using **Fable.Python** with the decorator-based API pattern. The Pydantic models are **defined in F#** and compile to Python.
+
+> **Note:** For the opposite approach (importing Pydantic models defined in Python), see the [Pydantic example](../pydantic/).
 
 ## Features
 
@@ -95,7 +97,7 @@ type User(Id: int, Name: string, Email: string) =
     member val Email: string = Email with get, set
 ```
 
-### API Endpoints
+### Defining Endpoints
 
 The `[<APIClass>]` attribute marks a class for FastAPI routing, and method decorators define the HTTP methods:
 

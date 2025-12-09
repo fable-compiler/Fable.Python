@@ -3,199 +3,244 @@
 ![Build and Test](https://github.com/dbrattli/Fable.Python/workflows/Build%20and%20Test/badge.svg)
 [![Nuget](https://img.shields.io/nuget/vpre/Fable.Python)](https://www.nuget.org/packages/Fable.Python/)
 
-[Fable](https://github.com/fable-compiler/Fable/tree/beyond) is a
-compiler that translates F# source files to JavaScript and Python.
+[Fable](https://github.com/fable-compiler/Fable) is a compiler that translates F# source files to JavaScript and Python.
 
-This Fable Python repository is a community driven project that contains
-the Python type bindings for Fable. The library will eventually contain
-Python (stdlib) bindings for Fable based on Python
-[typeshed](https://github.com/python/typeshed). It will also contain
-type binding for many other 3rd party libraries such as Flask, MicroBit
-and many more. Some bindings have already been added:
+**Fable.Python** provides Python type bindings for Fable, enabling you to write type-safe F# code that compiles to Python. This community-driven library includes bindings for the Python standard library and popular frameworks like Flask, FastAPI, and Pydantic.
 
-- Python Standard Libray
-- Jupyter
-- Flask
-- CogniteSdk
+## Requirements
 
-## Version
-
-This library currently targets Python 3.10 or greater. Types bindings
-for other versions of Python should not be added to this library until
-we decide how to deal with Python version handling.
+- Python 3.12 or greater
+- .NET 8.0 or greater
+- [Fable](https://fable.io/) compiler
 
 ## Installation
 
-Prerequisite for compiling F# to Python using Fable:
+Install the Fable compiler:
 
 ```sh
-> dotnet tool install --global fable --prerelease
-> dotnet add package Fable.Core --prerelease
+dotnet tool install --global fable --prerelease
+dotnet add package Fable.Core --prerelease
 ```
 
-To use the `Fable.Python` library in your Fable project:
+Add Fable.Python to your project:
 
 ```sh
-> dotnet add package Fable.Python
+dotnet add package Fable.Python
 ```
 
-## Usage
+## Quick Start
 
-```fs
+```fsharp
 open Fable.Python.Json
 
-let object = {| A=10n; B=20n |}
-let result = json.dumps object
+let data = {| name = "Alice"; age = 30 |}
+let jsonStr = dumps data
 ```
 
-To compile an F# Fable project to Python run e.g:
+Compile to Python:
 
 ```sh
-> fable --lang Python MyProject.fsproj
+fable --lang Python MyProject.fsproj
 ```
 
-For more examples see the
-[examples](https://github.com/dbrattli/Fable.Python/tree/main/examples) folder.
-It contains example code for using Fable Python with:
+## Available Bindings
 
-- [Flask](https://github.com/dbrattli/Fable.Python/tree/main/examples/flask).
-  References [Feliz.ViewEngine](https://github.com/dbrattli/Feliz.ViewEngine)
-  as a nuget package.
-- [Timeflies](https://github.com/dbrattli/Fable.Python/tree/main/examples/timeflies),
-  Cool demo using Tkinter and references
-  [FSharp.Control.AsyncRx](https://github.com/dbrattli/AsyncRx) as a nuget
-  package.
+### Python Standard Library
 
-## Libraries that uses or works with Fable Python
+|         Module          |                 Description                 |
+| ----------------------- | ------------------------------------------- |
+| `Fable.Python.Builtins` | Built-in functions (open, print, len, etc.) |
+| `Fable.Python.Json`     | JSON serialization with Fable type support  |
+| `Fable.Python.Os`       | Operating system interfaces                 |
+| `Fable.Python.Sys`      | System-specific parameters                  |
+| `Fable.Python.Math`     | Mathematical functions                      |
+| `Fable.Python.Random`   | Random number generation                    |
+| `Fable.Python.Logging`  | Logging facilities                          |
+| `Fable.Python.Time`     | Time-related functions                      |
+| `Fable.Python.String`   | String operations                           |
+| `Fable.Python.Base64`   | Base64 encoding/decoding                    |
+| `Fable.Python.Queue`    | Queue data structures                       |
+| `Fable.Python.Ast`      | Abstract Syntax Tree                        |
+| `Fable.Python.AsyncIO`  | Async programming (Events, Futures, Tasks)  |
+| `Fable.Python.TkInter`  | GUI toolkit                                 |
 
-- [Femto](https://github.com/Zaid-Ajaj/Femto)
-- [AsyncRx](https://github.com/dbrattli/AsyncRx)
-- [Fable.Aether](https://xyncro.tech/aether/)
-- [Fable.Giraffe](https://github.com/dbrattli/Fable.Giraffe), port of Giraffe to Fable.Python
-- [Fable.Logging](https://github.com/dbrattli/Fable.logging), logging for Fable.Python
-- [Fable.Requests](https://github.com/Zaid-Ajaj/Fable.Requests)
-- [Fable.Jupyter](https://github.com/fable-compiler/Fable.Jupyter), Jupyter Notebook using Fable.Python
-- [Fable.Pyexpecto](https://github.com/Freymaurer/Fable.Pyxpecto), Fable-python equivalent for Fable.Mocha
-- [Fable.SimpleJson.Python](https://github.com/Zaid-Ajaj/Fable.SimpleJson.Python)
-- [Fable.Sedlex](https://github.com/thautwarm/Fable.Sedlex)
-- [Feliz.ViewEngine](https://github.com/dbrattli/Feliz.ViewEngine)
-- [FsToolkit.ErrorHandling](https://demystifyfp.gitbook.io/fstoolkit-errorhandling/)
-- [TypedCssClasses](https://github.com/zanaptak/TypedCssClasses)
-- [Typed-BNF](https://github.com/thautwarm/Typed-BNF#readme)
-- [Zanaptak.TypedCssClasses](https://github.com/zanaptak/TypedCssClasses)
+### Web Frameworks
 
-## Uv
+|         Package         |             Description             |
+| ----------------------- | ----------------------------------- |
+| `Fable.Python.Flask`    | Flask web framework                 |
+| `Fable.Python.FastAPI`  | FastAPI with automatic OpenAPI docs |
+| `Fable.Python.Pydantic` | Data validation and settings        |
 
-Fable.Python uses [Uv](https://docs.astral.sh/uv/) for package and
-dependency management. To handle dependencies when adding Fable Python
-compatible NuGet packages, you should use
-[Femto](https://github.com/Zaid-Ajaj/Femto).
+## JSON Serialization
+
+Fable types (like `Int32`, F# records, unions) need special handling for JSON serialization. Use `Fable.Python.Json.dumps`:
+
+```fsharp
+open Fable.Python.Json
+
+type User = { Id: int; Name: string }
+let user = { Id = 1; Name = "Bob" }
+let json = dumps user  // {"Id": 1, "Name": "Bob"}
+```
+
+See [JSON.md](JSON.md) for detailed documentation on serialization patterns.
+
+## Web Framework Examples
+
+### FastAPI
+
+```fsharp
+open Fable.Python.FastAPI
+open Fable.Python.Pydantic
+
+[<Py.ClassAttributes(style = Py.ClassAttributeStyle.Attributes, init = false)>]
+type UserResponse(Id: int, Name: string) =
+    inherit BaseModel()
+    member val Id: int = Id with get, set
+    member val Name: string = Name with get, set
+
+[<APIClass>]
+type API() =
+    [<Get("/users/{user_id}")>]
+    static member get_user(user_id: int) : UserResponse =
+        UserResponse(Id = user_id, Name = "Alice")
+```
+
+### Flask
+
+```fsharp
+open Fable.Python.Flask
+open Fable.Python.Json
+
+[<APIClass>]
+type Routes() =
+    [<Get("/api/hello")>]
+    static member hello() : string =
+        dumps {| message = "Hello, World!" |}
+```
+
+## Examples
+
+The [examples](examples/) directory contains working applications:
+
+|                  Example                   |                  Description                   |
+| ------------------------------------------ | ---------------------------------------------- |
+| [fastapi](examples/fastapi/)               | REST API with Pydantic models and Swagger docs |
+| [flask](examples/flask/)                   | Web app with Feliz.ViewEngine HTML rendering   |
+| [django](examples/django/)                 | Full Django project                            |
+| [django-minimal](examples/django-minimal/) | Single-file Django app                         |
+| [pydantic](examples/pydantic/)             | Pydantic model examples                        |
+| [timeflies](examples/timeflies/)           | Tkinter GUI with AsyncRx                       |
+
+Run an example:
+
+```sh
+just example-fastapi   # FastAPI with auto-reload
+just example-flask     # Flask web app
+just example-timeflies # Tkinter desktop app
+```
 
 ## Development
 
-This project uses [just](https://github.com/casey/just) as a command runner.
+This project uses [just](https://github.com/casey/just) as a command runner and [uv](https://docs.astral.sh/uv/) for Python package management.
+
+### Setup
 
 ```sh
 # Install just (macOS)
-> brew install just
-
-# Show available commands
-> just
+brew install just
 
 # Full setup (restore .NET and Python dependencies)
-> just setup
-
-# Build F# to Python
-> just build
-
-# Run all tests (native .NET and Python)
-> just test
-
-# Format code
-> just format
-
-# Create NuGet package
-> just pack
+just setup
 ```
+
+### Commands
+
+```sh
+just              # Show all available commands
+just build        # Build F# to Python
+just test         # Run all tests (native .NET and Python)
+just test-python  # Run only Python tests
+just format       # Format code with Fantomas
+just pack         # Create NuGet package
+just clean        # Clean build artifacts
+```
+
+### Project Structure
+
+```txt
+src/
+├── stdlib/       # Python standard library bindings
+├── flask/        # Flask bindings
+├── fastapi/      # FastAPI bindings
+├── pydantic/     # Pydantic bindings
+└── jupyter/      # Jupyter bindings
+test/             # Test suite
+examples/         # Example applications
+build/            # Generated Python output (gitignored)
+```
+
+## Compatible Libraries
+
+These libraries work with Fable.Python:
+
+- [AsyncRx](https://github.com/dbrattli/AsyncRx) - Reactive programming
+- [Fable.Giraffe](https://github.com/dbrattli/Fable.Giraffe) - Giraffe port
+- [Fable.Logging](https://github.com/dbrattli/Fable.logging) - Logging
+- [Fable.Requests](https://github.com/Zaid-Ajaj/Fable.Requests) - HTTP requests
+- [Fable.Jupyter](https://github.com/fable-compiler/Fable.Jupyter) - Jupyter notebooks
+- [Fable.Pyexpecto](https://github.com/Freymaurer/Fable.Pyxpecto) - Testing
+- [Fable.SimpleJson.Python](https://github.com/Zaid-Ajaj/Fable.SimpleJson.Python) - JSON parsing
+- [Fable.Sedlex](https://github.com/thautwarm/Fable.Sedlex) - Lexer generator
+- [Feliz.ViewEngine](https://github.com/dbrattli/Feliz.ViewEngine) - HTML rendering
+- [Femto](https://github.com/Zaid-Ajaj/Femto) - Package management
+- [FsToolkit.ErrorHandling](https://demystifyfp.gitbook.io/fstoolkit-errorhandling/) - Error handling
+- [TypedCssClasses](https://github.com/zanaptak/TypedCssClasses) - Type-safe CSS
 
 ## Contributing
 
-This project is community driven. If the type binding you are looking
-for is currently missing, then you need to add them to the relevant
-files (or add new ones). Open a
-[PR](https://github.com/dbrattli/Fable.Python/pull/3/files) to get them
-included.
+Contributions are welcome! If a type binding you need is missing, open a [PR](https://github.com/dbrattli/Fable.Python/pulls) to add it.
 
 ### Commit Convention
 
-This project uses [Conventional Commits](https://www.conventionalcommits.org/)
-and [release-please](https://github.com/googleapis/release-please) for automated
-releases. PR titles must follow the format:
+This project uses [Conventional Commits](https://www.conventionalcommits.org/) for automated releases:
 
-```
-type: description
-```
+|    Type    |            Description             |
+| ---------- | ---------------------------------- |
+| `feat`     | New features (bumps minor version) |
+| `fix`      | Bug fixes (bumps patch version)    |
+| `docs`     | Documentation changes              |
+| `chore`    | Maintenance tasks                  |
+| `refactor` | Code refactoring                   |
+| `test`     | Tests                              |
 
-Where `type` is one of:
-- `feat` - New features (bumps minor version)
-- `fix` - Bug fixes (bumps patch version)
-- `docs` - Documentation changes
-- `chore` - Maintenance tasks
-- `refactor` - Code refactoring
-- `test` - Adding or updating tests
-- `ci` - CI/CD changes
-- `build` - Build system changes
-- `perf` - Performance improvements
+Breaking changes use `!` (e.g., `feat!: breaking change`).
 
-Breaking changes should include `!` after the type (e.g., `feat!: breaking change`)
-and will bump the major version.
+### Adding Bindings
 
-The `src/stdlib` directory contains type bindings for modules in the
-Python 3 standard library. We also accept type bindings for 3rd party
-libraries as long as:
+The `src/stdlib/` directory contains Python standard library bindings. Third-party library bindings are accepted if:
 
-- the package is publicly available on the [Python Package Index](https://pypi.org/);
-- the package supports any Python version supported by Fable Python; and
-- the package does not ship with its own stubs or type annotations
+- The package is publicly available on [PyPI](https://pypi.org/)
+- The package supports Python 3.12+
+- The package doesn't ship with its own type stubs
 
-There's not much Python specific documentation yet, but the process of
-adding type bindings for Python is similar to JS:
+For guidance on creating bindings, see:
 
-- <https://fable.io/docs/communicate/js-from-fable.html>
-- <https://medium.com/@zaid.naom/f-interop-with-javascript-in-fable-the-complete-guide-ccc5b896a59f>
+- [Fable JS Interop](https://fable.io/docs/communicate/js-from-fable.html) (patterns apply to Python)
+- [F# Interop Guide](https://medium.com/@zaid.naom/f-interop-with-javascript-in-fable-the-complete-guide-ccc5b896a59f)
 
-## Differences from JS
+### Import Pattern
 
-Note that import all is different from JS. E.g:
+Note that `ImportAll` generates a module import:
 
-```fs
+```fsharp
 [<ImportAll("flask")>]
 let flask: IExports = nativeOnly
 ```
 
-This will generate `import flask` and not a wildcard import `from flask import
-*`. The latter version is discoraged anyways.
+This generates `import flask`, not `from flask import *`.
 
-## Auto-generation
+## License
 
-Parts of this library could benefit from code-generation based on the type
-annotations in Python [typeshed](https://github.com/python/typeshed) similar to
-[ts2fable](https://github.com/fable-compiler/ts2fable). Even so we should keep
-this library manually updated based on PRs to ensure the quality of the code.
-
-Current plan:
-
-1. Add bindings for Python `ast` module (in progress)
-2. Use `ast` module to parse Python typeshed annotations
-3. Generate F# bindings
-
-## Road-map
-
-- Use a dedicated List.fs for Python. List.fs currently depends on
-  Array.fs that is not an efficient list implementation for Python.
-
-- Compile Fable.Library as a published library (done)
-
-- Use uv for Python references to Fable modules (done)
-
-- Update docs
+MIT
