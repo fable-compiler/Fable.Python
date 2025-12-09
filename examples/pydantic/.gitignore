@@ -15,5 +15,8 @@ obj/
 fable_modules/
 
 # Generated Fable code
-src
-*.py
+build/
+
+# Generated Python files (but not models.py which is handwritten)
+app.py
+!models.py
