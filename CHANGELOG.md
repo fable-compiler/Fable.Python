@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.0-alpha.20.2](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.20.1...v5.0.0-alpha.20.2) (2025-12-09)
+
+
+### Features
+
+* add Python stdlib bindings for logging, random, and expand string module ([#166](https://github.com/fable-compiler/Fable.Python/issues/166)) ([709d6c2](https://github.com/fable-compiler/Fable.Python/commit/709d6c2b29199965926ff639727fdcc1bb2e1fb8))
+
 ## [5.0.0-alpha.20.1](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.20...v5.0.0-alpha.20.1) (2025-12-08)
 
 
