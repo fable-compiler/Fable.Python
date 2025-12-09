@@ -4,74 +4,69 @@ This document describes the release process for Fable.Python and how to keep ver
 
 ## Version Synchronization with Fable
 
-Fable.Python versions should stay in sync with Fable. For example, if Fable releases `5.0.0-alpha.20`, Fable.Python should release `5.0.0-alpha.20`.
+Fable.Python versions should stay in sync with Fable. For example, if Fable releases `5.0.0-alpha.21`, Fable.Python should release `5.0.0-alpha.21.0`.
 
 ## Release Process
 
 This project uses [release-please](https://github.com/googleapis/release-please) to automate releases. Release-please creates and maintains a release PR that updates automatically as commits are merged to main.
 
-### Standard Release
+The configuration uses `"versioning": "always-bump-patch"` which means every release only increments the patch version (e.g., `5.0.0-alpha.21.0` → `5.0.0-alpha.21.1` → `5.0.0-alpha.21.2`).
 
-When the Fable.Python version naturally aligns with Fable (no version override needed):
+### Standard Release (Patch Bump)
 
-1. Merge the release-please PR
-2. The GitHub Action will create a release and tag
+For normal bug fixes and improvements:
 
-### Forcing a Specific Version
+1. Merge PRs with conventional commit messages (`fix:`, `feat:`, `chore:`, etc.)
+2. Release-please automatically creates/updates a release PR
+3. Merge the release-please PR when ready
+4. The GitHub Action will create a release and tag
 
-When release-please calculates a different version than Fable (e.g., due to `feat:` commits bumping the minor version), you need to override it:
+The patch version increments automatically regardless of commit type.
 
-1. Add `release-as` to `release-please-config.json`:
+### Syncing with a New Fable Version
 
-```json
-{
-  "packages": {
-    ".": {
-      "release-type": "simple",
-      "release-as": "5.0.0-alpha.20",
-      ...
-    }
-  }
-}
+When Fable releases a new version (e.g., `5.0.0-alpha.21`), use the `Release-As` footer to override the version:
+
+#### In the commit message
+
+```text
+chore: sync with Fable 5.0.0-alpha.21
+
+Release-As: 5.0.0-alpha.21.0
 ```
 
-2. Update `.release-please-manifest.json` if needed:
+#### In the PR description
 
-```json
-{
-  ".": "5.0.0-alpha.19"
-}
+Add this line anywhere in the PR body:
+
+```text
+Release-As: 5.0.0-alpha.21.0
 ```
 
-The manifest represents the *current* released version. Release-please uses this as the baseline.
-
-3. Commit and push to main (or create a PR)
-
-4. Release-please will update its PR to use the specified version
-
-5. **Important**: After the release, remove `release-as` from the config so future releases calculate versions normally
+Release-please will use the specified version instead of bumping the patch.
 
 ### Hotfix Releases
 
-If you need to release a fix after syncing with Fable (e.g., a bug found in `5.0.0-alpha.20`):
+After syncing with a Fable version, subsequent patches are automatic:
 
-Use the format `5.0.0-alpha.20.1`, `5.0.0-alpha.20.2`, etc. This:
+- `5.0.0-alpha.21.0` (initial sync with Fable)
+- `5.0.0-alpha.21.1` (first hotfix)
+- `5.0.0-alpha.21.2` (second hotfix)
+- etc.
 
-- Clearly shows the relationship to the base version
-- Sorts correctly in package managers
-- Resets when the next Fable version is released
+This clearly shows the relationship to the base Fable version and sorts correctly in package managers.
 
 ## Configuration Files
 
-- `release-please-config.json` - Release-please configuration (release type, version overrides, extra files to update)
+- `release-please-config.json` - Release-please configuration (release type, versioning strategy)
 - `.release-please-manifest.json` - Tracks the current released version
 
 ## Conventional Commits
 
-Release-please uses [conventional commits](https://www.conventionalcommits.org/) to determine version bumps:
+This project uses [conventional commits](https://www.conventionalcommits.org/):
 
-- `feat:` - Bumps minor version (in pre-major, due to `bump-minor-pre-major: true`)
-- `fix:` - Bumps patch version
-- `chore:`, `docs:`, `style:`, `refactor:`, `test:` - No version bump
+- `feat:` - New features
+- `fix:` - Bug fixes
+- `chore:`, `docs:`, `style:`, `refactor:`, `test:` - Other changes
 
-When syncing with Fable, the automatic version calculation may not match Fable's version, which is why `release-as` is sometimes needed.
+With `"versioning": "always-bump-patch"`, all commit types result in a patch bump only.
