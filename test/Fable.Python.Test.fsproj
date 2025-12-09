@@ -18,6 +18,10 @@
     <Compile Include="TestBuiltins.fs" />
     <Compile Include="TestOs.fs" />
     <Compile Include="TestJson.fs" />
+    <Compile Include="TestLogging.fs" />
+    <Compile Include="TestMath.fs" />
+    <Compile Include="TestRandom.fs" />
+    <Compile Include="TestBase64.fs" />
     <Compile Include="TestString.fs" />
     <Compile Include="TestPydantic.fs" />
     <Compile Include="TestFastAPI.fs" />

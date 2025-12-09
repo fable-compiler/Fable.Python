@@ -200,6 +200,10 @@ type IExports =
     abstract int: obj -> int
     /// Object to float
     abstract float: obj -> float
+    /// Convert to bytes
+    abstract bytes: byte[] -> byte[]
+    /// Convert string to bytes with encoding
+    abstract bytes: string * encoding: string -> byte[]
 
     /// Return the largest item in an iterable or the largest of two or more arguments.
     abstract max: 'T * 'T -> 'T

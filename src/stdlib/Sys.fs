@@ -28,7 +28,7 @@ type VersionInfo =
 [<Erase>]
 type IExports =
     /// Command line arguments passed to the Python script
-    abstract argv: string array
+    abstract argv: ResizeArray<string>
     /// Native byte order (endianness) of the system
     abstract byteorder: ByteOrder
     /// Version information encoded as a single integer
@@ -38,7 +38,7 @@ type IExports =
     /// Maximum Unicode code point value
     abstract maxunicode: int
     /// Module search path - list of directory names where Python looks for modules
-    abstract path: string array
+    abstract path: ResizeArray<string>
     /// Platform identifier string
     abstract platform: string
     /// Site-specific directory prefix where platform-independent Python files are installed
@@ -52,7 +52,11 @@ type IExports =
     abstract exit: unit -> 'a
     /// Exits with provided status
     /// See https://docs.python.org/3/library/sys.html#sys.exit
+    [<Emit("$0.exit(int($1))")>]
     abstract exit: status: int -> 'a
+    /// Exits with provided status
+    /// See https://docs.python.org/3/library/sys.html#sys.exit
+    abstract exit: status: nativeint -> 'a
     /// Exits with exit status 1, printing message to stderr
     /// See https://docs.python.org/3/library/sys.html#sys.exit
     abstract exit: message: string -> 'a
