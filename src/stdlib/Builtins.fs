@@ -230,6 +230,22 @@ type IExports =
 
     abstract print: obj: obj -> unit
 
+    /// Print with custom end string (default is newline)
+    [<NamedParams(fromIndex = 1)>]
+    abstract print: obj: obj * ``end``: string -> unit
+
+    /// Print with custom separator and end string
+    [<NamedParams(fromIndex = 1)>]
+    abstract print: obj: obj * sep: string * ``end``: string -> unit
+
+    /// Print to a file-like object (e.g., sys.stderr)
+    [<NamedParams(fromIndex = 1)>]
+    abstract print: obj: obj * file: TextIOBase -> unit
+
+    /// Print to a file-like object with custom end string
+    [<NamedParams(fromIndex = 1)>]
+    abstract print: obj: obj * ``end``: string * file: TextIOBase -> unit
+
     [<NamedParams(fromIndex = 1)>]
     abstract ``open``:
         file: int *
@@ -256,6 +272,55 @@ type IExports =
 
 [<ImportAll("builtins")>]
 let builtins: IExports = nativeOnly
+
+// ============================================================================
+// Python Built-in Exceptions
+// https://docs.python.org/3/library/exceptions.html
+// ============================================================================
+
+// BaseException subclasses (not Exception subclasses)
+// These require special handling in try/catch as they don't inherit from Exception
+
+/// Raised when the user hits the interrupt key (normally Control-C or Delete).
+/// Note: Inherits from BaseException, not Exception.
+/// https://docs.python.org/3/library/exceptions.html#KeyboardInterrupt
+[<Import("KeyboardInterrupt", "builtins")>]
+type KeyboardInterrupt() =
+    inherit exn()
+
+/// Raised by the sys.exit() function.
+/// Note: Inherits from BaseException, not Exception.
+/// https://docs.python.org/3/library/exceptions.html#SystemExit
+[<Import("SystemExit", "builtins")>]
+type SystemExit() =
+    inherit exn()
+
+/// Raised when a generator or coroutine is closed.
+/// Note: Inherits from BaseException, not Exception.
+/// https://docs.python.org/3/library/exceptions.html#GeneratorExit
+[<Import("GeneratorExit", "builtins")>]
+type GeneratorExit() =
+    inherit exn()
+
+// Exception subclasses
+
+/// Raised when a system function returns a system-related error.
+/// https://docs.python.org/3/library/exceptions.html#OSError
+[<Import("OSError", "builtins")>]
+type OSError() =
+    inherit exn()
+
+/// Raised when an operation runs out of memory.
+/// https://docs.python.org/3/library/exceptions.html#MemoryError
+[<Import("MemoryError", "builtins")>]
+type MemoryError() =
+    inherit exn()
+
+/// Raised when the interpreter finds an internal error.
+/// https://docs.python.org/3/library/exceptions.html#SystemError
+[<Import("SystemError", "builtins")>]
+type SystemError() =
+    inherit exn()
 
 // NOTE: Below we can add builtins that don't require overloads, and do not
 // conflict with common F# or .NET functions. If they do we keep them in
