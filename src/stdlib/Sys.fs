@@ -2,6 +2,7 @@
 module Fable.Python.Sys
 
 open Fable.Core
+open Fable.Python.Builtins
 
 // fsharplint:disable MemberNames
 
@@ -47,6 +48,15 @@ type IExports =
     abstract version: string
     /// Python version information as a tuple
     abstract version_info: VersionInfo
+    /// Standard input stream
+    /// See https://docs.python.org/3/library/sys.html#sys.stdin
+    abstract stdin: TextIOBase
+    /// Standard output stream
+    /// See https://docs.python.org/3/library/sys.html#sys.stdout
+    abstract stdout: TextIOBase
+    /// Standard error stream
+    /// See https://docs.python.org/3/library/sys.html#sys.stderr
+    abstract stderr: TextIOBase
     /// Exits with code 0, indicating success
     /// See https://docs.python.org/3/library/sys.html#sys.exit
     abstract exit: unit -> 'a
