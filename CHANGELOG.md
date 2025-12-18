@@ -1,5 +1,19 @@
 # Changelog
 
+## [5.1.0-alpha.21.0](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.21.0...v5.1.0-alpha.21.0) (2025-12-18)
+
+
+### Features
+
+* Add Json static class with Fable-aware serialization ([#175](https://github.com/fable-compiler/Fable.Python/issues/175)) ([1eb5005](https://github.com/fable-compiler/Fable.Python/commit/1eb500523c6d6f43247bc3510a6045ec8d9d9d4e))
+
+
+### Bug Fixes
+
+* correct manifest to last released version ([bb9cb88](https://github.com/fable-compiler/Fable.Python/commit/bb9cb881c00b7ea6809ad3a87a35a7ebc0ff9008))
+* remove versioning strategy from release-please config ([ce84cae](https://github.com/fable-compiler/Fable.Python/commit/ce84caeeb7caa24eaecd96fb8e0723e7cb6e7c6a))
+* update release-please to use prerelease versioning ([7c219e8](https://github.com/fable-compiler/Fable.Python/commit/7c219e848fd3201d4567685ddfefae48c362856c))
+
 ## [5.0.0-alpha.21.0](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.21...v5.0.0-alpha.21.0) (2025-12-16)
 
 
