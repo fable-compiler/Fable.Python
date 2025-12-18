@@ -86,9 +86,13 @@ let private getCases (o: obj) : string array = nativeOnly
 [<Emit("(_ for _ in ()).throw(TypeError(f'Object of type {type($0).__name__} is not JSON serializable'))")>]
 let private raiseTypeError (o: obj) : obj = nativeOnly
 
+[<Emit("list($0)")>]
+let private toList (o: obj) : obj = nativeOnly
+
 /// Default function for JSON serialization of Fable types.
 /// Handles Int8, Int16, Int32, Int64, UInt8, UInt16, UInt32, UInt64 → int
 /// Handles Float32, Float64 → float
+/// Handles typed arrays (Int32Array, Int64Array, Float64Array, etc.) → list
 /// Handles Union types (tag, fields, cases) → [caseName, ...fields] or just caseName
 /// Handles Record types (__slots__) → dict of slot names to values
 let fableDefault (o: obj) : obj =
@@ -105,6 +109,20 @@ let fableDefault (o: obj) : obj =
     | "UInt64" -> toInt o
     | "Float32"
     | "Float64" -> toFloat o
+    // Generic arrays
+    | "FSharpArray"
+    | "GenericArray"
+    // Typed arrays
+    | "Int8Array"
+    | "Int16Array"
+    | "Int32Array"
+    | "Int64Array"
+    | "UInt8Array"
+    | "UInt16Array"
+    | "UInt32Array"
+    | "UInt64Array"
+    | "Float32Array"
+    | "Float64Array" -> toList o
     | _ ->
         if hasattr o "tag" && hasattr o "fields" then
             let cases = getCases o
