@@ -59,3 +59,8 @@ type GetAttribute(path: string) = inherit Attribute()
 ```
 
 Class attributes use `Py.ClassAttributesTemplate` for Pydantic-style classes.
+
+## Releasing
+
+When asked to create a release, read `RELEASING.md` for the release process.
+Use `Release-As: X.Y.Z-alpha.N.P` in commit messages or PR descriptions to set the version.
