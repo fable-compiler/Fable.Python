@@ -23,6 +23,16 @@ type IExports =
     /// See https://docs.python.org/3/library/json.html#json.dumps
     [<NamedParams(fromIndex = 1)>]
     abstract dumps: obj: obj * indent: int * ``default``: (obj -> obj) -> string
+    /// Serialize obj to a JSON formatted string with separators, ensure_ascii, and custom default
+    /// See https://docs.python.org/3/library/json.html#json.dumps
+    [<NamedParams(fromIndex = 1)>]
+    abstract dumps:
+        obj: obj * separators: string array * ensure_ascii: bool * ``default``: (obj -> obj) -> string
+    /// Serialize obj to a JSON formatted string with indent, separators, ensure_ascii, and custom default
+    /// See https://docs.python.org/3/library/json.html#json.dumps
+    [<NamedParams(fromIndex = 1)>]
+    abstract dumps:
+        obj: obj * indent: int * separators: string array * ensure_ascii: bool * ``default``: (obj -> obj) -> string
     /// Deserialize a JSON document from a string to a Python object
     /// See https://docs.python.org/3/library/json.html#json.loads
     abstract loads: s: string -> obj
@@ -106,15 +116,38 @@ let fableDefault (o: obj) : obj =
         else
             raiseTypeError o
 
-/// Serialize obj to JSON, automatically handling Fable types
-let dumps (obj: obj) : string = json.dumps (obj, ``default`` = fableDefault)
+/// Fable-aware JSON serialization with proper overloads.
+/// Automatically handles Fable types (Int8, Int16, Int32, Int64, UInt8, UInt16, UInt32, UInt64, Float32, Float64, unions, records).
+[<Erase>]
+type Json =
+    /// Serialize obj to JSON, automatically handling Fable types
+    static member inline dumps(obj: obj) : string =
+        json.dumps (obj, ``default`` = fableDefault)
 
-/// Serialize obj to JSON with indentation, automatically handling Fable types
-let dumpsIndented (obj: obj) (indent: int) : string = json.dumps (obj, indent, ``default`` = fableDefault)
+    /// Serialize obj to JSON with indentation, automatically handling Fable types
+    static member inline dumps(obj: obj, indent: int) : string =
+        json.dumps (obj, indent, ``default`` = fableDefault)
 
-/// Serialize obj as JSON stream to file, automatically handling Fable types
-let dump (obj: obj) (fp: TextIOWrapper) : unit = json.dump (obj, fp, ``default`` = fableDefault)
+    /// Serialize obj to JSON with custom separators and ensure_ascii, automatically handling Fable types
+    static member inline dumps(obj: obj, separators: string array, ensureAscii: bool) : string =
+        json.dumps (obj, separators = separators, ensure_ascii = ensureAscii, ``default`` = fableDefault)
 
-/// Serialize obj as JSON stream to file with indentation, automatically handling Fable types
-let dumpIndented (obj: obj) (fp: TextIOWrapper) (indent: int) : unit =
-    json.dump (obj, fp, indent, ``default`` = fableDefault)
+    /// Serialize obj to JSON with indentation, custom separators, and ensure_ascii, automatically handling Fable types
+    static member inline dumps(obj: obj, indent: int, separators: string array, ensureAscii: bool) : string =
+        json.dumps (obj, indent = indent, separators = separators, ensure_ascii = ensureAscii, ``default`` = fableDefault)
+
+    /// Serialize obj as JSON stream to file, automatically handling Fable types
+    static member inline dump(obj: obj, fp: TextIOWrapper) : unit =
+        json.dump (obj, fp, ``default`` = fableDefault)
+
+    /// Serialize obj as JSON stream to file with indentation, automatically handling Fable types
+    static member inline dump(obj: obj, fp: TextIOWrapper, indent: int) : unit =
+        json.dump (obj, fp, indent, ``default`` = fableDefault)
+
+    /// Deserialize a JSON document from a string to a Python object
+    static member inline loads(s: string) : obj =
+        json.loads s
+
+    /// Deserialize a JSON document from a file-like object to a Python object
+    static member inline load(fp: TextIOWrapper) : obj =
+        json.load fp
