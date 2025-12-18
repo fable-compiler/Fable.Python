@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.0-alpha.21.2](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.21.1...v5.0.0-alpha.21.2) (2025-12-18)
+
+
+### Features
+
+* add typed array support to Json serialization ([#182](https://github.com/fable-compiler/Fable.Python/issues/182)) ([ef67b4b](https://github.com/fable-compiler/Fable.Python/commit/ef67b4ba9258fde6a3f4ff3db0b843228953e7bc))
+
 ## [5.0.0-alpha.21.1](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.21.0...v5.0.0-alpha.21.1) (2025-12-18)
 
 ### Features
