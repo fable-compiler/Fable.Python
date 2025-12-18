@@ -2,11 +2,9 @@
 
 ## [5.0.0-alpha.21.1](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.21.0...v5.0.0-alpha.21.1) (2025-12-18)
 
-
 ### Features
 
 * Add Json static class with Fable-aware serialization ([#175](https://github.com/fable-compiler/Fable.Python/issues/175)) ([1eb5005](https://github.com/fable-compiler/Fable.Python/commit/1eb500523c6d6f43247bc3510a6045ec8d9d9d4e))
-
 
 ### Bug Fixes
 
@@ -15,7 +13,6 @@
 * update release-please to use prerelease versioning ([7c219e8](https://github.com/fable-compiler/Fable.Python/commit/7c219e848fd3201d4567685ddfefae48c362856c))
 
 ## [5.0.0-alpha.21.0](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.21...v5.0.0-alpha.21.0) (2025-12-16)
-
 
 ### Features
 
@@ -26,7 +23,6 @@
 * Fable v5 ([#147](https://github.com/fable-compiler/Fable.Python/issues/147)) ([abf8e6a](https://github.com/fable-compiler/Fable.Python/commit/abf8e6a1f7bbc2eae152431d04d6b8b5675f7795))
 * FastAPI async handlers ([#174](https://github.com/fable-compiler/Fable.Python/issues/174)) ([26cec1f](https://github.com/fable-compiler/Fable.Python/commit/26cec1f239f9244a7c1da1d00bbf1a479596bb3c))
 
-
 ### Bug Fixes
 
 * add missing models.py for pydantic example and update README ([#168](https://github.com/fable-compiler/Fable.Python/issues/168)) ([b76ce98](https://github.com/fable-compiler/Fable.Python/commit/b76ce989e0598d0007a8a1be9addfea97936eae7))
@@ -36,13 +32,11 @@
 * use plain int/string types for open ([b202a25](https://github.com/fable-compiler/Fable.Python/commit/b202a25bd7f48538fadc50125294a9252714d364))
 * use string types for open ([f211f8b](https://github.com/fable-compiler/Fable.Python/commit/f211f8bb9445dd6930926fe48aab6a69720dd30f))
 
-
 ### Miscellaneous Chores
 
 * sync with Fable 5.0.0-alpha.21 ([fd2685c](https://github.com/fable-compiler/Fable.Python/commit/fd2685c2f992c2d8058ac1bc1261d647271359df))
 
 ## [5.0.0-alpha.20.2](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.20.1...v5.0.0-alpha.20.2) (2025-12-09)
-
 
 ### Features
 
@@ -50,20 +44,17 @@
 
 ## [5.0.0-alpha.20.1](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.20...v5.0.0-alpha.20.1) (2025-12-08)
 
-
 ### Bug Fixes
 
 * relax FSharp.Core dependency to &gt;= 5.0.0 ([#163](https://github.com/fable-compiler/Fable.Python/issues/163)) ([10eb65b](https://github.com/fable-compiler/Fable.Python/commit/10eb65b22a157078e1b66bd8fb202b0cd2acbedc))
 
 ## [5.0.0-alpha.20](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.20...v5.0.0-alpha.20) (2025-12-08)
 
-
 ### Features
 
 * add write ([334e800](https://github.com/fable-compiler/Fable.Python/commit/334e80089c081bda25633f83dae037fc6c8fe6f5))
 * Added bindings for Pydantic and FastAPI + examples ([#151](https://github.com/fable-compiler/Fable.Python/issues/151)) ([826629e](https://github.com/fable-compiler/Fable.Python/commit/826629e465fca15d444a4ca37b851b8aab488f9a))
 * Fable v5 ([#147](https://github.com/fable-compiler/Fable.Python/issues/147)) ([abf8e6a](https://github.com/fable-compiler/Fable.Python/commit/abf8e6a1f7bbc2eae152431d04d6b8b5675f7795))
-
 
 ### Bug Fixes
 

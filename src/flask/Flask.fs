@@ -259,8 +259,7 @@ let make_response_with_status (_body: obj) (_status: int) : Response = nativeOnl
 
 /// Flask Blueprint for modular applications
 [<Import("Blueprint", "flask")>]
-type Blueprint(name: string, import_name: string, ?url_prefix: string) =
-    class end
+type Blueprint(name: string, import_name: string, ?url_prefix: string) = class end
 
 // ============================================================================
 // Flask Application

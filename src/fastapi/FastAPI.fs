@@ -136,33 +136,27 @@ type RouterWebSocketAttribute(path: string) =
 
 /// JSON response class
 [<Import("JSONResponse", "fastapi.responses")>]
-type JSONResponse(content: obj, ?status_code: int) =
-    class end
+type JSONResponse(content: obj, ?status_code: int) = class end
 
 /// HTML response class
 [<Import("HTMLResponse", "fastapi.responses")>]
-type HTMLResponse(content: string, ?status_code: int) =
-    class end
+type HTMLResponse(content: string, ?status_code: int) = class end
 
 /// Plain text response class
 [<Import("PlainTextResponse", "fastapi.responses")>]
-type PlainTextResponse(content: string, ?status_code: int) =
-    class end
+type PlainTextResponse(content: string, ?status_code: int) = class end
 
 /// Redirect response class
 [<Import("RedirectResponse", "fastapi.responses")>]
-type RedirectResponse(url: string, ?status_code: int) =
-    class end
+type RedirectResponse(url: string, ?status_code: int) = class end
 
 /// Streaming response class
 [<Import("StreamingResponse", "fastapi.responses")>]
-type StreamingResponse(content: obj, ?media_type: string) =
-    class end
+type StreamingResponse(content: obj, ?media_type: string) = class end
 
 /// File response class
 [<Import("FileResponse", "fastapi.responses")>]
-type FileResponse(path: string, ?filename: string, ?media_type: string) =
-    class end
+type FileResponse(path: string, ?filename: string, ?media_type: string) = class end
 
 // ============================================================================
 // Request and WebSocket
@@ -256,8 +250,7 @@ type WebSocket() =
 
 /// HTTP exception for returning error responses
 [<Import("HTTPException", "fastapi")>]
-type HTTPException(status_code: int, ?detail: string) =
-    class end
+type HTTPException(status_code: int, ?detail: string) = class end
 
 // ============================================================================
 // Dependency Injection
@@ -422,7 +415,7 @@ type UploadFile() =
 /// File parameter marker
 [<Import("File", "fastapi")>]
 [<Emit("$0()")>]
-let File() : UploadFile = nativeOnly
+let File () : UploadFile = nativeOnly
 
 /// Form parameter marker
 [<Import("Form", "fastapi")>]
@@ -452,7 +445,10 @@ type APIRouter(?prefix: string, ?tags: ResizeArray<string>) =
 
     /// Include another router with prefix and tags
     [<Emit("$0.include_router($1, prefix=$2, tags=$3)")>]
-    member _.include_router_with_prefix_and_tags(_router: APIRouter, _prefix: string, _tags: ResizeArray<string>) : unit = nativeOnly
+    member _.include_router_with_prefix_and_tags
+        (_router: APIRouter, _prefix: string, _tags: ResizeArray<string>)
+        : unit =
+        nativeOnly
 
 // ============================================================================
 // FastAPI Application
@@ -471,7 +467,10 @@ type FastAPI(?title: string, ?description: string, ?version: string) =
 
     /// Include a router with prefix and tags
     [<Emit("$0.include_router($1, prefix=$2, tags=$3)")>]
-    member _.include_router_with_prefix_and_tags(_router: APIRouter, _prefix: string, _tags: ResizeArray<string>) : unit = nativeOnly
+    member _.include_router_with_prefix_and_tags
+        (_router: APIRouter, _prefix: string, _tags: ResizeArray<string>)
+        : unit =
+        nativeOnly
 
     /// Add middleware
     [<Emit("$0.add_middleware($1)")>]
@@ -571,8 +570,7 @@ type OAuth2PasswordRequestForm() =
 
 /// HTTP Basic authentication
 [<Import("HTTPBasic", "fastapi.security")>]
-type HTTPBasic() =
-    class end
+type HTTPBasic() = class end
 
 /// HTTP Basic credentials
 [<Import("HTTPBasicCredentials", "fastapi.security")>]
@@ -587,8 +585,7 @@ type HTTPBasicCredentials() =
 
 /// HTTP Bearer authentication
 [<Import("HTTPBearer", "fastapi.security")>]
-type HTTPBearer() =
-    class end
+type HTTPBearer() = class end
 
 /// HTTP Bearer credentials (token in Authorization header)
 [<Import("HTTPAuthorizationCredentials", "fastapi.security")>]
@@ -603,18 +600,15 @@ type HTTPAuthorizationCredentials() =
 
 /// API Key in header
 [<Import("APIKeyHeader", "fastapi.security")>]
-type APIKeyHeader(name: string) =
-    class end
+type APIKeyHeader(name: string) = class end
 
 /// API Key in query parameter
 [<Import("APIKeyQuery", "fastapi.security")>]
-type APIKeyQuery(name: string) =
-    class end
+type APIKeyQuery(name: string) = class end
 
 /// API Key in cookie
 [<Import("APIKeyCookie", "fastapi.security")>]
-type APIKeyCookie(name: string) =
-    class end
+type APIKeyCookie(name: string) = class end
 
 // ============================================================================
 // CORS Middleware
@@ -622,8 +616,7 @@ type APIKeyCookie(name: string) =
 
 /// CORS middleware for handling Cross-Origin Resource Sharing
 [<Import("CORSMiddleware", "fastapi.middleware.cors")>]
-type CORSMiddleware =
-    class end
+type CORSMiddleware = class end
 
 /// CORS middleware configuration helper
 module CORSMiddleware =
@@ -634,7 +627,15 @@ module CORSMiddleware =
 
     /// Add CORS middleware to app with all origins allowed
     [<Emit("$0.add_middleware($1, allow_origins=$2, allow_credentials=$3, allow_methods=$4, allow_headers=$5)")>]
-    let addToApp (_app: FastAPI) (_middleware: obj) (_origins: string array) (_credentials: bool) (_methods: string array) (_headers: string array) : unit = nativeOnly
+    let addToApp
+        (_app: FastAPI)
+        (_middleware: obj)
+        (_origins: string array)
+        (_credentials: bool)
+        (_methods: string array)
+        (_headers: string array)
+        : unit =
+        nativeOnly
 
 // ============================================================================
 // Encoders

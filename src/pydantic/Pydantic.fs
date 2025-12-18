@@ -458,4 +458,3 @@ type Base64Str = string
 /// JSON type - validates JSON string and parses it
 [<Import("Json", "pydantic")>]
 type JsonValue = obj
-

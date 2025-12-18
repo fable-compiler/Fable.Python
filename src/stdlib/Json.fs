@@ -15,24 +15,28 @@ type IExports =
     /// Serialize obj to a JSON formatted string with indentation
     /// See https://docs.python.org/3/library/json.html#json.dumps
     abstract dumps: obj: obj * indent: int -> string
+
     /// Serialize obj to a JSON formatted string with a custom default function
     /// See https://docs.python.org/3/library/json.html#json.dumps
     [<NamedParams(fromIndex = 1)>]
     abstract dumps: obj: obj * ``default``: (obj -> obj) -> string
+
     /// Serialize obj to a JSON formatted string with indentation and custom default
     /// See https://docs.python.org/3/library/json.html#json.dumps
     [<NamedParams(fromIndex = 1)>]
     abstract dumps: obj: obj * indent: int * ``default``: (obj -> obj) -> string
+
     /// Serialize obj to a JSON formatted string with separators, ensure_ascii, and custom default
     /// See https://docs.python.org/3/library/json.html#json.dumps
     [<NamedParams(fromIndex = 1)>]
-    abstract dumps:
-        obj: obj * separators: string array * ensure_ascii: bool * ``default``: (obj -> obj) -> string
+    abstract dumps: obj: obj * separators: string array * ensure_ascii: bool * ``default``: (obj -> obj) -> string
+
     /// Serialize obj to a JSON formatted string with indent, separators, ensure_ascii, and custom default
     /// See https://docs.python.org/3/library/json.html#json.dumps
     [<NamedParams(fromIndex = 1)>]
     abstract dumps:
         obj: obj * indent: int * separators: string array * ensure_ascii: bool * ``default``: (obj -> obj) -> string
+
     /// Deserialize a JSON document from a string to a Python object
     /// See https://docs.python.org/3/library/json.html#json.loads
     abstract loads: s: string -> obj
@@ -42,14 +46,17 @@ type IExports =
     /// Serialize obj as a JSON formatted stream with indentation
     /// See https://docs.python.org/3/library/json.html#json.dump
     abstract dump: obj: obj * fp: TextIOWrapper * indent: int -> unit
+
     /// Serialize obj as a JSON formatted stream with a custom default function
     /// See https://docs.python.org/3/library/json.html#json.dump
     [<NamedParams(fromIndex = 2)>]
     abstract dump: obj: obj * fp: TextIOWrapper * ``default``: (obj -> obj) -> unit
+
     /// Serialize obj as a JSON formatted stream with indentation and custom default
     /// See https://docs.python.org/3/library/json.html#json.dump
     [<NamedParams(fromIndex = 2)>]
     abstract dump: obj: obj * fp: TextIOWrapper * indent: int * ``default``: (obj -> obj) -> unit
+
     /// Deserialize a JSON document from a file-like object to a Python object
     /// See https://docs.python.org/3/library/json.html#json.load
     abstract load: fp: TextIOWrapper -> obj
@@ -127,7 +134,13 @@ let fableDefault (o: obj) : obj =
         if hasattr o "tag" && hasattr o "fields" then
             let cases = getCases o
             let tag: int = getattr o "tag" :?> int
-            let caseName = if tag < cases.Length then cases.[tag] else "Case" + string tag
+
+            let caseName =
+                if tag < cases.Length then
+                    cases.[tag]
+                else
+                    "Case" + string tag
+
             unionToList o caseName
         elif hasattr o "__slots__" then
             slotsToDict o
@@ -152,7 +165,13 @@ type Json =
 
     /// Serialize obj to JSON with indentation, custom separators, and ensure_ascii, automatically handling Fable types
     static member inline dumps(obj: obj, indent: int, separators: string array, ensureAscii: bool) : string =
-        json.dumps (obj, indent = indent, separators = separators, ensure_ascii = ensureAscii, ``default`` = fableDefault)
+        json.dumps (
+            obj,
+            indent = indent,
+            separators = separators,
+            ensure_ascii = ensureAscii,
+            ``default`` = fableDefault
+        )
 
     /// Serialize obj as JSON stream to file, automatically handling Fable types
     static member inline dump(obj: obj, fp: TextIOWrapper) : unit =
@@ -163,9 +182,7 @@ type Json =
         json.dump (obj, fp, indent, ``default`` = fableDefault)
 
     /// Deserialize a JSON document from a string to a Python object
-    static member inline loads(s: string) : obj =
-        json.loads s
+    static member inline loads(s: string) : obj = json.loads s
 
     /// Deserialize a JSON document from a file-like object to a Python object
-    static member inline load(fp: TextIOWrapper) : obj =
-        json.load fp
+    static member inline load(fp: TextIOWrapper) : obj = json.load fp

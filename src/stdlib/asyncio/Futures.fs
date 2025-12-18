@@ -3,9 +3,7 @@ namespace Fable.Python.AsyncIO
 
 open Fable.Core
 
-type Awaitable<'T> =
-    interface
-    end
+type Awaitable<'T> = interface end
 
 type Future<'T> =
     inherit Awaitable<'T>

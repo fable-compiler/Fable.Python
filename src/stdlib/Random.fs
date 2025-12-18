@@ -12,6 +12,7 @@ type IExports =
     /// See https://docs.python.org/3/library/random.html#random.seed
     [<Emit("$0.seed(int($1))")>]
     abstract seed: a: int -> unit
+
     /// Initialize the random number generator
     /// See https://docs.python.org/3/library/random.html#random.seed
     abstract seed: a: nativeint -> unit
@@ -58,10 +59,12 @@ type IExports =
     /// See https://docs.python.org/3/library/random.html#random.choice
     [<Emit("$0.choice(list($1))")>]
     abstract choice: seq: 'T[] -> 'T
+
     /// Return a random element from the non-empty sequence
     /// See https://docs.python.org/3/library/random.html#random.choice
     [<Emit("$0.choice(list($1))")>]
     abstract choice: seq: 'T list -> 'T
+
     /// Return a random element from the non-empty sequence
     /// See https://docs.python.org/3/library/random.html#random.choice
     abstract choice: seq: ResizeArray<'T> -> 'T
@@ -70,10 +73,12 @@ type IExports =
     /// See https://docs.python.org/3/library/random.html#random.sample
     [<Emit("$0.sample(list($1), int($2))")>]
     abstract sample: population: 'T[] * k: int -> ResizeArray<'T>
+
     /// Return a k length list of unique elements chosen from the population sequence
     /// See https://docs.python.org/3/library/random.html#random.sample
     [<Emit("$0.sample(list($1), int($2))")>]
     abstract sample: population: 'T list * k: int -> ResizeArray<'T>
+
     /// Return a k length list of unique elements chosen from the population sequence
     /// See https://docs.python.org/3/library/random.html#random.sample
     [<Emit("$0.sample($1, int($2))")>]
@@ -83,10 +88,12 @@ type IExports =
     /// See https://docs.python.org/3/library/random.html#random.choices
     [<Emit("$0.choices(list($1), k=int($2))")>]
     abstract choices: population: 'T[] * k: int -> ResizeArray<'T>
+
     /// Return a k sized list of elements chosen from the population with replacement
     /// See https://docs.python.org/3/library/random.html#random.choices
     [<Emit("$0.choices(list($1), k=int($2))")>]
     abstract choices: population: 'T list * k: int -> ResizeArray<'T>
+
     /// Return a k sized list of elements chosen from the population with replacement
     /// See https://docs.python.org/3/library/random.html#random.choices
     [<Emit("$0.choices($1, k=int($2))")>]

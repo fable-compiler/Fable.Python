@@ -36,6 +36,8 @@
 
     <Compile Include="pydantic/Pydantic.fs" />
     <Compile Include="fastapi/FastAPI.fs" />
+
+    <Compile Include="fable/Types.fs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="pyproject.toml; *.fsproj; **\*.fs; **\*.fsi" PackagePath="fable\" />

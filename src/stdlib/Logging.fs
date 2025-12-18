@@ -70,27 +70,35 @@ type Logger(name: string, ?level: int) =
     member _.critical(msg: string) : unit = nativeOnly
     /// Log a message with severity ERROR and exception info
     member _.``exception``(msg: string) : unit = nativeOnly
+
     /// Log a message with the specified level
     [<Emit("$0.log(int($1), $2)")>]
     member _.log(level: int, msg: string) : unit = nativeOnly
+
     /// Set the logging level
     [<Emit("$0.setLevel(int($1))")>]
     member _.setLevel(level: int) : unit = nativeOnly
+
     /// Get the effective logging level
     [<Emit("$0.getEffectiveLevel()")>]
     member _.getEffectiveLevel() : int = nativeOnly
+
     /// Check if the logger is enabled for the specified level
     [<Emit("$0.isEnabledFor(int($1))")>]
     member _.isEnabledFor(level: int) : bool = nativeOnly
+
     /// Add the specified handler to this logger
     [<Emit("$0.addHandler($1)")>]
     member _.addHandler(handler: Handler) : unit = nativeOnly
+
     /// Remove the specified handler from this logger
     [<Emit("$0.removeHandler($1)")>]
     member _.removeHandler(handler: Handler) : unit = nativeOnly
+
     /// Check if this logger has any handlers configured
     [<Emit("$0.hasHandlers()")>]
     member _.hasHandlers() : bool = nativeOnly
+
     /// The name of the logger
     member _.name: string = nativeOnly
 
@@ -114,6 +122,7 @@ type IExports =
     /// Return a logger with the specified name
     [<Emit("$0.getLogger($1)")>]
     abstract getLogger: name: string -> Logger
+
     /// Return the root logger
     [<Emit("$0.getLogger()")>]
     abstract getLogger: unit -> Logger
