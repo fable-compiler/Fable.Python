@@ -94,3 +94,27 @@ let ``test Json.dumps with union case with multiple fields works`` () =
     let union = CaseC("hello", 123)
     let result = Json.dumps union
     result |> equal """["CaseC", "hello", 123]"""
+
+[<Fact>]
+let ``test Json.dumps with F# array works`` () =
+    let values = [| 1; 2; 3 |]
+    let result = Json.dumps values
+    result |> equal "[1, 2, 3]"
+
+[<Fact>]
+let ``test Json.dumps with F# array of strings works`` () =
+    let values = [| "a"; "b"; "c" |]
+    let result = Json.dumps values
+    result |> equal """["a", "b", "c"]"""
+
+[<Fact>]
+let ``test Json.dumps with nested F# array works`` () =
+    let obj = {| Items = [| 1; 2; 3 |] |}
+    let result = Json.dumps obj
+    result |> equal """{"Items": [1, 2, 3]}"""
+
+[<Fact>]
+let ``test Json.dumps with empty F# array works`` () =
+    let values: int array = [||]
+    let result = Json.dumps values
+    result |> equal "[]"
