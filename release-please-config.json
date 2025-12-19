@@ -3,7 +3,7 @@
   "packages": {
     ".": {
       "release-type": "simple",
-      "release-as": "5.0.0-alpha.21.2",
+      "release-as": "5.0.0-alpha.21.3",
       "include-component-in-tag": false,
       "include-v-in-tag": true,
       "changelog-path": "CHANGELOG.md"

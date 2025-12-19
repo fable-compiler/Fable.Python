@@ -60,10 +60,12 @@ type IExports =
     /// Exits with code 0, indicating success
     /// See https://docs.python.org/3/library/sys.html#sys.exit
     abstract exit: unit -> 'a
+
     /// Exits with provided status
     /// See https://docs.python.org/3/library/sys.html#sys.exit
     [<Emit("$0.exit(int($1))")>]
     abstract exit: status: int -> 'a
+
     /// Exits with provided status
     /// See https://docs.python.org/3/library/sys.html#sys.exit
     abstract exit: status: nativeint -> 'a
