@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.0-alpha.21.3](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.21.2...v5.0.0-alpha.21.3) (2025-12-19)
+
+
+### Features
+
+* add Fable.Types module for runtime type detection ([#184](https://github.com/fable-compiler/Fable.Python/issues/184)) ([6e1e902](https://github.com/fable-compiler/Fable.Python/commit/6e1e902a0203d24206c3a7e6719383e464193fd5))
+
 ## [5.0.0-alpha.21.2](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.21.1...v5.0.0-alpha.21.2) (2025-12-18)
 
 
