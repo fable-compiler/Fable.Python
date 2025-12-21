@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.0-alpha.21.4](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.21.4...v5.0.0-alpha.21.4) (2025-12-21)
+
+
+### Bug Fixes
+
+* remove XUnit dependency from Testing module ([3a35e44](https://github.com/fable-compiler/Fable.Python/commit/3a35e4404624a0c2c13b8c869ff987ac7c81a7d7))
+
 ## [5.0.0-alpha.21.4](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.21.3...v5.0.0-alpha.21.4) (2025-12-21)
 
 
