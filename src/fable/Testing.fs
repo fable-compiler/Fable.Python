@@ -1,4 +1,4 @@
-/// Cross-platform test utilities for writing tests that run on both .NET (with XUnit) and Python (with pytest).
+/// Test utilities for Fable Python projects using pytest.
 ///
 /// Example usage:
 /// ```fsharp
@@ -16,8 +16,6 @@
 module Fable.Python.Testing
 
 open System
-
-#if FABLE_COMPILER
 open Fable.Core.Testing
 
 /// Assert equality (expected first, then actual - F# style)
@@ -30,20 +28,7 @@ let notEqual expected actual : unit = Assert.NotEqual(actual, expected)
 type FactAttribute() =
     inherit System.Attribute()
 
-#else
-open Xunit
-
-/// Assert equality (expected first, then actual - F# style)
-let equal<'T> (expected: 'T) (actual: 'T) : unit = Assert.Equal(expected, actual)
-
-/// Assert inequality
-let notEqual<'T> (expected: 'T) (actual: 'T) : unit = Assert.NotEqual(expected, actual)
-
-/// FactAttribute is already provided by XUnit
-type FactAttribute = Xunit.FactAttribute
-#endif
-
-// Exception testing helpers (work on both platforms)
+// Exception testing helpers
 
 let private run (f: unit -> 'a) =
     try
