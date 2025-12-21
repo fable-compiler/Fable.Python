@@ -1,6 +1,6 @@
 module Fable.Python.Tests.Base64
 
-open Util.Testing
+open Fable.Python.Testing
 open Fable.Python.Base64
 open Fable.Python.Builtins
 

@@ -38,6 +38,10 @@
     <Compile Include="fastapi/FastAPI.fs" />
 
     <Compile Include="fable/Types.fs" />
+    <Compile Include="fable/Testing.fs" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(FABLE_COMPILER)' != 'true'">
+    <PackageReference Include="xunit" Version="2.9.*" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="pyproject.toml; *.fsproj; **\*.fs; **\*.fsi" PackagePath="fable\" />

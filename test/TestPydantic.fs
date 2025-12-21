@@ -1,6 +1,6 @@
 module Fable.Python.Tests.TestPydantic
 
-open Fable.Python.Tests.Util.Testing
+open Fable.Python.Testing
 
 #if FABLE_COMPILER
 open Fable.Core

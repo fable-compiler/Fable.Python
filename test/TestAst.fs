@@ -1,6 +1,6 @@
 module Fable.Python.Tests.Ast
 
-open Util.Testing
+open Fable.Python.Testing
 open Fable.Python.Ast
 
 [<Fact>]

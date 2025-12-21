@@ -1,6 +1,6 @@
 module Fable.Python.Tests.Types
 
-open Util.Testing
+open Fable.Python.Testing
 open Fable.Python.Fable.Types
 
 // Test typeName function
