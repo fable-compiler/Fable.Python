@@ -1,6 +1,6 @@
 module Fable.Python.Tests.Logging
 
-open Util.Testing
+open Fable.Python.Testing
 open Fable.Python.Logging
 
 [<Fact>]

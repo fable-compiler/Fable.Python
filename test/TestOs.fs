@@ -1,6 +1,6 @@
 module Fable.Python.Tests.Os
 
-open Util.Testing
+open Fable.Python.Testing
 open Fable.Python.Os
 
 [<Fact>]
