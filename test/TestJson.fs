@@ -1,6 +1,6 @@
 module Fable.Python.Tests.Json
 
-open Util.Testing
+open Fable.Python.Testing
 open Fable.Python.Json
 
 // Test types for union and record serialization

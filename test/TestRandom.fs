@@ -1,6 +1,6 @@
 module Fable.Python.Tests.Random
 
-open Util.Testing
+open Fable.Python.Testing
 open Fable.Python.Random
 
 [<Fact>]

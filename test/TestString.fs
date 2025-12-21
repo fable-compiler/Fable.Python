@@ -1,6 +1,6 @@
 module Fable.Python.Tests.String
 
-open Util.Testing
+open Fable.Python.Testing
 open Fable.Python.String
 
 [<Fact>]
