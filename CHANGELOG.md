@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.0-alpha.21.4](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.21.3...v5.0.0-alpha.21.4) (2025-12-21)
+
+
+### Features
+
+* add Fable.Python.Testing module for cross-platform testing ([#186](https://github.com/fable-compiler/Fable.Python/issues/186)) ([2356705](https://github.com/fable-compiler/Fable.Python/commit/235670557cfb1913b9e67f7ad2e0fd4772a6de6b))
+
 ## [5.0.0-alpha.21.3](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.21.2...v5.0.0-alpha.21.3) (2025-12-19)
 
 
