@@ -10,7 +10,7 @@ open Fable.Python.Pydantic
 // ============================================================================
 
 /// User model - a Pydantic BaseModel
-[<Py.ClassAttributes(style = Py.ClassAttributeStyle.Attributes, init = false)>]
+[<Py.DataClass>]
 type User(Id: int, Name: string, Email: string) =
     inherit BaseModel()
     member val Id: int = Id with get, set
@@ -18,7 +18,7 @@ type User(Id: int, Name: string, Email: string) =
     member val Email: string = Email with get, set
 
 /// Request model for creating a new user
-[<Py.ClassAttributes(style = Py.ClassAttributeStyle.Attributes, init = false)>]
+[<Py.DataClass>]
 type CreateUserRequest(Name: string, Email: string) =
     inherit BaseModel()
     member val Name: string = Name with get, set
@@ -29,7 +29,7 @@ type CreateUserRequest(Name: string, Email: string) =
 // ============================================================================
 
 /// Item model - a Pydantic BaseModel
-[<Py.ClassAttributes(style = Py.ClassAttributeStyle.Attributes, init = false)>]
+[<Py.DataClass>]
 type Item(Id: int, Name: string, Price: float, InStock: bool) =
     inherit BaseModel()
     member val Id: int = Id with get, set
@@ -38,7 +38,7 @@ type Item(Id: int, Name: string, Price: float, InStock: bool) =
     member val InStock: bool = InStock with get, set
 
 /// Request model for creating/updating an item
-[<Py.ClassAttributes(style = Py.ClassAttributeStyle.Attributes, init = false)>]
+[<Py.DataClass>]
 type CreateItemRequest(Name: string, Price: float, InStock: bool) =
     inherit BaseModel()
     member val Name: string = Name with get, set
