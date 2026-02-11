@@ -1,29 +1,14 @@
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [published]
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
-name: Release Please
+name: Publish NuGet
 
 jobs:
-  release-please:
-    runs-on: ubuntu-latest
-    outputs:
-      release_created: ${{ steps.release.outputs.release_created }}
-      tag_name: ${{ steps.release.outputs.tag_name }}
-    steps:
-      - uses: googleapis/release-please-action@v4
-        id: release
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-
   publish:
-    needs: release-please
-    if: ${{ needs.release-please.outputs.release_created }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -48,7 +33,7 @@ jobs:
 
       - name: Pack NuGet
         env:
-          TAG_NAME: ${{ needs.release-please.outputs.tag_name }}
+          TAG_NAME: ${{ github.event.release.tag_name }}
         run: just pack-version ${TAG_NAME#v}
 
       - name: Push NuGet
