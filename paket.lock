@@ -2,7 +2,7 @@ STORAGE: NONE
 RESTRICTION: || (== net10.0) (== net6.0) (== net8.0) (== net9.0) (== netstandard2.0) (== netstandard2.1)
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    Fable.Core (5.0.0-beta.4)
+    Fable.Core (5.0.0-beta.5)
       FSharp.Core (>= 4.7.2)
     FSharp.Core (5.0)
 
@@ -11,13 +11,13 @@ STORAGE: NONE
 RESTRICTION: == net10.0
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    Fable.Core (5.0.0-beta.4)
+    Fable.Core (5.0.0-beta.5)
       FSharp.Core (>= 4.7.2)
     Feliz.ViewEngine (1.0.3)
       FSharp.Core (>= 4.7)
     FSharp.Control.AsyncRx (1.6.7)
       FSharp.Core (>= 6.0.6)
-    FSharp.Core (10.0.100)
+    FSharp.Core (10.0.103)
     Zanaptak.TypedCssClasses (1.0)
       FSharp.Core (>= 4.3.4)
 
@@ -26,9 +26,9 @@ STORAGE: NONE
 RESTRICTION: == net9.0
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    Fable.Core (5.0.0-beta.4)
+    Fable.Core (5.0.0-beta.5)
       FSharp.Core (>= 4.7.2)
-    FSharp.Core (10.0.100)
+    FSharp.Core (10.0.103)
     Microsoft.CodeCoverage (18.0.1)
     Microsoft.NET.Test.Sdk (16.11)
       Microsoft.CodeCoverage (>= 16.11)
@@ -39,15 +39,15 @@ NUGET
       Microsoft.TestPlatform.ObjectModel (>= 18.0.1)
       Newtonsoft.Json (>= 13.0.3)
     Newtonsoft.Json (13.0.4)
-    System.Collections.Immutable (10.0)
-    System.Reflection.Metadata (10.0)
-      System.Collections.Immutable (>= 10.0)
+    System.Collections.Immutable (10.0.3)
+    System.Reflection.Metadata (10.0.3)
+      System.Collections.Immutable (>= 10.0.3)
     xunit (2.9.3)
       xunit.analyzers (>= 1.18)
       xunit.assert (>= 2.9.3)
       xunit.core (2.9.3)
     xunit.abstractions (2.0.3)
-    xunit.analyzers (1.26)
+    xunit.analyzers (1.27)
     xunit.assert (2.9.3)
     xunit.core (2.9.3)
       xunit.extensibility.core (2.9.3)

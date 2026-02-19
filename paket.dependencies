@@ -5,7 +5,7 @@ storage: none
 framework: netstandard2.0, netstandard2.1, net6.0, net8.0, net9.0, net10.0
 
 nuget FSharp.Core >= 5.0.0 lowest_matching: true
-nuget Fable.Core 5.0.0-beta.4
+nuget Fable.Core 5.0.0-beta.5
 
 group Test
     source https://api.nuget.org/v3/index.json
@@ -13,7 +13,7 @@ group Test
     framework: net9.0
 
     nuget FSharp.Core
-    nuget Fable.Core 5.0.0-beta.4
+    nuget Fable.Core 5.0.0-beta.5
     nuget Microsoft.NET.Test.Sdk ~> 16
     nuget xunit ~> 2
     nuget xunit.runner.visualstudio ~> 2
@@ -24,7 +24,7 @@ group Examples
     framework: net10.0
 
     nuget FSharp.Core
-    nuget Fable.Core 5.0.0-beta.4
+    nuget Fable.Core 5.0.0-beta.5
     nuget Feliz.ViewEngine
     nuget Zanaptak.TypedCssClasses
     nuget FSharp.Control.AsyncRx
