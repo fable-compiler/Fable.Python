@@ -270,6 +270,26 @@ type IExports =
         ?opener: _Opener ->
             TextIOWrapper
 
+    /// Return the value of the named attribute of object. name must be a string.
+    /// See https://docs.python.org/3/library/functions.html#getattr
+    abstract getattr: obj: obj * name: string -> 'T
+    /// Return the value of the named attribute of object. If the attribute does not exist,
+    /// default is returned.
+    /// See https://docs.python.org/3/library/functions.html#getattr
+    abstract getattr: obj: obj * name: string * ``default``: 'T -> 'T
+    /// Sets the named attribute on the given object to the specified value.
+    /// See https://docs.python.org/3/library/functions.html#setattr
+    abstract setattr: obj: obj * name: string * value: obj -> unit
+    /// Return True if the string is the name of one of the object's attributes.
+    /// See https://docs.python.org/3/library/functions.html#hasattr
+    abstract hasattr: obj: obj * name: string -> bool
+    /// Return True if the object argument is an instance of the classinfo argument.
+    /// See https://docs.python.org/3/library/functions.html#isinstance
+    abstract isinstance: obj: obj * classinfo: obj -> bool
+    /// Return the type of an object.
+    /// See https://docs.python.org/3/library/functions.html#type
+    abstract ``type``: obj -> obj
+
 [<ImportAll("builtins")>]
 let builtins: IExports = nativeOnly
 
@@ -331,3 +351,12 @@ let __name__: string = nativeOnly
 
 /// Python print function. Takes a single argument, so can be used with e.g string interpolation.
 let print obj = builtins.print obj
+
+/// Return the value of the named attribute of object with a default.
+let getattr obj name defaultValue = builtins.getattr (obj, name, defaultValue)
+
+/// Sets the named attribute on the given object to the specified value.
+let setattr obj name value = builtins.setattr (obj, name, value)
+
+/// Return True if the string is the name of one of the object's attributes.
+let hasattr obj name = builtins.hasattr (obj, name)

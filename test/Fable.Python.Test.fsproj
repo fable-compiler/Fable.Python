@@ -15,6 +15,11 @@
     <Compile Include="TestAst.fs" />
     <Compile Include="TestAsyncIO.fs" />
     <Compile Include="TestBuiltins.fs" />
+    <Compile Include="TestBuiltinsAttr.fs" />
+    <Compile Include="TestHeapq.fs" />
+    <Compile Include="TestQueue.fs" />
+    <Compile Include="TestThreading.fs" />
+    <Compile Include="TestTraceback.fs" />
     <Compile Include="TestOs.fs" />
     <Compile Include="TestJson.fs" />
     <Compile Include="TestLogging.fs" />
