@@ -23,11 +23,14 @@
     <Compile Include="stdlib/Math.fs" />
     <Compile Include="stdlib/Random.fs" />
     <Compile Include="stdlib/Os.fs" />
+    <Compile Include="stdlib/Heapq.fs" />
     <Compile Include="stdlib/Queue.fs" />
     <Compile Include="stdlib/String.fs" />
     <Compile Include="stdlib/Sys.fs" />
+    <Compile Include="stdlib/Threading.fs" />
     <Compile Include="stdlib/Time.fs" />
     <Compile Include="stdlib/TkInter.fs" />
+    <Compile Include="stdlib/Traceback.fs" />
 
     <Compile Include="cognite-sdk/CogniteSdk.fs" />
     <Compile Include="flask/Flask.fs" />
