@@ -10,7 +10,7 @@ test_path := "test"
 # Development mode: use local Fable repo instead of dotnet tool
 # Usage: just dev=true test-python
 dev := "false"
-fable_repo := justfile_directory() / "../Fable"
+fable_repo := justfile_directory() / "../fable/python-ex-not-defined"
 fable := if dev == "true" { "dotnet run --project " + fable_repo / "src/Fable.Cli" + " --" } else { "dotnet fable" }
 
 # Default recipe - show available commands

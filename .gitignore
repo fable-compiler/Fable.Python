@@ -140,3 +140,4 @@ src/**/*.py
 .ionide/
 
 .fake
+.DS_Store
