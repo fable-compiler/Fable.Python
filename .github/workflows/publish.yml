@@ -24,7 +24,7 @@ jobs:
             10.x
 
       - name: Install just
-        uses: extractions/setup-just@v3
+        uses: extractions/setup-just@v4
 
       - name: Restore dependencies
         run: |
