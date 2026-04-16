@@ -32,8 +32,8 @@ let ``test fabs works`` () =
 
 [<Fact>]
 let ``test factorial works`` () =
-    math.factorial 5.0 |> equal 120.0
-    math.factorial 0.0 |> equal 1.0
+    math.factorial 5 |> equal 120
+    math.factorial 0 |> equal 1
 
 [<Fact>]
 let ``test fmod works`` () =
@@ -119,3 +119,50 @@ let ``test atan works`` () =
 [<Fact>]
 let ``test atan2 works`` () =
     math.atan2 0.0 1.0 |> equal 0.0
+
+[<Fact>]
+let ``test pi constant works`` () =
+    math.pi |> fun x -> (x > 3.14159 && x < 3.14160) |> equal true
+
+[<Fact>]
+let ``test e constant works`` () =
+    math.e |> fun x -> (x > 2.71828 && x < 2.71829) |> equal true
+
+[<Fact>]
+let ``test tau constant works`` () =
+    math.tau |> fun x -> (x > 6.28318 && x < 6.28319) |> equal true
+
+[<Fact>]
+let ``test inf constant works`` () =
+    math.isinf math.inf |> equal true
+
+[<Fact>]
+let ``test sqrt works`` () =
+    math.sqrt 4.0 |> equal 2.0
+    math.sqrt 9.0 |> equal 3.0
+
+[<Fact>]
+let ``test degrees works`` () =
+    math.degrees math.pi |> fun x -> (x > 179.999 && x < 180.001) |> equal true
+
+[<Fact>]
+let ``test radians works`` () =
+    math.radians 180.0 |> fun x -> (x > 3.14158 && x < 3.14160) |> equal true
+
+[<Fact>]
+let ``test trunc works`` () =
+    math.trunc 2.7 |> equal 2
+    math.trunc -2.7 |> equal -2
+
+[<Fact>]
+let ``test hypot works`` () =
+    math.hypot (3.0, 4.0) |> equal 5.0
+
+[<Fact>]
+let ``test isqrt works`` () =
+    math.isqrt 16 |> equal 4
+    math.isqrt 17 |> equal 4
+
+[<Fact>]
+let ``test fsum works`` () =
+    math.fsum [ 1.0; 2.0; 3.0 ] |> equal 6.0
