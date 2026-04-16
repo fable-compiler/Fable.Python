@@ -62,7 +62,7 @@ type IExports =
     abstract fmod: x: int -> y: int -> int
     /// Return an accurate floating-point sum of values in the iterable
     /// See https://docs.python.org/3/library/math.html#math.fsum
-    abstract fsum: iterable: IEnumerable<float> -> float
+    abstract fsum: iterable: float seq -> float
     /// Return the greatest common divisor of the integers
     /// See https://docs.python.org/3/library/math.html#math.gcd
     abstract gcd: [<ParamArray>] ints: int[] -> int
@@ -80,7 +80,7 @@ type IExports =
     abstract perm: n: int * k: int -> int
     /// Return the product of all elements in the iterable
     /// See https://docs.python.org/3/library/math.html#math.prod
-    abstract prod: iterable: IEnumerable<'T> -> 'T
+    abstract prod: iterable: 'T seq -> 'T
     /// Truncate x to an integer (towards zero)
     /// See https://docs.python.org/3/library/math.html#math.trunc
     abstract trunc: x: float -> int

@@ -7,12 +7,6 @@ name: Fable.Python
 
 All notable changes to this project will be documented in this file.
 
-## 5.0.0-rc.3 - 2026-04-16
-
-### 🐞 Bug Fixes
-
-* Bump Fable.Core to 5.0.0-rc.2 and ShipIt to 2.0.2 (#243) ([cb06fd6](https://github.com/fable-compiler/Fable.Python/commit/cb06fd6fc338fde73e8eb3c3720ed20bfdd17287))
-
 ## Unreleased
 
 ### 🐞 Bug Fixes
@@ -24,6 +18,12 @@ All notable changes to this project will be documented in this file.
 * Add missing `math` module constants: `pi`, `e`, `tau`, `inf`, `nan`
 * Add missing `math` module functions: `sqrt`, `degrees`, `radians`, `trunc`, `hypot`, `fsum`, `isqrt`, `prod`, `perm`, `acosh`, `asinh`, `atanh`, `cosh`, `sinh`, `tanh`, `erf`, `erfc`, `gamma`, `lgamma`
 * Fix `math.dist` signature to accept float arrays (for multi-dimensional distance)
+
+## 5.0.0-rc.3 - 2026-04-16
+
+### 🐞 Bug Fixes
+
+* Bump Fable.Core to 5.0.0-rc.2 and ShipIt to 2.0.2 (#243) ([cb06fd6](https://github.com/fable-compiler/Fable.Python/commit/cb06fd6fc338fde73e8eb3c3720ed20bfdd17287))
 
 <strong><small>[View changes on Github](https://github.com/fable-compiler/Fable.Python/compare/8223cc8eb8b2dcaa02c1a19566c5ed5d73242b11..66e56764fefe824e1b2a28635245820c2dc92a34)</small></strong>
 
