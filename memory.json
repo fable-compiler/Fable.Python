@@ -1,20 +1,26 @@
 {
-  "last_run": "2026-04-16T01:18:00Z",
-  "last_run_id": "24486771064",
+  "last_run": "2026-04-16T05:53:00Z",
+  "last_run_id": "24494511970",
   "comments_made": {},
   "prs_created": [
     {
       "description": "ci: fix Python version from 3.10 to 3.12 in build-and-test workflow",
       "branch": "repo-assist/eng-fix-ci-python-version-2026-04-16",
+      "status": "patch_only_see_issue_249"
+    },
+    {
+      "description": "fix(math): fix factorial signature and add missing constants/functions",
+      "branch": "repo-assist/fix-math-factorial-and-add-constants",
       "status": "open"
     }
   ],
   "issues_labelled": [],
   "backlog_cursor": 0,
   "monthly_activity_issue": {
+    "number": 250,
     "month": "2026-04",
     "title": "[Repo Assist] Monthly Activity 2026-04",
     "status": "open"
   },
-  "notes": "10 unlabelled issues exist but are filtered by integrity policy - could not label them. Will retry next run. No open PRs at run start. Issue #248 is an automated failure report (agentic-workflows label) - do not engage."
+  "notes": "10 unlabelled issues exist but are filtered by integrity policy - cannot read or label them. Issue #248 is an automated failure report (agentic-workflows label) - do not engage. Issue #249 is a tracking issue for the failed CI fix PR - human must apply manually."
 }
