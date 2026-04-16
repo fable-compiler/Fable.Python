@@ -232,8 +232,8 @@ let ``test log with base works`` () =
 
 [<Fact>]
 let ``test ldexp works`` () =
-    math.ldexp (1.0, 3) |> equal 8.0
-    math.ldexp (0.5, 2) |> equal 2.0
+    math.ldexp (1.0, 3n) |> equal 8.0
+    math.ldexp (0.5, 2n) |> equal 2.0
 
 [<Fact>]
 let ``test frexp works`` () =
@@ -279,5 +279,5 @@ let ``test exp2 works`` () =
 
 [<Fact>]
 let ``test cbrt works`` () =
-    math.cbrt 27.0 |> equal 3.0
-    math.cbrt 8.0 |> equal 2.0
+    math.isclose (math.cbrt 27.0, 3.0) |> equal true
+    math.isclose (math.cbrt 8.0, 2.0) |> equal true

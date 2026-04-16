@@ -71,7 +71,7 @@ type IExports =
     abstract isqrt: n: int -> int
     /// Return x * (2**i) accurately
     /// See https://docs.python.org/3/library/math.html#math.ldexp
-    abstract ldexp: x: float * i: int -> float
+    abstract ldexp: x: float * i: nativeint -> float
     /// Return the mantissa and exponent of x as the pair (m, e)
     /// See https://docs.python.org/3/library/math.html#math.frexp
     abstract frexp: x: float -> float * int
