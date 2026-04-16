@@ -1,11 +1,19 @@
 ---
-last_commit_released: 8223cc8eb8b2dcaa02c1a19566c5ed5d73242b11
+last_commit_released: cb06fd6fc338fde73e8eb3c3720ed20bfdd17287
 name: Fable.Python
 ---
 
 # Changelog
 
 All notable changes to this project will be documented in this file.
+
+## 0.0.1-rc.1 - 2026-04-16
+
+### 🐞 Bug Fixes
+
+* Bump Fable.Core to 5.0.0-rc.2 and ShipIt to 2.0.2 (#243) ([cb06fd6](https://github.com/fable-compiler/Fable.Python/commit/cb06fd6fc338fde73e8eb3c3720ed20bfdd17287))
+
+<strong><small>[View changes on Github](https://github.com/fable-compiler/Fable.Python/compare/8223cc8eb8b2dcaa02c1a19566c5ed5d73242b11..cb06fd6fc338fde73e8eb3c3720ed20bfdd17287)</small></strong>
 
 ## [5.0.0-alpha.21.5](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.21.4...v5.0.0-alpha.21.5) (2025-12-21)
 
