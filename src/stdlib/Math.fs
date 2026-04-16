@@ -40,10 +40,10 @@ type IExports =
     abstract ceil: x: float -> int
     /// Return the number of ways to choose k items from n items (n choose k)
     /// See https://docs.python.org/3/library/math.html#math.comb
-    abstract comb: n: int -> k: int -> int
+    abstract comb: n: int * k: int -> int
     /// Return a float with the magnitude of x and the sign of y
     /// See https://docs.python.org/3/library/math.html#math.copysign
-    abstract copysign: x: float -> y: int -> float
+    abstract copysign: x: float * y: float -> float
     /// Return the absolute value of x
     /// See https://docs.python.org/3/library/math.html#math.fabs
     abstract fabs: x: float -> float
@@ -59,7 +59,7 @@ type IExports =
     abstract floor: x: float -> int
     /// Return the floating-point remainder of x / y
     /// See https://docs.python.org/3/library/math.html#math.fmod
-    abstract fmod: x: int -> y: int -> int
+    abstract fmod: x: float * y: float -> float
     /// Return an accurate floating-point sum of values in the iterable
     /// See https://docs.python.org/3/library/math.html#math.fsum
     abstract fsum: iterable: float seq -> float
@@ -132,7 +132,7 @@ type IExports =
     abstract log10: x: float -> float
     /// Return x raised to the power y
     /// See https://docs.python.org/3/library/math.html#math.pow
-    abstract pow: x: float -> y: float -> float
+    abstract pow: x: float * y: float -> float
     /// Return the square root of x
     /// See https://docs.python.org/3/library/math.html#math.sqrt
     abstract sqrt: x: float -> float
@@ -152,7 +152,7 @@ type IExports =
     abstract atan: x: float -> float
     /// Return the arc tangent of y/x in radians
     /// See https://docs.python.org/3/library/math.html#math.atan2
-    abstract atan2: y: float -> x: float -> float
+    abstract atan2: y: float * x: float -> float
     /// Return the cosine of x radians
     /// See https://docs.python.org/3/library/math.html#math.cos
     abstract cos: x: float -> float
@@ -218,7 +218,7 @@ type IExports =
 
     /// Return the Euclidean distance between two points p and q
     /// See https://docs.python.org/3/library/math.html#math.dist
-    abstract dist: p: float[] -> q: float[] -> float
+    abstract dist: p: float[] * q: float[] -> float
 
 /// Mathematical functions
 [<ImportAll("math")>]

@@ -17,13 +17,13 @@ let ``test floor works`` () =
 
 [<Fact>]
 let ``test comb works`` () =
-    math.comb 5 2 |> equal 10
-    math.comb 10 3 |> equal 120
+    math.comb (5, 2) |> equal 10
+    math.comb (10, 3) |> equal 120
 
 [<Fact>]
 let ``test copysign works`` () =
-    math.copysign 1.0 -1 |> equal -1.0
-    math.copysign -1.0 1 |> equal 1.0
+    math.copysign (1.0, -1.0) |> equal -1.0
+    math.copysign (-1.0, 1.0) |> equal 1.0
 
 [<Fact>]
 let ``test fabs works`` () =
@@ -37,8 +37,8 @@ let ``test factorial works`` () =
 
 [<Fact>]
 let ``test fmod works`` () =
-    math.fmod 10 3 |> equal 1
-    math.fmod 7 2 |> equal 1
+    math.fmod (10.0, 3.0) |> equal 1.0
+    math.fmod (7.0, 2.0) |> equal 1.0
 
 [<Fact>]
 let ``test gcd works`` () =
@@ -89,8 +89,8 @@ let ``test log10 works`` () =
 
 [<Fact>]
 let ``test pow works`` () =
-    math.pow 2.0 3.0 |> equal 8.0
-    math.pow 10.0 2.0 |> equal 100.0
+    math.pow (2.0, 3.0) |> equal 8.0
+    math.pow (10.0, 2.0) |> equal 100.0
 
 [<Fact>]
 let ``test sin works`` () =
@@ -118,7 +118,7 @@ let ``test atan works`` () =
 
 [<Fact>]
 let ``test atan2 works`` () =
-    math.atan2 0.0 1.0 |> equal 0.0
+    math.atan2 (0.0, 1.0) |> equal 0.0
 
 [<Fact>]
 let ``test pi constant works`` () =
@@ -182,7 +182,7 @@ let ``test perm works`` () =
 
 [<Fact>]
 let ``test dist works`` () =
-    math.dist [| 0.0; 0.0 |] [| 3.0; 4.0 |] |> equal 5.0
+    math.dist ([| 0.0; 0.0 |], [| 3.0; 4.0 |]) |> equal 5.0
 
 [<Fact>]
 let ``test cosh works`` () =
