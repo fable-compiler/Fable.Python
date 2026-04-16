@@ -224,3 +224,60 @@ let ``test gamma works`` () =
 [<Fact>]
 let ``test lgamma works`` () =
     math.lgamma 1.0 |> equal 0.0
+
+[<Fact>]
+let ``test log with base works`` () =
+    math.log (8.0, 2.0) |> equal 3.0
+    math.log (100.0, 10.0) |> equal 2.0
+
+[<Fact>]
+let ``test ldexp works`` () =
+    math.ldexp (1.0, 3n) |> equal 8.0
+    math.ldexp (0.5, 2n) |> equal 2.0
+
+[<Fact>]
+let ``test frexp works`` () =
+    let m, e = math.frexp 8.0
+    m |> equal 0.5
+    e |> equal 4
+
+[<Fact>]
+let ``test modf works`` () =
+    let frac, intPart = math.modf 3.7
+    (frac > 0.699 && frac < 0.701) |> equal true
+    intPart |> equal 3.0
+
+[<Fact>]
+let ``test remainder works`` () =
+    math.remainder (10.0, 3.0) |> equal 1.0
+    math.remainder (5.0, 2.0) |> equal 1.0
+
+[<Fact>]
+let ``test isclose works`` () =
+    math.isclose (1.0, 1.0) |> equal true
+    math.isclose (1.0, 2.0) |> equal false
+
+[<Fact>]
+let ``test isclose with tolerances works`` () =
+    math.isclose (1.0, 1.001, rel_tol=0.01) |> equal true
+    math.isclose (1.0, 2.0, abs_tol=0.1) |> equal false
+
+[<Fact>]
+let ``test nextafter works`` () =
+    let x = math.nextafter (1.0, 2.0)
+    (x > 1.0) |> equal true
+
+[<Fact>]
+let ``test ulp works`` () =
+    let x = math.ulp 1.0
+    (x > 0.0) |> equal true
+
+[<Fact>]
+let ``test exp2 works`` () =
+    math.exp2 3.0 |> equal 8.0
+    math.exp2 0.0 |> equal 1.0
+
+[<Fact>]
+let ``test cbrt works`` () =
+    math.isclose (math.cbrt 27.0, 3.0) |> equal true
+    math.isclose (math.cbrt 8.0, 2.0) |> equal true

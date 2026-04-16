@@ -69,6 +69,25 @@ type IExports =
     /// Return the integer square root of the non-negative integer n
     /// See https://docs.python.org/3/library/math.html#math.isqrt
     abstract isqrt: n: int -> int
+    /// Return x * (2**i) accurately
+    /// See https://docs.python.org/3/library/math.html#math.ldexp
+    abstract ldexp: x: float * i: nativeint -> float
+    /// Return the mantissa and exponent of x as the pair (m, e)
+    /// See https://docs.python.org/3/library/math.html#math.frexp
+    abstract frexp: x: float -> float * int
+    /// Return the fractional and integer parts of x
+    /// See https://docs.python.org/3/library/math.html#math.modf
+    abstract modf: x: float -> float * float
+    /// Return IEEE 754-style remainder of x with respect to y (Python 3.8+)
+    /// See https://docs.python.org/3/library/math.html#math.remainder
+    abstract remainder: x: float * y: float -> float
+    /// Return True if the values a and b are close to each other
+    /// See https://docs.python.org/3/library/math.html#math.isclose
+    abstract isclose: a: float * b: float -> bool
+    /// Return True if the values a and b are close to each other with custom tolerances
+    /// See https://docs.python.org/3/library/math.html#math.isclose
+    [<NamedParams(fromIndex = 2)>]
+    abstract isclose: a: float * b: float * ?rel_tol: float * ?abs_tol: float -> bool
     /// Return the least common multiple of the integers
     /// See https://docs.python.org/3/library/math.html#math.lcm
     abstract lcm: [<ParamArray>] ints: int[] -> int
@@ -107,6 +126,12 @@ type IExports =
     /// Check if x is a NaN (not a number)
     /// See https://docs.python.org/3/library/math.html#math.isnan
     abstract isnan: x: int -> bool
+    /// Return the next floating-point value after x towards y (Python 3.9+)
+    /// See https://docs.python.org/3/library/math.html#math.nextafter
+    abstract nextafter: x: float * y: float -> float
+    /// Return the value of the least significant bit of the float x (Python 3.9+)
+    /// See https://docs.python.org/3/library/math.html#math.ulp
+    abstract ulp: x: float -> float
 
     // ========================================================================
     // Power and logarithmic functions
@@ -121,6 +146,9 @@ type IExports =
     /// Return the natural logarithm of x
     /// See https://docs.python.org/3/library/math.html#math.log
     abstract log: x: float -> float
+    /// Return the logarithm of x to the given base
+    /// See https://docs.python.org/3/library/math.html#math.log
+    abstract log: x: float * ``base``: float -> float
     /// Return the natural logarithm of 1+x (base e)
     /// See https://docs.python.org/3/library/math.html#math.log1p
     abstract log1p: x: float -> float
@@ -136,6 +164,12 @@ type IExports =
     /// Return the square root of x
     /// See https://docs.python.org/3/library/math.html#math.sqrt
     abstract sqrt: x: float -> float
+    /// Return 2 raised to the power x (Python 3.11+)
+    /// See https://docs.python.org/3/library/math.html#math.exp2
+    abstract exp2: x: float -> float
+    /// Return the cube root of x (Python 3.11+)
+    /// See https://docs.python.org/3/library/math.html#math.cbrt
+    abstract cbrt: x: float -> float
 
     // ========================================================================
     // Trigonometric functions
