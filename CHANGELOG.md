@@ -7,6 +7,10 @@ name: Fable.Python
 
 All notable changes to this project will be documented in this file.
 
+## 5.0.0-rc.2 - 2026-03-09
+
+Last release on the legacy tag-based workflow. Matches [Fable.Python 5.0.0-rc.2 on NuGet](https://www.nuget.org/packages/Fable.Python/5.0.0-rc.2).
+
 ## [5.0.0-alpha.21.5](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.21.4...v5.0.0-alpha.21.5) (2025-12-21)
 
 ### Bug Fixes
