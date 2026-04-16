@@ -1,37 +1,52 @@
-# Releasing Fable.Python
+# Releasing
 
-## Version Format
+This project uses [EasyBuild.ShipIt](https://github.com/easybuild-org/EasyBuild.ShipIt)
+for release automation and [Conventional Commits](https://www.conventionalcommits.org/)
+for versioning.
 
-Fable.Python uses the version format `X.Y.Z-alpha.N.P` where:
+## Commit conventions
 
-- `X.Y.Z-alpha.N` matches the Fable version (e.g., `5.0.0-alpha.22`)
-- `P` is the patch version for Fable.Python releases (0, 1, 2, etc.)
+PR titles must follow the conventional commit format (enforced by CI):
 
-Example: `5.0.0-alpha.22.0`, `5.0.0-alpha.22.1`, `5.0.0-alpha.22.2`
+| Prefix | Version bump | Example |
+| --- | --- | --- |
+| `feat:` | minor | `feat: add Pydantic field validators` |
+| `fix:` | patch | `fix: correct FastAPI response type` |
+| `feat!:` | major | `feat!: rename Flask decorator` |
+| `chore:` | patch | `chore: update dependencies` |
+| `docs:` | patch | `docs: update README` |
+| `refactor:` | patch | `refactor: simplify JSON bindings` |
 
-## Release Process
+Other valid prefixes: `test`, `perf`, `ci`, `build`, `style`, `revert`.
 
-1. Go to [GitHub Releases](https://github.com/fable-compiler/Fable.Python/releases)
-2. Click **"Draft a new release"**
-3. Create a new tag in the format `v5.0.0-alpha.22.0` (with `v` prefix)
-4. Set the release title (e.g., `5.0.0-alpha.22.0`)
-5. Write release notes (or use "Generate release notes")
-6. For pre-release versions, check **"Set as a pre-release"**
-7. Click **"Publish release"**
+## Creating a release
 
-The publish workflow will automatically build and push the NuGet package.
+Releases are driven automatically by the `Publish NuGet` workflow on pushes to
+`main`. ShipIt opens a `chore: release ...` PR that bumps the version in
+`CHANGELOG.md`; merging that PR triggers the publish job, which packs and pushes
+the NuGet package.
 
-## Syncing with a New Fable Version
+To run ShipIt locally (for example to preview the next version or cut a release
+manually):
 
-When Fable releases a new version (e.g., `5.0.0-alpha.23`):
+```bash
+just shipit
+```
 
-1. Update the codebase to work with the new Fable version
-2. Create a release with tag `v5.0.0-alpha.23.0`
+This will:
 
-## Version History Example
+1. Analyze commits since the last release
+2. Determine the next semantic version
+3. Update `CHANGELOG.md`
+4. Create a GitHub release with the version tag (e.g. `v5.0.0-rc.3`)
 
-- `5.0.0-alpha.21.0` (initial sync with Fable 5.0.0-alpha.21)
-- `5.0.0-alpha.21.1` (first patch)
-- `5.0.0-alpha.21.2` (second patch)
-- `5.0.0-alpha.22.0` (sync with Fable 5.0.0-alpha.22)
-- `5.0.0-alpha.22.1` (first patch for alpha.22)
+Merging a ShipIt release PR (or publishing a release tag) triggers the workflow
+to:
+
+1. Pack the NuGet package (`Fable.Python`) using the version from `CHANGELOG.md`
+2. Push it to nuget.org using the `NUGET_API_KEY` secret
+
+## Prerequisites
+
+- `NUGET_API_KEY` repository secret (glob pattern: `Fable.Python*`)
+- `GITHUB_TOKEN` or `gh` CLI authenticated (for ShipIt to create releases)
