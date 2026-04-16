@@ -12,6 +12,9 @@ All notable changes to this project will be documented in this file.
 ### 🐞 Bug Fixes
 
 * Fix `math.factorial` binding: changed signature from `float -> float` to `int -> int` to match Python 3.12+ where float arguments raise `TypeError`. Fixes test to use integer literals.
+* Fix `math.copysign` binding: `y` parameter was incorrectly typed as `int`, now correctly `float`
+* Fix `math.fmod` binding: parameters were incorrectly typed as `int -> int -> int`, now correctly `float * float -> float`
+* Fix `math.comb`, `math.pow`, `math.atan2`, `math.dist` bindings: converted curried parameter syntax to tupled for consistency
 
 ### ✨ Enhancements
 
