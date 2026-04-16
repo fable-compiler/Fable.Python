@@ -60,6 +60,10 @@ type GetAttribute(path: string) = inherit Attribute()
 
 Class attributes use `Py.ClassAttributesTemplate` for Pydantic-style classes.
 
+## CHANGELOG
+
+Do NOT create or modify CHANGELOG.md entries. Changelog entries are managed manually by maintainers during the release process.
+
 ## Releasing
 
 When asked to create a release, read `RELEASING.md` for the release process.
