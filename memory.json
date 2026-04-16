@@ -1,16 +1,11 @@
 {
-  "last_run": "2026-04-16T11:18:45Z",
-  "last_run_id": "24507265787",
+  "last_run": "2026-04-16T15:34:56Z",
+  "last_run_id": "24519181986",
   "comments_made": {},
   "prs_created": [
     {
-      "description": "ci: fix Python version from 3.10 to 3.12 in build-and-test workflow",
-      "branch": "repo-assist/eng-fix-ci-python-version-2026-04-16",
-      "status": "patch_only_see_issue_249"
-    },
-    {
-      "description": "fix(math): correct type signatures for copysign, fmod and curried bindings",
-      "branch": "repo-assist/fix-math-type-errors-2026-04-16",
+      "description": "feat(math): add missing math functions (log/base, modf, frexp, ldexp, remainder, isclose, nextafter, ulp, exp2, cbrt)",
+      "branch": "repo-assist/improve-math-missing-funcs",
       "status": "open"
     }
   ],
@@ -27,7 +22,12 @@
       "number": 251,
       "description": "fix(math): fix factorial signature and add missing constants/functions",
       "status": "merged"
+    },
+    {
+      "number": 253,
+      "description": "fix(math): correct type signatures for copysign, fmod and curried bindings",
+      "status": "merged"
     }
   ],
-  "notes": "10 unlabelled issues exist but are filtered by integrity policy - cannot read or label them. Issue #248 is an automated failure report (agentic-workflows label) - do not engage. Issue #249 is a tracking issue for the failed CI fix PR - human must apply manually. PR #251 (math fixes) was merged by maintainer and triggered release PR #252 for 5.0.0-rc.4."
+  "notes": "10 unlabelled issues blocked by integrity policy. Issue #249 (CI Python version tracking) will be closed by PR #254 (created by maintainer dbrattli). PR #252 is release 5.0.0-rc.4 waiting for merge. PR #254 is CI fix by dbrattli. Repo Assist created math improvements PR (branch: repo-assist/improve-math-missing-funcs)."
 }
