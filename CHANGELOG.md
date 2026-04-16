@@ -1,4 +1,11 @@
+---
+last_commit_released: 8223cc8eb8b2dcaa02c1a19566c5ed5d73242b11
+name: Fable.Python
+---
+
 # Changelog
+
+All notable changes to this project will be documented in this file.
 
 ## [5.0.0-alpha.21.5](https://github.com/fable-compiler/Fable.Python/compare/v5.0.0-alpha.21.4...v5.0.0-alpha.21.5) (2025-12-21)
 

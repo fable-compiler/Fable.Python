@@ -1,19 +1,49 @@
-on:
-  release:
-    types: [published]
-
-permissions:
-  contents: read
-
 name: Publish NuGet
 
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
-  publish:
+  shipit-pr:
+    name: ShipIt - Pull Request
     runs-on: ubuntu-latest
+    if: "!startsWith(github.event.head_commit.message, 'chore: release ')"
     timeout-minutes: 10
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: |
+            8.x
+            9.x
+            10.x
+
+      - name: Install tools
+        run: dotnet tool restore
+
+      - name: ShipIt (Pull Request)
+        run: dotnet shipit --pre-release rc
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: "startsWith(github.event.head_commit.message, 'chore: release ')"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
 
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v5
@@ -26,16 +56,12 @@ jobs:
       - name: Install just
         uses: extractions/setup-just@v3
 
-      - name: Restore dependencies
+      - name: Install tools
         run: |
           dotnet tool restore
           dotnet restore src
 
-      - name: Pack NuGet
+      - name: Build, pack and push
+        run: just release
         env:
-          TAG_NAME: ${{ github.event.release.tag_name }}
-        run: just pack-version ${TAG_NAME#v}
-
-      - name: Push NuGet
-        run: dotnet nuget push src/bin/Release/*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
-        continue-on-error: false
+          NUGET_KEY: ${{ secrets.NUGET_API_KEY }}

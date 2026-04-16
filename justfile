@@ -61,14 +61,25 @@ test-python: build
     {{fable}} {{test_path}} --lang Python --outDir {{build_path}}/tests
     uv run pytest {{build_path}}/tests
 
-# Create NuGet package
-pack: build
-    dotnet pack {{src_path}} -c Release
+# Create NuGet package with version from CHANGELOG.md
+pack:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    VERSION=$(grep -m1 '^## ' CHANGELOG.md | sed 's/^## \[\?\([^] ]*\).*/\1/')
+    dotnet pack {{src_path}} -c Release -p:PackageVersion=$VERSION -p:InformationalVersion=$VERSION
 
 # Create NuGet package with specific version (used in CI)
 # Note: FileVersion must be numeric-only (e.g., 5.0.0.0), so we don't set it for prerelease versions
 pack-version version:
     dotnet pack {{src_path}} -c Release -p:PackageVersion={{version}} -p:InformationalVersion={{version}}
+
+# Release: pack and push to NuGet (used in CI)
+release: pack
+    dotnet nuget push '{{src_path}}/bin/Release/*.nupkg' -s https://api.nuget.org/v3/index.json -k $NUGET_KEY
+
+# Run EasyBuild.ShipIt for release management
+shipit *args:
+    dotnet shipit --pre-release rc {{args}}
 
 # Format code with Fantomas
 format:
