@@ -11,9 +11,16 @@ All notable changes to this project will be documented in this file.
 
 ### 🐞 Bug Fixes
 
-* Fix `math.copysign` binding: `y` parameter was incorrectly typed as `int`, now correctly `float` — `copysign(x, y)` always takes two floats
-* Fix `math.fmod` binding: parameters were incorrectly typed as `int * int -> int`, now correctly `float * float -> float` — `fmod` computes floating-point remainder
-* Fix `math.comb`, `math.pow`, `math.atan2`, `math.dist` bindings: converted curried parameter syntax to tupled for consistency with all other multi-parameter bindings in the codebase
+* Fix `math.factorial` binding: changed signature from `float -> float` to `int -> int` to match Python 3.12+ where float arguments raise `TypeError`. Fixes test to use integer literals.
+* Fix `math.copysign` binding: `y` parameter was incorrectly typed as `int`, now correctly `float`
+* Fix `math.fmod` binding: parameters were incorrectly typed as `int -> int -> int`, now correctly `float * float -> float`
+* Fix `math.comb`, `math.pow`, `math.atan2`, `math.dist` bindings: converted curried parameter syntax to tupled for consistency
+
+### ✨ Enhancements
+
+* Add missing `math` module constants: `pi`, `e`, `tau`, `inf`, `nan`
+* Add missing `math` module functions: `sqrt`, `degrees`, `radians`, `trunc`, `hypot`, `fsum`, `isqrt`, `prod`, `perm`, `acosh`, `asinh`, `atanh`, `cosh`, `sinh`, `tanh`, `erf`, `erfc`, `gamma`, `lgamma`
+* Fix `math.dist` signature to accept float arrays (for multi-dimensional distance)
 
 ## 5.0.0-rc.3 - 2026-04-16
 
