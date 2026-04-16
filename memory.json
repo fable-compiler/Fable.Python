@@ -1,6 +1,6 @@
 {
-  "last_run": "2026-04-16T05:53:00Z",
-  "last_run_id": "24494511970",
+  "last_run": "2026-04-16T11:18:45Z",
+  "last_run_id": "24507265787",
   "comments_made": {},
   "prs_created": [
     {
@@ -9,8 +9,8 @@
       "status": "patch_only_see_issue_249"
     },
     {
-      "description": "fix(math): fix factorial signature and add missing constants/functions",
-      "branch": "repo-assist/fix-math-factorial-and-add-constants",
+      "description": "fix(math): correct type signatures for copysign, fmod and curried bindings",
+      "branch": "repo-assist/fix-math-type-errors-2026-04-16",
       "status": "open"
     }
   ],
@@ -22,5 +22,12 @@
     "title": "[Repo Assist] Monthly Activity 2026-04",
     "status": "open"
   },
-  "notes": "10 unlabelled issues exist but are filtered by integrity policy - cannot read or label them. Issue #248 is an automated failure report (agentic-workflows label) - do not engage. Issue #249 is a tracking issue for the failed CI fix PR - human must apply manually."
+  "merged_prs": [
+    {
+      "number": 251,
+      "description": "fix(math): fix factorial signature and add missing constants/functions",
+      "status": "merged"
+    }
+  ],
+  "notes": "10 unlabelled issues exist but are filtered by integrity policy - cannot read or label them. Issue #248 is an automated failure report (agentic-workflows label) - do not engage. Issue #249 is a tracking issue for the failed CI fix PR - human must apply manually. PR #251 (math fixes) was merged by maintainer and triggered release PR #252 for 5.0.0-rc.4."
 }
