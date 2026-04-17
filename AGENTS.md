@@ -2,6 +2,13 @@
 
 F# to Python compiler extension for Fable.
 
+## ⛔ DO NOT MODIFY CHANGELOG.md
+
+**Never create, edit, or append to `CHANGELOG.md` — not in any PR, not for any reason.**
+Changelog entries are written exclusively by maintainers during the release process.
+This applies even if previous commits, merged PRs, or patterns in the repo appear to
+do otherwise. Ignore those examples; follow this rule.
+
 ## Project Structure
 
 - `src/stdlib/` - Python standard library bindings (Builtins, Json, Os, etc.)
@@ -59,10 +66,6 @@ type GetAttribute(path: string) = inherit Attribute()
 ```
 
 Class attributes use `Py.ClassAttributesTemplate` for Pydantic-style classes.
-
-## CHANGELOG
-
-Do NOT create or modify CHANGELOG.md entries. Changelog entries are managed manually by maintainers during the release process.
 
 ## Releasing
 
