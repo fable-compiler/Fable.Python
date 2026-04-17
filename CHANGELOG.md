@@ -1,11 +1,25 @@
 ---
-last_commit_released: 66e56764fefe824e1b2a28635245820c2dc92a34
+last_commit_released: deed5e74cbc33a582d1e22ee0a1af6a41ab2bb10
 name: Fable.Python
 ---
 
 # Changelog
 
 All notable changes to this project will be documented in this file.
+
+## 5.0.0-rc.4 - 2026-04-17
+
+### 🚀 Features
+
+* *(math)* Add missing math functions (log/base, modf, frexp, ldexp, remainder, isclose, nextafter, ulp, exp2, cbrt) (#255) ([9687aac](https://github.com/fable-compiler/Fable.Python/commit/9687aac9c192254bf46d31636b2526c17eeeee49))
+* *(stdlib)* Add itertools module bindings (#256) ([6a4d816](https://github.com/fable-compiler/Fable.Python/commit/6a4d816591d55615d549dc80232d8ef5265ff9a0))
+
+### 🐞 Bug Fixes
+
+* *(math)* Fix factorial signature and add missing constants/functions (#251) ([7b32de0](https://github.com/fable-compiler/Fable.Python/commit/7b32de02ee687f6d833dcb21caae026e3448fb99))
+* *(math)* Correct type signatures for copysign, fmod and curried bindings (#253) ([8f33975](https://github.com/fable-compiler/Fable.Python/commit/8f33975daa8c5a46f8f2c3d1fc8fc1751ca97ab9))
+
+<strong><small>[View changes on Github](https://github.com/fable-compiler/Fable.Python/compare/66e56764fefe824e1b2a28635245820c2dc92a34..deed5e74cbc33a582d1e22ee0a1af6a41ab2bb10)</small></strong>
 
 ## Unreleased
 
