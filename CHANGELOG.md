@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file.
 
 ### ✨ Enhancements
 
+* Add `itertools` module bindings: `count`, `cycle`, `repeat`, `accumulate`, `chain`, `chainFromIterable`, `compress`, `dropwhile`, `filterfalse`, `groupby`, `islice`, `pairwise`, `takewhile`, `zip_longest`, `permutations`, `combinations`, `combinationsWithReplacement`, `product`
 * Add missing `math` module constants: `pi`, `e`, `tau`, `inf`, `nan`
 * Add missing `math` module functions: `sqrt`, `degrees`, `radians`, `trunc`, `hypot`, `fsum`, `isqrt`, `prod`, `perm`, `acosh`, `asinh`, `atanh`, `cosh`, `sinh`, `tanh`, `erf`, `erfc`, `gamma`, `lgamma`
 * Fix `math.dist` signature to accept float arrays (for multi-dimensional distance)
