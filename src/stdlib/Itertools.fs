@@ -56,17 +56,14 @@ type IExports =
     abstract accumulate: iterable: 'T seq -> seq<'T>
 
     /// Make an iterator that returns accumulated results of a binary function.
-    /// Uses a curried function: fun a b -> a + b (Fable wraps it to Python's two-arg call)
     /// See https://docs.python.org/3/library/itertools.html#itertools.accumulate
-    [<Emit("$0.accumulate($1, lambda a, b: $2(a)(b))")>]
-    abstract accumulate: iterable: 'T seq * func: ('T -> 'T -> 'T) -> seq<'T>
+    abstract accumulate: iterable: 'T seq * func: System.Func<'T, 'T, 'T> -> seq<'T>
 
     /// Make an iterator that returns accumulated results of a binary function,
     /// with an initial value.
-    /// Uses a curried function: fun a b -> a + b (Fable wraps it to Python's two-arg call)
     /// See https://docs.python.org/3/library/itertools.html#itertools.accumulate
-    [<Emit("$0.accumulate($1, lambda a, b: $2(a)(b), initial=$3)")>]
-    abstract accumulate: iterable: 'T seq * func: ('T -> 'T -> 'T) * initial: 'T -> seq<'T>
+    [<Emit("$0.accumulate($1, $2, initial=$3)")>]
+    abstract accumulate: iterable: 'T seq * func: System.Func<'T, 'T, 'T> * initial: 'T -> seq<'T>
 
     /// Make an iterator that returns elements from the first iterable until it is exhausted,
     /// then proceeds to the next iterable, until all of the iterables are exhausted.
@@ -154,36 +151,38 @@ type IExports =
     // ========================================================================
 
     /// Return successive r-length permutations of elements in the iterable.
-    /// All elements are used (no r limit).
+    /// All elements are used (no r limit). Each group is a Python tuple, exposed as seq<'T>.
     /// See https://docs.python.org/3/library/itertools.html#itertools.permutations
     [<Emit("$0.permutations($1)")>]
-    abstract permutations: iterable: 'T seq -> seq<'T[]>
+    abstract permutations: iterable: 'T seq -> seq<'T seq>
 
     /// Return successive r-length permutations of elements in the iterable.
+    /// Each group is a Python tuple, exposed as seq<'T>.
     /// See https://docs.python.org/3/library/itertools.html#itertools.permutations
     [<Emit("$0.permutations($1, int($2))")>]
-    abstract permutations: iterable: 'T seq * r: int -> seq<'T[]>
+    abstract permutations: iterable: 'T seq * r: int -> seq<'T seq>
 
     /// Return successive r-length combinations of elements in the iterable (no repeated elements).
+    /// Each group is a Python tuple, exposed as seq<'T>.
     /// See https://docs.python.org/3/library/itertools.html#itertools.combinations
     [<Emit("$0.combinations($1, int($2))")>]
-    abstract combinations: iterable: 'T seq * r: int -> seq<'T[]>
+    abstract combinations: iterable: 'T seq * r: int -> seq<'T seq>
 
     /// Return successive r-length combinations of elements in the iterable, allowing individual
-    /// elements to be repeated.
+    /// elements to be repeated. Each group is a Python tuple, exposed as seq<'T>.
     /// See https://docs.python.org/3/library/itertools.html#itertools.combinations_with_replacement
     [<Emit("$0.combinations_with_replacement($1, int($2))")>]
-    abstract combinationsWithReplacement: iterable: 'T seq * r: int -> seq<'T[]>
+    abstract combinationsWithReplacement: iterable: 'T seq * r: int -> seq<'T seq>
 
     /// Return the Cartesian product of the two input iterables.
     /// See https://docs.python.org/3/library/itertools.html#itertools.product
     abstract product: a: 'T seq * b: 'U seq -> seq<'T * 'U>
 
     /// Return the Cartesian product of the iterable with itself, repeated r times.
-    /// Each element is a list of r items.
+    /// Each group is a Python tuple, exposed as seq<'T>.
     /// See https://docs.python.org/3/library/itertools.html#itertools.product
     [<Emit("$0.product($1, repeat=int($2))")>]
-    abstract product: iterable: 'T seq * repeat: int -> seq<ResizeArray<'T>>
+    abstract product: iterable: 'T seq * repeat: int -> seq<'T seq>
 
 /// Functions creating iterators for efficient looping
 [<ImportAll("itertools")>]

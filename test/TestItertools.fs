@@ -105,8 +105,9 @@ let ``test takewhile works`` () =
 [<Fact>]
 let ``test combinations works`` () =
     itertools.combinations ([ 1; 2; 3 ], 2)
+    |> Seq.map Seq.toList
     |> Seq.toList
-    |> equal [ [| 1; 2 |]; [| 1; 3 |]; [| 2; 3 |] ]
+    |> equal [ [ 1; 2 ]; [ 1; 3 ]; [ 2; 3 ] ]
 
 [<Fact>]
 let ``test permutations with r works`` () =
