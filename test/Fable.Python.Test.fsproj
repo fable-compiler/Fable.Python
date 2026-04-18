@@ -27,6 +27,9 @@
     <Compile Include="TestMath.fs" />
     <Compile Include="TestRandom.fs" />
     <Compile Include="TestBase64.fs" />
+    <Compile Include="TestHtml.fs" />
+    <Compile Include="TestSys.fs" />
+    <Compile Include="TestTime.fs" />
     <Compile Include="TestString.fs" />
     <Compile Include="TestPydantic.fs" />
     <Compile Include="TestFastAPI.fs" />
