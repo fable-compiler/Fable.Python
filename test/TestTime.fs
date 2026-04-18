@@ -41,8 +41,7 @@ let ``test time.ctime with seconds returns non-empty string`` () =
 
 [<Fact>]
 let ``test time.sleep does not throw`` () =
-    time.sleep 0.0 |> ignore
-    true |> equal true
+    time.sleep 0.0
 
 [<Fact>]
 let ``test time.timezone is int`` () =
