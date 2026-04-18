@@ -12,6 +12,10 @@ let ``test sys.version is non-empty string`` () =
     sys.version.Length > 0 |> equal true
 
 [<Fact>]
+let ``test sys.maxsize is positive`` () =
+    sys.maxsize > 0n |> equal true
+
+[<Fact>]
 let ``test sys.maxunicode is 1114111`` () =
     sys.maxunicode |> equal 1114111
 

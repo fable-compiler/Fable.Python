@@ -35,7 +35,7 @@ type IExports =
     /// Version information encoded as a single integer
     abstract hexversion: int
     /// Maximum value a variable of type int can take
-    abstract maxsize: int
+    abstract maxsize: nativeint
     /// Maximum Unicode code point value
     abstract maxunicode: int
     /// Module search path - list of directory names where Python looks for modules
