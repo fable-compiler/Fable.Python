@@ -1,16 +1,11 @@
 {
-  "last_run": "2026-04-18T03:41:05Z",
-  "last_run_id": "24596089857",
+  "last_run": "2026-04-19T03:59:59Z",
+  "last_run_id": "24620484995",
   "comments_made": {},
   "prs_created": [
     {
-      "description": "test: add tests for sys, html and time stdlib modules (TestSys.fs, TestHtml.fs, TestTime.fs)",
-      "branch": "repo-assist/tests-sys-html-time-2026-04-18",
-      "status": "open"
-    },
-    {
-      "description": "ci: add NuGet and uv dependency caching to build-and-test workflow",
-      "branch": "repo-assist/eng-ci-caching-2026-04-18",
+      "description": "feat(stdlib): add functools module bindings (reduce, lruCache, cache)",
+      "branch": "repo-assist/bindings-functools-2026-04-19",
       "status": "open"
     }
   ],
@@ -24,13 +19,23 @@
   },
   "merged_prs": [
     {
-      "number": 251,
-      "description": "fix(math): fix factorial signature and add missing constants/functions",
+      "number": 258,
+      "description": "test: add tests for sys, html and time stdlib modules",
       "status": "merged"
     },
     {
-      "number": 252,
-      "description": "chore: release Fable.Python@5.0.0-rc.4 (merged by dbrattli)",
+      "number": 257,
+      "description": "build: relax Fable.Core pin to >= 5.0.0-rc.1",
+      "status": "merged"
+    },
+    {
+      "number": 256,
+      "description": "feat(stdlib): add itertools module bindings",
+      "status": "merged"
+    },
+    {
+      "number": 255,
+      "description": "feat(math): add missing math functions",
       "status": "merged"
     },
     {
@@ -39,20 +44,15 @@
       "status": "merged"
     },
     {
-      "number": 254,
-      "description": "ci: fix Python version from 3.10 to 3.12 (by dbrattli)",
+      "number": 252,
+      "description": "chore: release Fable.Python@5.0.0-rc.4",
       "status": "merged"
     },
     {
-      "number": 255,
-      "description": "feat(math): add missing math functions (log/base, modf, frexp, ldexp, remainder, isclose, nextafter, ulp, exp2, cbrt)",
-      "status": "merged"
-    },
-    {
-      "number": 256,
-      "description": "feat(stdlib): add itertools module bindings",
+      "number": 251,
+      "description": "fix(math): fix factorial signature and add missing constants/functions",
       "status": "merged"
     }
   ],
-  "notes": "10 unlabelled issues blocked by integrity policy (issues #134, #131, #117, #115, #65, #48, #36, #22, #15, #5). Two new Repo Assist PRs pending review: tests for sys/html/time stdlib modules, and CI dependency caching. Future candidates: functools, collections, datetime stdlib bindings."
+  "notes": "10 unlabelled issues blocked by integrity policy (cannot read user-created issues). Issue #259 is the CI caching proposal (needs manual PR creation with workflows permission). New functools PR pending review. Future stdlib candidates: functools.partial (needs design), collections, datetime."
 }
