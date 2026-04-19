@@ -18,6 +18,7 @@
     <Compile Include="TestBuiltinsAttr.fs" />
     <Compile Include="TestHeapq.fs" />
     <Compile Include="TestItertools.fs" />
+    <Compile Include="TestFunctools.fs" />
     <Compile Include="TestQueue.fs" />
     <Compile Include="TestThreading.fs" />
     <Compile Include="TestTraceback.fs" />
