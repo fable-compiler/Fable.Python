@@ -23,6 +23,10 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+### 🚀 Features
+
+* *(stdlib)* Add functools module bindings (`reduce`, `lruCache`, `cache`) with 6 tests
+
 ### 🐞 Bug Fixes
 
 * Fix `math.factorial` binding: changed signature from `float -> float` to `int -> int` to match Python 3.12+ where float arguments raise `TypeError`. Fixes test to use integer literals.
