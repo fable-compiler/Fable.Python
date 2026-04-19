@@ -14,13 +14,13 @@ type IExports =
     /// Apply a function of two arguments cumulatively to the items of an iterable,
     /// reducing it to a single value (fold-left without a seed).
     /// See https://docs.python.org/3/library/functools.html#functools.reduce
-    abstract reduce: func: ('T -> 'T -> 'T) * iterable: 'T seq -> 'T
+    abstract reduce: func: System.Func<'T, 'T, 'T> * iterable: 'T seq -> 'T
 
     /// Apply a function of two arguments cumulatively to the items of an iterable,
     /// starting with the initializer as the seed value (fold-left with a seed).
     /// See https://docs.python.org/3/library/functools.html#functools.reduce
     [<Emit("$0.reduce($1, $2, $3)")>]
-    abstract reduce: func: ('State -> 'T -> 'State) * iterable: 'T seq * initializer: 'State -> 'State
+    abstract reduce: func: System.Func<'State, 'T, 'State> * iterable: 'T seq * initializer: 'State -> 'State
 
     // ========================================================================
     // Caching decorators
