@@ -17,7 +17,7 @@ Homepage = "https://fable.io"
 dev = [
     "pytest>=9.0.3,<10",
     "ruff>=0.15.11",
-    "pydantic>=2.0.0",
+    "pydantic>=2.13.3",
     "httpx>=0.28.1",
     "fastapi>=0.136.0",
 ]
@@ -31,7 +31,7 @@ django = [
 ]
 fastapi = [
     "fastapi>=0.136.0",
-    "pydantic>=2.0.0",
+    "pydantic>=2.13.3",
     "uvicorn[standard]>=0.44.0",
 ]
 
