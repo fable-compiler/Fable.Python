@@ -32,6 +32,7 @@
     <Compile Include="TestSys.fs" />
     <Compile Include="TestTime.fs" />
     <Compile Include="TestString.fs" />
+    <Compile Include="TestDatetime.fs" />
     <Compile Include="TestPydantic.fs" />
     <Compile Include="TestFastAPI.fs" />
     <Compile Include="TestTypes.fs" />
