@@ -93,32 +93,25 @@ let ``test pow works`` () =
     math.pow (10.0, 2.0) |> equal 100.0
 
 [<Fact>]
-let ``test sin works`` () =
-    math.sin 0.0 |> equal 0.0
+let ``test sin works`` () = math.sin 0.0 |> equal 0.0
 
 [<Fact>]
-let ``test cos works`` () =
-    math.cos 0.0 |> equal 1.0
+let ``test cos works`` () = math.cos 0.0 |> equal 1.0
 
 [<Fact>]
-let ``test tan works`` () =
-    math.tan 0.0 |> equal 0.0
+let ``test tan works`` () = math.tan 0.0 |> equal 0.0
 
 [<Fact>]
-let ``test asin works`` () =
-    math.asin 0.0 |> equal 0.0
+let ``test asin works`` () = math.asin 0.0 |> equal 0.0
 
 [<Fact>]
-let ``test acos works`` () =
-    math.acos 1.0 |> equal 0.0
+let ``test acos works`` () = math.acos 1.0 |> equal 0.0
 
 [<Fact>]
-let ``test atan works`` () =
-    math.atan 0.0 |> equal 0.0
+let ``test atan works`` () = math.atan 0.0 |> equal 0.0
 
 [<Fact>]
-let ``test atan2 works`` () =
-    math.atan2 (0.0, 1.0) |> equal 0.0
+let ``test atan2 works`` () = math.atan2 (0.0, 1.0) |> equal 0.0
 
 [<Fact>]
 let ``test pi constant works`` () =
@@ -133,8 +126,7 @@ let ``test tau constant works`` () =
     math.tau |> fun x -> (x > 6.28318 && x < 6.28319) |> equal true
 
 [<Fact>]
-let ``test inf constant works`` () =
-    math.isinf math.inf |> equal true
+let ``test inf constant works`` () = math.isinf math.inf |> equal true
 
 [<Fact>]
 let ``test sqrt works`` () =
@@ -155,8 +147,7 @@ let ``test trunc works`` () =
     math.trunc -2.7 |> equal -2
 
 [<Fact>]
-let ``test hypot works`` () =
-    math.hypot (3.0, 4.0) |> equal 5.0
+let ``test hypot works`` () = math.hypot (3.0, 4.0) |> equal 5.0
 
 [<Fact>]
 let ``test isqrt works`` () =
@@ -168,12 +159,10 @@ let ``test fsum works`` () =
     math.fsum [ 1.0; 2.0; 3.0 ] |> equal 6.0
 
 [<Fact>]
-let ``test nan constant works`` () =
-    math.isnan math.nan |> equal true
+let ``test nan constant works`` () = math.isnan math.nan |> equal true
 
 [<Fact>]
-let ``test prod works`` () =
-    math.prod [ 1; 2; 3; 4 ] |> equal 24
+let ``test prod works`` () = math.prod [ 1; 2; 3; 4 ] |> equal 24
 
 [<Fact>]
 let ``test perm works`` () =
@@ -185,36 +174,28 @@ let ``test dist works`` () =
     math.dist ([| 0.0; 0.0 |], [| 3.0; 4.0 |]) |> equal 5.0
 
 [<Fact>]
-let ``test cosh works`` () =
-    math.cosh 0.0 |> equal 1.0
+let ``test cosh works`` () = math.cosh 0.0 |> equal 1.0
 
 [<Fact>]
-let ``test sinh works`` () =
-    math.sinh 0.0 |> equal 0.0
+let ``test sinh works`` () = math.sinh 0.0 |> equal 0.0
 
 [<Fact>]
-let ``test tanh works`` () =
-    math.tanh 0.0 |> equal 0.0
+let ``test tanh works`` () = math.tanh 0.0 |> equal 0.0
 
 [<Fact>]
-let ``test acosh works`` () =
-    math.acosh 1.0 |> equal 0.0
+let ``test acosh works`` () = math.acosh 1.0 |> equal 0.0
 
 [<Fact>]
-let ``test asinh works`` () =
-    math.asinh 0.0 |> equal 0.0
+let ``test asinh works`` () = math.asinh 0.0 |> equal 0.0
 
 [<Fact>]
-let ``test atanh works`` () =
-    math.atanh 0.0 |> equal 0.0
+let ``test atanh works`` () = math.atanh 0.0 |> equal 0.0
 
 [<Fact>]
-let ``test erf works`` () =
-    math.erf 0.0 |> equal 0.0
+let ``test erf works`` () = math.erf 0.0 |> equal 0.0
 
 [<Fact>]
-let ``test erfc works`` () =
-    math.erfc 0.0 |> equal 1.0
+let ``test erfc works`` () = math.erfc 0.0 |> equal 1.0
 
 [<Fact>]
 let ``test gamma works`` () =
@@ -222,8 +203,7 @@ let ``test gamma works`` () =
     math.gamma 5.0 |> equal 24.0
 
 [<Fact>]
-let ``test lgamma works`` () =
-    math.lgamma 1.0 |> equal 0.0
+let ``test lgamma works`` () = math.lgamma 1.0 |> equal 0.0
 
 [<Fact>]
 let ``test log with base works`` () =
@@ -259,8 +239,8 @@ let ``test isclose works`` () =
 
 [<Fact>]
 let ``test isclose with tolerances works`` () =
-    math.isclose (1.0, 1.001, rel_tol=0.01) |> equal true
-    math.isclose (1.0, 2.0, abs_tol=0.1) |> equal false
+    math.isclose (1.0, 1.001, rel_tol = 0.01) |> equal true
+    math.isclose (1.0, 2.0, abs_tol = 0.1) |> equal false
 
 [<Fact>]
 let ``test nextafter works`` () =

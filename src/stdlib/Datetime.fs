@@ -1,9 +1,13 @@
 /// Type bindings for Python datetime module: https://docs.python.org/3/library/datetime.html
+///
+/// Note: this module exposes a `time` class binding for Python's `datetime.time`. If you also
+/// open `Fable.Python.Time` (the `time` module), the `time` identifier will collide — qualify
+/// one of them, e.g. `Fable.Python.Time.time.time()` vs. `Fable.Python.Datetime.time(...)`.
 module Fable.Python.Datetime
 
 open Fable.Core
 
-// fsharplint:disable MemberNames,InterfaceNames
+// fsharplint:disable MemberNames
 
 // ============================================================================
 // timedelta
@@ -11,38 +15,83 @@ open Fable.Core
 
 /// A duration expressing the difference between two date, time, or datetime instances.
 /// See https://docs.python.org/3/library/datetime.html#datetime.timedelta
+///
+/// The empty `timedelta()` ctor creates a zero duration. For other durations, use the
+/// single-unit factories `ofDays`, `ofHours`, `ofMinutes`, `ofSeconds`, `ofWeeks`,
+/// `ofMilliseconds`, `ofMicroseconds`, and combine via `.add` / `.sub`.
 [<Import("timedelta", "datetime")>]
-type timedelta =
+type timedelta() =
     /// Number of full days (may be negative)
-    abstract days: int
+    member _.days: int = nativeOnly
     /// Remaining seconds after full days have been removed; 0 <= seconds < 86400
-    abstract seconds: int
+    member _.seconds: int = nativeOnly
     /// Remaining microseconds; 0 <= microseconds < 1000000
-    abstract microseconds: int
+    member _.microseconds: int = nativeOnly
     /// Return the total duration represented in fractional seconds
     /// See https://docs.python.org/3/library/datetime.html#datetime.timedelta.total_seconds
-    abstract total_seconds: unit -> float
+    member _.total_seconds() : float = nativeOnly
 
-/// Static factory for timedelta instances
-[<Import("timedelta", "datetime")>]
-type timedeltaStatic =
-    /// Create a timedelta; all arguments default to 0, may be floats, and may be negative.
-    /// See https://docs.python.org/3/library/datetime.html#datetime.timedelta
-    [<Emit("$0($1...)")>]
-    [<NamedParams>]
-    abstract Create:
-        ?days: float *
-        ?seconds: float *
-        ?microseconds: float *
-        ?milliseconds: float *
-        ?minutes: float *
-        ?hours: float *
-        ?weeks: float ->
-            timedelta
+    /// Return the sum of two timedeltas
+    [<Emit("$0 + $1")>]
+    member _.add(other: timedelta) : timedelta = nativeOnly
 
-/// Factory for creating timedelta values
-[<Import("timedelta", "datetime")>]
-let timedelta: timedeltaStatic = nativeOnly
+    /// Return the difference between two timedeltas
+    [<Emit("$0 - $1")>]
+    member _.sub(other: timedelta) : timedelta = nativeOnly
+
+    /// Return the negation of this timedelta
+    [<Emit("-$0")>]
+    member _.neg() : timedelta = nativeOnly
+
+    /// The most negative timedelta representable
+    static member min: timedelta = nativeOnly
+    /// The most positive timedelta representable
+    static member max: timedelta = nativeOnly
+    /// The smallest positive difference between non-equal timedelta objects
+    static member resolution: timedelta = nativeOnly
+
+    /// Create a timedelta of N days
+    [<Emit("timedelta(days=float($0))")>]
+    static member ofDays(days: float) : timedelta = nativeOnly
+
+    /// Create a timedelta of N seconds
+    [<Emit("timedelta(seconds=float($0))")>]
+    static member ofSeconds(seconds: float) : timedelta = nativeOnly
+
+    /// Create a timedelta of N microseconds
+    [<Emit("timedelta(microseconds=float($0))")>]
+    static member ofMicroseconds(microseconds: float) : timedelta = nativeOnly
+
+    /// Create a timedelta of N milliseconds
+    [<Emit("timedelta(milliseconds=float($0))")>]
+    static member ofMilliseconds(milliseconds: float) : timedelta = nativeOnly
+
+    /// Create a timedelta of N minutes
+    [<Emit("timedelta(minutes=float($0))")>]
+    static member ofMinutes(minutes: float) : timedelta = nativeOnly
+
+    /// Create a timedelta of N hours
+    [<Emit("timedelta(hours=float($0))")>]
+    static member ofHours(hours: float) : timedelta = nativeOnly
+
+    /// Create a timedelta of N weeks
+    [<Emit("timedelta(weeks=float($0))")>]
+    static member ofWeeks(weeks: float) : timedelta = nativeOnly
+
+// ============================================================================
+// timezone  (defined before datetime so datetime members can reference it)
+// ============================================================================
+
+/// A fixed-offset implementation of tzinfo.
+/// See https://docs.python.org/3/library/datetime.html#datetime.timezone
+[<Import("timezone", "datetime")>]
+type timezone(offset: timedelta, ?name: string) =
+    /// Return the UTC offset for this timezone
+    member _.utcoffset(dt: obj) : timedelta = nativeOnly
+    /// Return the timezone name string for this timezone
+    member _.tzname(dt: obj) : string = nativeOnly
+    /// The UTC timezone singleton (offset zero, name "UTC")
+    static member utc: timezone = nativeOnly
 
 // ============================================================================
 // date
@@ -51,58 +100,60 @@ let timedelta: timedeltaStatic = nativeOnly
 /// A naive date (year, month, day) with no time or timezone component.
 /// See https://docs.python.org/3/library/datetime.html#datetime.date
 [<Import("date", "datetime")>]
-type date =
+type date(year: int, month: int, day: int) =
     /// Year in range [MINYEAR, MAXYEAR]
-    abstract year: int
+    member _.year: int = nativeOnly
     /// Month in range [1, 12]
-    abstract month: int
+    member _.month: int = nativeOnly
     /// Day in range [1, number of days in the month and year]
-    abstract day: int
+    member _.day: int = nativeOnly
     /// Return a string in ISO 8601 format, e.g. "2026-04-21"
     /// See https://docs.python.org/3/library/datetime.html#datetime.date.isoformat
-    abstract isoformat: unit -> string
+    member _.isoformat() : string = nativeOnly
     /// Return a string representing the date, formatted with format
     /// See https://docs.python.org/3/library/datetime.html#datetime.date.strftime
-    abstract strftime: format: string -> string
+    member _.strftime(format: string) : string = nativeOnly
     /// Return the day of the week as an integer; Monday is 0 and Sunday is 6
     /// See https://docs.python.org/3/library/datetime.html#datetime.date.weekday
-    abstract weekday: unit -> int
+    member _.weekday() : int = nativeOnly
     /// Return the day of the week as an integer; Monday is 1 and Sunday is 7
     /// See https://docs.python.org/3/library/datetime.html#datetime.date.isoweekday
-    abstract isoweekday: unit -> int
+    member _.isoweekday() : int = nativeOnly
     /// Return the proleptic Gregorian ordinal of the date; January 1 of year 1 has ordinal 1
-    abstract toordinal: unit -> int
-    /// Return a date with the given fields replaced
-    /// See https://docs.python.org/3/library/datetime.html#datetime.date.replace
-    [<Emit("$0.replace(year=int($1), month=int($2), day=int($3))")>]
-    abstract replace: year: int * month: int * day: int -> date
+    member _.toordinal() : int = nativeOnly
 
-/// Static factory for date instances
-[<Import("date", "datetime")>]
-type dateStatic =
-    /// Create a date for the given year, month and day
-    /// See https://docs.python.org/3/library/datetime.html#datetime.date
-    [<Emit("$0(int($1), int($2), int($3))")>]
-    abstract Create: year: int * month: int * day: int -> date
+    /// Return a date with the given fields replaced (any subset of year/month/day)
+    /// See https://docs.python.org/3/library/datetime.html#datetime.date.replace
+    [<NamedParams>]
+    member _.replace(?year: int, ?month: int, ?day: int) : date = nativeOnly
+
+    /// Return the timedelta between this date and other (self - other)
+    [<Emit("$0 - $1")>]
+    member _.sub(other: date) : timedelta = nativeOnly
+
+    /// Return a date offset by the given timedelta (self - delta)
+    [<Emit("$0 - $1")>]
+    member _.sub(delta: timedelta) : date = nativeOnly
+
+    /// Return a date offset by the given timedelta (self + delta)
+    [<Emit("$0 + $1")>]
+    member _.add(delta: timedelta) : date = nativeOnly
+
     /// Return the current local date
     /// See https://docs.python.org/3/library/datetime.html#datetime.date.today
-    abstract today: unit -> date
+    static member today() : date = nativeOnly
     /// Return the local date corresponding to a POSIX timestamp
     /// See https://docs.python.org/3/library/datetime.html#datetime.date.fromtimestamp
-    abstract fromtimestamp: timestamp: float -> date
+    static member fromtimestamp(timestamp: float) : date = nativeOnly
     /// Return the date corresponding to the proleptic Gregorian ordinal
-    abstract fromordinal: ordinal: int -> date
+    static member fromordinal(ordinal: int) : date = nativeOnly
     /// Return a date from a string in any valid ISO 8601 format
     /// See https://docs.python.org/3/library/datetime.html#datetime.date.fromisoformat
-    abstract fromisoformat: date_string: string -> date
+    static member fromisoformat(date_string: string) : date = nativeOnly
     /// The earliest representable date
-    abstract min: date
+    static member min: date = nativeOnly
     /// The latest representable date
-    abstract max: date
-
-/// Factory for creating date values
-[<Import("date", "datetime")>]
-let date: dateStatic = nativeOnly
+    static member max: date = nativeOnly
 
 // ============================================================================
 // time
@@ -110,53 +161,43 @@ let date: dateStatic = nativeOnly
 
 /// A naive or aware time of day (hour, minute, second, microsecond, tzinfo).
 /// See https://docs.python.org/3/library/datetime.html#datetime.time
+///
+/// Ctor args are positional: `time(h)`, `time(h, m)`, `time(h, m, s)`, `time(h, m, s, us)`.
 [<Import("time", "datetime")>]
-type time =
+type time(hour: int, ?minute: int, ?second: int, ?microsecond: int) =
     /// Hour in range [0, 23]
-    abstract hour: int
+    member _.hour: int = nativeOnly
     /// Minute in range [0, 59]
-    abstract minute: int
+    member _.minute: int = nativeOnly
     /// Second in range [0, 59]
-    abstract second: int
+    member _.second: int = nativeOnly
     /// Microsecond in range [0, 999999]
-    abstract microsecond: int
+    member _.microsecond: int = nativeOnly
     /// Fold value (0 or 1) for disambiguating wall-clock times that repeat during DST transitions
-    abstract fold: int
+    member _.fold: int = nativeOnly
     /// Return a string in ISO 8601 format, e.g. "14:30:00"
     /// See https://docs.python.org/3/library/datetime.html#datetime.time.isoformat
-    abstract isoformat: unit -> string
+    member _.isoformat() : string = nativeOnly
     /// Return a string representing the time, formatted with format
     /// See https://docs.python.org/3/library/datetime.html#datetime.time.strftime
-    abstract strftime: format: string -> string
+    member _.strftime(format: string) : string = nativeOnly
     /// Return the UTC offset as a timedelta for aware times; None for naive times
-    abstract utcoffset: unit -> timedelta option
+    member _.utcoffset() : timedelta option = nativeOnly
     /// Return the timezone abbreviation string for aware times; None for naive times
-    abstract tzname: unit -> string option
+    member _.tzname() : string option = nativeOnly
 
-/// Static factory for time instances
-[<Import("time", "datetime")>]
-type timeStatic =
-    /// Create a time-of-day value; all arguments default to 0
-    /// See https://docs.python.org/3/library/datetime.html#datetime.time
-    [<Emit("$0($1...)")>]
+    /// Return a time with the given fields replaced (any subset)
+    /// See https://docs.python.org/3/library/datetime.html#datetime.time.replace
     [<NamedParams>]
-    abstract Create:
-        ?hour: int *
-        ?minute: int *
-        ?second: int *
-        ?microsecond: int ->
-            time
+    member _.replace(?hour: int, ?minute: int, ?second: int, ?microsecond: int) : time = nativeOnly
+
     /// Return a time from a string in ISO 8601 format
     /// See https://docs.python.org/3/library/datetime.html#datetime.time.fromisoformat
-    abstract fromisoformat: time_string: string -> time
+    static member fromisoformat(time_string: string) : time = nativeOnly
     /// The earliest representable time, time(0, 0, 0, 0)
-    abstract min: time
+    static member min: time = nativeOnly
     /// The latest representable time, time(23, 59, 59, 999999)
-    abstract max: time
-
-/// Factory for creating time-of-day values
-[<Import("time", "datetime")>]
-let time: timeStatic = nativeOnly
+    static member max: time = nativeOnly
 
 // ============================================================================
 // datetime
@@ -165,129 +206,119 @@ let time: timeStatic = nativeOnly
 /// A naive or aware date and time (year, month, day, hour, minute, second, microsecond, tzinfo).
 /// See https://docs.python.org/3/library/datetime.html#datetime.datetime
 [<Import("datetime", "datetime")>]
-type datetime =
+type datetime
+    (
+        year: int,
+        month: int,
+        day: int,
+        ?hour: int,
+        ?minute: int,
+        ?second: int,
+        ?microsecond: int,
+        ?tzinfo: timezone,
+        ?fold: int
+    ) =
     /// Year in range [MINYEAR, MAXYEAR]
-    abstract year: int
+    member _.year: int = nativeOnly
     /// Month in range [1, 12]
-    abstract month: int
+    member _.month: int = nativeOnly
     /// Day in range [1, number of days in the month and year]
-    abstract day: int
+    member _.day: int = nativeOnly
     /// Hour in range [0, 23]
-    abstract hour: int
+    member _.hour: int = nativeOnly
     /// Minute in range [0, 59]
-    abstract minute: int
+    member _.minute: int = nativeOnly
     /// Second in range [0, 59]
-    abstract second: int
+    member _.second: int = nativeOnly
     /// Microsecond in range [0, 999999]
-    abstract microsecond: int
+    member _.microsecond: int = nativeOnly
     /// Fold value (0 or 1) for disambiguating wall-clock times that repeat during DST transitions
-    abstract fold: int
+    member _.fold: int = nativeOnly
     /// Return the date part as a date object
     /// See https://docs.python.org/3/library/datetime.html#datetime.datetime.date
-    abstract date: unit -> date
+    member _.date() : date = nativeOnly
     /// Return the time part as a time object (tzinfo is not included)
     /// See https://docs.python.org/3/library/datetime.html#datetime.datetime.time
-    abstract time: unit -> time
+    member _.time() : time = nativeOnly
     /// Return a string in ISO 8601 format, e.g. "2026-04-21T14:30:00"
     /// See https://docs.python.org/3/library/datetime.html#datetime.datetime.isoformat
-    abstract isoformat: unit -> string
+    member _.isoformat() : string = nativeOnly
+
     /// Return a string in ISO 8601 format with a custom separator between date and time
     [<Emit("$0.isoformat(sep=$1)")>]
-    abstract isoformat: sep: string -> string
+    member _.isoformat(sep: string) : string = nativeOnly
+
     /// Return a string representing the datetime, formatted with format
     /// See https://docs.python.org/3/library/datetime.html#datetime.datetime.strftime
-    abstract strftime: format: string -> string
+    member _.strftime(format: string) : string = nativeOnly
     /// Return the POSIX timestamp corresponding to this datetime as a float
     /// See https://docs.python.org/3/library/datetime.html#datetime.datetime.timestamp
-    abstract timestamp: unit -> float
+    member _.timestamp() : float = nativeOnly
     /// Return the UTC offset as a timedelta for aware datetimes; None for naive
-    abstract utcoffset: unit -> timedelta option
+    member _.utcoffset() : timedelta option = nativeOnly
     /// Return the timezone abbreviation string for aware datetimes; None for naive
-    abstract tzname: unit -> string option
+    member _.tzname() : string option = nativeOnly
     /// Return the day of the week as an integer; Monday is 0 and Sunday is 6
-    abstract weekday: unit -> int
+    member _.weekday() : int = nativeOnly
     /// Return the day of the week as an integer; Monday is 1 and Sunday is 7
-    abstract isoweekday: unit -> int
-    /// Return a datetime with the date fields replaced
+    member _.isoweekday() : int = nativeOnly
+
+    /// Return a datetime with the given fields replaced (any subset)
     /// See https://docs.python.org/3/library/datetime.html#datetime.datetime.replace
-    [<Emit("$0.replace(year=int($1), month=int($2), day=int($3))")>]
-    abstract replaceDate: year: int * month: int * day: int -> datetime
-    /// Return a datetime with the time fields replaced
-    [<Emit("$0.replace(hour=int($1), minute=int($2), second=int($3))")>]
-    abstract replaceTime: hour: int * minute: int * second: int -> datetime
+    [<NamedParams>]
+    member _.replace
+        (?year: int, ?month: int, ?day: int, ?hour: int, ?minute: int, ?second: int, ?microsecond: int)
+        : datetime =
+        nativeOnly
+
     /// Return a datetime converted to the given timezone
     /// See https://docs.python.org/3/library/datetime.html#datetime.datetime.astimezone
-    abstract astimezone: tz: obj -> datetime
+    member _.astimezone(tz: timezone) : datetime = nativeOnly
 
-/// Static factory for datetime instances
-[<Import("datetime", "datetime")>]
-type datetimeStatic =
-    /// Create a datetime for the given date components (time components default to 0)
-    /// See https://docs.python.org/3/library/datetime.html#datetime.datetime
-    [<Emit("$0(int($1), int($2), int($3))")>]
-    abstract Create: year: int * month: int * day: int -> datetime
-    /// Create a datetime for the given date and time components
-    [<Emit("$0(int($1), int($2), int($3), int($4), int($5), int($6))")>]
-    abstract Create: year: int * month: int * day: int * hour: int * minute: int * second: int -> datetime
+    /// Return the timedelta between this datetime and other (self - other)
+    [<Emit("$0 - $1")>]
+    member _.sub(other: datetime) : timedelta = nativeOnly
+
+    /// Return a datetime offset by the given timedelta (self - delta)
+    [<Emit("$0 - $1")>]
+    member _.sub(delta: timedelta) : datetime = nativeOnly
+
+    /// Return a datetime offset by the given timedelta (self + delta)
+    [<Emit("$0 + $1")>]
+    member _.add(delta: timedelta) : datetime = nativeOnly
+
     /// Return the current local date and time
     /// See https://docs.python.org/3/library/datetime.html#datetime.datetime.now
-    abstract now: unit -> datetime
+    static member now() : datetime = nativeOnly
+
     /// Return the current local date and time in the given timezone
-    [<Emit("$0.now(tz=$1)")>]
-    abstract now: tz: obj -> datetime
-    /// Return the current UTC date and time as a naive datetime
+    [<Emit("datetime.now(tz=$0)")>]
+    static member now(tz: timezone) : datetime = nativeOnly
+
+    /// Return the current UTC date and time as a naive datetime.
+    /// Deprecated in Python 3.12; prefer `datetime.now(tz = timezone.utc)`.
     /// See https://docs.python.org/3/library/datetime.html#datetime.datetime.utcnow
-    abstract utcnow: unit -> datetime
+    [<System.Obsolete("Use datetime.now(tz = timezone.utc) instead. Python datetime.utcnow is deprecated since 3.12.")>]
+    static member utcnow() : datetime = nativeOnly
+
     /// Return the local datetime corresponding to a POSIX timestamp
     /// See https://docs.python.org/3/library/datetime.html#datetime.datetime.fromtimestamp
-    abstract fromtimestamp: timestamp: float -> datetime
+    static member fromtimestamp(timestamp: float) : datetime = nativeOnly
+
     /// Return the datetime corresponding to a POSIX timestamp in the given timezone
-    [<Emit("$0.fromtimestamp($1, tz=$2)")>]
-    abstract fromtimestamp: timestamp: float * tz: obj -> datetime
+    [<Emit("datetime.fromtimestamp($0, tz=$1)")>]
+    static member fromtimestamp(timestamp: float, tz: timezone) : datetime = nativeOnly
+
     /// Return a datetime from a string in any valid ISO 8601 format
     /// See https://docs.python.org/3/library/datetime.html#datetime.datetime.fromisoformat
-    abstract fromisoformat: datetime_string: string -> datetime
+    static member fromisoformat(datetime_string: string) : datetime = nativeOnly
     /// Return a datetime parsed from date_string according to format
     /// See https://docs.python.org/3/library/datetime.html#datetime.datetime.strptime
-    abstract strptime: date_string: string * format: string -> datetime
+    static member strptime(date_string: string, format: string) : datetime = nativeOnly
     /// Combine a date and time into a single datetime
     /// See https://docs.python.org/3/library/datetime.html#datetime.datetime.combine
-    abstract combine: date: date * time: time -> datetime
+    static member combine(date: date, time: time) : datetime = nativeOnly
     /// The earliest representable datetime
-    abstract min: datetime
+    static member min: datetime = nativeOnly
     /// The latest representable datetime
-    abstract max: datetime
-
-/// Factory for creating datetime values
-[<Import("datetime", "datetime")>]
-let datetime: datetimeStatic = nativeOnly
-
-// ============================================================================
-// timezone
-// ============================================================================
-
-/// A fixed-offset implementation of tzinfo.
-/// See https://docs.python.org/3/library/datetime.html#datetime.timezone
-[<Import("timezone", "datetime")>]
-type timezone =
-    /// Return the UTC offset for this timezone
-    abstract utcoffset: dt: obj -> timedelta
-    /// Return the timezone name string for this timezone
-    abstract tzname: dt: obj -> string
-
-/// Static factory for timezone instances
-[<Import("timezone", "datetime")>]
-type timezoneStatic =
-    /// Create a timezone with the given fixed UTC offset (as a timedelta)
-    /// See https://docs.python.org/3/library/datetime.html#datetime.timezone
-    [<Emit("$0($1)")>]
-    abstract Create: offset: timedelta -> timezone
-    /// Create a named timezone with the given fixed UTC offset
-    [<Emit("$0($1, $2)")>]
-    abstract Create: offset: timedelta * name: string -> timezone
-    /// The UTC timezone singleton (offset zero, name "UTC")
-    abstract utc: timezone
-
-/// Factory for creating timezone values
-[<Import("timezone", "datetime")>]
-let timezone: timezoneStatic = nativeOnly
+    static member max: datetime = nativeOnly

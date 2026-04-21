@@ -17,7 +17,8 @@ let ``test string format 2 works`` () =
 
 [<Fact>]
 let ``test ascii_letters constant`` () =
-    pyString.ascii_letters |> equal "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    pyString.ascii_letters
+    |> equal "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 [<Fact>]
 let ``test ascii_lowercase constant`` () =
@@ -28,16 +29,14 @@ let ``test ascii_uppercase constant`` () =
     pyString.ascii_uppercase |> equal "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 [<Fact>]
-let ``test digits constant`` () =
-    pyString.digits |> equal "0123456789"
+let ``test digits constant`` () = pyString.digits |> equal "0123456789"
 
 [<Fact>]
 let ``test hexdigits constant`` () =
     pyString.hexdigits |> equal "0123456789abcdefABCDEF"
 
 [<Fact>]
-let ``test octdigits constant`` () =
-    pyString.octdigits |> equal "01234567"
+let ``test octdigits constant`` () = pyString.octdigits |> equal "01234567"
 
 [<Fact>]
 let ``test punctuation constant`` () =

@@ -34,10 +34,12 @@ type Queue<'T>() =
     /// operation goes into an uninterruptible wait on an underlying lock. This means that no exceptions can occur, and
     /// in particular a SIGINT will not trigger a KeyboardInterrupt.
     member x.get(?block: bool, ?timeout: float) : 'T = nativeOnly
+
     /// Equivalent to get(False).
     /// See https://docs.python.org/3/library/queue.html#queue.Queue.get_nowait
     [<Emit("$0.get_nowait()")>]
     member x.get_nowait() : 'T = nativeOnly
+
     /// Blocks until all items in the queue have been gotten and processed.
     ///
     /// The count of unfinished tasks goes up whenever an item is added to the queue. The count goes down whenever a
@@ -74,6 +76,7 @@ type SimpleQueue<'T>() =
     member x.put(item: 'T, ?block: bool, ?timeout: float) : unit = nativeOnly
     /// Remove and return an item from the queue.
     member x.get(?block: bool, ?timeout: float) : 'T = nativeOnly
+
     /// Equivalent to get(False).
     [<Emit("$0.get_nowait()")>]
     member x.get_nowait() : 'T = nativeOnly
