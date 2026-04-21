@@ -1,11 +1,20 @@
 ---
-last_commit_released: deed5e74cbc33a582d1e22ee0a1af6a41ab2bb10
+last_commit_released: 4128e2cf6b4fb5164d7531d84d5f1ff2e8b7200d
 name: Fable.Python
 ---
 
 # Changelog
 
 All notable changes to this project will be documented in this file.
+
+## 5.0.0-rc.5 - 2026-04-21
+
+### 🚀 Features
+
+* *(stdlib)* Add functools module bindings (#260) ([0db2183](https://github.com/fable-compiler/Fable.Python/commit/0db2183659747b5e4b29af30eac3592fe62f79c7))
+* *(stdlib)* Add datetime module bindings (#267) ([db5f0b3](https://github.com/fable-compiler/Fable.Python/commit/db5f0b313d4588e037f69a5f356ad2fef443fc6c))
+
+<strong><small>[View changes on Github](https://github.com/fable-compiler/Fable.Python/compare/deed5e74cbc33a582d1e22ee0a1af6a41ab2bb10..4128e2cf6b4fb5164d7531d84d5f1ff2e8b7200d)</small></strong>
 
 ## 5.0.0-rc.4 - 2026-04-17
 
