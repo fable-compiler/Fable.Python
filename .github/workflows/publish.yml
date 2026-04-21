@@ -32,7 +32,7 @@ jobs:
         run: dotnet tool restore
 
       - name: ShipIt (Pull Request)
-        run: dotnet shipit --pre-release rc
+        run: dotnet shipit
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
