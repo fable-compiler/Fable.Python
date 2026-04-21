@@ -1,8 +1,14 @@
 {
-  "last_run": "2026-04-20T04:03:51Z",
-  "last_run_id": "24647821113",
+  "last_run": "2026-04-21T03:57:09Z",
+  "last_run_id": "24703175458",
   "comments_made": {},
-  "prs_created": [],
+  "prs_created": [
+    {
+      "branch": "repo-assist/bindings-datetime-2026-04-21",
+      "description": "feat(stdlib): add datetime module bindings (timedelta, date, time, datetime, timezone)",
+      "status": "open"
+    }
+  ],
   "issues_labelled": [],
   "backlog_cursor": 0,
   "monthly_activity_issue": {
@@ -58,6 +64,11 @@
       "number": 261,
       "description": "chore: release Fable.Python@5.0.0-rc.5 (auto-created by EasyBuild.ShipIt)",
       "status": "open"
+    },
+    {
+      "branch": "repo-assist/bindings-datetime-2026-04-21",
+      "description": "feat(stdlib): add datetime module bindings",
+      "status": "pending-push"
     }
   ],
   "open_issues": [
@@ -67,5 +78,5 @@
       "status": "open"
     }
   ],
-  "notes": "10 unlabelled user issues blocked by integrity policy (cannot read). Issue #259 is the CI caching proposal (needs manual PR creation with workflows permission). Release PR #261 for 5.0.0-rc.5 is open. Future stdlib candidates: functools.partial (needs design), collections, datetime."
+  "notes": "10 unlabelled user issues blocked by integrity policy (cannot read). Issue #259 is the CI caching proposal (needs manual PR creation with workflows permission). Release PR #261 for 5.0.0-rc.5 is open. Datetime PR pending push. Future stdlib candidates: functools.partial (needs design), collections, pathlib."
 }
