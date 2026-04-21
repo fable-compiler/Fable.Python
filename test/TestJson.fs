@@ -66,7 +66,7 @@ let ``test Json.loads with array works`` () =
 [<Fact>]
 let ``test Json.dumps with indent works`` () =
     let obj = {| A = 1n |}
-    let result = Json.dumps(obj, indent = 2)
+    let result = Json.dumps (obj, indent = 2)
     result.Contains("\n") |> equal true
 
 [<Fact>]

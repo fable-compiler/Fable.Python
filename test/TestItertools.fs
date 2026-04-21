@@ -5,17 +5,11 @@ open Fable.Python.Itertools
 
 [<Fact>]
 let ``test count from start works`` () =
-    itertools.count 1
-    |> Seq.take 4
-    |> Seq.toList
-    |> equal [ 1; 2; 3; 4 ]
+    itertools.count 1 |> Seq.take 4 |> Seq.toList |> equal [ 1; 2; 3; 4 ]
 
 [<Fact>]
 let ``test count with step works`` () =
-    itertools.count (0, 2)
-    |> Seq.take 4
-    |> Seq.toList
-    |> equal [ 0; 2; 4; 6 ]
+    itertools.count (0, 2) |> Seq.take 4 |> Seq.toList |> equal [ 0; 2; 4; 6 ]
 
 [<Fact>]
 let ``test cycle works`` () =
@@ -26,9 +20,7 @@ let ``test cycle works`` () =
 
 [<Fact>]
 let ``test repeat with times works`` () =
-    itertools.repeat ("x", 3)
-    |> Seq.toList
-    |> equal [ "x"; "x"; "x" ]
+    itertools.repeat ("x", 3) |> Seq.toList |> equal [ "x"; "x"; "x" ]
 
 [<Fact>]
 let ``test accumulate works`` () =
@@ -44,9 +36,7 @@ let ``test accumulate with func works`` () =
 
 [<Fact>]
 let ``test chain two sequences works`` () =
-    itertools.chain ([ 1; 2 ], [ 3; 4 ])
-    |> Seq.toList
-    |> equal [ 1; 2; 3; 4 ]
+    itertools.chain ([ 1; 2 ], [ 3; 4 ]) |> Seq.toList |> equal [ 1; 2; 3; 4 ]
 
 [<Fact>]
 let ``test chain three sequences works`` () =
@@ -80,15 +70,11 @@ let ``test filterfalse works`` () =
 
 [<Fact>]
 let ``test islice with stop works`` () =
-    itertools.islice ([ 1; 2; 3; 4; 5 ], 3)
-    |> Seq.toList
-    |> equal [ 1; 2; 3 ]
+    itertools.islice ([ 1; 2; 3; 4; 5 ], 3) |> Seq.toList |> equal [ 1; 2; 3 ]
 
 [<Fact>]
 let ``test islice with start and stop works`` () =
-    itertools.islice ([ 1; 2; 3; 4; 5 ], 1, 4)
-    |> Seq.toList
-    |> equal [ 2; 3; 4 ]
+    itertools.islice ([ 1; 2; 3; 4; 5 ], 1, 4) |> Seq.toList |> equal [ 2; 3; 4 ]
 
 [<Fact>]
 let ``test pairwise works`` () =
@@ -111,9 +97,7 @@ let ``test combinations works`` () =
 
 [<Fact>]
 let ``test permutations with r works`` () =
-    itertools.permutations ([ 1; 2; 3 ], 2)
-    |> Seq.length
-    |> equal 6
+    itertools.permutations ([ 1; 2; 3 ], 2) |> Seq.length |> equal 6
 
 [<Fact>]
 let ``test product two sequences works`` () =

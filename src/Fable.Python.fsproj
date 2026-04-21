@@ -25,6 +25,7 @@
     <Compile Include="stdlib/Os.fs" />
     <Compile Include="stdlib/Heapq.fs" />
     <Compile Include="stdlib/Itertools.fs" />
+    <Compile Include="stdlib/Datetime.fs" />
     <Compile Include="stdlib/Functools.fs" />
     <Compile Include="stdlib/Queue.fs" />
     <Compile Include="stdlib/String.fs" />

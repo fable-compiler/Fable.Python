@@ -11,7 +11,7 @@ let ``test equal passes for equal values`` () =
     equal 1 1
     equal "hello" "hello"
     equal true true
-    equal [1; 2; 3] [1; 2; 3]
+    equal [ 1; 2; 3 ] [ 1; 2; 3 ]
 
 [<Fact>]
 let ``test equal fails for unequal values`` () =
@@ -38,8 +38,7 @@ let ``test notEqual passes for unequal values`` () =
     notEqual true false
 
 [<Fact>]
-let ``test notEqual fails for equal values`` () =
-    throwsAnyError (fun () -> notEqual 1 1)
+let ``test notEqual fails for equal values`` () = throwsAnyError (fun () -> notEqual 1 1)
 
 [<Fact>]
 let ``test notEqual fails for equal strings`` () =
@@ -56,23 +55,18 @@ let ``test throwsAnyError passes when function throws`` () =
 [<Fact>]
 let ``test throwsAnyError fails when function does not throw`` () =
     // Meta-test: throwsAnyError should fail if the function doesn't throw
-    throwsAnyError (fun () ->
-        throwsAnyError (fun () -> 42)
-    )
+    throwsAnyError (fun () -> throwsAnyError (fun () -> 42))
 
 // ============================================================================
 // Test doesntThrow
 // ============================================================================
 
 [<Fact>]
-let ``test doesntThrow passes when function succeeds`` () =
-    doesntThrow (fun () -> 1 + 1)
+let ``test doesntThrow passes when function succeeds`` () = doesntThrow (fun () -> 1 + 1)
 
 [<Fact>]
 let ``test doesntThrow fails when function throws`` () =
-    throwsAnyError (fun () ->
-        doesntThrow (fun () -> failwith "boom")
-    )
+    throwsAnyError (fun () -> doesntThrow (fun () -> failwith "boom"))
 
 // ============================================================================
 // Test throwsError with exact message
@@ -84,15 +78,11 @@ let ``test throwsError passes with matching message`` () =
 
 [<Fact>]
 let ``test throwsError fails with wrong message`` () =
-    throwsAnyError (fun () ->
-        throwsError "expected message" (fun () -> failwith "different message")
-    )
+    throwsAnyError (fun () -> throwsError "expected message" (fun () -> failwith "different message"))
 
 [<Fact>]
 let ``test throwsError fails when no error thrown`` () =
-    throwsAnyError (fun () ->
-        throwsError "expected error" (fun () -> 42)
-    )
+    throwsAnyError (fun () -> throwsError "expected error" (fun () -> 42))
 
 // ============================================================================
 // Test throwsErrorContaining
@@ -104,12 +94,8 @@ let ``test throwsErrorContaining passes when message contains substring`` () =
 
 [<Fact>]
 let ``test throwsErrorContaining fails when message does not contain substring`` () =
-    throwsAnyError (fun () ->
-        throwsErrorContaining "notfound" (fun () -> failwith "different error message")
-    )
+    throwsAnyError (fun () -> throwsErrorContaining "notfound" (fun () -> failwith "different error message"))
 
 [<Fact>]
 let ``test throwsErrorContaining fails when no error thrown`` () =
-    throwsAnyError (fun () ->
-        throwsErrorContaining "error" (fun () -> 42)
-    )
+    throwsAnyError (fun () -> throwsErrorContaining "error" (fun () -> 42))

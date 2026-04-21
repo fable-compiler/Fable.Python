@@ -52,14 +52,14 @@ let ``test APIRouter can be created with prefix`` () =
 
 [<Fact>]
 let ``test APIRouter can be created with tags`` () =
-    let router = APIRouter(tags = ResizeArray ["users"; "admin"])
+    let router = APIRouter(tags = ResizeArray [ "users"; "admin" ])
     notNull router |> equal true
 
 [<Fact>]
 let ``test FastAPI app can include router`` () =
     let app = FastAPI()
     let router = APIRouter(prefix = "/api")
-    app.include_router(router)
+    app.include_router (router)
     // If we get here without error, the test passes
     true |> equal true
 
@@ -186,7 +186,7 @@ let ``test Pydantic model works with FastAPI patterns`` () =
 [<Fact>]
 let ``test Pydantic model serialization for FastAPI`` () =
     let item = Item(Name = "Gadget", Price = 19.99, InStock = false)
-    let json = item.model_dump_json()
+    let json = item.model_dump_json ()
     json.Contains("Gadget") |> equal true
     json.Contains("19.99") |> equal true
 
@@ -202,50 +202,47 @@ let app = FastAPI(title = "Test API", version = "1.0.0")
 [<APIClass>]
 type API() =
     [<Get("/")>]
-    static member root() : obj =
-        {| message = "Hello World" |}
+    static member root() : obj = {| message = "Hello World" |}
 
     [<Get("/items/{item_id}")>]
     static member get_item(item_id: int) : obj =
-        {| item_id = item_id; name = "Test Item" |}
+        {| item_id = item_id
+           name = "Test Item" |}
 
     [<Post("/items")>]
-    static member create_item(item: Item) : obj =
-        {| status = "created"; item = item |}
+    static member create_item(item: Item) : obj = {| status = "created"; item = item |}
 
     [<Put("/items/{item_id}")>]
-    static member update_item(item_id: int, item: Item) : obj =
-        {| item_id = item_id; item = item |}
+    static member update_item(item_id: int, item: Item) : obj = {| item_id = item_id; item = item |}
 
     [<Delete("/items/{item_id}")>]
-    static member delete_item(item_id: int) : obj =
-        {| deleted = item_id |}
+    static member delete_item(item_id: int) : obj = {| deleted = item_id |}
 
 [<Fact>]
 let ``test class-based API methods can be called`` () =
-    let result = API.root()
+    let result = API.root ()
     notNull result |> equal true
 
 [<Fact>]
 let ``test class-based API with path parameter`` () =
-    let result = API.get_item(42)
+    let result = API.get_item (42)
     notNull result |> equal true
 
 [<Fact>]
 let ``test class-based API POST method`` () =
     let item = Item(Name = "Test", Price = 10.0, InStock = true)
-    let result = API.create_item(item)
+    let result = API.create_item (item)
     notNull result |> equal true
 
 [<Fact>]
 let ``test class-based API PUT method`` () =
     let item = Item(Name = "Updated", Price = 20.0, InStock = false)
-    let result = API.update_item(1, item)
+    let result = API.update_item (1, item)
     notNull result |> equal true
 
 [<Fact>]
 let ``test class-based API DELETE method`` () =
-    let result = API.delete_item(1)
+    let result = API.delete_item (1)
     notNull result |> equal true
 
 // ============================================================================
@@ -262,47 +259,42 @@ let ``test TestClient can be created`` () =
 // Router-based API pattern
 // ============================================================================
 
-let router = APIRouter(prefix = "/users", tags = ResizeArray ["users"])
+let router = APIRouter(prefix = "/users", tags = ResizeArray [ "users" ])
 
 [<APIClass>]
 type UsersAPI() =
     [<RouterGet("/")>]
-    static member list_users() : obj =
-        {| users = [| "Alice"; "Bob" |] |}
+    static member list_users() : obj = {| users = [| "Alice"; "Bob" |] |}
 
     [<RouterGet("/{user_id}")>]
-    static member get_user(user_id: int) : obj =
-        {| user_id = user_id |}
+    static member get_user(user_id: int) : obj = {| user_id = user_id |}
 
     [<RouterPost("/")>]
-    static member create_user(name: string) : obj =
-        {| name = name; id = 1 |}
+    static member create_user(name: string) : obj = {| name = name; id = 1 |}
 
     [<RouterPut("/{user_id}")>]
-    static member update_user(user_id: int, name: string) : obj =
-        {| user_id = user_id; name = name |}
+    static member update_user(user_id: int, name: string) : obj = {| user_id = user_id; name = name |}
 
     [<RouterDelete("/{user_id}")>]
-    static member delete_user(user_id: int) : obj =
-        {| deleted = user_id |}
+    static member delete_user(user_id: int) : obj = {| deleted = user_id |}
 
 [<Fact>]
 let ``test router-based API methods work`` () =
-    let users = UsersAPI.list_users()
+    let users = UsersAPI.list_users ()
     notNull users |> equal true
 
 [<Fact>]
 let ``test router can be included in app`` () =
     let mainApp = FastAPI()
     let usersRouter = APIRouter(prefix = "/api/v1")
-    mainApp.include_router(usersRouter)
+    mainApp.include_router (usersRouter)
     true |> equal true
 
 [<Fact>]
 let ``test router can be included with prefix and tags`` () =
     let mainApp = FastAPI()
-    let usersRouter = APIRouter(prefix = "/users", tags = ResizeArray ["users"])
-    mainApp.include_router_with_prefix_and_tags(usersRouter, "/api/v1", ResizeArray ["api"])
+    let usersRouter = APIRouter(prefix = "/users", tags = ResizeArray [ "users" ])
+    mainApp.include_router_with_prefix_and_tags (usersRouter, "/api/v1", ResizeArray [ "api" ])
     true |> equal true
 
 #endif

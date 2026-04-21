@@ -353,7 +353,8 @@ let __name__: string = nativeOnly
 let print obj = builtins.print obj
 
 /// Return the value of the named attribute of object with a default.
-let getattr obj name defaultValue = builtins.getattr (obj, name, defaultValue)
+let getattr obj name defaultValue =
+    builtins.getattr (obj, name, defaultValue)
 
 /// Sets the named attribute on the given object to the specified value.
 let setattr obj name value = builtins.setattr (obj, name, value)

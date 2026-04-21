@@ -47,7 +47,7 @@ let throwsError (expected: string) (f: unit -> 'a) : unit =
 let throwsErrorContaining (expected: string) (f: unit -> 'a) : unit =
     match run f with
     | Error _ when String.IsNullOrEmpty expected -> ()
-    | Error (actual: string) when actual.Contains expected -> ()
+    | Error(actual: string) when actual.Contains expected -> ()
     | Error actual -> equal (sprintf "Error containing '%s'" expected) actual
     | Ok _ -> equal (sprintf "Error containing '%s'" expected) "No error was thrown"
 

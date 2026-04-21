@@ -84,10 +84,12 @@ type IExports =
     /// Return True if the values a and b are close to each other
     /// See https://docs.python.org/3/library/math.html#math.isclose
     abstract isclose: a: float * b: float -> bool
+
     /// Return True if the values a and b are close to each other with custom tolerances
     /// See https://docs.python.org/3/library/math.html#math.isclose
     [<NamedParams(fromIndex = 2)>]
     abstract isclose: a: float * b: float * ?rel_tol: float * ?abs_tol: float -> bool
+
     /// Return the least common multiple of the integers
     /// See https://docs.python.org/3/library/math.html#math.lcm
     abstract lcm: [<ParamArray>] ints: int[] -> int
