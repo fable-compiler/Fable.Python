@@ -1,11 +1,11 @@
 {
-  "last_run": "2026-04-21T03:57:09Z",
-  "last_run_id": "24703175458",
+  "last_run": "2026-04-22T03:53:42Z",
+  "last_run_id": "24759243414",
   "comments_made": {},
   "prs_created": [
     {
-      "branch": "repo-assist/bindings-datetime-2026-04-21",
-      "description": "feat(stdlib): add datetime module bindings (timedelta, date, time, datetime, timezone)",
+      "branch": "repo-assist/bindings-collections-2026-04-22",
+      "description": "feat(stdlib): add collections module bindings (Counter, defaultdict, deque, OrderedDict)",
       "status": "open"
     }
   ],
@@ -18,6 +18,21 @@
     "status": "open"
   },
   "merged_prs": [
+    {
+      "number": 271,
+      "description": "chore: release Fable.Python@5.0.0",
+      "status": "merged"
+    },
+    {
+      "number": 267,
+      "description": "feat(stdlib): add datetime module bindings",
+      "status": "merged"
+    },
+    {
+      "number": 261,
+      "description": "chore: release Fable.Python@5.0.0-rc.5",
+      "status": "merged"
+    },
     {
       "number": 260,
       "description": "feat(stdlib): add functools module bindings (reduce, lruCache, cache)",
@@ -42,33 +57,13 @@
       "number": 255,
       "description": "feat(math): add missing math functions",
       "status": "merged"
-    },
-    {
-      "number": 253,
-      "description": "fix(math): correct type signatures for copysign, fmod and curried bindings",
-      "status": "merged"
-    },
-    {
-      "number": 252,
-      "description": "chore: release Fable.Python@5.0.0-rc.4",
-      "status": "merged"
-    },
-    {
-      "number": 251,
-      "description": "fix(math): fix factorial signature and add missing constants/functions",
-      "status": "merged"
     }
   ],
   "open_prs": [
     {
-      "number": 261,
-      "description": "chore: release Fable.Python@5.0.0-rc.5 (auto-created by EasyBuild.ShipIt)",
+      "branch": "repo-assist/bindings-collections-2026-04-22",
+      "description": "feat(stdlib): add collections module bindings (Counter, defaultdict, deque, OrderedDict)",
       "status": "open"
-    },
-    {
-      "branch": "repo-assist/bindings-datetime-2026-04-21",
-      "description": "feat(stdlib): add datetime module bindings",
-      "status": "pending-push"
     }
   ],
   "open_issues": [
@@ -78,5 +73,5 @@
       "status": "open"
     }
   ],
-  "notes": "10 unlabelled user issues blocked by integrity policy (cannot read). Issue #259 is the CI caching proposal (needs manual PR creation with workflows permission). Release PR #261 for 5.0.0-rc.5 is open. Datetime PR pending push. Future stdlib candidates: functools.partial (needs design), collections, pathlib."
+  "notes": "10 unlabelled user issues blocked by integrity policy (cannot read). Issue #259 is the CI caching proposal (needs manual PR creation with workflows permission). Latest release: 5.0.0. Future stdlib candidates: functools.partial (needs design), pathlib, re (regex)."
 }
