@@ -1,9 +1,16 @@
 {
-  "last_run": "2026-04-22T03:53:42Z",
-  "last_run_id": "24759243414",
+  "last_run": "2026-04-23T03:58:52Z",
+  "last_run_id": "24815873653",
   "comments_made": {},
   "prs_created": [
     {
+      "number": 273,
+      "branch": "repo-assist/bindings-re-regex-2026-04-23",
+      "description": "feat(stdlib): add re (regular expressions) module bindings with 42 tests",
+      "status": "open"
+    },
+    {
+      "number": 272,
       "branch": "repo-assist/bindings-collections-2026-04-22",
       "description": "feat(stdlib): add collections module bindings (Counter, defaultdict, deque, OrderedDict)",
       "status": "open"
@@ -17,6 +24,27 @@
     "title": "[Repo Assist] Monthly Activity 2026-04",
     "status": "open"
   },
+  "open_prs": [
+    {
+      "number": 273,
+      "branch": "repo-assist/bindings-re-regex-2026-04-23",
+      "description": "feat(stdlib): add re (regular expressions) module bindings with 42 tests",
+      "status": "open"
+    },
+    {
+      "number": 272,
+      "branch": "repo-assist/bindings-collections-2026-04-22",
+      "description": "feat(stdlib): add collections module bindings (Counter, defaultdict, deque, OrderedDict)",
+      "status": "open"
+    }
+  ],
+  "open_issues": [
+    {
+      "number": 259,
+      "description": "CI caching manual steps (patch requires workflows permission)",
+      "status": "open"
+    }
+  ],
   "merged_prs": [
     {
       "number": 271,
@@ -26,11 +54,6 @@
     {
       "number": 267,
       "description": "feat(stdlib): add datetime module bindings",
-      "status": "merged"
-    },
-    {
-      "number": 261,
-      "description": "chore: release Fable.Python@5.0.0-rc.5",
       "status": "merged"
     },
     {
@@ -44,11 +67,6 @@
       "status": "merged"
     },
     {
-      "number": 257,
-      "description": "build: relax Fable.Core pin to >= 5.0.0-rc.1",
-      "status": "merged"
-    },
-    {
       "number": 256,
       "description": "feat(stdlib): add itertools module bindings",
       "status": "merged"
@@ -59,19 +77,5 @@
       "status": "merged"
     }
   ],
-  "open_prs": [
-    {
-      "branch": "repo-assist/bindings-collections-2026-04-22",
-      "description": "feat(stdlib): add collections module bindings (Counter, defaultdict, deque, OrderedDict)",
-      "status": "open"
-    }
-  ],
-  "open_issues": [
-    {
-      "number": 259,
-      "description": "CI caching manual steps (patch requires workflows permission)",
-      "status": "open"
-    }
-  ],
-  "notes": "10 unlabelled user issues blocked by integrity policy (cannot read). Issue #259 is the CI caching proposal (needs manual PR creation with workflows permission). Latest release: 5.0.0. Future stdlib candidates: functools.partial (needs design), pathlib, re (regex)."
+  "notes": "10 unlabelled user issues blocked by integrity policy (cannot read). Issue #259 is the CI caching proposal (needs manual PR creation with workflows permission). Latest release: 5.0.0. Future stdlib candidates: functools.partial (needs design), pathlib. re module done in PR #273."
 }
