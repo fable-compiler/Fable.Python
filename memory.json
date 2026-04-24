@@ -1,8 +1,14 @@
 {
-  "last_run": "2026-04-23T03:58:52Z",
-  "last_run_id": "24815873653",
+  "last_run": "2026-04-24T04:02:45Z",
+  "last_run_id": "24871518292",
   "comments_made": {},
   "prs_created": [
+    {
+      "number": 274,
+      "branch": "repo-assist/test-improvements-2026-04-24",
+      "description": "test: expand threading and heapq test coverage (Lock, RLock, Event, Thread +13 tests; heapreplace +2 tests)",
+      "status": "open"
+    },
     {
       "number": 273,
       "branch": "repo-assist/bindings-re-regex-2026-04-23",
@@ -25,6 +31,12 @@
     "status": "open"
   },
   "open_prs": [
+    {
+      "number": 274,
+      "branch": "repo-assist/test-improvements-2026-04-24",
+      "description": "test: expand threading and heapq test coverage",
+      "status": "open"
+    },
     {
       "number": 273,
       "branch": "repo-assist/bindings-re-regex-2026-04-23",
@@ -77,5 +89,5 @@
       "status": "merged"
     }
   ],
-  "notes": "10 unlabelled user issues blocked by integrity policy (cannot read). Issue #259 is the CI caching proposal (needs manual PR creation with workflows permission). Latest release: 5.0.0. Future stdlib candidates: functools.partial (needs design), pathlib. re module done in PR #273."
+  "notes": "10 unlabelled user issues blocked by integrity policy (cannot read). Issue #259 is the CI caching proposal (needs manual PR creation with workflows permission). Latest release: 5.0.0. Future stdlib candidates: functools.partial (needs design), pathlib. re module done in PR #273. collections module done in PR #272. Test improvements for threading/heapq done in PR #274."
 }
