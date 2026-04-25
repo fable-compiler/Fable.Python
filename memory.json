@@ -1,8 +1,14 @@
 {
-  "last_run": "2026-04-24T04:02:45Z",
-  "last_run_id": "24871518292",
+  "last_run": "2026-04-25T03:45:24Z",
+  "last_run_id": "24921799234",
   "comments_made": {},
   "prs_created": [
+    {
+      "number": 275,
+      "branch": "repo-assist/eng-justfile-clean-fix-2026-04-25",
+      "description": "chore(build): fix clean/clean-all inconsistency and remove redundant build step",
+      "status": "open"
+    },
     {
       "number": 274,
       "branch": "repo-assist/test-improvements-2026-04-24",
@@ -31,6 +37,12 @@
     "status": "open"
   },
   "open_prs": [
+    {
+      "number": 275,
+      "branch": "repo-assist/eng-justfile-clean-fix-2026-04-25",
+      "description": "chore(build): fix clean/clean-all inconsistency and remove redundant build step",
+      "status": "open"
+    },
     {
       "number": 274,
       "branch": "repo-assist/test-improvements-2026-04-24",
@@ -89,5 +101,5 @@
       "status": "merged"
     }
   ],
-  "notes": "10 unlabelled user issues blocked by integrity policy (cannot read). Issue #259 is the CI caching proposal (needs manual PR creation with workflows permission). Latest release: 5.0.0. Future stdlib candidates: functools.partial (needs design), pathlib. re module done in PR #273. collections module done in PR #272. Test improvements for threading/heapq done in PR #274."
+  "notes": "10 unlabelled user issues blocked by integrity policy (cannot read). Issue #259 is the CI caching proposal (needs manual PR creation with workflows permission). Latest release: 5.0.0. Future stdlib candidates: functools.partial (needs design), pathlib. re module done in PR #273. collections module done in PR #272. Test improvements for threading/heapq done in PR #274. Justfile fix done in PR #275 (clean/clean-all inconsistency + redundant dotnet build in test recipe). Note: PR #275 number is estimated; verify after run."
 }
