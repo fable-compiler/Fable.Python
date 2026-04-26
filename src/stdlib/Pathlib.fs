@@ -8,13 +8,20 @@ open Fable.Core
 
 /// Represents a filesystem path on the current OS (POSIX or Windows).
 /// Paths are immutable; operations return new Path instances.
+///
+/// `Path()` represents the current directory (`.`). For multi-segment construction
+/// use the `/` operator (`Path "a" / "b" / "c"`) or `joinpath`.
 /// See https://docs.python.org/3/library/pathlib.html#pathlib.Path
 [<Import("Path", "pathlib")>]
-type Path(path: string) =
+type Path() =
+    /// Construct a Path from a single string segment.
+    [<Emit("Path($0)")>]
+    new(path: string) = Path()
+
     /// Construct a Path by joining multiple path segments.
-    /// Equivalent to Path(parts[0]) / parts[1] / …
+    /// Equivalent to ``Path(parts[0]) / parts[1] / …``.
     [<Emit("Path($0...)")>]
-    new([<ParamArray>] paths: string[]) = Path("")
+    new([<ParamArray>] paths: string[]) = Path()
 
     // -------------------------------------------------------------------------
     // Properties
@@ -34,7 +41,7 @@ type Path(path: string) =
 
     /// All file extensions of the final component (e.g. [".tar"; ".gz"]).
     /// See https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.suffixes
-    member _.suffixes: ResizeArray<string> = nativeOnly
+    member _.suffixes: string seq = nativeOnly
 
     /// The logical parent of the path (directory containing this path).
     /// See https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.parent
@@ -42,11 +49,11 @@ type Path(path: string) =
 
     /// Immutable sequence of the logical ancestors of the path.
     /// See https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.parents
-    member _.parents: ResizeArray<Path> = nativeOnly
+    member _.parents: Path seq = nativeOnly
 
     /// The path's components as a tuple of strings.
     /// See https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.parts
-    member _.parts: ResizeArray<string> = nativeOnly
+    member _.parts: string seq = nativeOnly
 
     /// The root component of the path (e.g. "/" on POSIX), or "".
     /// See https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.root

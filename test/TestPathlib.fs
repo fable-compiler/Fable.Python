@@ -2,6 +2,7 @@ module Fable.Python.Tests.Pathlib
 
 open Fable.Python.Testing
 open Fable.Python.Pathlib
+open Fable.Python.Builtins
 
 // ============================================================================
 // Construction
@@ -11,6 +12,11 @@ open Fable.Python.Pathlib
 let ``test Path construction from string`` () =
     let p = Path "/tmp"
     p.str () |> equal "/tmp"
+
+[<Fact>]
+let ``test Path construction from multiple segments`` () =
+    let p = Path("/foo", "bar", "baz.txt")
+    p.str () |> equal "/foo/bar/baz.txt"
 
 [<Fact>]
 let ``test Path cwd returns absolute path`` () =
@@ -201,7 +207,7 @@ let ``test Path write_text and read_text`` () =
 [<Fact>]
 let ``test Path write_bytes and read_bytes`` () =
     let tmp = Path.cwd () / "__pathlib_test_bytes__.bin"
-    let data: byte[] = [| 0uy; 1uy; 2uy; 255uy |]
+    let data = builtins.bytes [| 0uy; 1uy; 2uy; 255uy |]
     tmp.write_bytes data |> ignore
     let result = tmp.read_bytes ()
     tmp.unlink (missing_ok = true)
