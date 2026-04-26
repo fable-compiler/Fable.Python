@@ -130,6 +130,11 @@ let ``test Thread name can be set`` () =
     t.name |> equal "worker"
 
 [<Fact>]
+let ``test Thread daemon defaults to false`` () =
+    let t = Thread(target = fun () -> ())
+    t.daemon |> equal false
+
+[<Fact>]
 let ``test main_thread returns a Thread`` () =
     let mt = threading.main_thread ()
     mt.is_alive () |> equal true
@@ -142,4 +147,4 @@ let ``test current_thread returns a Thread`` () =
 [<Fact>]
 let ``test enumerate returns list with at least one thread`` () =
     let threads = threading.enumerate ()
-    (threads.Length >= 1) |> equal true
+    (threads.Count >= 1) |> equal true
