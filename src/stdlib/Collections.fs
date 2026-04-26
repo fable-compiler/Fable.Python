@@ -22,33 +22,50 @@ type Counter<'T>() =
     /// Return elements and their counts as key-value pairs
     member _.items() : seq<'T * int> = nativeOnly
 
+    /// Return the elements (keys) of the counter
+    member _.keys() : seq<'T> = nativeOnly
+
+    /// Return the counts (values) of the counter
+    member _.values() : seq<int> = nativeOnly
+
     /// Return an iterator over elements, repeating each as many times as its count.
     /// Elements with counts <= 0 are not included.
     /// See https://docs.python.org/3/library/collections.html#collections.Counter.elements
     member _.elements() : seq<'T> = nativeOnly
 
-    /// Return the n most common elements and their counts (most common first).
-    /// If n is omitted, return all elements in counter order.
+    /// Return all elements and their counts, ordered from most common to least common.
     /// See https://docs.python.org/3/library/collections.html#collections.Counter.most_common
     member _.most_common() : seq<'T * int> = nativeOnly
 
     /// Return the n most common elements and their counts (most common first).
     /// See https://docs.python.org/3/library/collections.html#collections.Counter.most_common
-    [<Emit("$0.most_common(int($1))")>]
     member _.most_common(n: int) : seq<'T * int> = nativeOnly
 
     /// Return the total of all counts (requires Python 3.10+).
     /// See https://docs.python.org/3/library/collections.html#collections.Counter.total
     member _.total() : int = nativeOnly
 
-    /// Add counts from the iterable or mapping; count becomes sum of old and new counts.
+    /// Add counts from the iterable; count becomes sum of old and new counts.
     /// See https://docs.python.org/3/library/collections.html#collections.Counter.update
     member _.update(iterable: 'T seq) : unit = nativeOnly
 
-    /// Subtract counts from the iterable or mapping; count becomes difference.
-    /// Counts can become negative.
+    /// Subtract counts from the iterable; count becomes difference. Counts can become negative.
     /// See https://docs.python.org/3/library/collections.html#collections.Counter.subtract
     member _.subtract(iterable: 'T seq) : unit = nativeOnly
+
+    /// Remove and return the count for key, or raise KeyError if missing.
+    member _.pop(key: 'T) : int = nativeOnly
+
+    /// Remove and return the count for key, or return defaultValue if missing.
+    [<Emit("$0.pop($1, $2)")>]
+    member _.pop(key: 'T, defaultValue: int) : int = nativeOnly
+
+    /// Remove all items
+    member _.clear() : unit = nativeOnly
+
+    /// Check if a key is present in the counter
+    [<Emit("$1 in $0")>]
+    member _.contains(key: 'T) : bool = nativeOnly
 
     /// Return a Counter from a sequence of elements.
     /// See https://docs.python.org/3/library/collections.html#collections.Counter
@@ -62,16 +79,23 @@ type Counter<'T>() =
 /// A dict subclass that calls a factory to supply missing values.
 /// When a key is not found, the factory function (called with no arguments)
 /// is called to produce a new value, which is then stored and returned.
-/// If the factory is not set (None), missing keys raise KeyError as normal.
+///
+/// Use the `withFactory` static method to attach a factory; the empty
+/// constructor produces a defaultdict with no factory (missing keys raise KeyError).
 /// See https://docs.python.org/3/library/collections.html#collections.defaultdict
 [<Import("defaultdict", "collections")>]
-type defaultdict<'TKey, 'TValue>(defaultFactory: unit -> 'TValue) =
+type defaultdict<'TKey, 'TValue>() =
+    /// Create a defaultdict with the given factory for missing keys.
+    /// The factory is invoked with no arguments and must return a new value of type 'TValue.
+    [<Emit("defaultdict($0)")>]
+    static member withFactory(defaultFactory: unit -> 'TValue) : defaultdict<'TKey, 'TValue> = nativeOnly
+
     /// Get or set the value for key; missing keys invoke the factory
     [<Emit("$0[$1]")>]
     member _.Item(key: 'TKey) : 'TValue = nativeOnly
 
     /// Set value for key
-    [<Emit("$0.__setitem__($1, $2)")>]
+    [<Emit("$0[$1] = $2")>]
     member _.set(key: 'TKey, value: 'TValue) : unit = nativeOnly
 
     /// Return key-value pairs
@@ -105,6 +129,9 @@ type defaultdict<'TKey, 'TValue>(defaultFactory: unit -> 'TValue) =
 
     /// Merge another dict into this one
     member _.update(other: System.Collections.Generic.IDictionary<'TKey, 'TValue>) : unit = nativeOnly
+
+    /// Merge an iterable of key-value pairs into this dict
+    member _.update(items: seq<'TKey * 'TValue>) : unit = nativeOnly
 
     /// Remove all items
     member _.clear() : unit = nativeOnly
@@ -160,7 +187,6 @@ type deque<'T>() =
     member _.rotate(n: int) : unit = nativeOnly
 
     /// Count the number of occurrences of value
-    [<Emit("$0.count($1)")>]
     member _.count(value: 'T) : int = nativeOnly
 
     /// Return the position of value (raise ValueError if not found)
@@ -208,7 +234,7 @@ type OrderedDict<'TKey, 'TValue>() =
     member _.Item(key: 'TKey) : 'TValue = nativeOnly
 
     /// Set value for key
-    [<Emit("$0.__setitem__($1, $2)")>]
+    [<Emit("$0[$1] = $2")>]
     member _.set(key: 'TKey, value: 'TValue) : unit = nativeOnly
 
     /// Return key-value pairs in insertion order
@@ -252,6 +278,9 @@ type OrderedDict<'TKey, 'TValue>() =
 
     /// Merge another dict into this one
     member _.update(other: System.Collections.Generic.IDictionary<'TKey, 'TValue>) : unit = nativeOnly
+
+    /// Merge an iterable of key-value pairs into this dict
+    member _.update(items: seq<'TKey * 'TValue>) : unit = nativeOnly
 
     /// Remove all items
     member _.clear() : unit = nativeOnly
