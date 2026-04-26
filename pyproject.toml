@@ -8,6 +8,7 @@ readme = "README.md"
 license = "MIT"
 dependencies = [
     "fable-library==5.0.0",
+    "pyright>=1.1.409",
 ]
 
 [project.urls]
@@ -67,10 +68,16 @@ indent-style = "space"
 line-ending = "auto"
 
 [tool.pyright]
+# Type-check the Fable-generated Python bindings in build/stdlib so the shipped
+# output stays clean for downstream pyright users (see issue #278).
+include = ["build/stdlib"]
 reportMissingTypeStubs = false
 reportMissingImports = false
 reportUnnecessaryTypeIgnoreComment = true
-reportUnusedImport = true
+# Disabled: Fable emits unused `UNIT` imports and single-occurrence TypeVars
+# from F# generics. Those are codegen artifacts, not bindings bugs.
+reportUnusedImport = false
+reportInvalidTypeVarUse = false
 reportUnusedVariable = true
 reportUnnecessaryIsInstance = true
 reportUnnecessaryComparison = true
@@ -83,4 +90,4 @@ reportOverlappingOverload = true
 reportInconsistentConstructor = true
 reportImplicitStringConcatenation = true
 pythonVersion = "3.12"
-typeCheckingMode = "basic"
+typeCheckingMode = "standard"

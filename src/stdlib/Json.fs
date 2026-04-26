@@ -88,7 +88,7 @@ let private slotsToDict (o: obj) : obj = nativeOnly
 let private unionToList (o: obj) (caseName: string) : obj = nativeOnly
 
 [<Emit("getattr(type($0), 'cases', lambda: [])()")>]
-let private getCases (o: obj) : string array = nativeOnly
+let private getCases (o: obj) : ResizeArray<string> = nativeOnly
 
 [<Emit("(_ for _ in ()).throw(TypeError(f'Object of type {type($0).__name__} is not JSON serializable'))")>]
 let private raiseTypeError (o: obj) : obj = nativeOnly
@@ -136,7 +136,7 @@ let fableDefault (o: obj) : obj =
             let tag: int = getattr o "tag" :?> int
 
             let caseName =
-                if tag < cases.Length then
+                if tag < cases.Count then
                     cases.[tag]
                 else
                     "Case" + string tag
