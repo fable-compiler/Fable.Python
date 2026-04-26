@@ -1,11 +1,25 @@
 ---
-last_commit_released: 2f843c7d909456e9e70647e670e49b3283dc2ba5
+last_commit_released: 32691fd015cfd7b101e5c18912487bb800563e68
 name: Fable.Python
 ---
 
 # Changelog
 
 All notable changes to this project will be documented in this file.
+
+## 5.1.0 - 2026-04-26
+
+### 🚀 Features
+
+* *(stdlib)* Add collections module bindings (Counter, defaultdict, deque, OrderedDict) (#272) ([8c11d74](https://github.com/fable-compiler/Fable.Python/commit/8c11d74f034639f7ceedba405443f3b45191f514))
+* *(stdlib)* Add re (regular expressions) module bindings (#273) ([5b16020](https://github.com/fable-compiler/Fable.Python/commit/5b16020174044e1247fc937a6781daad74f31166))
+* *(stdlib)* Add pathlib module bindings (#276) ([0639c9a](https://github.com/fable-compiler/Fable.Python/commit/0639c9aac680cb6d33be2b6aae841f38fa94884a))
+
+### 🐞 Bug Fixes
+
+* *(stdlib)* Align Json.getCases return type with Python output (#279) ([32691fd](https://github.com/fable-compiler/Fable.Python/commit/32691fd015cfd7b101e5c18912487bb800563e68))
+
+<strong><small>[View changes on Github](https://github.com/fable-compiler/Fable.Python/compare/2f843c7d909456e9e70647e670e49b3283dc2ba5..32691fd015cfd7b101e5c18912487bb800563e68)</small></strong>
 
 ## 5.0.0 - 2026-04-21
 
