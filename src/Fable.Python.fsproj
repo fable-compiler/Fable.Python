@@ -28,6 +28,7 @@
     <Compile Include="stdlib/Itertools.fs" />
     <Compile Include="stdlib/Datetime.fs" />
     <Compile Include="stdlib/Functools.fs" />
+    <Compile Include="stdlib/Regex.fs" />
     <Compile Include="stdlib/Queue.fs" />
     <Compile Include="stdlib/String.fs" />
     <Compile Include="stdlib/Sys.fs" />
