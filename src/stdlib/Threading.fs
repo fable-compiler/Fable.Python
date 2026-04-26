@@ -21,7 +21,7 @@ type IExports =
     abstract active_count: unit -> int
     /// Return a list of all Thread objects currently active
     /// See https://docs.python.org/3/library/threading.html#threading.enumerate
-    abstract enumerate: unit -> Thread list
+    abstract enumerate: unit -> ResizeArray<Thread>
     /// Return a new thread-local data object
     /// See https://docs.python.org/3/library/threading.html#threading.local
     abstract local: unit -> obj
@@ -67,6 +67,7 @@ type RLock() =
 [<Import("Event", "threading")>]
 type Event() =
     /// Set the internal flag to true
+    [<Emit("$0.set()")>]
     member _.set() : unit = nativeOnly
     /// Reset the internal flag to false
     member _.clear() : unit = nativeOnly
