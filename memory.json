@@ -1,8 +1,14 @@
 {
-  "last_run": "2026-04-25T03:45:24Z",
-  "last_run_id": "24921799234",
+  "last_run": "2026-04-26T04:07:39Z",
+  "last_run_id": "24947874812",
   "comments_made": {},
   "prs_created": [
+    {
+      "number": "pending",
+      "branch": "repo-assist/bindings-pathlib-2026-04-26",
+      "description": "feat(stdlib): add pathlib module bindings with 36 tests",
+      "status": "open"
+    },
     {
       "number": 275,
       "branch": "repo-assist/eng-justfile-clean-fix-2026-04-25",
@@ -37,6 +43,12 @@
     "status": "open"
   },
   "open_prs": [
+    {
+      "number": "pending",
+      "branch": "repo-assist/bindings-pathlib-2026-04-26",
+      "description": "feat(stdlib): add pathlib module bindings with 36 tests",
+      "status": "open"
+    },
     {
       "number": 275,
       "branch": "repo-assist/eng-justfile-clean-fix-2026-04-25",
@@ -101,5 +113,5 @@
       "status": "merged"
     }
   ],
-  "notes": "10 unlabelled user issues blocked by integrity policy (cannot read). Issue #259 is the CI caching proposal (needs manual PR creation with workflows permission). Latest release: 5.0.0. Future stdlib candidates: functools.partial (needs design), pathlib. re module done in PR #273. collections module done in PR #272. Test improvements for threading/heapq done in PR #274. Justfile fix done in PR #275 (clean/clean-all inconsistency + redundant dotnet build in test recipe). Note: PR #275 number is estimated; verify after run."
+  "notes": "10 unlabelled user issues blocked by integrity policy (cannot read). Issue #259 is the CI caching proposal (needs manual PR creation with workflows permission). Latest release: 5.0.0. Future stdlib candidates: functools.partial (needs design), io, socket. re module done in PR #273. collections module done in PR #272. Test improvements for threading/heapq done in PR #274. Justfile fix done in PR #275 (clean/clean-all inconsistency + redundant dotnet build in test recipe). pathlib module done in branch repo-assist/bindings-pathlib-2026-04-26 (PR number pending)."
 }
