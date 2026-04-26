@@ -24,7 +24,7 @@ module Flags =
 
     /// Case-insensitive matching. Alias for IGNORECASE.
     [<Literal>]
-    let I = 2
+    let I = IGNORECASE
 
     /// Make ^ match at the beginning and $ at the end of each line. Short alias: M.
     /// See https://docs.python.org/3/library/re.html#re.MULTILINE
@@ -33,7 +33,7 @@ module Flags =
 
     /// Make ^ match at the beginning and $ at the end of each line. Alias for MULTILINE.
     [<Literal>]
-    let M = 8
+    let M = MULTILINE
 
     /// Make . match any character including newline. Short alias: S.
     /// See https://docs.python.org/3/library/re.html#re.DOTALL
@@ -42,7 +42,7 @@ module Flags =
 
     /// Make . match any character including newline. Alias for DOTALL.
     [<Literal>]
-    let S = 16
+    let S = DOTALL
 
     /// Restrict \w, \d, \s etc. to ASCII characters only. Short alias: A.
     /// See https://docs.python.org/3/library/re.html#re.ASCII
@@ -51,7 +51,7 @@ module Flags =
 
     /// Restrict \w, \d, \s etc. to ASCII characters only. Alias for ASCII.
     [<Literal>]
-    let A = 256
+    let A = ASCII
 
     /// Make \w, \W etc. locale-dependent (rarely needed). Short alias: L.
     /// See https://docs.python.org/3/library/re.html#re.LOCALE
@@ -60,7 +60,7 @@ module Flags =
 
     /// Make \w, \W etc. locale-dependent. Alias for LOCALE.
     [<Literal>]
-    let L = 4
+    let L = LOCALE
 
     /// Unicode character matching for \w, \W etc. (default in Python 3). Short alias: U.
     /// See https://docs.python.org/3/library/re.html#re.UNICODE
@@ -69,7 +69,7 @@ module Flags =
 
     /// Unicode character matching for \w, \W etc. Alias for UNICODE.
     [<Literal>]
-    let U = 32
+    let U = UNICODE
 
     /// Allow whitespace and comments in the pattern. Short alias: X.
     /// See https://docs.python.org/3/library/re.html#re.VERBOSE
@@ -78,7 +78,7 @@ module Flags =
 
     /// Allow whitespace and comments in the pattern. Alias for VERBOSE.
     [<Literal>]
-    let X = 64
+    let X = VERBOSE
 
 // ============================================================================
 // Match object
@@ -116,7 +116,6 @@ type Match() =
     /// Return the string matched by a named capturing group.
     /// Returns None if the group exists but did not participate in the match.
     /// See https://docs.python.org/3/library/re.html#re.Match.group
-    [<Emit("$0.group($1)")>]
     member _.group(group: string) : string option = nativeOnly
 
     /// Return a tuple of all subgroup strings (groups 1..N).
@@ -154,12 +153,10 @@ type Match() =
     /// Return the start position of a named capturing group.
     /// Returns -1 if the group exists but did not participate in the match.
     /// See https://docs.python.org/3/library/re.html#re.Match.start
-    [<Emit("$0.start($1)")>]
     member _.start(group: string) : int = nativeOnly
 
     /// Return the end position (exclusive) of the whole match in the original string.
     /// See https://docs.python.org/3/library/re.html#re.Match.end
-    [<Emit("$0.end()")>]
     member _.``end``() : int = nativeOnly
 
     /// Return the end position (exclusive) of a numbered capturing group.
@@ -171,7 +168,6 @@ type Match() =
     /// Return the end position (exclusive) of a named capturing group.
     /// Returns -1 if the group exists but did not participate in the match.
     /// See https://docs.python.org/3/library/re.html#re.Match.end
-    [<Emit("$0.end($1)")>]
     member _.``end``(group: string) : int = nativeOnly
 
     /// Return the (start, end) span of the whole match as a tuple.
@@ -187,7 +183,6 @@ type Match() =
     /// Return the (start, end) span of a named capturing group.
     /// Both values are -1 if the group did not participate in the match.
     /// See https://docs.python.org/3/library/re.html#re.Match.span
-    [<Emit("$0.span($1)")>]
     member _.span(group: string) : int * int = nativeOnly
 
     /// Return the string obtained by doing backslash substitution on the template string.
@@ -295,7 +290,6 @@ type IExports =
 
     /// Compile a regular expression pattern with flags into a Pattern object.
     /// See https://docs.python.org/3/library/re.html#re.compile
-    [<Emit("$0.compile($1, $2)")>]
     abstract compile: pattern: string * flags: int -> Pattern
 
     // ========================================================================
@@ -310,7 +304,6 @@ type IExports =
     /// Try to match the pattern at the beginning of string, using the given flags.
     /// Returns None if the pattern does not match.
     /// See https://docs.python.org/3/library/re.html#re.match
-    [<Emit("$0.match($1, $2, $3)")>]
     abstract ``match``: pattern: string * string: string * flags: int -> Match option
 
     /// Scan through string looking for the first location where the pattern produces a match.
@@ -322,7 +315,6 @@ type IExports =
     /// using the given flags.
     /// Returns None if no position in the string matches.
     /// See https://docs.python.org/3/library/re.html#re.search
-    [<Emit("$0.search($1, $2, $3)")>]
     abstract search: pattern: string * string: string * flags: int -> Match option
 
     /// Try to match the pattern against all of the string.
@@ -333,7 +325,6 @@ type IExports =
     /// Try to match the pattern against all of the string, using the given flags.
     /// Returns None if the pattern does not match the entire string.
     /// See https://docs.python.org/3/library/re.html#re.fullmatch
-    [<Emit("$0.fullmatch($1, $2, $3)")>]
     abstract fullmatch: pattern: string * string: string * flags: int -> Match option
 
     // ========================================================================
@@ -347,7 +338,6 @@ type IExports =
 
     /// Return all non-overlapping matches of pattern in string as a list of strings, with flags.
     /// See https://docs.python.org/3/library/re.html#re.findall
-    [<Emit("$0.findall($1, $2, $3)")>]
     abstract findall: pattern: string * string: string * flags: int -> string[]
 
     /// Return an iterator yielding Match objects for all non-overlapping matches of pattern in string.
@@ -357,7 +347,6 @@ type IExports =
     /// Return an iterator yielding Match objects for all non-overlapping matches of pattern in string,
     /// with flags.
     /// See https://docs.python.org/3/library/re.html#re.finditer
-    [<Emit("$0.finditer($1, $2, $3)")>]
     abstract finditer: pattern: string * string: string * flags: int -> Match seq
 
     // ========================================================================
