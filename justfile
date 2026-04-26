@@ -17,20 +17,18 @@ fable := if dev == "true" { "dotnet run --project " + fable_repo / "src/Fable.Cl
 default:
     @just --list
 
-# Clean Fable build output (preserves dotnet obj/bin directories)
+# Clean Fable build output (preserves dotnet obj/bin restore cache for faster incremental builds)
 clean:
     rm -rf {{build_path}}
-    rm -rf {{src_path}}/obj {{src_path}}/bin
-    rm -rf {{test_path}}/obj {{test_path}}/bin
     rm -rf examples/*/build examples/*/obj examples/*/bin
     rm -rf examples/*/src/obj examples/*/src/bin
     rm -rf examples/*/.fable examples/*/src/.fable
     rm -rf .fable
 
-# Deep clean - removes everything including dotnet obj/bin directories
+# Deep clean - removes everything including dotnet obj/bin directories (forces full NuGet restore)
 clean-all: clean
-    rm -rf {{src_path}}/obj {{test_path}}/obj
-    rm -rf {{src_path}}/bin {{test_path}}/bin
+    rm -rf {{src_path}}/obj {{src_path}}/bin
+    rm -rf {{test_path}}/obj {{test_path}}/bin
 
 # Build F# source to Python using Fable
 build: clean
@@ -44,7 +42,6 @@ run: clean
 
 # Run all tests (native .NET and Python)
 test: build
-    dotnet build {{test_path}}
     @echo "Running native .NET tests..."
     dotnet run --project {{test_path}}
     @echo "Compiling and running Python tests..."
@@ -53,7 +50,6 @@ test: build
 
 # Run only native .NET tests
 test-native:
-    dotnet build {{test_path}}
     dotnet run --project {{test_path}}
 
 # Run only Python tests (requires build first)
