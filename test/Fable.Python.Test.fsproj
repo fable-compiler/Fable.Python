@@ -17,6 +17,7 @@
     <Compile Include="TestBuiltins.fs" />
     <Compile Include="TestBuiltinsAttr.fs" />
     <Compile Include="TestHeapq.fs" />
+    <Compile Include="TestCollections.fs" />
     <Compile Include="TestItertools.fs" />
     <Compile Include="TestFunctools.fs" />
     <Compile Include="TestQueue.fs" />
@@ -33,7 +34,8 @@
     <Compile Include="TestTime.fs" />
     <Compile Include="TestString.fs" />
     <Compile Include="TestDatetime.fs" />
-    <Compile Include="TestPathlib.fs" />
+<Compile Include="TestPathlib.fs" />
+    <Compile Include="TestRegex.fs" />
     <Compile Include="TestPydantic.fs" />
     <Compile Include="TestFastAPI.fs" />
     <Compile Include="TestTypes.fs" />
