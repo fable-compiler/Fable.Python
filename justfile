@@ -50,7 +50,6 @@ test: build
 
 # Run only native .NET tests
 test-native:
-    dotnet build {{test_path}}
     dotnet run --project {{test_path}}
 
 # Run only Python tests (requires build first)
