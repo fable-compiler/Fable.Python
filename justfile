@@ -57,6 +57,10 @@ test-python: build
     {{fable}} {{test_path}} --lang Python --outDir {{build_path}}/tests
     uv run pytest {{build_path}}/tests
 
+# Type-check the generated Python bindings with pyright (see issue #278)
+pyright: build
+    uv run pyright
+
 # Create NuGet package with version from CHANGELOG.md
 pack:
     #!/usr/bin/env bash
