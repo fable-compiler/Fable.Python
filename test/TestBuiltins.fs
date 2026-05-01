@@ -1,5 +1,6 @@
 module Fable.Python.Tests.Builtins
 
+open Fable.Core.PyInterop
 open Fable.Python.Testing
 open Fable.Python.Builtins
 open Fable.Python.Os
@@ -65,3 +66,57 @@ let ``test any works`` () =
     builtins.any [ false; false; true ] |> equal true
     builtins.any [ false; false; false ] |> equal false
     builtins.any [] |> equal false
+
+[<Fact>]
+let ``test bool works`` () =
+    builtins.bool 1 |> equal true
+    builtins.bool 0 |> equal false
+    builtins.bool "" |> equal false
+    builtins.bool "x" |> equal true
+
+[<Fact>]
+let ``test dict empty works`` () =
+    let d = builtins.dict ()
+    builtins.len d |> equal 0
+
+[<Fact>]
+let ``test dict from pairs works`` () =
+    let d = builtins.dict [ "a", 1; "b", 2; "c", 3 ]
+    builtins.len d |> equal 3
+    d.["a"] |> equal 1
+    d.["b"] |> equal 2
+    d.["c"] |> equal 3
+
+[<Fact>]
+let ``test list works`` () =
+    let xs = builtins.list (seq { 1..3 })
+    builtins.len xs |> equal 3
+    xs.[0] |> equal 1
+    xs.[2] |> equal 3
+
+[<Fact>]
+let ``test pyInstanceof with type references`` () =
+    // Use emitPyExpr to construct genuinely Python-native values, since F#'s
+    // `int`/`float`/`bool` compile to Fable wrapper classes, not Python primitives.
+    let pyIntVal: obj = emitPyExpr () "42"
+    let pyFloatVal: obj = emitPyExpr () "3.14"
+    let pyBoolVal: obj = emitPyExpr () "True"
+    let pyStrVal: obj = emitPyExpr () "'hello'"
+
+    pyInstanceof pyIntVal pyInt |> equal true
+    pyInstanceof pyFloatVal pyFloat |> equal true
+    pyInstanceof pyBoolVal pyBool |> equal true
+    pyInstanceof pyStrVal pyStr |> equal true
+    pyInstanceof (builtins.dict ()) pyDict |> equal true
+    pyInstanceof (builtins.list (seq { 1..3 })) pyList |> equal true
+
+    // Cross-checks
+    pyInstanceof pyStrVal pyInt |> equal false
+    pyInstanceof (builtins.dict ()) pyList |> equal false
+
+[<Fact>]
+let ``test pyNone is None`` () =
+    // bool(None) is False
+    builtins.bool pyNone |> equal false
+    // None has type NoneType, so isinstance(None, type(None)) holds
+    builtins.isinstance (pyNone, builtins.``type`` pyNone) |> equal true
