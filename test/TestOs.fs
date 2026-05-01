@@ -58,3 +58,48 @@ let ``test os.listdir works`` () =
     let entries = os.listdir "."
     // Current directory should have at least some entries
     entries.Length > 0 |> equal true
+
+[<Fact>]
+let ``test os.path.isabs works`` () =
+    os.path.isabs "/absolute/path" |> equal true
+    os.path.isabs "relative/path" |> equal false
+    os.path.isabs "." |> equal false
+
+[<Fact>]
+let ``test os.path.realpath works`` () =
+    let real = os.path.realpath "."
+    real.StartsWith("/") |> equal true
+    // realpath should not contain symlink components; at minimum equal to abspath for "."
+    real.Length > 0 |> equal true
+
+[<Fact>]
+let ``test os.path.islink works`` () =
+    // "." is never a symlink
+    os.path.islink "." |> equal false
+
+[<Fact>]
+let ``test os.path.getsize works`` () =
+    // The test directory itself has a positive size
+    os.path.getsize "." > 0 |> equal true
+
+[<Fact>]
+let ``test os.getpid works`` () =
+    let pid = os.getpid ()
+    pid > 0 |> equal true
+
+[<Fact>]
+let ``test os.makedirs with exist_ok works`` () =
+    let dir = "/tmp/fable_test_makedirs"
+    os.makedirs (dir, true)
+    os.path.isdir dir |> equal true
+    // Second call must not raise when exist_ok=true
+    os.makedirs (dir, true)
+    os.path.isdir dir |> equal true
+
+[<Fact>]
+let ``test os.walk yields entries`` () =
+    let entries = os.walk "." |> Seq.truncate 1 |> Seq.toList
+    // At minimum one entry (the root ".")
+    entries.Length > 0 |> equal true
+    let _dirpath, _subdirs, _files = entries.[0]
+    true |> equal true
