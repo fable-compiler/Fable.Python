@@ -80,7 +80,7 @@ let ``test os.path.islink works`` () =
 [<Fact>]
 let ``test os.path.getsize works`` () =
     // The test directory itself has a positive size
-    os.path.getsize "." > 0 |> equal true
+    os.path.getsize "." > 0L |> equal true
 
 [<Fact>]
 let ``test os.getpid works`` () =
@@ -88,18 +88,42 @@ let ``test os.getpid works`` () =
     pid > 0 |> equal true
 
 [<Fact>]
+let ``test os.getppid works`` () =
+    let ppid = os.getppid ()
+    ppid > 0 |> equal true
+
+[<Fact>]
 let ``test os.makedirs with exist_ok works`` () =
-    let dir = "/tmp/fable_test_makedirs"
+    let dir = sprintf "/tmp/fable_test_makedirs_%d" (os.getpid ())
     os.makedirs (dir, true)
     os.path.isdir dir |> equal true
     // Second call must not raise when exist_ok=true
     os.makedirs (dir, true)
     os.path.isdir dir |> equal true
+    os.rmdir dir
 
 [<Fact>]
 let ``test os.walk yields entries`` () =
     let entries = os.walk "." |> Seq.truncate 1 |> Seq.toList
-    // At minimum one entry (the root ".")
-    entries.Length > 0 |> equal true
-    let _dirpath, _subdirs, _files = entries.[0]
-    true |> equal true
+    entries.Length |> equal 1
+    let dirpath, subdirs, files = entries.[0]
+    dirpath |> equal "."
+    // The first walk entry's dirnames + filenames should equal listdir of the root
+    let walkAll = Seq.append subdirs files |> Seq.sort |> Seq.toList
+    let listdirAll = os.listdir "." |> Array.sort |> Array.toList
+    walkAll |> equal listdirAll
+
+[<Fact>]
+let ``test os.walk with topdown=false works`` () =
+    let root = sprintf "/tmp/fable_test_walk_%d" (os.getpid ())
+    let nested = os.path.join (root, "nested")
+    os.makedirs (nested, true)
+    let entries = os.walk (root, false) |> Seq.toList
+    // Bottom-up: deepest dir is yielded first, root is yielded last
+    entries.Length |> equal 2
+    let firstDir, _, _ = entries.[0]
+    let lastDir, _, _ = List.last entries
+    firstDir |> equal nested
+    lastDir |> equal root
+    os.rmdir nested
+    os.rmdir root

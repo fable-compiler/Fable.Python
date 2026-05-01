@@ -46,10 +46,6 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-### 🚀 Features
-
-* *(stdlib)* Add `os.makedirs(path, exist_ok)` overload, `os.walk`, `os.getpid`, `os.getppid`, `os.path.isabs`, `os.path.islink`, `os.path.realpath`, `os.path.getsize` to Os module
-
 ### 🐞 Bug Fixes
 
 * Fix `math.factorial` binding: changed signature from `float -> float` to `int -> int` to match Python 3.12+ where float arguments raise `TypeError`. Fixes test to use integer literals.

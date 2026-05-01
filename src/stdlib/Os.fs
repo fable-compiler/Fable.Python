@@ -30,6 +30,12 @@ type IExports =
     /// Return the value of the environment variable key or default if not set
     /// See https://docs.python.org/3/library/os.html#os.getenv
     abstract getenv: key: string * ``default``: string -> string
+    /// Return the current process id.
+    /// See https://docs.python.org/3/library/os.html#os.getpid
+    abstract getpid: unit -> int
+    /// Return the parent process id.
+    /// See https://docs.python.org/3/library/os.html#os.getppid
+    abstract getppid: unit -> int
     /// Send signal sig to the process pid
     /// See https://docs.python.org/3/library/os.html#os.kill
     abstract kill: pid: int * ``sig``: int -> unit
@@ -51,21 +57,6 @@ type IExports =
     /// See https://docs.python.org/3/library/os.html#os.makedirs
     [<Emit("$0.makedirs($1, $2, $3)")>]
     abstract makedirs: path: string * mode: int * exist_ok: bool -> unit
-    /// Return the current process id.
-    /// See https://docs.python.org/3/library/os.html#os.getpid
-    abstract getpid: unit -> int
-    /// Return the parent process id.
-    /// See https://docs.python.org/3/library/os.html#os.getppid
-    abstract getppid: unit -> int
-    /// Walk a directory tree, yielding (dirpath, dirnames, filenames) for each directory.
-    /// When topdown is true (the default) the caller can modify the dirnames list in-place
-    /// to prune the search or impose a specific visiting order.
-    /// See https://docs.python.org/3/library/os.html#os.walk
-    abstract walk: top: string -> seq<string * ResizeArray<string> * ResizeArray<string>>
-    /// Walk a directory tree top-down or bottom-up (topdown=false).
-    /// See https://docs.python.org/3/library/os.html#os.walk
-    [<Emit("$0.walk($1, topdown=$2)")>]
-    abstract walk: top: string * topdown: bool -> seq<string * ResizeArray<string> * ResizeArray<string>>
     /// Set the environment variable named key to the string value
     /// See https://docs.python.org/3/library/os.html#os.putenv
     abstract putenv: key: string * value: string -> unit
@@ -81,6 +72,15 @@ type IExports =
     /// Remove (delete) the directory path
     /// See https://docs.python.org/3/library/os.html#os.rmdir
     abstract rmdir: path: string -> unit
+    /// Walk a directory tree, yielding (dirpath, dirnames, filenames) for each directory.
+    /// When topdown is true (the default) the caller can modify the dirnames list in-place
+    /// to prune the search or impose a specific visiting order.
+    /// See https://docs.python.org/3/library/os.html#os.walk
+    abstract walk: top: string -> seq<string * ResizeArray<string> * ResizeArray<string>>
+    /// Walk a directory tree top-down or bottom-up (topdown=false).
+    /// See https://docs.python.org/3/library/os.html#os.walk
+    [<Emit("$0.walk($1, topdown=$2)")>]
+    abstract walk: top: string * topdown: bool -> seq<string * ResizeArray<string> * ResizeArray<string>>
     /// Test whether a path exists
     /// See https://docs.python.org/3/library/os.path.html#os.path.exists
     abstract path: PathModule
@@ -128,7 +128,7 @@ and [<Erase>] PathModule =
     abstract realpath: path: string -> string
     /// Return the size, in bytes, of path
     /// See https://docs.python.org/3/library/os.path.html#os.path.getsize
-    abstract getsize: path: string -> int
+    abstract getsize: path: string -> int64
 
 
 /// Miscellaneous operating system interfaces
