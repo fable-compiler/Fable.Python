@@ -47,22 +47,32 @@ fable --lang Python MyProject.fsproj
 
 ### Python Standard Library
 
-|         Module          |                 Description                 |
-| ----------------------- | ------------------------------------------- |
-| `Fable.Python.Builtins` | Built-in functions (open, print, len, etc.) |
-| `Fable.Python.Json`     | JSON serialization with Fable type support  |
-| `Fable.Python.Os`       | Operating system interfaces                 |
-| `Fable.Python.Sys`      | System-specific parameters                  |
-| `Fable.Python.Math`     | Mathematical functions                      |
-| `Fable.Python.Random`   | Random number generation                    |
-| `Fable.Python.Logging`  | Logging facilities                          |
-| `Fable.Python.Time`     | Time-related functions                      |
-| `Fable.Python.String`   | String operations                           |
-| `Fable.Python.Base64`   | Base64 encoding/decoding                    |
-| `Fable.Python.Queue`    | Queue data structures                       |
-| `Fable.Python.Ast`      | Abstract Syntax Tree                        |
-| `Fable.Python.AsyncIO`  | Async programming (Events, Futures, Tasks)  |
-| `Fable.Python.TkInter`  | GUI toolkit                                 |
+|           Module            |                 Description                 |
+| --------------------------- | ------------------------------------------- |
+| `Fable.Python.Builtins`     | Built-in functions (open, print, len, etc.) |
+| `Fable.Python.Json`         | JSON serialization with Fable type support  |
+| `Fable.Python.Os`           | Operating system interfaces                 |
+| `Fable.Python.Sys`          | System-specific parameters                  |
+| `Fable.Python.Math`         | Mathematical functions                      |
+| `Fable.Python.Random`       | Random number generation                    |
+| `Fable.Python.Logging`      | Logging facilities                          |
+| `Fable.Python.Time`         | Time-related functions                      |
+| `Fable.Python.Datetime`     | Date and time types (date, time, datetime)  |
+| `Fable.Python.String`       | String operations                           |
+| `Fable.Python.Base64`       | Base64 encoding/decoding                    |
+| `Fable.Python.Html`         | HTML escaping/unescaping                    |
+| `Fable.Python.Queue`        | Queue data structures                       |
+| `Fable.Python.Heapq`        | Heap queue (priority queue) operations      |
+| `Fable.Python.Threading`    | Threads, locks, events, semaphores          |
+| `Fable.Python.Itertools`    | Efficient looping constructs                |
+| `Fable.Python.Functools`    | Higher-order functions (reduce, lru_cache)  |
+| `Fable.Python.Collections`  | Counter, defaultdict, deque, OrderedDict    |
+| `Fable.Python.Regex`        | Regular expression matching                 |
+| `Fable.Python.Pathlib`      | Object-oriented filesystem paths            |
+| `Fable.Python.Ast`          | Abstract Syntax Tree                        |
+| `Fable.Python.AsyncIO`      | Async programming (Events, Futures, Tasks)  |
+| `Fable.Python.Traceback`    | Stack trace utilities                       |
+| `Fable.Python.TkInter`      | GUI toolkit                                 |
 
 ### Web Frameworks
 
