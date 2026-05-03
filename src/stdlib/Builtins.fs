@@ -186,11 +186,12 @@ type IExports =
 
     /// Make an iterator that computes the function using arguments from each
     /// of the iterables.  Stops when the shortest iterable is exhausted.
-    abstract map: ('T1 * 'T2 -> 'T3) * IEnumerable<'T1> * IEnumerable<'T2> -> IEnumerable<'T3>
+    abstract map: System.Func<'T1, 'T2, 'T3> * IEnumerable<'T1> * IEnumerable<'T2> -> IEnumerable<'T3>
 
     /// Make an iterator that computes the function using arguments from each
     /// of the iterables.  Stops when the shortest iterable is exhausted.
-    abstract map: ('T1 * 'T2 * 'T3 -> 'T4) * IEnumerable<'T1> * IEnumerable<'T2> * IEnumerable<'T3> -> IEnumerable<'T4>
+    abstract map:
+        System.Func<'T1, 'T2, 'T3, 'T4> * IEnumerable<'T1> * IEnumerable<'T2> * IEnumerable<'T3> -> IEnumerable<'T4>
 
     /// Return the Unicode code point for a one-character string.
     abstract ord: char -> int
