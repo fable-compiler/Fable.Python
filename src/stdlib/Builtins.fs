@@ -200,10 +200,19 @@ type IExports =
     abstract int: obj -> int
     /// Object to float
     abstract float: obj -> float
+    /// Object to bool
+    abstract bool: obj -> bool
     /// Convert to bytes
     abstract bytes: byte[] -> byte[]
     /// Convert string to bytes with encoding
     abstract bytes: string * encoding: string -> byte[]
+
+    /// Create a new empty dictionary.
+    abstract dict: unit -> Dictionary<string, obj>
+    /// Create a dictionary from an iterable of key/value pairs.
+    abstract dict: IEnumerable<string * 'V> -> Dictionary<string, 'V>
+    /// Create a list from an iterable.
+    abstract list: IEnumerable<'T> -> ResizeArray<'T>
 
     /// Return the largest item in an iterable or the largest of two or more arguments.
     abstract max: 'T * 'T -> 'T
@@ -348,6 +357,55 @@ type SystemError() =
 
 [<Emit("__name__")>]
 let __name__: string = nativeOnly
+
+// ============================================================================
+// Python type references
+//
+// These expose Python's built-in types as values, primarily for use with
+// `Fable.Core.PyInterop.pyInstanceof`. F# names are prefixed with `py` to
+// avoid colliding with F#/.NET built-in types.
+// ============================================================================
+
+/// Reference to Python's `int` type.
+[<Emit("int")>]
+let pyInt: obj = nativeOnly
+
+/// Reference to Python's `float` type.
+[<Emit("float")>]
+let pyFloat: obj = nativeOnly
+
+/// Reference to Python's `bool` type.
+[<Emit("bool")>]
+let pyBool: obj = nativeOnly
+
+/// Reference to Python's `str` type.
+[<Emit("str")>]
+let pyStr: obj = nativeOnly
+
+/// Reference to Python's `bytes` type.
+[<Emit("bytes")>]
+let pyBytes: obj = nativeOnly
+
+/// Reference to Python's `list` type.
+[<Emit("list")>]
+let pyList: obj = nativeOnly
+
+/// Reference to Python's `dict` type.
+[<Emit("dict")>]
+let pyDict: obj = nativeOnly
+
+/// Reference to Python's `tuple` type.
+[<Emit("tuple")>]
+let pyTuple: obj = nativeOnly
+
+/// Reference to Python's `set` type.
+[<Emit("set")>]
+let pySet: obj = nativeOnly
+
+/// Python's `None` singleton, typed as `obj` for use as a sentinel
+/// (e.g. JSON null) and in interop sites that need an explicit None value.
+[<Emit("None")>]
+let pyNone: obj = nativeOnly
 
 /// Python print function. Takes a single argument, so can be used with e.g string interpolation.
 let print obj = builtins.print obj
