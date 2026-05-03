@@ -1,8 +1,8 @@
 {
-  "last_run": "2026-05-02T04:04:17Z",
-  "last_run_id": "25243299727",
+  "last_run": "2026-05-03T04:33:51Z",
+  "last_run_id": "25269919463",
   "comments_made": {},
-  "prs_created": [],
+  "prs_created": ["repo-assist/tests-builtins-coverage-2026-05-03"],
   "issues_labelled": [290],
   "backlog_cursor": 0,
   "monthly_activity_issue": {
@@ -25,6 +25,13 @@
       "description": "feat(stdlib): expose Python type references and dict/list constructors in Builtins (closes #290)",
       "status": "open",
       "author": "dbrattli"
+    },
+    {
+      "number": "pending",
+      "branch": "repo-assist/tests-builtins-coverage-2026-05-03",
+      "description": "test(stdlib): add 15 tests for untested builtins (abs, chr/ord, len, map, type conversions, isinstance, bytes)",
+      "status": "created-this-run",
+      "author": "repo-assist"
     }
   ],
   "open_issues": [
@@ -42,11 +49,9 @@
     }
   ],
   "merged_prs": [
-    { "number": 291, "description": "feat(stdlib): expose Python type refs and dict/list constructors", "status": "pending_merge" },
-    { "number": 289, "description": "chore: release 5.2.0", "status": "pending_merge" },
     { "number": 287, "description": "feat(stdlib): add os.walk, makedirs(exist_ok), getpid, getppid and os.path improvements", "status": "merged" },
     { "number": 286, "description": "docs: update stdlib bindings table in README", "status": "merged" },
     { "number": 276, "description": "feat(stdlib): add pathlib module bindings", "status": "merged" }
   ],
-  "notes": "10 unlabelled user issues blocked by integrity policy (cannot read). Issue #259 is the CI caching proposal (needs manual PR creation with workflows permission). Latest release: 5.1.0 (April 26, 2026); 5.2.0 release PR #289 pending. dbrattli filed #290 (Builtins type refs) and created PR #291 to address it. Labelled #290 with enhancement/bindings/stdlib. Future stdlib candidates: functools.partial (needs design), io, socket."
+  "notes": "10 unlabelled user issues blocked by integrity policy (cannot read). Issue #259 is the CI caching proposal (needs manual PR creation with workflows permission). Latest release: 5.1.0 (April 26, 2026); 5.2.0 release PR #289 pending. dbrattli filed #290 (Builtins type refs) and created PR #291 to address it. This run created PR (branch: repo-assist/tests-builtins-coverage-2026-05-03) adding 15 tests for untested builtins. PR #291 adds bool/dict/list/pyInstanceof/pyNone - my tests (abs/chr/ord/len/map/str/int/float/isinstance/type/bytes) are complementary and don't conflict. Future stdlib candidates: functools.partial (needs design), io, socket."
 }
