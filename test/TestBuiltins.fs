@@ -163,6 +163,18 @@ let ``test map with single iterable works`` () =
     |> equal [ 2; 4; 6 ]
 
 [<Fact>]
+let ``test map with two iterables works`` () =
+    builtins.map ((fun a b -> a + b), [ 1; 2; 3 ], [ 10; 20; 30 ])
+    |> Seq.toList
+    |> equal [ 11; 22; 33 ]
+
+[<Fact>]
+let ``test map with three iterables works`` () =
+    builtins.map ((fun a b c -> a + b + c), [ 1; 2; 3 ], [ 10; 20; 30 ], [ 100; 200; 300 ])
+    |> Seq.toList
+    |> equal [ 111; 222; 333 ]
+
+[<Fact>]
 let ``test str conversion works`` () =
     builtins.str 42 |> equal "42"
     builtins.str true |> equal "True"
