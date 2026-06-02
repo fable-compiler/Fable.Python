@@ -8,7 +8,7 @@ readme = "README.md"
 license = "MIT"
 dependencies = [
     "fable-library==5.1.0",
-    "pyright>=1.1.409",
+    "pyright>=1.1.410",
 ]
 
 [project.urls]
