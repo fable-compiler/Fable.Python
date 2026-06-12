@@ -75,12 +75,12 @@ type Path() =
     /// This mirrors Python's ``path / "child"`` operator.
     /// See https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.__truediv__
     [<Emit("$0 / $1")>]
-    static member (/) (left: Path, right: string) : Path = nativeOnly
+    static member (/)(left: Path, right: string) : Path = nativeOnly
 
     /// Return a new Path by appending another Path.
     /// See https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.__truediv__
     [<Emit("$0 / $1")>]
-    static member (/) (left: Path, right: Path) : Path = nativeOnly
+    static member (/)(left: Path, right: Path) : Path = nativeOnly
 
     /// Join one or more path segments to this path and return the result.
     /// See https://docs.python.org/3/library/pathlib.html#pathlib.PurePath.joinpath

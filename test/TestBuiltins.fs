@@ -158,9 +158,7 @@ let ``test len with string works`` () =
 
 [<Fact>]
 let ``test map with single iterable works`` () =
-    builtins.map ((fun x -> x * 2), [ 1; 2; 3 ])
-    |> Seq.toList
-    |> equal [ 2; 4; 6 ]
+    builtins.map ((fun x -> x * 2), [ 1; 2; 3 ]) |> Seq.toList |> equal [ 2; 4; 6 ]
 
 [<Fact>]
 let ``test map with two iterables works`` () =
