@@ -170,8 +170,7 @@ just setup
 ```sh
 just              # Show all available commands
 just build        # Build F# to Python
-just test         # Run all tests (native .NET and Python)
-just test-python  # Run only Python tests
+just test         # Run tests (compile F# to Python and run with pytest)
 just format       # Format code with Fantomas
 just pack         # Create NuGet package
 just clean        # Clean build artifacts

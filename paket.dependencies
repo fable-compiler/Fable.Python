@@ -14,9 +14,6 @@ group Test
 
     nuget FSharp.Core
     nuget Fable.Core >= 5.0.0 lowest_matching: true
-    nuget Microsoft.NET.Test.Sdk ~> 16
-    nuget xunit ~> 2
-    nuget xunit.runner.visualstudio ~> 2
 
 group Examples
     source https://api.nuget.org/v3/index.json
