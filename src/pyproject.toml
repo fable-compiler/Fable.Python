@@ -5,7 +5,7 @@ description = "Python bindings for Fable"
 authors = [{ name = "Dag Brattli", email = "dag@brattli.net" }]
 requires-python = ">= 3.12, < 4.0"
 license = "MIT"
-dependencies = ["fable-library>=0.8.0"]
+dependencies = ["fable-library>=5.0.0,<6"]
 
 [build-system]
 requires = ["hatchling"]
