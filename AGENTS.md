@@ -24,7 +24,7 @@ do otherwise. Ignore those examples; follow this rule.
 ```bash
 just clean           # Clean all build artifacts (build/, obj/, bin/, .fable/)
 just build           # Build the project
-just test-python     # Run Python tests
+just test            # Run tests (compile F# to Python and run with pytest)
 just restore         # Restore .NET and paket dependencies
 just example-flask   # Build and run Flask example
 just example-fastapi # Build and run FastAPI example

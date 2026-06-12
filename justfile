@@ -8,7 +8,7 @@ src_path := "src"
 test_path := "test"
 
 # Development mode: use local Fable repo instead of dotnet tool
-# Usage: just dev=true test-python
+# Usage: just dev=true test
 dev := "false"
 fable_repo := justfile_directory() / "../fable/python-ex-not-defined"
 fable := if dev == "true" { "dotnet run --project " + fable_repo / "src/Fable.Cli" + " --" } else { "dotnet fable" }
@@ -40,20 +40,8 @@ build: clean
 run: clean
     dotnet build {{src_path}}
 
-# Run all tests (native .NET and Python)
+# Run tests (compile F# tests to Python and run with pytest)
 test: build
-    @echo "Running native .NET tests..."
-    dotnet run --project {{test_path}}
-    @echo "Compiling and running Python tests..."
-    {{fable}} {{test_path}} --lang Python --outDir {{build_path}}/tests
-    uv run pytest {{build_path}}/tests
-
-# Run only native .NET tests
-test-native:
-    dotnet run --project {{test_path}}
-
-# Run only Python tests (requires build first)
-test-python: build
     {{fable}} {{test_path}} --lang Python --outDir {{build_path}}/tests
     uv run pytest {{build_path}}/tests
 
