@@ -1,11 +1,24 @@
 ---
-last_commit_released: 32691fd015cfd7b101e5c18912487bb800563e68
+last_commit_released: c888574c35798b789ff1a82f1b87a6c2829c06ce
 name: Fable.Python
 ---
 
 # Changelog
 
 All notable changes to this project will be documented in this file.
+
+## 5.2.0 - 2026-06-12
+
+### 🚀 Features
+
+* *(stdlib)* Add os.walk, makedirs(exist_ok), getpid, getppid and os.path improvements (#287) ([09cb36b](https://github.com/fable-compiler/Fable.Python/commit/09cb36b0d6d19fdae667bb9daf86f47580f5a89d))
+* *(stdlib)* Expose Python type references and dict/list constructors in Builtins (#291) ([05f2bea](https://github.com/fable-compiler/Fable.Python/commit/05f2bea2c2a274353ca762d010580ee3e0a197a6))
+
+### 🐞 Bug Fixes
+
+* *(stdlib)* Builtins.map multi-iterable binding + add coverage for untested builtins (#292) ([663c82a](https://github.com/fable-compiler/Fable.Python/commit/663c82a5e491e9f135de8c618ced8308ad9054fd))
+
+<strong><small>[View changes on Github](https://github.com/fable-compiler/Fable.Python/compare/32691fd015cfd7b101e5c18912487bb800563e68..c888574c35798b789ff1a82f1b87a6c2829c06ce)</small></strong>
 
 ## 5.1.0 - 2026-04-26
 
