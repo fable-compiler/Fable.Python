@@ -69,6 +69,7 @@ type Event() =
     /// Set the internal flag to true
     [<Emit("$0.set()")>]
     member _.set() : unit = nativeOnly
+
     /// Reset the internal flag to false
     member _.clear() : unit = nativeOnly
     /// Return true if and only if the internal flag is true

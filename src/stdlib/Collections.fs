@@ -162,7 +162,7 @@ type deque<'T>() =
     member _.Item(index: int) : 'T = nativeOnly
 
     /// Maximum length of the deque, or None if unbounded
-    member _.maxlen : int option = nativeOnly
+    member _.maxlen: int option = nativeOnly
 
     /// Add item to the right end
     member _.append(item: 'T) : unit = nativeOnly

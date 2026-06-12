@@ -48,15 +48,18 @@ type IExports =
     /// Recursive directory creation function
     /// See https://docs.python.org/3/library/os.html#os.makedirs
     abstract makedirs: path: string -> unit
+
     /// Recursive directory creation, creating parent directories as needed.
     /// Raises FileExistsError if the directory already exists and exist_ok is false.
     /// See https://docs.python.org/3/library/os.html#os.makedirs
     [<Emit("$0.makedirs($1, exist_ok=$2)")>]
     abstract makedirs: path: string * exist_ok: bool -> unit
+
     /// Recursive directory creation with explicit mode and exist_ok flag.
     /// See https://docs.python.org/3/library/os.html#os.makedirs
     [<Emit("$0.makedirs($1, $2, $3)")>]
     abstract makedirs: path: string * mode: int * exist_ok: bool -> unit
+
     /// Set the environment variable named key to the string value
     /// See https://docs.python.org/3/library/os.html#os.putenv
     abstract putenv: key: string * value: string -> unit
@@ -77,10 +80,12 @@ type IExports =
     /// to prune the search or impose a specific visiting order.
     /// See https://docs.python.org/3/library/os.html#os.walk
     abstract walk: top: string -> seq<string * ResizeArray<string> * ResizeArray<string>>
+
     /// Walk a directory tree top-down or bottom-up (topdown=false).
     /// See https://docs.python.org/3/library/os.html#os.walk
     [<Emit("$0.walk($1, topdown=$2)")>]
     abstract walk: top: string * topdown: bool -> seq<string * ResizeArray<string> * ResizeArray<string>>
+
     /// Test whether a path exists
     /// See https://docs.python.org/3/library/os.path.html#os.path.exists
     abstract path: PathModule

@@ -161,8 +161,7 @@ let ``test Path is_relative_to false`` () =
 // ============================================================================
 
 [<Fact>]
-let ``test Path exists true for cwd`` () =
-    Path.cwd().exists () |> equal true
+let ``test Path exists true for cwd`` () = Path.cwd().exists () |> equal true
 
 [<Fact>]
 let ``test Path exists false for nonexistent`` () =
@@ -170,12 +169,10 @@ let ``test Path exists false for nonexistent`` () =
     p.exists () |> equal false
 
 [<Fact>]
-let ``test Path is_dir true for cwd`` () =
-    Path.cwd().is_dir () |> equal true
+let ``test Path is_dir true for cwd`` () = Path.cwd().is_dir () |> equal true
 
 [<Fact>]
-let ``test Path is_file false for cwd`` () =
-    Path.cwd().is_file () |> equal false
+let ``test Path is_file false for cwd`` () = Path.cwd().is_file () |> equal false
 
 [<Fact>]
 let ``test Path resolve returns absolute`` () =

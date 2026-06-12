@@ -79,7 +79,10 @@ let ``test match numbered group`` () =
 
 [<Fact>]
 let ``test match named group`` () =
-    let m = re.``match`` ("(?P<first>[a-z]+) (?P<second>[a-z]+)", "hello world") |> Option.get
+    let m =
+        re.``match`` ("(?P<first>[a-z]+) (?P<second>[a-z]+)", "hello world")
+        |> Option.get
+
     m.group "first" |> equal (Some "hello")
     m.group "second" |> equal (Some "world")
 
@@ -93,7 +96,10 @@ let ``test match groups returns all subgroups`` () =
 
 [<Fact>]
 let ``test match groupdict returns named groups`` () =
-    let m = re.``match`` ("(?P<first>[a-z]+) (?P<second>[a-z]+)", "hello world") |> Option.get
+    let m =
+        re.``match`` ("(?P<first>[a-z]+) (?P<second>[a-z]+)", "hello world")
+        |> Option.get
+
     let d = m.groupdict ()
     d.["first"] |> equal (Some "hello")
     d.["second"] |> equal (Some "world")
@@ -221,7 +227,9 @@ let ``test pattern finditer works`` () =
 [<Fact>]
 let ``test pattern sub works`` () =
     let pat = re.compile "[0-9]+"
-    pat.sub ("N", "there are 3 cats and 42 dogs") |> equal "there are N cats and N dogs"
+
+    pat.sub ("N", "there are 3 cats and 42 dogs")
+    |> equal "there are N cats and N dogs"
 
 [<Fact>]
 let ``test pattern subn works`` () =
