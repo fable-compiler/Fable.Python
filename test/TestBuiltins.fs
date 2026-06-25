@@ -21,6 +21,38 @@ let ``test write works`` () =
     os.remove tempFile
 
 [<Fact>]
+let ``test TextIOWrapper can be enumerated`` () =
+    let tempFile = os.path.join (os.path.expanduser "~", ".fable_test_iter.txt")
+    let writer = builtins.``open`` (tempFile, OpenTextMode.Write)
+    writer.write "a\nb\nc\n" |> ignore
+    writer.Dispose()
+
+    let lines = ResizeArray<string>()
+    let reader = builtins.``open`` (tempFile, OpenTextMode.Read)
+
+    for line in reader do
+        lines.Add(line.Trim())
+
+    reader.Dispose()
+    os.remove tempFile
+
+    lines |> List.ofSeq |> equal [ "a"; "b"; "c" ]
+
+[<Fact>]
+let ``test readline without argument works`` () =
+    let tempFile = os.path.join (os.path.expanduser "~", ".fable_test_readline.txt")
+    let writer = builtins.``open`` (tempFile, OpenTextMode.Write)
+    writer.write "first\nsecond\n" |> ignore
+    writer.Dispose()
+
+    let reader = builtins.``open`` (tempFile, OpenTextMode.Read)
+    let line = reader.readline ()
+    reader.Dispose()
+    os.remove tempFile
+
+    line.Trim() |> equal "first"
+
+[<Fact>]
 let ``test max with two arguments works`` () =
     builtins.max (3, 5) |> equal 5
     builtins.max (10, 2) |> equal 10
