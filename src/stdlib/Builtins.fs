@@ -12,13 +12,16 @@ type TextIOBase =
     abstract read: __size: int -> string
     abstract write: __s: string -> int
     abstract writelines: __lines: string seq -> unit
+    abstract readline: unit -> string
     abstract readline: __size: int -> string
+    abstract readlines: unit -> string list
     abstract readlines: __hint: int -> string list
     abstract tell: unit -> int
 
 type TextIOWrapper =
     inherit IDisposable
     inherit TextIOBase
+    inherit IEnumerable<string>
 
 module OpenTextMode =
     [<Literal>]
