@@ -32,13 +32,45 @@ type IAsyncContextManager<'T> =
 [<RequireQualifiedAccess>]
 module AsyncContextManager =
 
+    /// Acquire the resource, run the body, and await `__aexit__` exactly once.
+    /// Returns `Ok result` when the body succeeds, or `Error (error, suppress)`
+    /// when it raises — where `suppress` is the truthy/falsy value `__aexit__`
+    /// returned for that error.
+    ///
+    /// The body's outcome is captured in an inner `task` so that `__aexit__` is
+    /// awaited *outside* the `try`. Awaiting the success-path `__aexit__` inside
+    /// the `try` would route an exception it raises into the error branch and
+    /// call `__aexit__` a second time — Python's `async with` never does this.
+    let private run (manager: IAsyncContextManager<'T>) (body: 'T -> Task<'U>) : Task<Result<'U, exn * bool>> =
+        task {
+            let! resource = manager.AEnter()
+
+            let! outcome =
+                task {
+                    try
+                        let! result = body resource
+                        return Ok result
+                    with error ->
+                        return Error error
+                }
+
+            match outcome with
+            | Ok result ->
+                let! _ = manager.AExit()
+                return Ok result
+            | Error error ->
+                let! suppress = manager.AExit(error)
+                return Error(error, suppress)
+        }
+
     /// Run the body within a Python asynchronous context manager, mirroring
     /// Python's `async with manager as resource: ...`.
     ///
     /// `__aenter__()` is awaited to acquire the resource, `body` is run with it,
     /// and `__aexit__(...)` is awaited afterwards on both the success and error
-    /// paths. If the body raises and `__aexit__` returns a truthy value the
-    /// exception is suppressed (as `async with` does); otherwise it is re-raised.
+    /// paths. If the body raises, the exception is **always re-raised** after
+    /// `__aexit__` runs — a truthy `__aexit__` return is ignored so the result
+    /// type stays a plain `'U`. Use `tryUsing` if you need to honor suppression.
     ///
     /// ```fsharp
     /// task {
@@ -50,17 +82,28 @@ module AsyncContextManager =
     /// ```
     let using (manager: IAsyncContextManager<'T>) (body: 'T -> Task<'U>) : Task<'U> =
         task {
-            let! resource = manager.AEnter()
+            let! outcome = run manager body
 
-            try
-                let! result = body resource
-                let! _ = manager.AExit()
-                return result
-            with error ->
-                let! suppress = manager.AExit(error)
+            match outcome with
+            | Ok result -> return result
+            | Error(error, _) -> return raise error
+        }
 
+    /// Like `using`, but honors `__aexit__`'s suppression signal — matching the
+    /// full `async with` contract.
+    ///
+    /// Returns `Some result` when the body succeeds. If the body raises and
+    /// `__aexit__` returns a truthy value (the exception is handled), returns
+    /// `None`; otherwise the exception is re-raised.
+    let tryUsing (manager: IAsyncContextManager<'T>) (body: 'T -> Task<'U>) : Task<'U option> =
+        task {
+            let! outcome = run manager body
+
+            match outcome with
+            | Ok result -> return Some result
+            | Error(error, suppress) ->
                 if suppress then
-                    return Unchecked.defaultof<'U>
+                    return None
                 else
                     return raise error
         }
