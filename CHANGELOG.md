@@ -1,11 +1,19 @@
 ---
-last_commit_released: c888574c35798b789ff1a82f1b87a6c2829c06ce
+last_commit_released: 8c7cc9074ec0026e18b8b62756d1bd40fc1dd599
 name: Fable.Python
 ---
 
 # Changelog
 
 All notable changes to this project will be documented in this file.
+
+## 5.3.0 - 2026-06-25
+
+### 🚀 Features
+
+* *(asyncio)* Support Python async context managers (#329) ([8c7cc90](https://github.com/fable-compiler/Fable.Python/commit/8c7cc9074ec0026e18b8b62756d1bd40fc1dd599))
+
+<strong><small>[View changes on Github](https://github.com/fable-compiler/Fable.Python/compare/c888574c35798b789ff1a82f1b87a6c2829c06ce..8c7cc9074ec0026e18b8b62756d1bd40fc1dd599)</small></strong>
 
 ## 5.2.0 - 2026-06-12
 
