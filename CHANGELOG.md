@@ -1,11 +1,19 @@
 ---
-last_commit_released: 8c7cc9074ec0026e18b8b62756d1bd40fc1dd599
+last_commit_released: 88df49c83d24b77a884686dd5956e174bdc265f8
 name: Fable.Python
 ---
 
 # Changelog
 
 All notable changes to this project will be documented in this file.
+
+## 5.4.0 - 2026-07-09
+
+### 🚀 Features
+
+* *(builtins)* Make TextIOWrapper enumerable and readline arg optional (#331) ([2cdb42e](https://github.com/fable-compiler/Fable.Python/commit/2cdb42e33bb047d675cd8e5d0f783d126d73e6f3))
+
+<strong><small>[View changes on Github](https://github.com/fable-compiler/Fable.Python/compare/8c7cc9074ec0026e18b8b62756d1bd40fc1dd599..88df49c83d24b77a884686dd5956e174bdc265f8)</small></strong>
 
 ## 5.3.0 - 2026-06-25
 
