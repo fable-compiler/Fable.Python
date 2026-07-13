@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    SPIKE: Scriptorium (Nib assertions + Quill runner) compiled to Python via Fable.Python.
+
+    Scriptorium ships explicit FABLE_COMPILER_PYTHON support, so its sources compile
+    straight to CPython. We reference the local checkout (../../../Scriptorium) directly so
+    the spike tracks the exact source, independent of NuGet publish timing.
+
+    Compile + run: see spike/scriptorium/README.md
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Main.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Quill transitively drags in Nib, Ink and Parchment. -->
+    <ProjectReference Include="../../../Scriptorium/src/Scriptorium.Quill/Scriptorium.Quill.fsproj" />
+    <!-- Reference the actual Fable.Python bindings so we test them with Scriptorium. -->
+    <ProjectReference Include="../../src/Fable.Python.fsproj" />
+  </ItemGroup>
+
+</Project>

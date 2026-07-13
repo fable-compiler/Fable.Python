@@ -49,6 +49,10 @@ test: build
 pyright: build
     uv run pyright
 
+# SPIKE: run the Scriptorium (Nib + Quill) test suite compiled to Python
+spike-scriptorium:
+    {{fable}} spike/scriptorium --lang python -o spike/scriptorium/build --run uv run python spike/scriptorium/build/main.py
+
 # Create NuGet package with version from CHANGELOG.md
 pack:
     #!/usr/bin/env bash
