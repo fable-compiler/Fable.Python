@@ -20,7 +20,7 @@ dev = [
     "ruff>=0.15.21",
     "pydantic>=2.13.4",
     "httpx>=0.28.1",
-    "fastapi>=0.139.0",
+    "fastapi>=0.139.2",
 ]
 
 # Example dependency groups
@@ -31,7 +31,7 @@ django = [
     "Django>=4.2,<5",
 ]
 fastapi = [
-    "fastapi>=0.139.0",
+    "fastapi>=0.139.2",
     "pydantic>=2.13.4",
     "uvicorn[standard]>=0.51.0",
 ]
