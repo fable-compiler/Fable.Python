@@ -7,7 +7,7 @@ requires-python = ">= 3.12, < 4"
 readme = "README.md"
 license = "MIT"
 dependencies = [
-    "fable-library==5.8.0",
+    "fable-library==5.11.0",
     "pyright>=1.1.411",
 ]
 
