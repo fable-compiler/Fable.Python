@@ -1,0 +1,14 @@
+name: Paketabot
+
+on:
+  schedule:
+    - cron: "0 0 * * 0"
+  workflow_dispatch:
+
+jobs:
+  update:
+    uses: cardamomcode/paketabot/.github/workflows/paketabot.yml@v1.0.0
+    permissions:
+      contents: read
+    secrets:
+      paketabot_token: ${{ secrets.PAKETABOT_TOKEN }}
