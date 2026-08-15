@@ -17,7 +17,7 @@ NUGET
       FSharp.Core (>= 4.7)
     FSharp.Control.AsyncRx (1.6.7)
       FSharp.Core (>= 6.0.6)
-    FSharp.Core (11.0.100)
+    FSharp.Core (10.1.400)
     Zanaptak.TypedCssClasses (1.0)
       FSharp.Core (>= 4.3.4)
 
@@ -28,4 +28,4 @@ NUGET
   remote: https://api.nuget.org/v3/index.json
     Fable.Core (5.0)
       FSharp.Core (>= 4.7.2)
-    FSharp.Core (11.0.100)
+    FSharp.Core (10.1.400)
