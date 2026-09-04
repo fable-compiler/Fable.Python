@@ -6,9 +6,9 @@ open Fable.Python.Fable.Types
 // Test typeName function
 
 [<Fact>]
-let ``test typeName returns Int32 for int`` () =
+let ``test typeName returns int for int`` () =
     let value = 42
-    typeName value |> equal "Int32"
+    typeName value |> equal "int"
 
 [<Fact>]
 let ``test typeName returns Int64 for int64`` () =
@@ -16,9 +16,9 @@ let ``test typeName returns Int64 for int64`` () =
     typeName value |> equal "Int64"
 
 [<Fact>]
-let ``test typeName returns Float64 for float`` () =
+let ``test typeName returns float for float`` () =
     let value = 3.14
-    typeName value |> equal "Float64"
+    typeName value |> equal "float"
 
 [<Fact>]
 let ``test typeName returns str for string`` () =
