@@ -1,11 +1,19 @@
 ---
-last_commit_released: 88df49c83d24b77a884686dd5956e174bdc265f8
+last_commit_released: 0f85eca9900e5c49f2a48df8bcc9e481da734723
 name: Fable.Python
 ---
 
 # Changelog
 
 All notable changes to this project will be documented in this file.
+
+## 5.5.0 - 2026-09-04
+
+### 🚀 Features
+
+* Upgrade Fable to 5.16 (#394) ([8e39ce3](https://github.com/fable-compiler/Fable.Python/commit/8e39ce3dd8fea5a35738daf3f2da74e9384c1f66))
+
+<strong><small>[View changes on Github](https://github.com/fable-compiler/Fable.Python/compare/88df49c83d24b77a884686dd5956e174bdc265f8..0f85eca9900e5c49f2a48df8bcc9e481da734723)</small></strong>
 
 ## 5.4.0 - 2026-07-09
 
